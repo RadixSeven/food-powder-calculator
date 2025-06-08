@@ -1,0 +1,17 @@
+[GLOBAL]
+pants_version = "2.26.1"
+
+backend_packages = [
+  "pants.backend.python",
+  "pants.backend.python.lint.ruff",
+  "pants.backend.python.typecheck.mypy",
+]
+
+[python]
+interpreter_constraints = [">=3.13"]
+
+[ruff]
+args = ["--select=ALL", "--ignore=D"]
+
+[test]
+use_coverage = true
