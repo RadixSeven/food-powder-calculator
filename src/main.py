@@ -1,31 +1,7 @@
-import contextlib
-import os
 import sys
 
 import pyomo.environ as pyo
-
-
-def is_valid_solver_string(solver_name: str) -> bool:
-    if solver_name.startswith("_mock_"):
-        return False
-
-    # noinspection PyBroadException
-    try:
-        with open(os.devnull, "w") as devnull:
-            # Redirect stdout to devnull to suppress warnings about missing
-            # files or solvers for non-installed solvers.
-            with contextlib.redirect_stdout(devnull):
-                return bool(pyo.SolverFactory(solver_name).available())
-    except Exception:
-        return False
-
-
-def solvers_list() -> list[str]:
-    return [
-        s
-        for s in pyo.SolverFactory.__dict__["_cls"].keys()
-        if is_valid_solver_string(s)
-    ]
+from solvers_list import solvers_list
 
 
 def main() -> int:
