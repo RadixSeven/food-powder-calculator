@@ -1,13 +1,10 @@
 import sys
 
 import pyomo.environ as pyo
-from solvers_list import solvers_list
 
 
 def main() -> int:
     """Calculate the optimal food mix"""
-    print(f"Available solvers: {solvers_list()}")
-
     model = pyo.ConcreteModel()
     model.x = pyo.Var([1, 2], domain=pyo.NonNegativeReals)
     model.OBJ = pyo.Objective(expr=2 * model.x[1] + 3 * model.x[2])
