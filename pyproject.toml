@@ -10,3 +10,11 @@ dependencies = [
     "pytest",
     "ruff",
 ]
+
+[tool.ruff]
+line-length = 80
+indent-width = 4
+target-version = ["py313"]
+
+[tool.ruff.lint]
+docstring-code-format = true
