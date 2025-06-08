@@ -1,7 +1,7 @@
 python_sources()
 
 pex_binary(
-    name = "food_powder_calculator",
+    name = "main",
     dependencies = [
         "//:reqs",
     ],

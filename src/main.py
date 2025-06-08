@@ -38,6 +38,19 @@ def main() -> int:
     model.Constraint1 = pyo.Constraint(
         expr=3 * model.x[1] + 4 * model.x[2] >= 1
     )
+
+    opt = pyo.SolverFactory("highs")
+    if not opt.available():
+        print("Solver 'highs' is not available.")
+        return 1
+
+    results = opt.solve(model)
+    pyo.assert_optimal_termination(results)
+
+    print(
+        f"Objective value: {pyo.value(model.OBJ)} x = {[pyo.value(v) for v in model.x]}"
+    )
+
     return 0
 
 
