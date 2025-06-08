@@ -14,7 +14,10 @@ dependencies = [
 [tool.ruff]
 line-length = 80
 indent-width = 4
-target-version = ["py313"]
+target-version = "py313"
 
-[tool.ruff.lint]
+[tool.ruff.format]
 docstring-code-format = true
+
+[tool.mypy]
+mypy_path = ["stubs"]

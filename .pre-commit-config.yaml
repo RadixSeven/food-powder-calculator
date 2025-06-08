@@ -23,6 +23,5 @@ repos:
     -   id: mypy
         args: ['--strict']
         additional_dependencies: [
-          numpy,
-          torch
+          pyomo
         ]

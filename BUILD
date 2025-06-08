@@ -1,1 +1,4 @@
-python_requirements(source="pyproject.toml")
+python_requirements(
+    name = "reqs",
+    source = "pyproject.toml",
+)
