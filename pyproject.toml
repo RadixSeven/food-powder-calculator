@@ -1,6 +1,6 @@
 [project]
 name="food-powder-calculator"
-description="An aplication for calculating the optimal food powder mix."
+description="An application for calculating the optimal food powder mix."
 version = "0.1.0"
 dependencies = [
     "highspy",
