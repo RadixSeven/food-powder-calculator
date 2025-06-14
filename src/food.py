@@ -25,7 +25,7 @@ class NutritionFacts:
         serving_size: the size of the serving in grams
         total_fat: the total fat content in grams
         saturated_fat: the saturated fat content in grams
-        trans_fat: the trans fat content in grams
+        trans_fat: the trans fat content in grams or None if not listed
         cholesterol: the cholesterol content in milligrams
         sodium: the sodium content in milligrams
         total_carbohydrate: the total carbohydrate content in grams
@@ -38,7 +38,7 @@ class NutritionFacts:
     serving_size: float
     total_fat: float
     saturated_fat: float
-    trans_fat: float
+    trans_fat: float | None
     cholesterol: float
     sodium: float
     total_carbohydrate: float
