@@ -1,10 +1,11 @@
 import sys
 
 import pyomo.environ as pyo
+from gs_whey import gs_whey
 from hlth_code import hlth_code
 from soylent import soylent_1_9
 
-foods = [soylent_1_9, hlth_code]
+foods = [soylent_1_9, hlth_code, gs_whey]
 
 
 def main() -> int:
