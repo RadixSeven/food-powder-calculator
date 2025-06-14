@@ -19,5 +19,3 @@ target-version = "py313"
 [tool.ruff.format]
 docstring-code-format = true
 
-[tool.mypy]
-mypy_path = ["stubs", "src"]

@@ -10,6 +10,7 @@ The following instructions are intended for my future self.
 
 ```shell
 pip install .  # I should separate out dev dependencies
+pre-commit install
 ```
 
 # Running

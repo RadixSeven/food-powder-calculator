@@ -1,4 +1,8 @@
-python_sources()
+python_sources(
+    dependencies = [
+        "//stubs/pyomo:environ",
+    ],
+)
 
 pex_binary(
     name = "main",
