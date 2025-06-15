@@ -23,6 +23,7 @@ class NutritionFacts:
 
     Attributes:
         serving_size: the size of the serving in grams
+        calories: the number of calories per serving
         total_fat: the total fat content in grams
         saturated_fat: the saturated fat content in grams
         trans_fat: the trans fat content in grams or None if not listed
@@ -36,6 +37,7 @@ class NutritionFacts:
     """
 
     serving_size: float
+    calories: float
     total_fat: float
     saturated_fat: float
     trans_fat: float | None
@@ -90,3 +92,16 @@ class Food:
     short_name: str
     cost: Cost
     nutrition_facts: NutritionFacts
+
+    def dollars_per_calorie(self) -> float:
+        """Calculate the cost of the food item per calorie."""
+        servings_per_package = (
+            self.cost.grams_per_package / self.nutrition_facts.serving_size
+        )
+        cents_per_serving = self.cost.cents_per_package / servings_per_package
+        cents_per_calorie = cents_per_serving / self.nutrition_facts.calories
+        return cents_per_calorie / 100.0
+
+    def servings_per_calorie(self) -> float:
+        """Calculate the servings of food per calorie."""
+        return 1 / self.nutrition_facts.calories

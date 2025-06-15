@@ -1,3 +1,4 @@
+from enum import Enum
 from typing import Protocol, Any, Iterator
 
 class _SolverFactory:
@@ -53,7 +54,22 @@ class _VarData:
     def __ne__(self, value: Any) -> _Var: ...  # type: ignore[override]
 
 class _Objective:
-    def __init__(self, *, expr: Any) -> None: ...
+    def __init__(self, *, expr: Any, sense: "ObjectiveSense") -> None: ...
+
+class ObjectiveSense(Enum):
+    """Flag indicating if an objective is minimizing (1) or maximizing (-1).
+
+    While the numeric values are arbitrary, there are parts of Pyomo
+    that rely on this particular choice of value.  These values are also
+    consistent with some solvers (notably Gurobi).
+
+    """
+
+    minimize = 1
+    maximize = -1
+
+maximize = ObjectiveSense.maximize
+minimize = ObjectiveSense.minimize
 
 class _Constraint:
     def __init__(self, *, expr: Any) -> None: ...

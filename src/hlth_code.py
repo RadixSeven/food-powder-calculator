@@ -12,6 +12,7 @@ hlth_code = Food(
     ),
     nutrition_facts=NutritionFacts(
         serving_size=78.0,
+        calories=400.0,
         total_fat=27.0,
         saturated_fat=17.0,
         trans_fat=0.1,

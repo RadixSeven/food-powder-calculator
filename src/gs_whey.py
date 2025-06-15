@@ -13,6 +13,7 @@ gs_whey = Food(
     ),
     nutrition_facts=NutritionFacts(
         serving_size=31.0,
+        calories=120.0,
         total_fat=1.5,
         saturated_fat=1,
         trans_fat=None,

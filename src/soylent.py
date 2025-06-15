@@ -12,6 +12,7 @@ soylent_1_9 = Food(
     ),
     nutrition_facts=NutritionFacts(
         serving_size=90.0,
+        calories=400.0,
         total_fat=19.0,
         saturated_fat=2.0,
         trans_fat=0.0,
