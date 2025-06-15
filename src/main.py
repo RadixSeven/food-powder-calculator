@@ -17,11 +17,11 @@ def cal(food: Food) -> str:
 def main() -> int:
     """Calculate the optimal food mix"""
     max_carbs = 80  # Maximum carbohydrates per day in grams
+    calories_per_day = 2000  # Calories per day
 
     model = pyo.ConcreteModel()
     model.name = "Optimal Food Mix"
-    # Fraction of the food by calories in the final mix
-    calories_per_day = 2000
+    # Calories of each food in the final mix
     model.cal_food = pyo.Var(
         [cal(food) for food in foods],
         domain=pyo.NonNegativeReals,
@@ -47,12 +47,6 @@ def main() -> int:
         <= max_carbs,
     )
 
-    # model.x = pyo.Var([1, 2], domain=pyo.NonNegativeReals)
-    # model.OBJ = pyo.Objective(expr=2 * model.x[1] + 3 * model.x[2])
-    # model.Constraint1 = pyo.Constraint(
-    #     expr=3 * model.x[1] + 4 * model.x[2] >= 1
-    # )
-
     opt = pyo.SolverFactory("highs")
     if not opt.available():
         print("Solver 'highs' is not available.")
@@ -62,8 +56,18 @@ def main() -> int:
     pyo.assert_optimal_termination(results)
 
     print(
-        f"Objective value: {pyo.value(model.OBJ)} x = {[pyo.value(v) for v in model.cal_food]}",
+        f"Cost: ${pyo.value(model.OBJ):.2f}/day",
     )
+    print("Food mix:")
+    for food in foods:
+        cal_food = model.cal_food[cal(food)]
+        c = pyo.value(cal_food)
+        if c > 0:
+            print(
+                f"{food.short_name}: {c:.2f} calories "
+                f"({c * food.servings_per_calorie():.2f} servings) "
+                f"({c * food.servings_per_calorie() * food.nutrition_facts.serving_size:.2f} grams)",
+            )
 
     return 0
 
