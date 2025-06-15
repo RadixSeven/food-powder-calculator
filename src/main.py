@@ -46,6 +46,28 @@ def main() -> int:
         )
         <= max_carbs,
     )
+    # Get at least 100% of the daily recommended intake of vitamin D
+    model.vitamin_d = pyo.Constraint(
+        expr=sum(
+            food.nutrition_facts.vitamin_d
+            * model.cal_food[cal(food)]
+            * food.servings_per_calorie()
+            for food in foods
+            if food.nutrition_facts.vitamin_d is not None
+        )
+        >= 100,
+    )
+    # Get at least 100% of the fiber RDI (30 g for males over 50)
+    model.fiber = pyo.Constraint(
+        expr=sum(
+            food.nutrition_facts.dietary_fiber
+            * model.cal_food[cal(food)]
+            * food.servings_per_calorie()
+            for food in foods
+            if food.nutrition_facts.dietary_fiber is not None
+        )
+        >= 30,
+    )
 
     opt = pyo.SolverFactory("highs")
     if not opt.available():
@@ -69,10 +91,56 @@ def main() -> int:
                 * food.nutrition_facts.serving_size
             )
             print(
-                f"{food.short_name}: {c:.2f} calories ({grams:.2f} grams)",
+                f"{food.short_name:>20}: {c:4.0f} calories ({grams:3.0f} grams)",
             )
+    print("")
+
+    # We need calculated calories to satisfy the FitBit food app which
+    # expects consistent calories from the macronutrients.
+    calculated_calories = (
+        round(get_per_day("protein", model)) * 4
+        + round(get_per_day("total_fat", model)) * 9
+        + round(get_per_day("effective_carbohydrates", model)) * 4
+    )
+    print(f"{'Calculated Calories':>20}: {calculated_calories:4.0f} per day")
+
+    for field, field_name in [
+        ("calories", "Actual Calories"),
+        ("total_fat", "Fat (g)"),
+        ("cholesterol", "Cholesterol (mg)"),
+        ("sodium", "Sodium (mg)"),
+        ("effective_carbohydrates", "Carbohydrates (g)"),
+        ("dietary_fiber", "Fiber (g)"),
+        ("total_sugars", "Sugar (g)"),
+        ("protein", "Protein (g)"),
+        ("vitamin_d", "Vitamin D (%)"),
+    ]:
+        per_day = get_per_day(field, model)
+        print(f"{field_name:>20}: {per_day:4.0f} per day")
 
     return 0
+
+
+def get_per_day(field: str, model: pyo.ConcreteModel) -> float:
+    """Get the per-day value of a field from the model."""
+
+    def field_value(food: Food) -> float:
+        """Get the value of a field from the food's nutrition facts."""
+        if field == "effective_carbohydrates":
+            return food.effective_carbohydrates()
+        a = getattr(food.nutrition_facts, field)
+        if a is None:
+            return 0
+        if isinstance(a, float):
+            return a
+        raise ValueError(f"Unexpected type for field {field}: {type(a)}")
+
+    return sum(
+        field_value(food)
+        * float(pyo.value(model.cal_food[cal(food)]))
+        * food.servings_per_calorie()
+        for food in foods
+    )
 
 
 if __name__ == "__main__":
