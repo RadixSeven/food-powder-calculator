@@ -58,15 +58,18 @@ def main() -> int:
     print(
         f"Cost: ${pyo.value(model.OBJ):.2f}/day",
     )
-    print("Food mix:")
+    print("3 Days' Food mix:")
     for food in foods:
         cal_food = model.cal_food[cal(food)]
-        c = pyo.value(cal_food)
+        c = 3 * pyo.value(cal_food)
         if c > 0:
+            grams = (
+                c
+                * food.servings_per_calorie()
+                * food.nutrition_facts.serving_size
+            )
             print(
-                f"{food.short_name}: {c:.2f} calories "
-                f"({c * food.servings_per_calorie():.2f} servings) "
-                f"({c * food.servings_per_calorie() * food.nutrition_facts.serving_size:.2f} grams)",
+                f"{food.short_name}: {c:.2f} calories ({grams:.2f} grams)",
             )
 
     return 0
