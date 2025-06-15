@@ -2,6 +2,7 @@ from typing import Protocol, Any, Iterator
 
 class _SolverFactory:
     _cls: dict[str, Any]
+
     def __call__(self, solver_name: str) -> _Solver: ...
 
 class _Solver(Protocol):
@@ -13,7 +14,12 @@ class _Domain:
 
 class _Var:
     def __init__(
-        self, index_set: Any = None, *, domain: _Domain | None = None
+        self,
+        index_set: Any = None,
+        *,
+        domain: _Domain | None = None,
+        bounds: tuple[float, float] | None = None,
+        initialize: Any = None,
     ) -> None: ...
     def __getitem__(self, key: Any) -> _VarData: ...
     def __iter__(self) -> Iterator[_VarData]: ...
