@@ -105,3 +105,18 @@ class Food:
     def servings_per_calorie(self) -> float:
         """Calculate the servings of food per calorie."""
         return 1 / self.nutrition_facts.calories
+
+    def effective_carbohydrates(self) -> float:
+        """Calculate the effective carbohydrates per serving.
+
+        This subtracts other caloric sources from total calories and
+        then divides by the calories per gram of carbohydrate (4 kcal/g) to
+        get the effective digestible carbohydrates.
+        """
+        total_calories = self.nutrition_facts.calories
+        fat_calories = self.nutrition_facts.total_fat * 9.0
+        protein_calories = self.nutrition_facts.protein * 4.0
+        carb_calories = total_calories - fat_calories - protein_calories
+        if carb_calories < 0:
+            return 0.0
+        return carb_calories / 4.0

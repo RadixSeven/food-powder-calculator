@@ -39,7 +39,7 @@ def main() -> int:
     )
     model.carbs = pyo.Constraint(
         expr=sum(
-            food.nutrition_facts.total_carbohydrate
+            food.effective_carbohydrates()
             * model.cal_food[cal(food)]
             * food.servings_per_calorie()
             for food in foods
