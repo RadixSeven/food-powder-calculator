@@ -80,10 +80,11 @@ def main() -> int:
     print(
         f"Cost: ${pyo.value(model.OBJ):.2f}/day",
     )
-    print("3 Days' Food mix:")
+    num_days = 4
+    print(f"{num_days} Days' Food mix:")
     for food in foods:
         cal_food = model.cal_food[cal(food)]
-        c = 3 * pyo.value(cal_food)
+        c = num_days * pyo.value(cal_food)
         if c > 0:
             grams = (
                 c
@@ -107,16 +108,44 @@ def main() -> int:
     for field, field_name in [
         ("calories", "Actual Calories"),
         ("total_fat", "Fat (g)"),
+        ("saturated_fat", "Sat. Fat (g)"),
+        ("trans_fat", "Trans Fat (g)"),
         ("cholesterol", "Cholesterol (mg)"),
         ("sodium", "Sodium (mg)"),
         ("effective_carbohydrates", "Carbohydrates (g)"),
         ("dietary_fiber", "Fiber (g)"),
-        ("total_sugars", "Sugar (g)"),
+        ("total_sugars", "Sugars (g)"),
+        ("added_sugars", "Added Sugars (g)"),
         ("protein", "Protein (g)"),
         ("vitamin_d", "Vitamin D (%)"),
+        ("calcium", "Calcium (%)"),
+        ("iron", "Iron (%)"),
+        ("potassium", "Potassium (%)"),
+        ("thiamine", "B1 Thiamine (%)"),
+        ("riboflavin", "B2 Riboflavin (%)"),
+        ("niacin", "B3 Niacin (%)"),
+        ("pantothenic_acid", "B5 Pantothenic Acid (%)"),
+        ("vitamin_b6", "B6 Pyridoxine (%)"),
+        ("vitamin_b12", "B12 Cobalamin (%)"),
+        ("biotin", "Biotin (%)"),
+        ("choline", "Choline (%)"),
+        ("folate", "Folate (%)"),
+        ("vitamin_a", "Vitamin A (%)"),
+        ("vitamin_c", "Vitamin C (%)"),
+        ("vitamin_e", "Vitamin E (%)"),
+        ("vitamin_k", "Vitamin K (%)"),
+        ("chromium", "Chromium (%)"),
+        ("copper", "Copper (%)"),
+        ("iodine", "Iodine (%)"),
+        ("magnesium", "Magnesium (%)"),
+        ("manganese", "Manganese (%)"),
+        ("molybdenum", "Molybdenum (%)"),
+        ("phosphorus", "Phosphorus (%)"),
+        ("selenium", "Selenium (%)"),
+        ("zinc", "Zinc (%)"),
     ]:
         per_day = get_per_day(field, model)
-        print(f"{field_name:>20}: {per_day:4.0f} per day")
+        print(f"{field_name:>24}: {per_day:4.0f} per day")
 
     return 0
 
@@ -133,6 +162,13 @@ def get_per_day(field: str, model: pyo.ConcreteModel) -> float:
             return 0
         if isinstance(a, float):
             return a
+        if isinstance(a, int):
+            if -9007199254740991 < a < 9007199254740991:
+                return float(a)
+            raise ValueError(
+                f"Integer value for field {field} is too large to fit "
+                f"exactly in a float: {a}",
+            )
         raise ValueError(f"Unexpected type for field {field}: {type(a)}")
 
     return sum(
