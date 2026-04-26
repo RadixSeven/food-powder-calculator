@@ -65,6 +65,22 @@ def main() -> int:
         )
         <= max_carbs,
     )
+    # Use different sources of fiber - equal contribution
+    # from each source
+    model.equal_fiber_contrib = pyo.Constraint(
+        expr=(
+            optifiber.nutrition_facts.dietary_fiber
+            * model.cal_food[cal(optifiber)]
+            * optifiber.servings_per_calorie()
+        )
+        - (
+            ht_psyllium_husk.nutrition_facts.dietary_fiber
+            * model.cal_food[cal(ht_psyllium_husk)]
+            * ht_psyllium_husk.servings_per_calorie()
+        )
+        == 0,
+    )
+
     # Get at least 100% of the daily recommended intake of vitamin D
     model.vitamin_d = pyo.Constraint(
         expr=sum(
