@@ -3,6 +3,7 @@ import sys
 import pyomo.environ as pyo
 from food import Food
 from gs_whey import gs_whey
+
 from hlth_code import hlth_code
 from ht_psyllium_husk import ht_psyllium_husk
 from optifiber import optifiber
@@ -13,7 +14,7 @@ foods = [
     optifiber,
     ht_psyllium_husk,
     hlth_code,
-    gs_whey
+    gs_whey,
 ]
 
 
@@ -38,13 +39,23 @@ def main() -> int:
         expr=sum(model.cal_food[cal(food)] for food in foods)
         == calories_per_day
     )
+    # Roughly minimize saturated fat and then cost
     model.OBJ = pyo.Objective(
         expr=sum(
             food.dollars_per_calorie() * model.cal_food[cal(food)]
             for food in foods
+        )
+        + 100
+        * sum(
+            food.nutrition_facts.saturated_fat
+            * model.cal_food[cal(food)]
+            * food.servings_per_calorie()
+            for food in foods
+            if food.nutrition_facts.saturated_fat is not None
         ),
         sense=pyo.minimize,
     )
+    # Constrain carbs
     model.carbs = pyo.Constraint(
         expr=sum(
             food.effective_carbohydrates()
@@ -65,6 +76,7 @@ def main() -> int:
         )
         >= 100,
     )
+
     # Get at least 100% of the fiber RDI (30 g for males over 50)
     model.fiber = pyo.Constraint(
         expr=sum(
@@ -85,8 +97,15 @@ def main() -> int:
     results = opt.solve(model)
     pyo.assert_optimal_termination(results)
 
+    print(f"Objective: {pyo.value(model.OBJ):.2f}")
+    opt_cost = pyo.value(
+        sum(
+            food.dollars_per_calorie() * model.cal_food[cal(food)]
+            for food in foods
+        )
+    )
     print(
-        f"Cost: ${pyo.value(model.OBJ):.2f}/day",
+        f"Cost: ${opt_cost:.2f}/day",
     )
     num_days = 4
     print(f"{num_days} Days' Food mix:")
