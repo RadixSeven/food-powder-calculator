@@ -67,8 +67,11 @@ def test_index_renders_each_group(fixture_paths: tuple[Path, Path]) -> None:
     assert "g1" in body
     assert "g2" in body
     assert "missing shelf price tag" in body
-    # Thumbnails are referenced by filename.
+    # Thumbnails are referenced by filename and link to the raw photo.
     assert "/thumb/a.jpg" in body
+    assert 'href="/raw/a.jpg"' in body
+    # Filename is shown as a label so the user can scan the surrounding photos.
+    assert ">a.jpg<" in body
 
 
 def test_index_returns_empty_when_groups_json_missing(tmp_path: Path) -> None:
@@ -96,6 +99,30 @@ def test_thumbnail_404_for_unknown_filename(
     app = create_app(groups_json=groups_json, photos_dir=photos_dir)
     client = app.test_client()
     response = client.get("/thumb/nope.jpg")
+    assert response.status_code == 404
+
+
+def test_raw_returns_full_resolution_jpeg(
+    fixture_paths: tuple[Path, Path],
+) -> None:
+    """Clicking a thumbnail opens /raw/<filename> in a new tab; serve it as-is."""
+    groups_json, photos_dir = fixture_paths
+    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
+    client = app.test_client()
+    response = client.get("/raw/a.jpg")
+    assert response.status_code == 200
+    assert response.mimetype == "image/jpeg"
+    # The /raw bytes match the on-disk file (no resize).
+    assert response.data == (photos_dir / "a.jpg").read_bytes()
+
+
+def test_raw_404_for_unknown_filename(
+    fixture_paths: tuple[Path, Path],
+) -> None:
+    groups_json, photos_dir = fixture_paths
+    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
+    client = app.test_client()
+    response = client.get("/raw/nope.jpg")
     assert response.status_code == 404
 
 

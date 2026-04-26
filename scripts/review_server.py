@@ -49,8 +49,12 @@ body { font-family: system-ui, sans-serif; margin: 1em; background: #fafafa; }
 .group-id { font-weight: bold; }
 .warnings { color: #c53030; font-size: 0.9em; }
 .photos { display: flex; flex-wrap: wrap; gap: 0.6em; margin: 0.5em 0; }
-.photo { text-align: center; font-size: 0.7em; color: #555; }
+.photo { text-align: center; font-size: 0.7em; color: #555; max-width: 200px; }
+.photo a { display: block; }
 .photo img { display: block; max-height: 180px; border-radius: 3px; }
+.photo .filename { font-family: ui-monospace, monospace; font-size: 0.65em;
+                   color: #444; word-break: break-all; margin-top: 0.2em; }
+.photo .roles { font-weight: 500; color: #1a365d; }
 .controls { display: flex; gap: 1em; align-items: center; margin-top: 0.5em; }
 .controls textarea { flex: 1; min-height: 2.4em; }
 .saved { color: #2f855a; font-size: 0.85em; margin-left: 0.5em; opacity: 0; transition: opacity 0.3s; }
@@ -73,8 +77,11 @@ change; no submit button.</p>
   <div class="photos">
     {% for p in g.photos %}
       <div class="photo">
-        <img src="/thumb/{{ p.filename }}" alt="{{ p.filename }}">
-        <div>{{ p.roles|join(', ') }}</div>
+        <a href="/raw/{{ p.filename }}" target="_blank" rel="noopener">
+          <img src="/thumb/{{ p.filename }}" alt="{{ p.filename }}">
+        </a>
+        <div class="filename">{{ p.filename }}</div>
+        <div class="roles">{{ p.roles|join(', ') }}</div>
       </div>
     {% endfor %}
   </div>
@@ -145,6 +152,13 @@ def create_app(
         if not src.exists():
             abort(404)
         return _serve_thumbnail(src)
+
+    @app.get("/raw/<path:filename>")
+    def raw(filename: str) -> Response:
+        src = photos_dir / filename
+        if not src.exists():
+            abort(404)
+        return send_file(str(src.resolve()), mimetype="image/jpeg")
 
     @app.post("/api/group/<group_id>")
     def update_group(group_id: str) -> Response:
