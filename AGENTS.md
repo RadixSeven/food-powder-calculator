@@ -8,12 +8,14 @@ single green/red verdict to stderr. Reformatting alone is not a failure.
 If you want to invoke them individually:
 
 ```shell
-pants test ::                 # tests + coverage (HiGHS/pyomo deps declared in tests/BUILD)
 uv run ruff format .          # format Python
 uv run mdformat .             # format Markdown
 uv run ruff check --fix .     # lint Python and auto-fix
-uv run pyrefly check          # type-check
-uvx --from shellcheck-py shellcheck --severity=style --enable=all run_all_qa.sh
+uv run pyrefly check          # type-check (pyrefly)
+pants lint ::                 # ruff via pants
+pants check ::                # mypy --strict via pants
+uvx --from shellcheck-py shellcheck --severity=style --enable=all $(git ls-files '*.sh')
+pants test ::                 # tests + coverage (HiGHS/pyomo deps declared in tests/BUILD)
 ```
 
 Everything must pass before committing, tests must have 100% coverage, and

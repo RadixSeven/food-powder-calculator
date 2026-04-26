@@ -43,6 +43,8 @@ uv run mdformat . || true
 
 run_gate "ruff check --fix" uv run ruff check --fix .
 run_gate "pyrefly check"    uv run pyrefly check
+run_gate "pants lint"       pants lint ::
+run_gate "pants check"      pants check ::
 
 # Discover every tracked .sh in the repo so newly-added scripts get checked
 # automatically. `git ls-files` respects .gitignore and never reaches into
