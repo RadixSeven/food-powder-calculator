@@ -4,9 +4,17 @@ import pyomo.environ as pyo
 from food import Food
 from gs_whey import gs_whey
 from hlth_code import hlth_code
+from ht_psyllium_husk import ht_psyllium_husk
+from optifiber import optifiber
 from soylent import soylent_1_9
 
-foods = [soylent_1_9, hlth_code, gs_whey]
+foods = [
+    soylent_1_9,
+    optifiber,
+    ht_psyllium_husk,
+    hlth_code,
+    gs_whey
+]
 
 
 def cal(food: Food) -> str:

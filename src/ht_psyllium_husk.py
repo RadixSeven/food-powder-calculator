@@ -1,0 +1,52 @@
+from food import Food, Cost, NutritionFacts
+
+ht_psyllium_husk = Food(
+    name=(
+        "Harris Teeter Steam Treated Non-irradiated Whole "
+        "Psyllium Husk"
+    ),
+    short_name="HT Psyllium",
+    cost=Cost(
+        grams_per_package=336.0,
+        cents_per_package=1199.0,
+    ),
+    nutrition_facts=NutritionFacts(
+        serving_size=4.2,
+        calories=15,
+        total_fat=0.0,
+        saturated_fat=0.0,
+        trans_fat=0.0,
+        cholesterol=0.0,
+        sodium=0.0,
+        total_carbohydrate=4.0,
+        dietary_fiber=4.0,
+        total_sugars=0.0,
+        added_sugars=0.0,
+        protein=0.0,
+        vitamin_d=0.0,
+        calcium=0.0,
+        iron=0.0,
+        potassium=0.0,
+        vitamin_a=0.0,
+        vitamin_c=0.0,
+        vitamin_e=0.0,
+        vitamin_k=0.0,
+        thiamine=0.0,
+        riboflavin=0.0,
+        niacin=0.0,
+        vitamin_b6=0.0,
+        folate=0.0,
+        vitamin_b12=0.0,
+        biotin=0.0,
+        pantothenic_acid=0.0,
+        phosphorus=0.0,
+        iodine=0.0,
+        magnesium=0.0,
+        zinc=0.0,
+        selenium=0.0,
+        copper=0.0,
+        manganese=0.0,
+        chromium=0.0,
+        molybdenum=0.0,
+    ),
+)
