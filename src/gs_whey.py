@@ -1,3 +1,4 @@
+from display_units import DisplayUnits
 from food import Food, Cost, NutritionFacts
 
 
@@ -10,6 +11,12 @@ gs_whey = Food(
     cost=Cost(
         grams_per_package=2263.0,
         cents_per_package=6899.0,  # 68.99 for a 5 lb package
+    ),
+    display_units=DisplayUnits(
+        singular="g",
+        plural="g",
+        per_labeled_serving=31.0,
+        per_optimization_unit=None,
     ),
     nutrition_facts=NutritionFacts(
         serving_size=31.0,

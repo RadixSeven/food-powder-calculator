@@ -9,6 +9,7 @@ dependencies = [
     "pyomo",
     "pytest",
     "ruff",
+    "pyrefly"
 ]
 
 [tool.ruff]
@@ -21,3 +22,7 @@ docstring-code-format = true
 
 [tool.mypy]
 mypy_path = "src,stubs"
+
+[tool.pyrefly]
+search-path = ["src", "stubs"]
+project-includes = ["src", "tests"]

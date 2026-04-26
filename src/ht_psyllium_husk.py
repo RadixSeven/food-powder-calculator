@@ -1,3 +1,4 @@
+from display_units import DisplayUnits
 from food import Food, Cost, NutritionFacts
 
 ht_psyllium_husk = Food(
@@ -6,6 +7,12 @@ ht_psyllium_husk = Food(
     cost=Cost(
         grams_per_package=336.0,
         cents_per_package=1199.0,
+    ),
+    display_units=DisplayUnits(
+        singular="g",
+        plural="g",
+        per_labeled_serving=4.2,
+        per_optimization_unit=None,
     ),
     nutrition_facts=NutritionFacts(
         serving_size=4.2,

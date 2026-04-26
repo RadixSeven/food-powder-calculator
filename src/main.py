@@ -18,9 +18,9 @@ foods = [
 ]
 
 
-def cal(food: Food) -> str:
-    """Return the variable name for the calories of a food in the daily mix."""
-    return f"cal {food.short_name}"
+def units(food: Food) -> str:
+    """Return the variable name for the optimization-unit count of a food."""
+    return f"units {food.short_name}"
 
 
 def main() -> int:
@@ -30,26 +30,31 @@ def main() -> int:
 
     model = pyo.ConcreteModel()
     model.name = "Optimal Food Mix"
-    # Calories of each food in the final mix
-    model.cal_food = pyo.Var(
-        [cal(food) for food in foods],
+    # Optimization-unit count of each food in the daily mix.
+    model.units = pyo.Var(
+        [units(food) for food in foods],
         domain=pyo.NonNegativeReals,
     )
-    model.total_frac = pyo.Constraint(
-        expr=sum(model.cal_food[cal(food)] for food in foods)
+    model.total_calories = pyo.Constraint(
+        expr=sum(
+            food.nutrition_facts.calories
+            * food.labeled_servings_per_optimization_unit()
+            * model.units[units(food)]
+            for food in foods
+        )
         == calories_per_day
     )
     # Roughly minimize saturated fat and then cost
     model.OBJ = pyo.Objective(
         expr=sum(
-            food.dollars_per_calorie() * model.cal_food[cal(food)]
+            food.dollars_per_optimization_unit() * model.units[units(food)]
             for food in foods
         )
         + 100
         * sum(
             food.nutrition_facts.saturated_fat
-            * model.cal_food[cal(food)]
-            * food.servings_per_calorie()
+            * food.labeled_servings_per_optimization_unit()
+            * model.units[units(food)]
             for food in foods
             if food.nutrition_facts.saturated_fat is not None
         ),
@@ -59,24 +64,28 @@ def main() -> int:
     model.carbs = pyo.Constraint(
         expr=sum(
             food.effective_carbohydrates()
-            * model.cal_food[cal(food)]
-            * food.servings_per_calorie()
+            * food.labeled_servings_per_optimization_unit()
+            * model.units[units(food)]
             for food in foods
         )
         <= max_carbs,
     )
     # Use different sources of fiber - equal contribution
     # from each source
+    optifiber_fiber = optifiber.nutrition_facts.dietary_fiber
+    psyllium_fiber = ht_psyllium_husk.nutrition_facts.dietary_fiber
+    assert optifiber_fiber is not None
+    assert psyllium_fiber is not None
     model.equal_fiber_contrib = pyo.Constraint(
         expr=(
-            optifiber.nutrition_facts.dietary_fiber
-            * model.cal_food[cal(optifiber)]
-            * optifiber.servings_per_calorie()
+            optifiber_fiber
+            * optifiber.labeled_servings_per_optimization_unit()
+            * model.units[units(optifiber)]
         )
         - (
-            ht_psyllium_husk.nutrition_facts.dietary_fiber
-            * model.cal_food[cal(ht_psyllium_husk)]
-            * ht_psyllium_husk.servings_per_calorie()
+            psyllium_fiber
+            * ht_psyllium_husk.labeled_servings_per_optimization_unit()
+            * model.units[units(ht_psyllium_husk)]
         )
         == 0,
     )
@@ -85,8 +94,8 @@ def main() -> int:
     model.vitamin_d = pyo.Constraint(
         expr=sum(
             food.nutrition_facts.vitamin_d
-            * model.cal_food[cal(food)]
-            * food.servings_per_calorie()
+            * food.labeled_servings_per_optimization_unit()
+            * model.units[units(food)]
             for food in foods
             if food.nutrition_facts.vitamin_d is not None
         )
@@ -97,8 +106,8 @@ def main() -> int:
     model.fiber = pyo.Constraint(
         expr=sum(
             food.nutrition_facts.dietary_fiber
-            * model.cal_food[cal(food)]
-            * food.servings_per_calorie()
+            * food.labeled_servings_per_optimization_unit()
+            * model.units[units(food)]
             for food in foods
             if food.nutrition_facts.dietary_fiber is not None
         )
@@ -106,7 +115,7 @@ def main() -> int:
     )
 
     opt = pyo.SolverFactory("highs")
-    if not opt.available():
+    if not opt.available():  # pragma: no cover
         print("Solver 'highs' is not available.")
         return 1
 
@@ -116,7 +125,7 @@ def main() -> int:
     print(f"Objective: {pyo.value(model.OBJ):.2f}")
     opt_cost = pyo.value(
         sum(
-            food.dollars_per_calorie() * model.cal_food[cal(food)]
+            food.dollars_per_optimization_unit() * model.units[units(food)]
             for food in foods
         )
     )
@@ -126,16 +135,22 @@ def main() -> int:
     num_days = 4
     print(f"{num_days} Days' Food mix:")
     for food in foods:
-        cal_food = model.cal_food[cal(food)]
-        c = num_days * pyo.value(cal_food)
-        if c > 0:
+        u = model.units[units(food)]
+        opt_units_value = num_days * pyo.value(u)
+        if opt_units_value > 0:
+            calories = (
+                opt_units_value
+                * food.labeled_servings_per_optimization_unit()
+                * food.nutrition_facts.calories
+            )
             grams = (
-                c
-                * food.servings_per_calorie()
+                opt_units_value
+                * food.labeled_servings_per_optimization_unit()
                 * food.nutrition_facts.serving_size
             )
             print(
-                f"{food.short_name:>20}: {c:4.0f} calories ({grams:3.0f} grams)",
+                f"{food.short_name:>20}: "
+                f"{calories:4.0f} calories ({grams:3.0f} grams)",
             )
     print("")
 
@@ -216,11 +231,11 @@ def get_per_day(field: str, model: pyo.ConcreteModel) -> float:
 
     return sum(
         field_value(food)
-        * float(pyo.value(model.cal_food[cal(food)]))
-        * food.servings_per_calorie()
+        * food.labeled_servings_per_optimization_unit()
+        * float(pyo.value(model.units[units(food)]))
         for food in foods
     )
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     sys.exit(main())

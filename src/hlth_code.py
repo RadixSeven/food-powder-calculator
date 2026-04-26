@@ -1,3 +1,4 @@
+from display_units import DisplayUnits
 from food import Food, Cost, NutritionFacts
 
 hlth_code = Food(
@@ -9,6 +10,12 @@ hlth_code = Food(
     cost=Cost(
         grams_per_package=1170.0,
         cents_per_package=9990.0 / 2,  # 99.90 for 2 packages
+    ),
+    display_units=DisplayUnits(
+        singular="g",
+        plural="g",
+        per_labeled_serving=78.0,
+        per_optimization_unit=None,
     ),
     nutrition_facts=NutritionFacts(
         serving_size=78.0,

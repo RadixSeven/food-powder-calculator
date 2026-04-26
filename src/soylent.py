@@ -1,3 +1,4 @@
+from display_units import DisplayUnits
 from food import Food, Cost, NutritionFacts
 
 soylent_1_9 = Food(
@@ -9,6 +10,12 @@ soylent_1_9 = Food(
     cost=Cost(
         grams_per_package=450.0,
         cents_per_package=12300.0 / 14,  # $123.00 for 14 packages
+    ),
+    display_units=DisplayUnits(
+        singular="g",
+        plural="g",
+        per_labeled_serving=90.0,
+        per_optimization_unit=None,
     ),
     nutrition_facts=NutritionFacts(
         serving_size=90.0,

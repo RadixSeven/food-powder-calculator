@@ -1,3 +1,4 @@
+from display_units import DisplayUnits
 from food import Food, Cost, NutritionFacts
 
 optifiber = Food(
@@ -6,6 +7,12 @@ optifiber = Food(
     cost=Cost(
         grams_per_package=760.0,
         cents_per_package=1499.0,
+    ),
+    display_units=DisplayUnits(
+        singular="g",
+        plural="g",
+        per_labeled_serving=3.5,
+        per_optimization_unit=None,
     ),
     nutrition_facts=NutritionFacts(
         serving_size=3.5,

@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from display_units import DisplayUnits
+
 
 @dataclass
 class Cost:
@@ -86,25 +88,37 @@ class Food:
         short_name: a short name or identifier for the food item
         cost: the cost of the food item
         nutrition_facts: the nutrition facts of the food item
+        display_units: how to display and discretize this food's quantity
     """
 
     name: str
     short_name: str
     cost: Cost
     nutrition_facts: NutritionFacts
+    display_units: DisplayUnits
 
-    def dollars_per_calorie(self) -> float:
-        """Calculate the cost of the food item per calorie."""
+    def labeled_servings_per_optimization_unit(self) -> float:
+        """Return the number of labeled servings represented by one optimization unit.
+
+        For continuous foods (``per_optimization_unit is None``) we treat one
+        optimization unit as one display unit, so the conversion is
+        ``1 / per_labeled_serving``. For discrete foods the conversion is
+        ``per_optimization_unit / per_labeled_serving``.
+        """
+        per_opt = self.display_units.per_optimization_unit
+        display_units_per_opt = 1.0 if per_opt is None else per_opt
+        return display_units_per_opt / self.display_units.per_labeled_serving
+
+    def dollars_per_optimization_unit(self) -> float:
+        """Calculate the cost of one optimization unit in dollars."""
         servings_per_package = (
             self.cost.grams_per_package / self.nutrition_facts.serving_size
         )
         cents_per_serving = self.cost.cents_per_package / servings_per_package
-        cents_per_calorie = cents_per_serving / self.nutrition_facts.calories
-        return cents_per_calorie / 100.0
-
-    def servings_per_calorie(self) -> float:
-        """Calculate the servings of food per calorie."""
-        return 1 / self.nutrition_facts.calories
+        dollars_per_serving = cents_per_serving / 100.0
+        return (
+            dollars_per_serving * self.labeled_servings_per_optimization_unit()
+        )
 
     def effective_carbohydrates(self) -> float:
         """Calculate the effective carbohydrates per serving.
