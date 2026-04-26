@@ -6,3 +6,5 @@ dist
 data/raw_photos/
 data/stitched/
 data/cache/
+__pycache__/
+.coverage
