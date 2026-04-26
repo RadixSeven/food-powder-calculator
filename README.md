@@ -9,9 +9,12 @@ The following instructions are intended for my future self.
 # Development Installation
 
 ```shell
-pip install .  # I should separate out dev dependencies
+uv sync             # populate .venv from pyproject.toml
 pre-commit install
 ```
+
+`uv sync` is also implicitly run by every `uv run ...` invocation below, so a
+fresh checkout can skip straight to the commands in the next sections.
 
 # Running
 
@@ -23,10 +26,14 @@ pants run src:main # I had a "better" name but this was easier to remember
 
 ```shell
 pants check :: && pants lint :: && pants test ::
-uvx ruff format .          # format
-uvx ruff check --fix .     # lint and auto-fix
-uvx pyrefly check          # type-check (config under [tool.pyrefly] in pyproject.toml)
+uv run ruff format .          # format
+uv run ruff check --fix .     # lint and auto-fix
+uv run pyrefly check          # type-check (config under [tool.pyrefly] in pyproject.toml)
 ```
+
+The `uv run` invocations auto-sync `.venv` so that pyrefly can resolve
+imports of `pyomo`, `highspy`, `pytest`, etc. — no manual `pip install` step
+is needed.
 
 Before committing, all tests and static analysis must pass, tests must have
 100% coverage, and the tree must be fully formatted.

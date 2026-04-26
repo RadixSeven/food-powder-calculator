@@ -6,29 +6,25 @@ Run all four before committing — they must all pass, tests must have 100%
 coverage, and the tree must be fully formatted:
 
 ```shell
-pants test ::              # tests + coverage (HiGHS/pyomo deps declared in tests/BUILD)
-uvx ruff format .          # format
-uvx ruff check --fix .     # lint and auto-fix
-uvx pyrefly check          # type-check
+pants test ::                 # tests + coverage (HiGHS/pyomo deps declared in tests/BUILD)
+uv run ruff format .          # format
+uv run ruff check --fix .     # lint and auto-fix
+uv run pyrefly check          # type-check
 ```
 
-## Environment quirks
+`uv run ...` automatically syncs the project `.venv` from `pyproject.toml`
+before invoking the tool, so pyrefly can always resolve `pyomo`, `highspy`,
+`pytest`, etc. No manual `pip install` step is needed; on a fresh checkout
+the first `uv run` call provisions everything.
 
-- The project's `.venv/` is intentionally minimal — runtime deps live in
-  pants' own pex venvs under `~/.cache/pants/named_caches/pex_root/`.
-- `pyrefly` resolves imports through `.venv/`, so it needs `pyomo`,
-  `highspy`, and `pytest` installed there. If pyrefly reports
-  `missing-import`, install them with:
+## Environment notes
 
-  ```shell
-  uv pip install --python .venv/bin/python pyomo highspy pytest
-  ```
-
+- Pants pulls runtime deps into its own pex venvs under
+  `~/.cache/pants/named_caches/pex_root/`. The default cache location works
+  fine — no need to redirect it into the working directory.
 - Pyrefly config lives in `pyproject.toml` under `[tool.pyrefly]` and adds
   `stubs/` to the search path so the local `pyomo.environ` Protocol stubs in
   `stubs/pyomo/environ.pyi` are picked up.
-- The default pants cache (`~/.cache/pants`) works fine; no need to redirect
-  it into the working directory.
 
 ## Commit checklist
 
@@ -36,7 +32,7 @@ Before `git commit`:
 
 1. `pants test ::` is green and shows **100%** coverage across `src/` and
    `tests/`.
-2. `uvx ruff format .` reports `N files left unchanged` (no further
+2. `uv run ruff format .` reports `N files left unchanged` (no further
    reformatting needed).
-3. `uvx ruff check --fix .` reports `All checks passed!`.
-4. `uvx pyrefly check` reports `0 errors`.
+3. `uv run ruff check --fix .` reports `All checks passed!`.
+4. `uv run pyrefly check` reports `0 errors`.
