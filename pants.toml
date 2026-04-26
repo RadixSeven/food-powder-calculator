@@ -9,5 +9,14 @@ backend_packages = [
 [python]
 interpreter_constraints = [">=3.13"]
 
+[source]
+root_patterns = [
+  "/",
+  "src",
+  "scripts",
+  "src/python",
+  "src/py",
+]
+
 [test]
 use_coverage = true

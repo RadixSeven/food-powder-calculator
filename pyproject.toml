@@ -4,14 +4,18 @@ description="An application for calculating the optimal food powder mix."
 version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
+    "flask",
     "highspy",
     "maingopy",
     "mdformat",
+    "pillow",
     "pre-commit",
+    "pymc",
     "pyomo",
+    "pyrefly",
     "pytest",
+    "pyyaml",
     "ruff",
-    "pyrefly"
 ]
 
 [tool.ruff]
@@ -23,8 +27,8 @@ target-version = "py313"
 docstring-code-format = true
 
 [tool.pyrefly]
-search-path = ["src", "stubs"]
-project-includes = ["src", "tests"]
+search-path = ["src", "stubs", "scripts"]
+project-includes = ["src", "tests", "scripts"]
 # Strict mode: check every code path, treat permissive constructs as errors.
 check-unannotated-defs = true
 infer-return-types = "never"

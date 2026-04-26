@@ -3,3 +3,6 @@
 build/
 *.egg-info
 dist
+data/raw_photos/
+data/stitched/
+data/cache/
