@@ -34,9 +34,12 @@ run_gate() {
     return 1
 }
 
-# Format: never a failure on its own; reformatting just updates the tree.
+# Format steps: never a failure on their own; reformatting just updates the
+# tree, which is something the user pulls in rather than has to act on.
 printf '\n%s>>> ruff format%s\n' "$BOLD" "$RESET" >&2
 uv run ruff format . || true
+printf '\n%s>>> mdformat%s\n' "$BOLD" "$RESET" >&2
+uv run mdformat . || true
 
 run_gate "ruff check --fix" uv run ruff check --fix .
 run_gate "pyrefly check"    uv run pyrefly check
