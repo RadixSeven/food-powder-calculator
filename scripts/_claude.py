@@ -82,6 +82,9 @@ def _run_claude_subprocess(request: ClaudeRequest) -> str:
     """Invoke `claude -p` with the request's settings.
 
     Images and prompt go through stdin; model + add-dir flags are CLI args.
+    When ``json_schema`` is set we switch the wire format to JSON envelope so
+    we can pull the schema-validated ``structured_output`` field out — in
+    plain-text mode the structured output is dropped.
     """
     cmd: list[str] = [
         "claude",
@@ -96,6 +99,7 @@ def _run_claude_subprocess(request: ClaudeRequest) -> str:
         cmd.extend(["--append-system-prompt", request.system_prompt])
     if request.json_schema is not None:
         cmd.extend(["--json-schema", request.json_schema])
+        cmd.extend(["--output-format", "json"])
 
     prompt_text = _compose_stdin_prompt(request)
     result = subprocess.run(  # noqa: S603 — args constructed from typed fields
@@ -113,7 +117,28 @@ def _run_claude_subprocess(request: ClaudeRequest) -> str:
             stderr=result.stderr,
             cmd=cmd,
         )
+    if request.json_schema is not None:
+        return _extract_structured_output(result.stdout)
     return result.stdout.strip()
+
+
+def _extract_structured_output(envelope_json: str) -> str:
+    """Pull `structured_output` from the JSON envelope as a JSON-serialized string.
+
+    With ``--output-format json``, ``claude -p`` prints a single JSON object
+    whose ``structured_output`` field holds the schema-validated model
+    response. Callers expect a JSON string so we re-serialize that field
+    back into text.
+    """
+    envelope = json.loads(envelope_json)
+    if "structured_output" not in envelope:
+        raise ClaudeSubprocessError(
+            returncode=0,
+            stdout=envelope_json,
+            stderr="claude returned JSON envelope without structured_output",
+            cmd=[],
+        )
+    return json.dumps(envelope["structured_output"])
 
 
 def _compose_stdin_prompt(request: ClaudeRequest) -> str:

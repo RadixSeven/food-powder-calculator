@@ -196,6 +196,78 @@ def test_run_claude_subprocess_raises_on_nonzero_exit() -> None:
     assert "boom" in str(excinfo.value)
 
 
+def test_run_claude_subprocess_returns_stripped_text_without_schema() -> None:
+    """No json_schema → wrapper passes through model's text output (stripped)."""
+    from _claude import _run_claude_subprocess
+
+    r = ClaudeRequest(prompt="hi", model="haiku")
+
+    class FakeCompleted:
+        returncode = 0
+        stdout = "  hello\n"
+        stderr = ""
+
+    with patch("_claude.subprocess.run", return_value=FakeCompleted()):
+        result = _run_claude_subprocess(r)
+    assert result == "hello"
+
+
+def test_run_claude_subprocess_extracts_structured_output_when_schema_set(
+    tmp_path: Path,
+) -> None:
+    """With json_schema set, the wrapper switches to --output-format json and
+    pulls `structured_output` out of the envelope."""
+    from _claude import _run_claude_subprocess
+
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(
+        prompt="x",
+        model="sonnet",
+        image_paths=(img,),
+        json_schema='{"type":"object"}',
+    )
+
+    envelope = json.dumps(
+        {
+            "type": "result",
+            "result": "prose",
+            "structured_output": {"answer": 42},
+        }
+    )
+
+    class FakeCompleted:
+        returncode = 0
+        stdout = envelope
+        stderr = ""
+
+    with patch("_claude.subprocess.run", return_value=FakeCompleted()):
+        result_text = _run_claude_subprocess(r)
+    assert json.loads(result_text) == {"answer": 42}
+
+
+def test_run_claude_subprocess_raises_when_envelope_missing_structured_output(
+    tmp_path: Path,
+) -> None:
+    from _claude import _run_claude_subprocess
+
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(
+        prompt="x",
+        model="sonnet",
+        image_paths=(img,),
+        json_schema='{"type":"object"}',
+    )
+
+    class FakeCompleted:
+        returncode = 0
+        stdout = json.dumps({"type": "result", "result": "no schema field"})
+        stderr = ""
+
+    with patch("_claude.subprocess.run", return_value=FakeCompleted()):
+        with pytest.raises(ClaudeSubprocessError, match="structured_output"):
+            _run_claude_subprocess(r)
+
+
 def test_run_claude_subprocess_builds_expected_argv(tmp_path: Path) -> None:
     from _claude import _run_claude_subprocess
 
@@ -213,7 +285,9 @@ def test_run_claude_subprocess_builds_expected_argv(tmp_path: Path) -> None:
 
     class FakeCompleted:
         returncode = 0
-        stdout = "out"
+        stdout = json.dumps(
+            {"type": "result", "structured_output": "out", "result": "x"}
+        )
         stderr = ""
 
     def fake_run(cmd: list[str], **kwargs: object) -> FakeCompleted:
@@ -224,13 +298,16 @@ def test_run_claude_subprocess_builds_expected_argv(tmp_path: Path) -> None:
     with patch("_claude.subprocess.run", side_effect=fake_run):
         result = _run_claude_subprocess(r)
 
-    assert result == "out"
+    assert json.loads(result) == "out"
     cmd = captured["cmd"]
     assert isinstance(cmd, list)
     assert cmd[0] == "claude"
     assert "--model" in cmd and "sonnet" in cmd
     assert "--append-system-prompt" in cmd and "be terse" in cmd
     assert "--json-schema" in cmd
+    # When json_schema is set we pin output-format to json so the envelope
+    # contains structured_output.
+    assert "--output-format" in cmd and "json" in cmd
     assert "--add-dir" in cmd
     assert isinstance(captured["input"], str) and "hi" in captured["input"]
 
