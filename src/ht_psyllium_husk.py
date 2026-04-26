@@ -1,10 +1,7 @@
 from food import Food, Cost, NutritionFacts
 
 ht_psyllium_husk = Food(
-    name=(
-        "Harris Teeter Steam Treated Non-irradiated Whole "
-        "Psyllium Husk"
-    ),
+    name=("Harris Teeter Steam Treated Non-irradiated Whole Psyllium Husk"),
     short_name="HT Psyllium",
     cost=Cost(
         grams_per_package=336.0,

@@ -1,9 +1,7 @@
 from food import Food, Cost, NutritionFacts
 
 optifiber = Food(
-    name=(
-        "Kirkland Signature Optifiber Prebiotic Fiber Supplement"
-    ),
+    name=("Kirkland Signature Optifiber Prebiotic Fiber Supplement"),
     short_name="Optifiber",
     cost=Cost(
         grams_per_package=760.0,
