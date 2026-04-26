@@ -36,12 +36,17 @@ Or run them individually:
 uv run ruff format .          # format Python
 uv run mdformat .             # format Markdown
 uv run ruff check --fix .     # lint Python and auto-fix
-uv run pyrefly check          # type-check (config under [tool.pyrefly] in pyproject.toml)
+uv run pyrefly check          # strict type-check (config under [tool.pyrefly] in pyproject.toml)
 pants lint ::                 # ruff via pants
-pants check ::                # mypy --strict via pants
 uvx --from shellcheck-py shellcheck --severity=style --enable=all $(git ls-files '*.sh')
 pants test ::
 ```
+
+Pyrefly is the project's type checker. The config in `pyproject.toml` enables
+its strict mode (`check-unannotated-defs`, `strict-callable-subtyping`,
+`spec-compliant-overloads`, `permissive-ignores=false`, and explicit error
+promotion for `implicit-any`, `unannotated-*`, `redundant-*`, and
+`unused-ignore`). Pants no longer runs mypy.
 
 The `uv run` invocations auto-sync `.venv` so that pyrefly can resolve
 imports of `pyomo`, `highspy`, `pytest`, etc. — no manual `pip install` step

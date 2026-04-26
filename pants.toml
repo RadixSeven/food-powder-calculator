@@ -4,7 +4,6 @@ pants_version = "2.26.1"
 backend_packages = [
   "pants.backend.experimental.python.lint.ruff.check",
   "pants.backend.python",
-  "pants.backend.python.typecheck.mypy",
 ]
 
 [python]

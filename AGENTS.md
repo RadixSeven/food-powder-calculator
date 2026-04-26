@@ -11,12 +11,15 @@ If you want to invoke them individually:
 uv run ruff format .          # format Python
 uv run mdformat .             # format Markdown
 uv run ruff check --fix .     # lint Python and auto-fix
-uv run pyrefly check          # type-check (pyrefly)
+uv run pyrefly check          # strict type-check (pyrefly is the only type checker)
 pants lint ::                 # ruff via pants
-pants check ::                # mypy --strict via pants
 uvx --from shellcheck-py shellcheck --severity=style --enable=all $(git ls-files '*.sh')
 pants test ::                 # tests + coverage (HiGHS/pyomo deps declared in tests/BUILD)
 ```
+
+Pyrefly's strict knobs live under `[tool.pyrefly]` in `pyproject.toml`. There
+is no mypy in this project — the pre-commit pyrefly hook and the QA gate
+both run the same strict config.
 
 Everything must pass before committing, tests must have 100% coverage, and
 the tree must be fully formatted.

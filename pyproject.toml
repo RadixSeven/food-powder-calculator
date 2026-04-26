@@ -22,9 +22,24 @@ target-version = "py313"
 [tool.ruff.format]
 docstring-code-format = true
 
-[tool.mypy]
-mypy_path = "src,stubs"
-
 [tool.pyrefly]
 search-path = ["src", "stubs"]
 project-includes = ["src", "tests"]
+# Strict mode: check every code path, treat permissive constructs as errors.
+check-unannotated-defs = true
+infer-return-types = "never"
+strict-callable-subtyping = true
+spec-compliant-overloads = true
+permissive-ignores = false
+
+[tool.pyrefly.errors]
+implicit-any = "error"
+implicitly-defined-attribute = "error"
+missing-attribute = "error"
+redundant-cast = "error"
+redundant-condition = "error"
+unannotated-attribute = "error"
+unannotated-parameter = "error"
+unannotated-protocol-member = "error"
+unannotated-return = "error"
+unused-ignore = "error"
