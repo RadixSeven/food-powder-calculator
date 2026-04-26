@@ -1,6 +1,8 @@
 import sys
+from typing import Iterable
 
 import pyomo.environ as pyo
+from display_units import DisplayUnits
 from food import Food
 from gs_whey import gs_whey
 
@@ -21,6 +23,51 @@ foods = [
 def units(food: Food) -> str:
     """Return the variable name for the optimization-unit count of a food."""
     return f"units {food.short_name}"
+
+
+def pluralize(value: float, du: DisplayUnits, precision: int = 0) -> str:
+    """Return ``du.singular`` if ``value`` rounds to 1, else ``du.plural``.
+
+    ``precision`` is the number of decimal places at which the value will be
+    displayed; agreement is judged at the same precision the user sees so that
+    e.g. ``1.04`` shown as ``"1 g"`` still pluralizes as singular.
+    """
+    return du.singular if round(value, precision) == 1 else du.plural
+
+
+def format_one_day_recipe(
+    model: pyo.ConcreteModel, foods_iter: Iterable[Food]
+) -> str:
+    """Format a one-day recipe split into continuous and discrete sections.
+
+    Foods with no allocation in the optimal solution are omitted. Empty
+    sections (continuous or discrete) are skipped entirely.
+    """
+    continuous_lines: list[str] = []
+    discrete_lines: list[str] = []
+    for food in foods_iter:
+        u_value = float(pyo.value(model.units[units(food)]))
+        if u_value <= 0:
+            continue
+        du = food.display_units
+        if du.per_optimization_unit is None:
+            label = pluralize(u_value, du, precision=1)
+            continuous_lines.append(
+                f"    {food.short_name:>20}: {u_value:5.1f} {label}"
+            )
+        else:
+            count = round(u_value * du.per_optimization_unit)
+            label = pluralize(count, du, precision=0)
+            discrete_lines.append(f"    {food.short_name:>20}: {count} {label}")
+
+    parts: list[str] = ["1 Day's Food mix:"]
+    if continuous_lines:
+        parts.append("  Continuous:")
+        parts.extend(continuous_lines)
+    if discrete_lines:
+        parts.append("  Discrete:")
+        parts.extend(discrete_lines)
+    return "\n".join(parts)
 
 
 def main() -> int:
@@ -132,6 +179,8 @@ def main() -> int:
     print(
         f"Cost: ${opt_cost:.2f}/day",
     )
+    print(format_one_day_recipe(model, foods))
+    print("")
     num_days = 4
     print(f"{num_days} Days' Food mix:")
     for food in foods:
