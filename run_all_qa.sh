@@ -43,8 +43,17 @@ uv run mdformat . || true
 
 run_gate "ruff check --fix" uv run ruff check --fix .
 run_gate "pyrefly check"    uv run pyrefly check
-run_gate "shellcheck"       uvx --from shellcheck-py shellcheck \
-                                --severity=style --enable=all run_all_qa.sh
+
+# Discover every tracked .sh in the repo so newly-added scripts get checked
+# automatically. `git ls-files` respects .gitignore and never reaches into
+# .venv / .pants.d / pex caches.
+shell_scripts_raw=$(git ls-files '*.sh')
+mapfile -t shell_scripts <<< "${shell_scripts_raw}"
+if [[ -n "${shell_scripts_raw}" ]]; then
+    run_gate "shellcheck" uvx --from shellcheck-py shellcheck \
+        --severity=style --enable=all "${shell_scripts[@]}"
+fi
+
 run_gate "pants test"       pants test ::
 
 echo >&2
