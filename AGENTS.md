@@ -13,6 +13,7 @@ uv run ruff format .          # format Python
 uv run mdformat .             # format Markdown
 uv run ruff check --fix .     # lint Python and auto-fix
 uv run pyrefly check          # type-check
+uvx --from shellcheck-py shellcheck --severity=style --enable=all run_all_qa.sh
 ```
 
 Everything must pass before committing, tests must have 100% coverage, and
