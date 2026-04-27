@@ -1,0 +1,653 @@
+{
+  "chosen_size_px": 8192,
+  "posterior_summary": {
+    "mu_mean": 8.418625551851116,
+    "mu_std": 0.29921170943485437,
+    "sigma_mean": 0.8624807431005833,
+    "sigma_std": 0.21094568054823837,
+    "n_photos_observed": 10
+  },
+  "n_candidate_photos": 208,
+  "per_photo": [
+    {
+      "photo": "data/raw_photos/PXL_20260426_165737642.jpg",
+      "search_model": "sonnet",
+      "min_legible_size": 2293,
+      "probes": [
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2072,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 3076,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2574,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2323,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2198,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2261,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2292,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2308,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2300,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2296,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2294,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165737642.jpg",
+          "size": 2293,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "photo": "data/raw_photos/PXL_20260426_165809667.jpg",
+      "search_model": "opus",
+      "min_legible_size": 4080,
+      "probes": [
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 2072,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 3076,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 3578,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 3829,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 3955,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 4018,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 4049,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 4065,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 4073,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 4077,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165809667.jpg",
+          "size": 4079,
+          "matched": false
+        }
+      ]
+    },
+    {
+      "photo": "data/raw_photos/PXL_20260426_165814496.jpg",
+      "search_model": "opus",
+      "min_legible_size": 4080,
+      "probes": [
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 2072,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 3076,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 3578,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 3829,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 3955,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 4018,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 4049,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 4065,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 4073,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 4077,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165814496.jpg",
+          "size": 4079,
+          "matched": false
+        }
+      ]
+    },
+    {
+      "photo": "data/raw_photos/PXL_20260426_165824836.MP.jpg",
+      "search_model": "opus",
+      "min_legible_size": 943,
+      "probes": [
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 2072,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 1068,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 566,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 817,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 943,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 880,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 912,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 928,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 936,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 940,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165824836.MP.jpg",
+          "size": 942,
+          "matched": false
+        }
+      ]
+    },
+    {
+      "photo": "data/raw_photos/PXL_20260426_165855659.jpg",
+      "search_model": "opus",
+      "min_legible_size": 2363,
+      "probes": [
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2072,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 3076,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2574,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2323,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2449,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2386,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2355,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2371,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2363,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2359,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2361,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165855659.jpg",
+          "size": 2362,
+          "matched": false
+        }
+      ]
+    },
+    {
+      "photo": "data/raw_photos/PXL_20260426_165901975.jpg",
+      "search_model": "opus",
+      "min_legible_size": 4080,
+      "probes": [
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 2072,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 3076,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 3578,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 3829,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 3955,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 4018,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 4049,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 4065,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 4073,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 4077,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165901975.jpg",
+          "size": 4079,
+          "matched": false
+        }
+      ]
+    },
+    {
+      "photo": "data/raw_photos/PXL_20260426_165910996.jpg",
+      "search_model": "opus",
+      "min_legible_size": 4077,
+      "probes": [
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 2072,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 3076,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 3578,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 3829,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 3955,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 4018,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 4049,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 4065,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 4073,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 4077,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 4075,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165910996.jpg",
+          "size": 4076,
+          "matched": false
+        }
+      ]
+    },
+    {
+      "photo": "data/raw_photos/PXL_20260426_165920991.jpg",
+      "search_model": "opus",
+      "min_legible_size": 4076,
+      "probes": [
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 2072,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 3076,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 3578,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 3829,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 3955,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 4018,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 4049,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 4065,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 4073,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 4077,
+          "matched": true
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 4075,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165920991.jpg",
+          "size": 4076,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "photo": "data/raw_photos/PXL_20260426_165936939.jpg",
+      "search_model": "opus",
+      "min_legible_size": 4080,
+      "probes": [
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 2072,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 3076,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 3578,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 3829,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 3955,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 4018,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 4049,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 4065,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 4073,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 4077,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165936939.jpg",
+          "size": 4079,
+          "matched": false
+        }
+      ]
+    },
+    {
+      "photo": "data/raw_photos/PXL_20260426_165958071.jpg",
+      "search_model": "opus",
+      "min_legible_size": 4080,
+      "probes": [
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 2072,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 3076,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 3578,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 3829,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 3955,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 4018,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 4049,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 4065,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 4073,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 4077,
+          "matched": false
+        },
+        {
+          "photo_id": "PXL_20260426_165958071.jpg",
+          "size": 4079,
+          "matched": false
+        }
+      ]
+    }
+  ]
+}
