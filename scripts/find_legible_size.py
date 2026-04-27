@@ -18,7 +18,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-from _claude import ClaudeRequest, call
+from _claude import ClaudeRequest, ClaudeStructuredOutputError, call
 from _image_ops import longest_side_px, resize_to_longest_side
 from sizing_model import Probe
 
@@ -174,8 +174,17 @@ def binary_search_min_size(
 
     while lo < hi:
         mid = (lo + hi) // 2
-        payload = extract_payload(image_path, search_model, longest_side=mid)
-        matched = matches_reference(reference, payload)
+        try:
+            payload = extract_payload(
+                image_path, search_model, longest_side=mid
+            )
+            matched = matches_reference(reference, payload)
+        except ClaudeStructuredOutputError:
+            # Model couldn't produce a valid extraction at this size — too
+            # little text for it to satisfy the schema. That's effectively
+            # "doesn't match the reference at this resolution," same
+            # signal as if the extracted text were garbled.
+            matched = False
         probes.append(Probe(photo_id=photo_id, size=mid, matched=matched))
         if matched:
             hi = mid

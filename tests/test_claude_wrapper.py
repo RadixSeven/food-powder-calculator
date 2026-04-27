@@ -21,11 +21,13 @@ from _claude import (
     ClaudeRateLimitError,
     ClaudeRequest,
     ClaudeResponse,
+    ClaudeStructuredOutputError,
     ClaudeSubprocessError,
     _all_dirs,
     _compose_stdin_prompt,
     _compute_rate_limit_sleep_seconds,
     _detect_rate_limit,
+    _detect_structured_output_failure,
     _file_sha,
     _parse_reset_time,
     _request_sha,
@@ -497,6 +499,93 @@ def test_call_gives_up_after_max_retries(tmp_path: Path) -> None:
                     json_schema='{"type": "object"}',
                 )
             )
+
+
+def test_detect_structured_output_failure_with_message() -> None:
+    envelope = json.dumps(
+        {
+            "type": "result",
+            "subtype": "error_max_structured_output_retries",
+            "is_error": True,
+            "errors": [
+                "Failed to provide valid structured output after 5 attempts"
+            ],
+        }
+    )
+    msg = _detect_structured_output_failure(envelope)
+    assert msg is not None and "5 attempts" in msg
+
+
+def test_detect_structured_output_failure_falls_back_to_default_message() -> (
+    None
+):
+    """If the envelope has the right subtype but no errors list, surface a
+    sensible default rather than None."""
+    envelope = json.dumps(
+        {
+            "type": "result",
+            "subtype": "error_max_structured_output_retries",
+            "is_error": True,
+        }
+    )
+    msg = _detect_structured_output_failure(envelope)
+    assert msg is not None
+    assert "structured output" in msg.lower()
+
+
+def test_detect_structured_output_failure_returns_none_for_normal_response() -> (
+    None
+):
+    envelope = json.dumps({"type": "result", "is_error": False})
+    assert _detect_structured_output_failure(envelope) is None
+
+
+def test_detect_structured_output_failure_returns_none_for_other_error_subtype() -> (
+    None
+):
+    envelope = json.dumps(
+        {"type": "result", "is_error": True, "subtype": "something_else"}
+    )
+    assert _detect_structured_output_failure(envelope) is None
+
+
+def test_detect_structured_output_failure_returns_none_for_non_json() -> None:
+    assert _detect_structured_output_failure("not json") is None
+
+
+def test_detect_structured_output_failure_returns_none_for_non_object_envelope() -> (
+    None
+):
+    assert _detect_structured_output_failure("[1, 2, 3]") is None
+
+
+def test_run_claude_subprocess_raises_structured_output_error() -> None:
+    from _claude import _run_claude_subprocess
+
+    r = ClaudeRequest(prompt="x", model="opus", json_schema='{"type":"object"}')
+    envelope = json.dumps(
+        {
+            "type": "result",
+            "subtype": "error_max_structured_output_retries",
+            "is_error": True,
+            "errors": [
+                "Failed to provide valid structured output after 5 attempts"
+            ],
+        }
+    )
+
+    class FakeCompleted:
+        returncode = 1
+        stdout = envelope
+        stderr = ""
+
+    with patch("_claude.subprocess.run", return_value=FakeCompleted()):
+        with pytest.raises(ClaudeStructuredOutputError) as excinfo:
+            _run_claude_subprocess(r)
+    assert "5 attempts" in excinfo.value.failure_message
+    # Subclass relationship — generic catchers still see it.
+    assert isinstance(excinfo.value, ClaudeSubprocessError)
+    assert "structured-output" in str(excinfo.value)
 
 
 def test_run_claude_subprocess_returns_stripped_text_without_schema() -> None:

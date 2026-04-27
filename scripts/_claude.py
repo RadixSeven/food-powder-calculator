@@ -267,6 +267,15 @@ def _run_claude_subprocess(request: ClaudeRequest) -> str:
             cmd=cmd,
             limit_message=rate_limit_message,
         )
+    structured_failure = _detect_structured_output_failure(result.stdout)
+    if structured_failure is not None:
+        raise ClaudeStructuredOutputError(
+            returncode=result.returncode,
+            stdout=result.stdout,
+            stderr=result.stderr,
+            cmd=cmd,
+            failure_message=structured_failure,
+        )
     if result.returncode != 0:
         raise ClaudeSubprocessError(
             returncode=result.returncode,
@@ -277,6 +286,35 @@ def _run_claude_subprocess(request: ClaudeRequest) -> str:
     if request.json_schema is not None:
         return _extract_structured_output(result.stdout)
     return result.stdout.strip()
+
+
+def _detect_structured_output_failure(stdout: str) -> str | None:
+    """Return the failure message if claude exhausted its structured-output
+    retries (subtype ``error_max_structured_output_retries``), else None.
+
+    This is a model-side failure mode distinct from rate limiting: when
+    asked for ``--json-schema`` output, claude internally retries when its
+    response doesn't validate, and gives up after 5 attempts. Common at
+    small image sizes where the model can't read enough to fill the schema.
+    """
+    try:
+        envelope = json.loads(stdout)
+    except (json.JSONDecodeError, ValueError):
+        return None
+    if not isinstance(envelope, dict):
+        return None
+    if not envelope.get("is_error"):
+        return None
+    subtype = envelope.get("subtype", "")
+    if not (
+        isinstance(subtype, str)
+        and subtype.startswith("error_max_structured_output")
+    ):
+        return None
+    errors = envelope.get("errors")
+    if isinstance(errors, list) and errors and isinstance(errors[0], str):
+        return errors[0]
+    return "structured output retries exhausted"
 
 
 def _detect_rate_limit(stdout: str, stderr: str) -> str | None:
@@ -412,12 +450,30 @@ class ClaudeRateLimitError(ClaudeSubprocessError):
         return f"claude rate-limit: {self.limit_message}"
 
 
+@dataclass
+class ClaudeStructuredOutputError(ClaudeSubprocessError):
+    """Raised when claude exhausted its internal structured-output retries.
+
+    Indicates the model couldn't produce schema-valid JSON for the call —
+    typically at very low image resolutions where there isn't enough text
+    to fill the schema. Callers that drive a search across multiple
+    parameter values (e.g. binary-search sizing probes) can treat this as
+    a clean "no" for that probe rather than as a fatal subprocess error.
+    """
+
+    failure_message: str = ""
+
+    def __str__(self) -> str:
+        return f"claude structured-output retries exhausted: {self.failure_message}"
+
+
 # Re-exports
 __all__ = [
     "CACHE_DIR",
     "ClaudeRateLimitError",
     "ClaudeRequest",
     "ClaudeResponse",
+    "ClaudeStructuredOutputError",
     "ClaudeSubprocessError",
     "call",
 ]

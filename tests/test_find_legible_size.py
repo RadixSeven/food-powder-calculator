@@ -10,6 +10,7 @@ from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
+from _claude import ClaudeStructuredOutputError
 from find_legible_size import (
     EXTRACTION_JSON_SCHEMA,
     EXTRACTION_PROMPT,
@@ -304,6 +305,48 @@ def test_binary_search_skips_lucky_pass_when_a_larger_probe_failed(
     # Either the algorithm settled on a size > 600, or it gave up on the
     # full image upper bound.
     assert result.min_legible_size > 600
+
+
+def test_binary_search_treats_structured_output_failure_as_no_match(
+    tmp_path: Path,
+) -> None:
+    """At small sizes the model can fail to produce valid JSON
+    (ClaudeStructuredOutputError). Binary search must treat that as a
+    ``matched=False`` probe and keep searching, not crash."""
+    src = tmp_path / "src.jpg"
+    _solid_image(src, (2048, 1024))
+
+    reference = ExtractedPayload(text="needle", barcodes=())
+
+    def fake_extract(
+        _path: Path, _model: str, longest_side: int | None = None
+    ) -> ExtractedPayload:
+        assert longest_side is not None
+        # Match at >= 1024; under 1024 the "model" raises structured-output
+        # exhaustion (mimicking the live failure mode at low resolutions).
+        if longest_side < 1024:
+            raise ClaudeStructuredOutputError(
+                returncode=1,
+                stdout="",
+                stderr="",
+                cmd=[],
+                failure_message="schema-invalid output after 5 retries",
+            )
+        return reference
+
+    with patch("find_legible_size.RESIZE_CACHE_DIR", tmp_path / "resized"):
+        with patch(
+            "find_legible_size.extract_payload", side_effect=fake_extract
+        ):
+            result = binary_search_min_size(
+                src, "haiku", reference, photo_id="p"
+            )
+
+    # The search should still converge — small-size probes are recorded
+    # as no-match instead of crashing.
+    assert result.min_legible_size >= 1024
+    # And the failed probes are present in the record (matched=False).
+    assert any(not p.matched for p in result.probes)
 
 
 def test_binary_search_returns_image_upper_when_no_probe_passes(
