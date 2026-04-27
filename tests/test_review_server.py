@@ -12,7 +12,7 @@ from unittest.mock import patch
 
 import pytest
 from PIL import Image
-from review_server import create_app, main
+from review_server import _format_gap, create_app, main
 
 
 def _solid_image(path: Path) -> None:
@@ -124,6 +124,116 @@ def test_raw_404_for_unknown_filename(
     client = app.test_client()
     response = client.get("/raw/nope.jpg")
     assert response.status_code == 404
+
+
+def test_format_gap_seconds_is_short_when_under_threshold() -> None:
+    text, short = _format_gap(
+        "PXL_20260426_170617596.MP.jpg", "PXL_20260426_170636147.MP.jpg"
+    )
+    # 18.6 seconds → rendered as "19 s" and flagged short.
+    assert text == "19 s"
+    assert short is True
+
+
+def test_format_gap_minutes() -> None:
+    text, short = _format_gap(
+        "PXL_20260426_165737000.jpg", "PXL_20260426_170012000.jpg"
+    )
+    # 2 min 35 s → not flagged short
+    assert text == "2 min 35 s"
+    assert short is False
+
+
+def test_format_gap_hours() -> None:
+    text, short = _format_gap(
+        "PXL_20260426_170617596.MP.jpg", "PXL_20260426_180942709.MP.jpg"
+    )
+    # ~73 min → "1 h 13 min"
+    assert text is not None and text.startswith("1 h ")
+    assert short is False
+
+
+def test_format_gap_returns_none_for_first_group() -> None:
+    text, short = _format_gap(None, "PXL_20260426_170617596.MP.jpg")
+    assert text is None
+    assert short is False
+
+
+def test_format_gap_returns_none_for_unparseable_names() -> None:
+    text, short = _format_gap("foo.jpg", "bar.jpg")
+    assert text is None
+    assert short is False
+
+
+def test_index_renders_inter_group_gaps(tmp_path: Path) -> None:
+    """The index should display a time-delta header between groups."""
+    photos_dir = tmp_path
+    for name in (
+        "PXL_20260426_170617596.MP.jpg",
+        "PXL_20260426_170636147.MP.jpg",
+        "PXL_20260426_180942709.MP.jpg",
+    ):
+        _solid_image(photos_dir / name)
+    groups_json = tmp_path / "groups.json"
+    groups_json.write_text(
+        json.dumps(
+            {
+                "groups": [
+                    {
+                        "id": "g1",
+                        "store": "MOM",
+                        "photos": [
+                            {
+                                "path": str(
+                                    photos_dir / "PXL_20260426_170617596.MP.jpg"
+                                ),
+                                "roles": ["front"],
+                            }
+                        ],
+                        "warnings": [],
+                        "locked": False,
+                    },
+                    {
+                        "id": "g2",
+                        "store": "MOM",
+                        "photos": [
+                            {
+                                "path": str(
+                                    photos_dir / "PXL_20260426_170636147.MP.jpg"
+                                ),
+                                "roles": ["front"],
+                            }
+                        ],
+                        "warnings": [],
+                        "locked": False,
+                    },
+                    {
+                        "id": "g3",
+                        "store": "CVS",
+                        "photos": [
+                            {
+                                "path": str(
+                                    photos_dir / "PXL_20260426_180942709.MP.jpg"
+                                ),
+                                "roles": ["front"],
+                            }
+                        ],
+                        "warnings": [],
+                        "locked": False,
+                    },
+                ]
+            }
+        )
+    )
+
+    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
+    client = app.test_client()
+    body = client.get("/").data.decode()
+    # 19-second gap between g1 and g2 → flagged short.
+    assert "19 s" in body
+    assert 'class="gap short"' in body
+    # ~1h gap between g2 and g3 → not flagged short.
+    assert "1 h" in body
 
 
 def test_thumb_resolves_extension_pool_paths(tmp_path: Path) -> None:

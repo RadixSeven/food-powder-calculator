@@ -32,10 +32,18 @@ from flask import (
 )
 from PIL import Image, ImageOps
 
-from group_photos import GROUPS_JSON, RAW_PHOTOS_DIR
+from group_photos import (
+    GROUPS_JSON,
+    RAW_PHOTOS_DIR,
+    _filename_time_delta_seconds,
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 THUMBNAIL_LONGEST_SIDE = 320
+
+# A short gap means the boundary is more likely to be wrong (the
+# photographer might still be documenting the same product).
+SHORT_GAP_SECONDS = 30.0
 
 INDEX_TEMPLATE = """<!doctype html>
 <html><head>
@@ -46,6 +54,8 @@ body { font-family: system-ui, sans-serif; margin: 1em; background: #fafafa; }
 .group { background: white; border: 1px solid #ddd; border-radius: 6px;
          padding: 1em; margin-bottom: 1em; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
 .group.has-errors { border-color: #c53030; background: #fff5f5; }
+.gap { font-size: 0.8em; color: #666; margin: 0.6em 0 0.3em 0.5em; }
+.gap.short { color: #c05621; font-weight: 500; }
 .group-header { display: flex; justify-content: space-between; align-items: baseline; }
 .group-id { font-weight: bold; }
 .warnings { color: #c53030; font-size: 0.9em; }
@@ -67,6 +77,9 @@ body { font-family: system-ui, sans-serif; margin: 1em; background: #fafafa; }
 change; no submit button.</p>
 
 {% for g in groups %}
+{% if g.gap_to_previous %}
+<div class="gap {% if g.gap_short %}short{% endif %}">⏱ {{ g.gap_to_previous }} since previous group</div>
+{% endif %}
 <div class="group {% if g.has_errors %}has-errors{% endif %}" data-id="{{ g.id }}">
   <div class="group-header">
     <div>
@@ -175,6 +188,7 @@ def create_app(
     @app.get("/")
     def index() -> str:
         groups = _load_groups(groups_json)
+        prev_last_filename: str | None = None
         for g in groups:
             photos = g["photos"]
             assert isinstance(photos, list)
@@ -182,6 +196,12 @@ def create_app(
                 p["filename"] = Path(p["path"]).name
             g.setdefault("has_errors", False)
             g.setdefault("comment", "")
+            first_filename = photos[0]["filename"] if photos else None
+            gap_str, gap_short = _format_gap(prev_last_filename, first_filename)
+            g["gap_to_previous"] = gap_str
+            g["gap_short"] = gap_short
+            if photos:
+                prev_last_filename = photos[-1]["filename"]
         return render_template_string(INDEX_TEMPLATE, groups=groups)
 
     @app.get("/thumb/<path:filename>")
@@ -231,6 +251,35 @@ def _update_group_in_place(
             groups_json.write_text(json.dumps(payload, indent=2))
             return True
     return False
+
+
+def _format_gap(
+    prev_filename: str | None, next_filename: str | None
+) -> tuple[str | None, bool]:
+    """Return (human-readable gap string, is_short_gap_flag) or (None, False).
+
+    A short gap (under SHORT_GAP_SECONDS) deserves visual attention since the
+    previous group may have been split mid-product.
+    """
+    if prev_filename is None or next_filename is None:
+        return None, False
+    delta = _filename_time_delta_seconds(
+        Path(prev_filename), Path(next_filename)
+    )
+    if delta is None:
+        return None, False
+    short = delta < SHORT_GAP_SECONDS
+    if delta < 60:
+        text = f"{delta:.0f} s"
+    elif delta < 3600:
+        m = int(delta // 60)
+        s = int(delta - m * 60)
+        text = f"{m} min {s} s"
+    else:
+        h = int(delta // 3600)
+        m = int((delta - h * 3600) // 60)
+        text = f"{h} h {m} min"
+    return text, short
 
 
 def _serve_thumbnail(src: Path) -> Response:
