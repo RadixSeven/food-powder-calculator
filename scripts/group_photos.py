@@ -188,8 +188,20 @@ def classify_photo(
             f"Image {len(images)} (front of running group): " + str(front.name)
         )
 
+    timing_hint = ""
+    if previous is not None:
+        delta = _filename_time_delta_seconds(previous, current)
+        if delta is not None:
+            timing_hint = (
+                f"\n\nTime between Image 1 and Image 2: {delta:.1f} seconds. "
+                "Photos taken within ~30 seconds of each other are usually "
+                "the SAME product (multi-angle documentation of one bottle). "
+                "Gaps of several minutes typically mark a new product."
+            )
+
     prompt = (
         "\n".join(image_descriptions)
+        + timing_hint
         + "\n\n"
         + "Classify the CURRENT photo. Return JSON with keys "
         + "`is_same_product`, `roles` (one or more of "
@@ -309,6 +321,36 @@ def write_groups(groups: list[Group], out_path: Path = GROUPS_JSON) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     payload = {"groups": [dataclasses.asdict(g) for g in groups]}
     out_path.write_text(json.dumps(payload, indent=2))
+
+
+def _filename_time_delta_seconds(prev: Path, cur: Path) -> float | None:
+    """Seconds between two PXL_YYYYMMDD_HHMMSSDDD photos. None on parse error.
+
+    The Pixel filename suffix encodes the capture time at millisecond
+    resolution: ``PXL_20260426_170617596`` = 17:06:17.596. Within a single
+    day-long shopping session that's all we need.
+    """
+    try:
+        prev_ts = _parse_pxl_timestamp(prev.name)
+        cur_ts = _parse_pxl_timestamp(cur.name)
+    except (ValueError, IndexError):
+        return None
+    return abs(cur_ts - prev_ts)
+
+
+def _parse_pxl_timestamp(name: str) -> float:
+    """Return seconds-of-day as a float for a PXL_YYYYMMDD_HHMMSSDDD filename."""
+    # e.g. PXL_20260426_170617596.MP.jpg or PXL_20260426_170617596.jpg
+    stem = name.split("_", 2)[2]  # "170617596.MP.jpg" or "170617596.jpg"
+    # take the leading 9 digits (HHMMSSDDD)
+    digits = stem.split(".", 1)[0][:9]
+    if len(digits) != 9 or not digits.isdigit():
+        raise ValueError(f"Cannot parse PXL timestamp from {name!r}")
+    h = int(digits[0:2])
+    m = int(digits[2:4])
+    s = int(digits[4:6])
+    millis = int(digits[6:9])
+    return h * 3600 + m * 60 + s + millis / 1000.0
 
 
 def _resize_for_grouping(photo: Path) -> Path:

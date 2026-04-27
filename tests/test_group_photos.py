@@ -19,7 +19,9 @@ from group_photos import (
     PhotoEntry,
     VALID_ROLES,
     _extract_json_object,
+    _filename_time_delta_seconds,
     _parse_classification,
+    _parse_pxl_timestamp,
     assign_groups,
     classify_photo,
     compute_group_warnings,
@@ -126,6 +128,39 @@ def test_valid_roles_includes_expected_set() -> None:
     assert "price-tag" in VALID_ROLES
 
 
+def test_parse_pxl_timestamp_round_trips() -> None:
+    # 17:06:17.596 → 17*3600 + 6*60 + 17 + 0.596 = 61577.596
+    assert _parse_pxl_timestamp(
+        "PXL_20260426_170617596.MP.jpg"
+    ) == pytest.approx(61577.596)
+    # 16:57:37.642 → 16*3600 + 57*60 + 37 + 0.642 = 61057.642
+    assert _parse_pxl_timestamp("PXL_20260426_165737642.jpg") == pytest.approx(
+        61057.642
+    )
+
+
+def test_parse_pxl_timestamp_rejects_non_pxl_filename() -> None:
+    with pytest.raises(ValueError, match="Cannot parse"):
+        _parse_pxl_timestamp("PXL_20260426_xxx.jpg")
+
+
+def test_filename_time_delta_seconds_close_pair() -> None:
+    delta = _filename_time_delta_seconds(
+        Path("PXL_20260426_170617596.MP.jpg"),
+        Path("PXL_20260426_170636147.MP.jpg"),
+    )
+    assert delta == pytest.approx(18.551, abs=1e-3)
+
+
+def test_filename_time_delta_seconds_returns_none_on_unparseable() -> None:
+    assert (
+        _filename_time_delta_seconds(
+            Path("not_a_pxl_file.jpg"), Path("also_not.jpg")
+        )
+        is None
+    )
+
+
 # ---------- list_photos -------------------------------------------------------
 
 
@@ -140,9 +175,9 @@ def test_list_photos_sorted(tmp_path: Path) -> None:
 
 
 def test_classify_photo_passes_full_context_to_claude(tmp_path: Path) -> None:
-    prev_path = tmp_path / "prev.jpg"
-    cur_path = tmp_path / "cur.jpg"
-    front_path = tmp_path / "front.jpg"
+    prev_path = tmp_path / "PXL_20260426_170617596.jpg"
+    cur_path = tmp_path / "PXL_20260426_170636147.jpg"
+    front_path = tmp_path / "PXL_20260426_165737642.jpg"
     for p in (prev_path, cur_path, front_path):
         _solid_image(p)
 
@@ -164,6 +199,28 @@ def test_classify_photo_passes_full_context_to_claude(tmp_path: Path) -> None:
     assert len(request.image_paths) == 3
     assert request.system_prompt == GROUPING_SYSTEM_PROMPT
     assert request.json_schema == GROUPING_JSON_SCHEMA
+    # Timing hint should be present and approximately right.
+    assert "Time between Image 1 and Image 2: 18.6 seconds" in request.prompt
+
+
+def test_classify_photo_omits_timing_hint_for_unparseable_names(
+    tmp_path: Path,
+) -> None:
+    prev_path = tmp_path / "weird_name.jpg"
+    cur_path = tmp_path / "also_weird.jpg"
+    for p in (prev_path, cur_path):
+        _solid_image(p)
+    fake_response = MagicMock()
+    fake_response.text = (
+        '{"is_same_product": true, "roles": ["nutrition"], "rationale": "..."}'
+    )
+    with patch("group_photos.GROUPING_RESIZE_DIR", tmp_path / "rs"):
+        with patch(
+            "group_photos.call", return_value=fake_response
+        ) as mock_call:
+            classify_photo(current=cur_path, previous=prev_path, front=None)
+    request = mock_call.call_args.args[0]
+    assert "Time between Image 1 and Image 2" not in request.prompt
 
 
 def test_classify_photo_omits_front_when_same_as_previous(
