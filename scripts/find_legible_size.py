@@ -104,14 +104,30 @@ def matches_reference(
     candidate: ExtractedPayload,
     *,
     text_ratio_threshold: float = 0.95,
+    require_barcodes: bool = False,
 ) -> bool:
-    """Levenshtein ratio ≥ threshold AND every reference barcode present exactly."""
+    """Levenshtein-ratio match against the reference, with optional strict
+    barcode parity.
+
+    ``require_barcodes`` (default False): when True, every barcode digit-string
+    in the reference must also be in the candidate — appropriate when the
+    *barcode* itself is the artifact under test. For sizing decisions we
+    care about text legibility, and barcode digits degrade ahead of the
+    surrounding text under downsampling (a single dropped digit will fail
+    a strict check while the rest of the label is still perfectly
+    readable). The first live sizing run forced binary search up to
+    full resolution on most photos because of this; with the default the
+    binary search converges on a true text-legibility threshold.
+    """
     text_ok = (
         _levenshtein_ratio(reference.text, candidate.text)
         >= text_ratio_threshold
     )
-    barcode_ok = all(b in candidate.barcodes for b in reference.barcodes)
-    return text_ok and barcode_ok
+    if not text_ok:
+        return False
+    if require_barcodes:
+        return all(b in candidate.barcodes for b in reference.barcodes)
+    return True
 
 
 def select_search_model(

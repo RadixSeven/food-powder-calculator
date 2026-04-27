@@ -89,12 +89,23 @@ def test_matches_reference_text_above_threshold_no_barcodes() -> None:
     assert matches_reference(ref, cand) is True
 
 
-def test_matches_reference_requires_every_reference_barcode() -> None:
+def test_matches_reference_default_ignores_barcodes() -> None:
+    """Default mode passes any text-similar candidate, regardless of barcodes
+    — barcodes degrade before the surrounding text under downsampling."""
+    ref = ExtractedPayload(text="hello", barcodes=("123", "456"))
+    has_one = ExtractedPayload(text="hello", barcodes=("123",))
+    has_none = ExtractedPayload(text="hello", barcodes=())
+    assert matches_reference(ref, has_one) is True
+    assert matches_reference(ref, has_none) is True
+
+
+def test_matches_reference_strict_barcode_mode_requires_every_one() -> None:
+    """Strict mode is opt-in for callers that genuinely need barcode parity."""
     ref = ExtractedPayload(text="hello", barcodes=("123", "456"))
     has_one = ExtractedPayload(text="hello", barcodes=("123",))
     has_both = ExtractedPayload(text="hello", barcodes=("123", "456"))
-    assert matches_reference(ref, has_one) is False
-    assert matches_reference(ref, has_both) is True
+    assert matches_reference(ref, has_one, require_barcodes=True) is False
+    assert matches_reference(ref, has_both, require_barcodes=True) is True
 
 
 def test_matches_reference_extra_candidate_barcodes_are_fine() -> None:
