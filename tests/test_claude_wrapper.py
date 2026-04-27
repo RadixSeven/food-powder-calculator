@@ -11,15 +11,23 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
 from _claude import (
+    MAX_RATE_LIMIT_RETRIES,
+    MIN_RATE_LIMIT_SLEEP_SECONDS,
+    RATE_LIMIT_FALLBACK_SLEEP_SECONDS,
     ClaudeRateLimitError,
     ClaudeRequest,
     ClaudeResponse,
     ClaudeSubprocessError,
     _all_dirs,
     _compose_stdin_prompt,
+    _compute_rate_limit_sleep_seconds,
     _detect_rate_limit,
     _file_sha,
+    _parse_reset_time,
     _request_sha,
     call,
 )
@@ -285,8 +293,210 @@ def test_run_claude_subprocess_raises_rate_limit_on_429_envelope() -> None:
     assert "1am" in excinfo.value.limit_message
     # Subclass relationship — callers that catch ClaudeSubprocessError still see it.
     assert isinstance(excinfo.value, ClaudeSubprocessError)
-    # __str__ surfaces the actionable hint.
-    assert "Re-run after the limit resets" in str(excinfo.value)
+    # __str__ surfaces the parsed message verbatim.
+    assert "1am" in str(excinfo.value)
+
+
+# ---------- rate-limit parser + retry loop -------------------------------
+
+
+def test_parse_reset_time_basic_am() -> None:
+    now = datetime(2026, 4, 26, 23, 0, tzinfo=ZoneInfo("America/New_York"))
+    target = _parse_reset_time(
+        "You've hit your limit · resets 1am (America/New_York)", now=now
+    )
+    assert target is not None
+    assert target.hour == 1 and target.minute == 0
+    assert target.tzinfo is not None
+    # 23:00 today → next 1am is tomorrow's 01:00.
+    delta = (target - now).total_seconds()
+    assert 1.5 * 3600 < delta < 2.5 * 3600
+
+
+def test_parse_reset_time_pm_with_timezone() -> None:
+    now = datetime(2026, 4, 26, 9, 0, tzinfo=ZoneInfo("Europe/Berlin"))
+    target = _parse_reset_time("resets 4pm (Europe/Berlin)", now=now)
+    assert target is not None
+    assert target.hour == 16
+
+
+def test_parse_reset_time_handles_12am_and_12pm() -> None:
+    now = datetime(2026, 4, 26, 9, 0, tzinfo=ZoneInfo("UTC"))
+    midnight = _parse_reset_time("resets 12am (UTC)", now=now)
+    noon = _parse_reset_time("resets 12pm (UTC)", now=now)
+    assert midnight is not None and midnight.hour == 0
+    assert noon is not None and noon.hour == 12
+
+
+def test_parse_reset_time_with_minutes() -> None:
+    now = datetime(2026, 4, 26, 9, 0, tzinfo=ZoneInfo("UTC"))
+    target = _parse_reset_time("resets 1:30pm (UTC)", now=now)
+    assert target is not None
+    assert target.hour == 13 and target.minute == 30
+
+
+def test_parse_reset_time_picks_nearest_occurrence_for_recently_passed_reset() -> (
+    None
+):
+    """Server lag scenario: now=01:05am, message says 'resets 1am'. Picking
+    'today's 01:00' (just past) is nearer than 'tomorrow's 01:00', and the
+    sleep computation will then floor to 60s."""
+    tz = ZoneInfo("America/New_York")
+    now = datetime(2026, 4, 27, 1, 5, tzinfo=tz)
+    target = _parse_reset_time("resets 1am (America/New_York)", now=now)
+    assert target is not None
+    # Today's 01:00 (5 minutes before now), not tomorrow's.
+    delta = (target - now).total_seconds()
+    assert delta < 0
+    assert abs(delta) < 600  # within ~10 minutes of now
+
+
+def test_parse_reset_time_with_date_prefix() -> None:
+    tz = ZoneInfo("Africa/Libreville")
+    now = datetime(2026, 2, 19, 9, 0, tzinfo=tz)
+    target = _parse_reset_time(
+        "resets Feb 20, 5pm (Africa/Libreville)", now=now
+    )
+    assert target is not None
+    assert target.month == 2 and target.day == 20 and target.hour == 17
+
+
+def test_parse_reset_time_dated_in_future_keeps_current_year() -> None:
+    """A 'Dec 31' message read in February uses the current year, not next."""
+    tz = ZoneInfo("UTC")
+    now = datetime(2026, 2, 1, 9, 0, tzinfo=tz)
+    target = _parse_reset_time("resets Dec 31, 5pm (UTC)", now=now)
+    assert target is not None
+    assert target.year == 2026 and target.month == 12 and target.day == 31
+
+
+def test_parse_reset_time_dated_far_in_past_rolls_to_next_year() -> None:
+    """A 'Jan 1' message read in late December has target = THIS year's Jan 1
+    on the first parse, which is ~11 months in the past — advance to next
+    year."""
+    tz = ZoneInfo("UTC")
+    now = datetime(2026, 12, 30, 9, 0, tzinfo=tz)
+    target = _parse_reset_time("resets Jan 1, 1pm (UTC)", now=now)
+    assert target is not None
+    assert target.year == 2027 and target.month == 1 and target.day == 1
+
+
+def test_parse_reset_time_returns_none_for_unmatched_message() -> None:
+    assert _parse_reset_time("some unrelated error") is None
+
+
+def test_parse_reset_time_returns_none_for_invalid_timezone() -> None:
+    assert _parse_reset_time("resets 1am (Not/AnyTimezone)") is None
+
+
+def test_parse_reset_time_returns_none_for_invalid_dated_calendar() -> None:
+    """Feb 30 doesn't exist; parser should bail rather than fabricate."""
+    now = datetime(2026, 2, 1, 9, 0, tzinfo=ZoneInfo("UTC"))
+    assert _parse_reset_time("resets Feb 30, 5pm (UTC)", now=now) is None
+
+
+def test_compute_sleep_seconds_clamps_to_minimum() -> None:
+    tz = ZoneInfo("America/New_York")
+    now = datetime(2026, 4, 27, 1, 5, tzinfo=tz)
+    sleep = _compute_rate_limit_sleep_seconds(
+        "resets 1am (America/New_York)", now=now
+    )
+    assert sleep == MIN_RATE_LIMIT_SLEEP_SECONDS
+
+
+def test_compute_sleep_seconds_uses_target_when_in_future() -> None:
+    tz = ZoneInfo("America/New_York")
+    now = datetime(2026, 4, 26, 23, 0, tzinfo=tz)
+    sleep = _compute_rate_limit_sleep_seconds(
+        "resets 1am (America/New_York)", now=now
+    )
+    # 23:00 → next 01:00 is 2 hours away.
+    assert 1.9 * 3600 < sleep < 2.1 * 3600
+
+
+def test_compute_sleep_seconds_falls_back_when_unparseable() -> None:
+    sleep = _compute_rate_limit_sleep_seconds("garbled message no reset info")
+    assert sleep == RATE_LIMIT_FALLBACK_SLEEP_SECONDS
+
+
+def test_call_retries_after_rate_limit_and_succeeds(tmp_path: Path) -> None:
+    """First subprocess call hits 429; wrapper sleeps and retries; second
+    call succeeds. time.sleep is mocked so the test stays fast."""
+    cache_dir = tmp_path / "cache"
+    rate_limit_envelope = json.dumps(
+        {
+            "type": "result",
+            "is_error": True,
+            "api_error_status": 429,
+            "result": "You've hit your limit · resets 1am (America/New_York)",
+        }
+    )
+
+    class FakeBusy:
+        returncode = 1
+        stdout = rate_limit_envelope
+        stderr = ""
+
+    class FakeOk:
+        returncode = 0
+        stdout = json.dumps(
+            {"type": "result", "structured_output": {"answer": 42}}
+        )
+        stderr = ""
+
+    sleeps: list[float] = []
+
+    with (
+        patch("_claude.CACHE_DIR", cache_dir),
+        patch("_claude.subprocess.run", side_effect=[FakeBusy(), FakeOk()]),
+        patch("_claude.time.sleep", side_effect=sleeps.append),
+    ):
+        response = call(
+            ClaudeRequest(
+                prompt="hi",
+                model="sonnet",
+                json_schema='{"type": "object"}',
+            )
+        )
+    assert json.loads(response.text) == {"answer": 42}
+    assert response.cached is False
+    assert len(sleeps) == 1
+    # We slept for a positive interval that respects the 60-second floor.
+    assert sleeps[0] >= MIN_RATE_LIMIT_SLEEP_SECONDS
+
+
+def test_call_gives_up_after_max_retries(tmp_path: Path) -> None:
+    cache_dir = tmp_path / "cache"
+    rate_limit_envelope = json.dumps(
+        {
+            "type": "result",
+            "is_error": True,
+            "api_error_status": 429,
+            "result": "You've hit your limit · resets 1am (America/New_York)",
+        }
+    )
+
+    class FakeBusy:
+        returncode = 1
+        stdout = rate_limit_envelope
+        stderr = ""
+
+    with (
+        patch("_claude.CACHE_DIR", cache_dir),
+        patch(
+            "_claude.subprocess.run",
+            side_effect=[FakeBusy()] * (MAX_RATE_LIMIT_RETRIES + 1),
+        ),
+        patch("_claude.time.sleep"),
+    ):
+        with pytest.raises(ClaudeRateLimitError):
+            call(
+                ClaudeRequest(
+                    prompt="hi",
+                    model="sonnet",
+                    json_schema='{"type": "object"}',
+                )
+            )
 
 
 def test_run_claude_subprocess_returns_stripped_text_without_schema() -> None:

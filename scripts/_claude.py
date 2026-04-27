@@ -10,11 +10,15 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import subprocess
+import sys
 import time
 from dataclasses import dataclass, field
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Iterable
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CACHE_DIR = REPO_ROOT / "data" / "cache"
@@ -22,6 +26,16 @@ CACHE_DIR = REPO_ROOT / "data" / "cache"
 # Wall-clock cap per claude invocation. Long enough for vision calls on
 # large images, short enough that a hung subprocess doesn't block forever.
 DEFAULT_TIMEOUT_SECONDS = 180
+
+# Minimum sleep between rate-limit retries so we don't pound the server even
+# if the parsed reset time has already passed (server-side lag is a known
+# issue — see anthropics/claude-code#20719).
+MIN_RATE_LIMIT_SLEEP_SECONDS = 60.0
+# Fallback if the limit message can't be parsed.
+RATE_LIMIT_FALLBACK_SLEEP_SECONDS = 3600.0
+# Cap how many rate-limit retries we'll do in one call before giving up; this
+# bounds blast radius if parsing or the server are misbehaving.
+MAX_RATE_LIMIT_RETRIES = 6
 
 
 @dataclass(frozen=True)
@@ -50,7 +64,14 @@ class ClaudeResponse:
 
 
 def call(request: ClaudeRequest) -> ClaudeResponse:
-    """Run a single claude -p call, returning a cached response if available."""
+    """Run a single claude -p call, returning a cached response if available.
+
+    Rate-limit responses (HTTP 429) trigger an in-process wait until the
+    parsed reset time and a retry, so the caller doesn't have to know about
+    rate limits — particularly important when the caller is itself an LLM
+    agent. Each retry sleeps at least :data:`MIN_RATE_LIMIT_SLEEP_SECONDS`
+    so a stale-clock or lagging-server condition can't make the loop hot.
+    """
     request_sha = _request_sha(request)
     cache_path = CACHE_DIR / f"{request_sha}.json"
     if cache_path.exists():
@@ -63,7 +84,7 @@ def call(request: ClaudeRequest) -> ClaudeResponse:
         )
 
     start = time.monotonic()
-    text = _run_claude_subprocess(request)
+    text = _run_with_rate_limit_retry(request)
     elapsed = time.monotonic() - start
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -76,6 +97,126 @@ def call(request: ClaudeRequest) -> ClaudeResponse:
         elapsed_seconds=elapsed,
         request_sha=request_sha,
     )
+
+
+def _run_with_rate_limit_retry(request: ClaudeRequest) -> str:
+    """Invoke the subprocess with auto-wait-and-retry on rate-limit errors."""
+    last_error: ClaudeRateLimitError | None = None
+    for attempt in range(1, MAX_RATE_LIMIT_RETRIES + 1):
+        try:
+            return _run_claude_subprocess(request)
+        except ClaudeRateLimitError as e:
+            last_error = e
+            sleep_seconds = _compute_rate_limit_sleep_seconds(e.limit_message)
+            now = datetime.now().astimezone()
+            wake_at = now + timedelta(seconds=sleep_seconds)
+            print(
+                f"[claude rate-limit] {e.limit_message}\n"
+                f"[claude rate-limit] sleeping {sleep_seconds:.0f}s until "
+                f"{wake_at.isoformat(timespec='seconds')} "
+                f"(attempt {attempt}/{MAX_RATE_LIMIT_RETRIES})",
+                file=sys.stderr,
+                flush=True,
+            )
+            time.sleep(sleep_seconds)
+            print(
+                "[claude rate-limit] retrying after sleep",
+                file=sys.stderr,
+                flush=True,
+            )
+    assert last_error is not None
+    raise last_error
+
+
+_RATE_LIMIT_TIME_RE = re.compile(
+    r"resets\s+"
+    r"(?:(\w+)\s+(\d{1,2}),\s+)?"  # optional "Feb 20, "
+    r"(\d{1,2})(?::(\d{2}))?\s*"  # hour with optional ":MM"
+    r"(am|pm)\s*"  # am or pm
+    r"\(([^)]+)\)",  # timezone in parens
+    re.IGNORECASE,
+)
+
+
+def _parse_reset_time(
+    message: str, *, now: datetime | None = None
+) -> datetime | None:
+    """Parse the reset target from a Claude Code rate-limit message.
+
+    Handles every format observed in the wild as of 2026-04:
+
+    * ``resets 1am (America/New_York)``
+    * ``resets 4pm (Europe/Berlin)``
+    * ``resets 2pm (UTC)``
+    * ``resets 11pm (America/Anchorage)``
+    * ``resets Feb 20, 5pm (Africa/Libreville)``
+
+    For the hour-only forms we pick the nearest occurrence (yesterday,
+    today, or tomorrow at the parsed clock time in the named tz). That way
+    server lag past a recent reset doesn't cause us to wait 24 hours for
+    "tomorrow's" 1am — :func:`_compute_rate_limit_sleep_seconds` clamps to
+    a 60-second floor regardless.
+
+    Returns ``None`` if the message doesn't match any known shape.
+    """
+    m = _RATE_LIMIT_TIME_RE.search(message)
+    if m is None:
+        return None
+    month_abbrev, day_s, hour_s, min_s, ampm, tz_name = m.groups()
+    try:
+        tz = ZoneInfo(tz_name)
+    except (ZoneInfoNotFoundError, KeyError):
+        return None
+    hour = int(hour_s) % 12
+    if ampm.lower() == "pm":
+        hour += 12
+    minute = int(min_s) if min_s else 0
+    if now is None:
+        now = datetime.now(tz=tz)
+    else:
+        now = now.astimezone(tz)
+    if month_abbrev:
+        try:
+            target_date = datetime.strptime(
+                f"{month_abbrev} {day_s} {now.year}", "%b %d %Y"
+            ).date()
+        except ValueError:
+            return None
+        target = datetime(
+            target_date.year,
+            target_date.month,
+            target_date.day,
+            hour,
+            minute,
+            tzinfo=tz,
+        )
+        # If the dated form fell more than 6 months in the past it's almost
+        # certainly meant for next year (e.g., a December message read in
+        # January).
+        if target < now - timedelta(days=183):
+            target = target.replace(year=target.year + 1)
+        return target
+    today = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+    candidates = [today - timedelta(days=1), today, today + timedelta(days=1)]
+    return min(candidates, key=lambda c: abs((c - now).total_seconds()))
+
+
+def _compute_rate_limit_sleep_seconds(
+    message: str, *, now: datetime | None = None
+) -> float:
+    """Seconds to sleep before retrying the rate-limited call.
+
+    Always at least :data:`MIN_RATE_LIMIT_SLEEP_SECONDS`. If the message
+    can't be parsed at all, falls back to
+    :data:`RATE_LIMIT_FALLBACK_SLEEP_SECONDS`.
+    """
+    target = _parse_reset_time(message, now=now)
+    if target is None:
+        return RATE_LIMIT_FALLBACK_SLEEP_SECONDS
+    if now is None:
+        now = datetime.now(tz=target.tzinfo)
+    delta = (target - now).total_seconds()
+    return max(MIN_RATE_LIMIT_SLEEP_SECONDS, delta)
 
 
 def _run_claude_subprocess(request: ClaudeRequest) -> str:
@@ -257,23 +398,18 @@ class ClaudeSubprocessError(Exception):
 
 @dataclass
 class ClaudeRateLimitError(ClaudeSubprocessError):
-    """Raised when claude -p reports an HTTP 429 rate-limit error.
+    """Raised by ``_run_claude_subprocess`` on an HTTP 429 response.
 
-    Carries the human-readable limit message so callers can surface a clean
-    "wait and re-run; cached calls will be skipped" diagnostic. The wrapper
-    deliberately does NOT auto-retry: rate-limit resets are typically hours
-    away and burning more LLM calls in the meantime is exactly the wrong
-    response.
+    The high-level :func:`call` catches these and sleeps until the parsed
+    reset time before retrying, so most callers will never see this
+    exception. It only escapes :func:`call` if the retry budget
+    (:data:`MAX_RATE_LIMIT_RETRIES`) is exhausted.
     """
 
     limit_message: str = ""
 
     def __str__(self) -> str:
-        return (
-            f"claude rate-limit: {self.limit_message}\n"
-            "Re-run after the limit resets; cached responses will be reused "
-            "so no work is lost."
-        )
+        return f"claude rate-limit: {self.limit_message}"
 
 
 # Re-exports
