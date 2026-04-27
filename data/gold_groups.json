@@ -1,0 +1,1757 @@
+{
+  "groups": [
+    {
+      "id": "20260426_mom_001",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_165737642.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_165809667.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_165814496.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_165824836.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_002",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_165855659.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_165901975.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_165910996.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_003",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_165920991.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_165936939.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_165958071.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170006955.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_004",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_170119715.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170123913.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170147035.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170156209.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_005",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_170233863.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170242863.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170304208.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_006",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_170312010.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170320553.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170324688.MP.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170331315.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_007",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_170358062.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170401442.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170406587.jpg",
+          "roles": [
+            "other-label"
+          ]
+        }
+      ],
+      "warnings": [
+        "missing shelf price tag"
+      ]
+    },
+    {
+      "id": "20260426_mom_008",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_170442481.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170448300.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170455204.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170505770.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_009",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_170617596.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170636147.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170700493.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170716472.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170721471.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170737089.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_010",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_170759811.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170808305.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170813360.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170826680.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_011",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_170917508.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170930337.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170936536.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170941286.jpg",
+          "roles": [
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_170956847.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_012",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_171045588.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171056899.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171104183.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171111272.MP.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171120122.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_013",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_171222926.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171228172.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171231818.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        }
+      ],
+      "warnings": [
+        "missing shelf price tag"
+      ],
+      "comment": "There is some wrap-around nutrition label on PXL_20260426_171231818.MP.jpg but I decided not to call it an \"error\""
+    },
+    {
+      "id": "20260426_mom_014",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_171317521.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171323097.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171345836.MP.jpg",
+          "roles": [
+            "ingredients",
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171359183.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": [],
+      "comment": "There is some wrap-around nutrition label on PXL_20260426_171345836.MP.jpg but I decided not to call it an \"error\""
+    },
+    {
+      "id": "20260426_mom_015",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_171407816.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171423780.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171428188.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171433768.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171442689.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_016",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_171556159.MP.jpg",
+          "roles": [
+            "front",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171601486.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171606289.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171639174.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": [],
+      "comment": "There is some wrap-around nutrition label on PXL_20260426_171606289.jpg but I decided not to call it an \"error\""
+    },
+    {
+      "id": "20260426_mom_017",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_171731699.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171735215.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171737479.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171754812.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_018",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_171810502.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171815351.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171819091.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171835072.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": [],
+      "comment": "There is some wrap-around nutrition label on PXL_20260426_171819091.jpg but I decided not to call it an \"error\""
+    },
+    {
+      "id": "20260426_mom_019",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_171920720.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171926659.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171929875.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171933470.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_171943691.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": [],
+      "comment": "There is some wrap-around nutrition label on PXL_20260426_171933470.MP.jpg but I decided not to call it an \"error\""
+    },
+    {
+      "id": "20260426_mom_020",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_172007867.MP.jpg",
+          "roles": [
+            "front",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172017643.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172027444.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172048686.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_021",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_172223359.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172232117.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172241158.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172342305.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_022",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_172508054.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172515673.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172521771.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172547329.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": [],
+      "comment": "There is some wrap-around nutrition label on PXL_20260426_172521771.jpg but I decided not to call it an \"error\""
+    },
+    {
+      "id": "20260426_mom_023",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_172616462.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172624402.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172630738.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172758037.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_024",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_172809810.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172818495.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172825263.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172831891.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172843611.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": [],
+      "comment": "There is some wrap-around nutrition label on PXL_20260426_172825263.jpg but I decided not to call it an \"error\""
+    },
+    {
+      "id": "20260426_mom_025",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_172857585.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172905563.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172911986.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172919289.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_172925879.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173026023.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_026",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_173225824.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173233365.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173238768.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173306337.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_027",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_173340891.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173350476.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173353919.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173359794.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173412670.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_028",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_173452904.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173507073.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173514224.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173528757.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_029",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_173539707.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173544591.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173557970.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173606492.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173620710.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_030",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_173634623.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173639875.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173642965.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173659689.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_031",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_173728906.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173739417.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173743551.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_173952419.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_032",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_174010194.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174030320.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174038462.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174052374.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_033",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_174106060.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174126399.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174142632.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174158307.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174208990.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_034",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_174229708.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174247394.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174259532.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174313210.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174328088.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": [],
+      "comment": "There is some wrap-around nutrition label on PXL_20260426_174313210.MP.jpg but I decided not to call it an \"error\""
+    },
+    {
+      "id": "20260426_mom_035",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_174343145.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174408427.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174430005.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174439616.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174531604.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_036",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_174635750.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174642964.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174648209.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174706899.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174722521.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_037",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_174741908.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174751331.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174756516.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174801587.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174816113.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_038",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_174852168.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174900101.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174914926.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174922096.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_174944938.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_039",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_175512493.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_175519993.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_175530860.MP.jpg",
+          "roles": [
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_175545797.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_040",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_175600652.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_175611808.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_175618205.MP.jpg",
+          "roles": [
+            "other-label",
+            "ingredients"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_175632201.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_041",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_175752322.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_175759662.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_175806434.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_175814179.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_175926008.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_042",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_180009709.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_180020513.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_180027058.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_180033681.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_180047724.MP.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_mom_043",
+      "store": "MOM",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_180114548.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_180125482.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_180130578.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        }
+      ],
+      "warnings": [
+        "missing shelf price tag"
+      ]
+    },
+    {
+      "id": "20260426_cvs_001",
+      "store": "CVS",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_180942709.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_180945570.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_180948519.MP.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_180951760.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_180956262.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181005919.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_cvs_002",
+      "store": "CVS",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_181015159.MP.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181021508.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181026473.jpg",
+          "roles": [
+            "nutrition",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181029661.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181033256.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181135293.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_cvs_003",
+      "store": "CVS",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_181218599.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181221736.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181229735.MP.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181234919.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181243008.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "20260426_cvs_004",
+      "store": "CVS",
+      "photos": [
+        {
+          "path": "data/raw_photos/PXL_20260426_181340116.jpg",
+          "roles": [
+            "front"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181347134.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181351672.jpg",
+          "roles": [
+            "nutrition",
+            "ingredients",
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181354495.jpg",
+          "roles": [
+            "other-label"
+          ]
+        },
+        {
+          "path": "data/raw_photos/PXL_20260426_181424702.jpg",
+          "roles": [
+            "price-tag"
+          ]
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}
