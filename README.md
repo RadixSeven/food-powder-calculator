@@ -9,6 +9,7 @@ The following instructions are intended for my future self.
 # Development Installation
 
 ```shell
+git lfs install                  # one-time per machine: enable LFS hooks
 uv sync                          # populate .venv from pyproject.toml
 uv run pre-commit install        # install the git pre-commit hook
 ```
@@ -17,6 +18,12 @@ uv run pre-commit install        # install the git pre-commit hook
 fresh checkout can skip straight to the commands in the next sections — but
 `pre-commit install` still has to be run once per clone to enable the
 git hook.
+
+`git lfs install` is required because the raw product photos under
+`data/raw_photos/` are stored via Git LFS. Without it, a `git pull` would
+leave LFS pointer files in place of the actual images. If you've cloned
+without running it, run `git lfs install && git lfs pull` to fetch the
+photos retroactively.
 
 # Running
 
