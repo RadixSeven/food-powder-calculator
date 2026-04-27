@@ -11,6 +11,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
+from _claude import ClaudeStructuredOutputError
 from find_legible_size import ExtractedPayload, SearchResult
 from PIL import Image
 from sizing_model import Probe
@@ -213,6 +214,67 @@ def test_stitch_all_groups_rejects_missing_groups_field(tmp_path: Path) -> None:
     bad.write_text(json.dumps({"oops": []}))
     with pytest.raises(ValueError, match="groups list"):
         stitch_all_groups(bad, tmp_path)
+
+
+def test_stitch_all_groups_skips_photos_whose_sizing_fails(
+    fake_gold: tuple[Path, Path, Path],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """If compute_min_legible_size raises ClaudeStructuredOutputError on a
+    given photo (the reference Opus call couldn't satisfy the schema), that
+    photo is dropped from the group and the remaining photos still get
+    stitched."""
+    gold_groups_json, _photos_dir, out_dir = fake_gold
+    monkeypatch.setattr("stitch.REPO_ROOT", tmp_path)
+    monkeypatch.setattr("stitch.STITCH_RESIZE_CACHE", tmp_path / "stitch_rs")
+
+    failing_name = "PXL_002.jpg"
+
+    def fake_compute(p: Path) -> int:
+        if p.name == failing_name:
+            raise ClaudeStructuredOutputError(
+                returncode=1,
+                stdout="",
+                stderr="",
+                cmd=[],
+                failure_message="schema-invalid output after 5 retries",
+            )
+        return 100
+
+    monkeypatch.setattr("stitch.compute_min_legible_size", fake_compute)
+    out_paths = stitch_all_groups(gold_groups_json, out_dir)
+    assert len(out_paths) == 1
+    # The group still produced a stitched JPEG (with one photo dropped).
+    assert out_paths[0].exists()
+
+
+def test_stitch_all_groups_skips_group_when_every_photo_fails_sizing(
+    fake_gold: tuple[Path, Path, Path],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """If every photo in a group fails sizing, the group is skipped rather
+    than producing an empty stitched image (or crashing on stitch_group's
+    empty-input ValueError)."""
+    gold_groups_json, _photos_dir, out_dir = fake_gold
+    monkeypatch.setattr("stitch.REPO_ROOT", tmp_path)
+    monkeypatch.setattr("stitch.STITCH_RESIZE_CACHE", tmp_path / "stitch_rs")
+
+    def always_fail(_p: Path) -> int:
+        raise ClaudeStructuredOutputError(
+            returncode=1,
+            stdout="",
+            stderr="",
+            cmd=[],
+            failure_message="schema-invalid output after 5 retries",
+        )
+
+    monkeypatch.setattr("stitch.compute_min_legible_size", always_fail)
+    out_paths = stitch_all_groups(gold_groups_json, out_dir)
+    assert out_paths == []
+    # No stitched file was created for the all-failing group.
+    assert not (out_dir / "g1.jpg").exists()
 
 
 def test_stitch_all_groups_skips_non_dict_photo_entries(

@@ -22,6 +22,7 @@ import json
 import sys
 from pathlib import Path
 
+from _claude import ClaudeStructuredOutputError
 from _image_ops import resize_to_longest_side
 from _json_types import JsonValue
 from find_legible_size import (
@@ -157,8 +158,28 @@ def stitch_all_groups(
                 file=sys.stderr,
                 flush=True,
             )
-            longest = compute_min_legible_size(photo_path)
+            try:
+                longest = compute_min_legible_size(photo_path)
+            except ClaudeStructuredOutputError as e:
+                # Reference Opus call couldn't satisfy the schema even at
+                # full resolution — typically a photo with very little text
+                # or unusually busy framing. Drop the individual photo from
+                # this group rather than failing the entire run.
+                print(
+                    f"[stitch] {gid}: SKIP {photo_path.name} "
+                    f"(sizing failed: {e.failure_message})",
+                    file=sys.stderr,
+                    flush=True,
+                )
+                continue
             sized.append(SizedPhoto(path=photo_path, longest_side=longest))
+        if not sized:
+            print(
+                f"[stitch] {gid}: SKIP group (no photos could be sized)",
+                file=sys.stderr,
+                flush=True,
+            )
+            continue
         print(
             f"[stitch] {gid}: stitching {len(sized)} photos",
             file=sys.stderr,
