@@ -201,14 +201,29 @@ def classify_photo(
 def assign_groups(
     photos: Iterable[Path],
     model: str = "sonnet",
+    *,
+    extension_pool: Iterable[Path] | None = None,
 ) -> list[Group]:
-    """Walk the photos, calling Sonnet, and return the assembled groups."""
+    """Walk the photos, calling Sonnet, and return the assembled groups.
+
+    ``extension_pool``: when provided, after the last photo of ``photos`` is
+    processed the classifier continues to the next photo in
+    ``extension_pool`` (in iteration order) until it declares "new product",
+    confirming the boundary of the last group. The boundary-confirming
+    photo is NOT added to any output group — it just exists to prove the
+    last group is closed. This lets a "kinks-first" sample distinguish
+    "the model got the boundary right" from "the model never got asked".
+    """
     photos_list = list(photos)
     groups: list[Group] = []
     sequence: dict[str, int] = {"MOM": 0, "CVS": 0}
+    seen: set[str] = set()
 
     previous: Path | None = None
-    for photo in photos_list:
+
+    def consume(photo: Path) -> bool:
+        """Process one photo; return True iff it started a new group."""
+        nonlocal previous
         store = store_for(photo.name)
         front = (
             Path(groups[-1].photos[0].path)
@@ -216,7 +231,6 @@ def assign_groups(
             else None
         )
         if previous is None:
-            # First photo: assume new product, default role front; skip the LLM.
             classification: dict[str, object] = {
                 "is_same_product": False,
                 "roles": ["front"],
@@ -232,18 +246,35 @@ def assign_groups(
         store_changed = (
             previous is not None and store_for(previous.name) != store
         )
+        previous = photo
         if is_same and not store_changed and groups:
             groups[-1].photos.append(PhotoEntry(path=str(photo), roles=roles))
-        else:
-            sequence[store] += 1
-            groups.append(
-                Group(
-                    id=make_group_id(store, sequence[store]),
-                    store=store,
-                    photos=[PhotoEntry(path=str(photo), roles=roles)],
-                )
+            return False
+        sequence[store] += 1
+        groups.append(
+            Group(
+                id=make_group_id(store, sequence[store]),
+                store=store,
+                photos=[PhotoEntry(path=str(photo), roles=roles)],
             )
-        previous = photo
+        )
+        return True
+
+    for photo in photos_list:
+        seen.add(str(photo))
+        consume(photo)
+
+    if extension_pool is not None and previous is not None:
+        for photo in extension_pool:
+            if str(photo) in seen:
+                continue
+            if photo.name <= previous.name:
+                continue
+            started_new = consume(photo)
+            if started_new:
+                # Boundary confirmed: drop the throwaway single-photo group.
+                groups.pop()
+                break
 
     for g in groups:
         g.warnings = compute_group_warnings(g)
@@ -322,7 +353,12 @@ def main() -> int:
         "--limit",
         type=int,
         default=None,
-        help="Process only the first N photos (for kinks-first runs).",
+        help=(
+            "Process only the first N photos (for kinks-first runs). When "
+            "set, the classifier still continues PAST the limit on demand "
+            "until it sees a 'new product' transition, so the last group's "
+            "boundary is decided by the model rather than by the cap."
+        ),
     )
     parser.add_argument(
         "--model",
@@ -337,13 +373,20 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    photos = list_photos()
+    all_photos = list_photos()
     if args.limit is not None:
-        photos = photos[: args.limit]
-    groups = assign_groups(photos, model=args.model)
+        sample = all_photos[: args.limit]
+        extension: list[Path] = all_photos[args.limit :]
+    else:
+        sample = all_photos
+        extension = []
+    groups = assign_groups(
+        sample, model=args.model, extension_pool=extension or None
+    )
     write_groups(groups, out_path=args.out)
     print(
-        f"Wrote {len(groups)} groups across {len(photos)} photos to {args.out}"
+        f"Wrote {len(groups)} groups across {len(sample)} sampled photos "
+        f"(plus boundary-resolution probes) to {args.out}"
     )
     return 0
 
