@@ -236,6 +236,179 @@ def test_index_renders_inter_group_gaps(tmp_path: Path) -> None:
     assert "1 h" in body
 
 
+def test_load_groups_returns_empty_for_non_object_top_level(
+    tmp_path: Path,
+) -> None:
+    groups_json = tmp_path / "g.json"
+    groups_json.write_text("[]")
+    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
+    client = app.test_client()
+    body = client.get("/").data.decode()
+    assert "0 groups" in body
+
+
+def test_load_groups_returns_empty_when_groups_field_is_not_a_list(
+    tmp_path: Path,
+) -> None:
+    groups_json = tmp_path / "g.json"
+    groups_json.write_text(json.dumps({"groups": "oops"}))
+    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
+    client = app.test_client()
+    body = client.get("/").data.decode()
+    assert "0 groups" in body
+
+
+def test_load_groups_filters_out_non_dict_entries(tmp_path: Path) -> None:
+    groups_json = tmp_path / "g.json"
+    groups_json.write_text(
+        json.dumps(
+            {
+                "groups": [
+                    "not a group",
+                    {
+                        "id": "real",
+                        "store": "MOM",
+                        "photos": [],
+                        "warnings": [],
+                    },
+                ]
+            }
+        )
+    )
+    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
+    client = app.test_client()
+    body = client.get("/").data.decode()
+    assert "1 groups" in body
+    assert "real" in body
+
+
+def test_thumb_skips_groups_with_non_list_photos_field(
+    tmp_path: Path,
+) -> None:
+    """resolve_photo's iteration over groups must tolerate a malformed
+    photos field (str instead of list) and skip non-dict entries instead of
+    blowing up."""
+    photos_dir = tmp_path / "photos"
+    photos_dir.mkdir()
+    _solid_image(photos_dir / "real.jpg")
+    groups_json = tmp_path / "g.json"
+    groups_json.write_text(
+        json.dumps(
+            {
+                "groups": [
+                    {
+                        "id": "g1",
+                        "store": "MOM",
+                        "photos": "oops",
+                        "warnings": [],
+                    },
+                    {
+                        "id": "g2",
+                        "store": "MOM",
+                        "photos": [
+                            "just a string",
+                            {
+                                "path": str(photos_dir / "real.jpg"),
+                                "roles": ["front"],
+                            },
+                        ],
+                        "warnings": [],
+                    },
+                ]
+            }
+        )
+    )
+    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
+    client = app.test_client()
+    response = client.get("/thumb/real.jpg")
+    assert response.status_code == 200
+
+
+def test_index_tolerates_garbled_photo_entries(tmp_path: Path) -> None:
+    """A group whose photos field isn't a list, or contains non-dict items
+    or non-string paths, renders as if it had no photos rather than 500."""
+    groups_json = tmp_path / "g.json"
+    groups_json.write_text(
+        json.dumps(
+            {
+                "groups": [
+                    {
+                        "id": "g1",
+                        "store": "MOM",
+                        "photos": "oops",
+                        "warnings": [],
+                    },
+                    {
+                        "id": "g2",
+                        "store": "MOM",
+                        "photos": [
+                            "not a dict",
+                            {"path": 42, "roles": []},
+                            {"path": "ok.jpg", "roles": ["front"]},
+                        ],
+                        "warnings": [],
+                    },
+                ]
+            }
+        )
+    )
+    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
+    client = app.test_client()
+    response = client.get("/")
+    assert response.status_code == 200
+
+
+def test_update_group_in_place_returns_404_for_non_object_top_level(
+    tmp_path: Path,
+) -> None:
+    groups_json = tmp_path / "g.json"
+    groups_json.write_text("[]")
+    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
+    client = app.test_client()
+    response = client.post(
+        "/api/group/anything", json={"has_errors": True, "comment": "x"}
+    )
+    assert response.status_code == 404
+
+
+def test_update_group_in_place_returns_404_when_groups_not_a_list(
+    tmp_path: Path,
+) -> None:
+    groups_json = tmp_path / "g.json"
+    groups_json.write_text(json.dumps({"groups": "oops"}))
+    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
+    client = app.test_client()
+    response = client.post(
+        "/api/group/anything", json={"has_errors": True, "comment": "x"}
+    )
+    assert response.status_code == 404
+
+
+def test_update_group_in_place_skips_non_dict_entries(tmp_path: Path) -> None:
+    groups_json = tmp_path / "g.json"
+    groups_json.write_text(
+        json.dumps(
+            {
+                "groups": [
+                    "skip me",
+                    {
+                        "id": "real",
+                        "store": "MOM",
+                        "photos": [],
+                        "warnings": [],
+                    },
+                ]
+            }
+        )
+    )
+    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
+    client = app.test_client()
+    response = client.post(
+        "/api/group/real", json={"has_errors": True, "comment": "ok"}
+    )
+    assert response.status_code == 200
+
+
 def test_thumb_resolves_extension_pool_paths(tmp_path: Path) -> None:
     """Photos that arrived via the boundary-resolution extension pool
     have paths that point outside ``photos_dir`` (e.g. data/raw_photos/).

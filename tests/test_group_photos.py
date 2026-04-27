@@ -13,6 +13,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 from group_photos import (
     CVS_CUTOFF_FILENAME,
+    Classification,
     Group,
     GROUPING_JSON_SCHEMA,
     GROUPING_SYSTEM_PROMPT,
@@ -96,9 +97,9 @@ def test_parse_classification_happy_path() -> None:
     payload = _parse_classification(
         '{"is_same_product": true, "roles": ["front"], "rationale": "matches"}'
     )
-    assert payload["is_same_product"] is True
-    assert payload["roles"] == ["front"]
-    assert payload["rationale"] == "matches"
+    assert payload.is_same_product is True
+    assert payload.roles == ["front"]
+    assert payload.rationale == "matches"
 
 
 def test_parse_classification_rejects_bad_is_same_product() -> None:
@@ -193,7 +194,7 @@ def test_classify_photo_passes_full_context_to_claude(tmp_path: Path) -> None:
                 current=cur_path, previous=prev_path, front=front_path
             )
 
-    assert payload["is_same_product"] is True
+    assert payload.is_same_product is True
     request = mock_call.call_args.args[0]
     # Three images (previous, current, front).
     assert len(request.image_paths) == 3
@@ -306,12 +307,10 @@ def test_assign_groups_continues_running_group_when_same_product(
         ],
     )
 
-    def fake_classify(**_kwargs: object) -> dict[str, object]:
-        return {
-            "is_same_product": True,
-            "roles": ["nutrition"],
-            "rationale": "wraps around",
-        }
+    def fake_classify(**_kwargs: object) -> Classification:
+        return Classification(
+            is_same_product=True, roles=["nutrition"], rationale="wraps around"
+        )
 
     with patch("group_photos.classify_photo", side_effect=fake_classify):
         groups = assign_groups(paths)
@@ -331,12 +330,12 @@ def test_assign_groups_starts_new_group_when_new_product(
         ],
     )
 
-    def fake_classify(**_kwargs: object) -> dict[str, object]:
-        return {
-            "is_same_product": False,
-            "roles": ["front"],
-            "rationale": "different bottle",
-        }
+    def fake_classify(**_kwargs: object) -> Classification:
+        return Classification(
+            is_same_product=False,
+            roles=["front"],
+            rationale="different bottle",
+        )
 
     with patch("group_photos.classify_photo", side_effect=fake_classify):
         groups = assign_groups(paths)
@@ -358,12 +357,12 @@ def test_assign_groups_starts_new_group_when_store_changes(
         ],
     )
 
-    def fake_classify(**_kwargs: object) -> dict[str, object]:
-        return {
-            "is_same_product": True,
-            "roles": ["front"],
-            "rationale": "wrong, but the cutoff overrides",
-        }
+    def fake_classify(**_kwargs: object) -> Classification:
+        return Classification(
+            is_same_product=True,
+            roles=["front"],
+            rationale="wrong, but the cutoff overrides",
+        )
 
     with patch("group_photos.classify_photo", side_effect=fake_classify):
         groups = assign_groups(paths)
@@ -397,15 +396,15 @@ def test_assign_groups_extension_pool_extends_running_group(
 
     calls = {"count": 0}
 
-    def fake_classify(*, current: Path, **_kwargs: object) -> dict[str, object]:
+    def fake_classify(*, current: Path, **_kwargs: object) -> Classification:
         calls["count"] += 1
         # Pretend the boundary lives between 165814496 and 165824836.
         is_same = current.name < "PXL_20260426_165824836.jpg"
-        return {
-            "is_same_product": is_same,
-            "roles": ["nutrition"] if is_same else ["front"],
-            "rationale": "fake",
-        }
+        return Classification(
+            is_same_product=is_same,
+            roles=["nutrition"] if is_same else ["front"],
+            rationale="fake",
+        )
 
     with patch("group_photos.classify_photo", side_effect=fake_classify):
         groups = assign_groups(sample, extension_pool=extension)
@@ -440,12 +439,10 @@ def test_assign_groups_extension_pool_skips_photos_at_or_before_last_seen(
         ],
     )
 
-    def fake_classify(**_kwargs: object) -> dict[str, object]:
-        return {
-            "is_same_product": False,
-            "roles": ["front"],
-            "rationale": "new",
-        }
+    def fake_classify(**_kwargs: object) -> Classification:
+        return Classification(
+            is_same_product=False, roles=["front"], rationale="new"
+        )
 
     with patch("group_photos.classify_photo", side_effect=fake_classify):
         groups = assign_groups(sample, extension_pool=extension)
@@ -468,11 +465,9 @@ def test_main_runs_without_limit_uses_no_extension(
     monkeypatch.setattr("group_photos.GROUPING_RESIZE_DIR", tmp_path / "rs")
     monkeypatch.setattr(
         "group_photos.classify_photo",
-        lambda **_kw: {
-            "is_same_product": True,
-            "roles": ["nutrition"],
-            "rationale": "x",
-        },
+        lambda **_kw: Classification(
+            is_same_product=True, roles=["nutrition"], rationale="x"
+        ),
     )
     monkeypatch.setattr("sys.argv", ["group_photos.py", "--out", str(out_path)])
     rc = main()
@@ -488,12 +483,10 @@ def test_assign_groups_extension_pool_skips_already_seen(
     sample = _photos_in(tmp_path, ["PXL_20260426_165737642.jpg"])
     extension = sample + _photos_in(tmp_path, ["PXL_20260426_165855659.jpg"])
 
-    def fake_classify(**_kwargs: object) -> dict[str, object]:
-        return {
-            "is_same_product": False,
-            "roles": ["front"],
-            "rationale": "new",
-        }
+    def fake_classify(**_kwargs: object) -> Classification:
+        return Classification(
+            is_same_product=False, roles=["front"], rationale="new"
+        )
 
     with patch("group_photos.classify_photo", side_effect=fake_classify):
         groups = assign_groups(sample, extension_pool=extension)
@@ -520,12 +513,10 @@ def test_assign_groups_extension_pool_stops_at_first_boundary(
         ["PXL_20260426_165855659.jpg"],  # immediate "new product"
     )
 
-    def fake_classify(**_kwargs: object) -> dict[str, object]:
-        return {
-            "is_same_product": False,
-            "roles": ["front"],
-            "rationale": "new product",
-        }
+    def fake_classify(**_kwargs: object) -> Classification:
+        return Classification(
+            is_same_product=False, roles=["front"], rationale="new product"
+        )
 
     with patch("group_photos.classify_photo", side_effect=fake_classify):
         groups = assign_groups(sample, extension_pool=extension)
@@ -584,14 +575,14 @@ def test_main_runs_end_to_end_with_mocked_classification(
 
     classify_calls: list[str] = []
 
-    def fake_classify(*, current: Path, **_kwargs: object) -> dict[str, object]:
+    def fake_classify(*, current: Path, **_kwargs: object) -> Classification:
         classify_calls.append(current.name)
         is_same = current.name != "PXL_20260426_003.jpg"
-        return {
-            "is_same_product": is_same,
-            "roles": ["nutrition"] if is_same else ["front"],
-            "rationale": "x",
-        }
+        return Classification(
+            is_same_product=is_same,
+            roles=["nutrition"] if is_same else ["front"],
+            rationale="x",
+        )
 
     monkeypatch.setattr("group_photos.RAW_PHOTOS_DIR", raw_dir)
     monkeypatch.setattr("group_photos.GROUPING_RESIZE_DIR", tmp_path / "rs")

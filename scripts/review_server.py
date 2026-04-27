@@ -19,8 +19,6 @@ import io
 import json
 from pathlib import Path
 
-from typing import Any
-
 from flask import (
     Flask,
     Response,
@@ -32,6 +30,7 @@ from flask import (
 )
 from PIL import Image, ImageOps
 
+from _json_types import JsonObject, JsonValue
 from group_photos import (
     GROUPS_JSON,
     RAW_PHOTOS_DIR,
@@ -163,13 +162,9 @@ def create_app(
         against the groups_json file's directory for repo-relative
         entries), then falls back to ``photos_dir / filename``.
         """
-        groups = _load_groups(groups_json)
         groups_root = groups_json.resolve().parent
-        for g in groups:
-            photos = g["photos"]
-            assert isinstance(photos, list)
-            for p in photos:
-                stored = Path(str(p["path"]))
+        for g in _load_groups(groups_json):
+            for stored in _photo_paths_in_group(g):
                 if stored.name != filename:
                     continue
                 candidate = (
@@ -190,18 +185,28 @@ def create_app(
         groups = _load_groups(groups_json)
         prev_last_filename: str | None = None
         for g in groups:
-            photos = g["photos"]
-            assert isinstance(photos, list)
+            photos = g.get("photos")
+            if not isinstance(photos, list):
+                photos = []
+                g["photos"] = photos
+            filenames: list[str] = []
             for p in photos:
-                p["filename"] = Path(p["path"]).name
+                if not isinstance(p, dict):
+                    continue
+                path_value = p.get("path")
+                if not isinstance(path_value, str):
+                    continue
+                name = Path(path_value).name
+                p["filename"] = name
+                filenames.append(name)
             g.setdefault("has_errors", False)
             g.setdefault("comment", "")
-            first_filename = photos[0]["filename"] if photos else None
+            first_filename = filenames[0] if filenames else None
             gap_str, gap_short = _format_gap(prev_last_filename, first_filename)
             g["gap_to_previous"] = gap_str
             g["gap_short"] = gap_short
-            if photos:
-                prev_last_filename = photos[-1]["filename"]
+            if filenames:
+                prev_last_filename = filenames[-1]
         return render_template_string(INDEX_TEMPLATE, groups=groups)
 
     @app.get("/thumb/<path:filename>")
@@ -232,19 +237,57 @@ def create_app(
     return app
 
 
-def _load_groups(groups_json: Path) -> list[dict[str, Any]]:
+def _load_groups(groups_json: Path) -> list[JsonObject]:
+    """Load and shape-check the ``groups`` array from the on-disk JSON.
+
+    The file's full contents are typed as :data:`JsonValue`; we narrow with
+    explicit ``isinstance`` checks rather than treating it as ``Any`` so a
+    malformed file is rejected at the boundary instead of producing a stack
+    trace deep inside the request handler.
+    """
     if not groups_json.exists():
         return []
-    payload = json.loads(groups_json.read_text())
-    groups: list[dict[str, Any]] = payload.get("groups", [])
-    return groups
+    payload: JsonValue = json.loads(groups_json.read_text())
+    if not isinstance(payload, dict):
+        return []
+    groups = payload.get("groups")
+    if not isinstance(groups, list):
+        return []
+    return [g for g in groups if isinstance(g, dict)]
+
+
+def _photo_paths_in_group(g: JsonObject) -> list[Path]:
+    """Yield the ``photo.path`` values from a group dict, narrowed to Paths."""
+    photos = g.get("photos")
+    if not isinstance(photos, list):
+        return []
+    out: list[Path] = []
+    for p in photos:
+        if not isinstance(p, dict):
+            continue
+        path_value = p.get("path")
+        if isinstance(path_value, str):
+            out.append(Path(path_value))
+    return out
 
 
 def _update_group_in_place(
     groups_json: Path, group_id: str, has_errors: bool, comment: str
 ) -> bool:
-    payload = json.loads(groups_json.read_text())
-    for g in payload.get("groups", []):
+    """Update one group's review-flag fields without touching anything else.
+
+    Reads/writes the full JSON document so any extra fields (manual
+    annotations, future schema additions) round-trip intact.
+    """
+    payload: JsonValue = json.loads(groups_json.read_text())
+    if not isinstance(payload, dict):
+        return False
+    groups = payload.get("groups")
+    if not isinstance(groups, list):
+        return False
+    for g in groups:
+        if not isinstance(g, dict):
+            continue
         if g.get("id") == group_id:
             g["has_errors"] = has_errors
             g["comment"] = comment

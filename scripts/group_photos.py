@@ -24,6 +24,7 @@ from pathlib import Path
 
 from _claude import ClaudeRequest, call
 from _image_ops import resize_to_longest_side
+from _json_types import JsonValue
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RAW_PHOTOS_DIR = REPO_ROOT / "data" / "raw_photos"
@@ -149,6 +150,15 @@ class Group:
     locked: bool = False
 
 
+@dataclasses.dataclass(frozen=True)
+class Classification:
+    """The classifier's verdict on a single photo within the running stream."""
+
+    is_same_product: bool
+    roles: list[str]
+    rationale: str
+
+
 def store_for(filename: str) -> str:
     return "CVS" if filename >= CVS_CUTOFF_FILENAME else "MOM"
 
@@ -169,8 +179,8 @@ def classify_photo(
     previous: Path | None,
     front: Path | None,
     model: str = "sonnet",
-) -> dict[str, object]:
-    """Ask Sonnet to classify the current photo. Returns the parsed JSON dict."""
+) -> Classification:
+    """Ask Sonnet to classify the current photo."""
     images: list[Path] = []
     image_descriptions: list[str] = []
     if previous is not None:
@@ -260,18 +270,21 @@ def assign_groups(
             else None
         )
         if previous is None:
-            classification: dict[str, object] = {
-                "is_same_product": False,
-                "roles": ["front"],
-                "rationale": "First photo of the session — assumed to be a new product front.",
-            }
+            classification = Classification(
+                is_same_product=False,
+                roles=["front"],
+                rationale=(
+                    "First photo of the session — assumed to be a new "
+                    "product front."
+                ),
+            )
         else:
             classification = classify_photo(
                 current=photo, previous=previous, front=front, model=model
             )
 
-        is_same = bool(classification["is_same_product"])
-        roles = list(classification["roles"])  # type: ignore[arg-type]
+        is_same = classification.is_same_product
+        roles = list(classification.roles)
         store_changed = (
             previous is not None and store_for(previous.name) != store
         )
@@ -365,16 +378,22 @@ def _resize_for_grouping(photo: Path) -> Path:
     )
 
 
-def _parse_classification(raw: str) -> dict[str, object]:
+def _parse_classification(raw: str) -> Classification:
     cleaned = _extract_json_object(raw)
-    data: dict[str, object] = json.loads(cleaned)
+    data: JsonValue = json.loads(cleaned)
+    # Narrowing for the type system. _extract_json_object returns a string
+    # bracketed by {...}, so json.loads always yields a dict here in practice;
+    # this branch is defensive against future loosening of the extractor.
+    if not isinstance(data, dict):  # pragma: no cover
+        raise ValueError(
+            f"Expected JSON object, got {type(data).__name__} from {raw!r}"
+        )
     is_same = data.get("is_same_product")
-    roles = data.get("roles")
-    rationale = data.get("rationale", "")
     if not isinstance(is_same, bool):
         raise ValueError(
             f"Expected boolean is_same_product, got {is_same!r} from {raw!r}"
         )
+    roles = data.get("roles")
     if (
         not isinstance(roles, list)
         or not all(isinstance(r, str) and r in VALID_ROLES for r in roles)
@@ -383,11 +402,12 @@ def _parse_classification(raw: str) -> dict[str, object]:
         raise ValueError(
             f"Expected non-empty list of valid roles, got {roles!r} from {raw!r}"
         )
-    return {
-        "is_same_product": is_same,
-        "roles": roles,
-        "rationale": str(rationale),
-    }
+    rationale = data.get("rationale", "")
+    return Classification(
+        is_same_product=is_same,
+        roles=[r for r in roles if isinstance(r, str)],
+        rationale=str(rationale),
+    )
 
 
 def _extract_json_object(raw: str) -> str:
