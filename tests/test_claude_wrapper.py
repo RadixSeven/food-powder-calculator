@@ -191,6 +191,52 @@ def test_call_creates_cache_dir_if_missing(tmp_path: Path) -> None:
     assert cache_dir.exists()
 
 
+def test_call_records_request_on_fresh_run(tmp_path: Path) -> None:
+    """Every call writes the serialized request into requests/<sha>.json so
+    a re-run is auditable from disk even before the response comes back."""
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
+    cache_dir = tmp_path / "cache"
+
+    with patch("_claude.CACHE_DIR", cache_dir):
+        with patch("_claude._run_claude_subprocess", return_value="ok"):
+            call(r)
+
+    request_path = cache_dir / "requests" / f"{_request_sha(r)}.json"
+    assert request_path.exists()
+    payload = json.loads(request_path.read_text())
+    assert payload["prompt"] == "hi"
+    assert payload["model"] == "haiku"
+    # Path objects are serialized as strings via the json default=str hook.
+    assert payload["image_paths"] == [str(img)]
+
+
+def test_call_records_request_even_when_response_is_cached(
+    tmp_path: Path,
+) -> None:
+    """A cache hit short-circuits the subprocess but still records the
+    request, so the on-disk request log is complete regardless of whether
+    each call hit the cache or the network."""
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    (cache_dir / f"{_request_sha(r)}.json").write_text(
+        json.dumps({"text": "cached!"})
+    )
+
+    with patch("_claude.CACHE_DIR", cache_dir):
+        with patch("_claude._run_claude_subprocess") as mock_sub:
+            response = call(r)
+
+    assert response.cached is True
+    mock_sub.assert_not_called()
+    request_path = cache_dir / "requests" / f"{_request_sha(r)}.json"
+    assert request_path.exists()
+    payload = json.loads(request_path.read_text())
+    assert payload["prompt"] == "hi"
+
+
 def test_run_claude_subprocess_raises_on_nonzero_exit() -> None:
     from _claude import _run_claude_subprocess
 
