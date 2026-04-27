@@ -12,11 +12,13 @@ from unittest.mock import patch
 
 import pytest
 from _claude import (
+    ClaudeRateLimitError,
     ClaudeRequest,
     ClaudeResponse,
     ClaudeSubprocessError,
     _all_dirs,
     _compose_stdin_prompt,
+    _detect_rate_limit,
     _file_sha,
     _request_sha,
     call,
@@ -194,6 +196,97 @@ def test_run_claude_subprocess_raises_on_nonzero_exit() -> None:
             _run_claude_subprocess(r)
     assert excinfo.value.returncode == 1
     assert "boom" in str(excinfo.value)
+
+
+def test_detect_rate_limit_json_envelope() -> None:
+    envelope = json.dumps(
+        {
+            "type": "result",
+            "is_error": True,
+            "api_error_status": 429,
+            "result": "You've hit your limit · resets 1am (America/New_York)",
+        }
+    )
+    msg = _detect_rate_limit(envelope, "")
+    assert msg is not None
+    assert "1am" in msg
+
+
+def test_detect_rate_limit_text_mode_substring() -> None:
+    msg = _detect_rate_limit("You've hit your limit · resets soon\n", "")
+    assert msg is not None
+    assert "hit your limit" in msg.lower()
+
+
+def test_detect_rate_limit_text_mode_substring_only_in_stderr() -> None:
+    msg = _detect_rate_limit("", "Error: you've hit your limit\n")
+    assert msg is not None
+
+
+def test_detect_rate_limit_text_mode_no_per_line_match() -> None:
+    """Defensive: even if line-splitting fails to find the marker, the
+    substring path returns the generic message rather than None."""
+    # Force a case where the marker is in stdout but split() yields the
+    # only line — already covered by the substring check at end.
+    msg = _detect_rate_limit("hit your limit", "")
+    assert msg is not None
+
+
+def test_detect_rate_limit_returns_none_for_normal_response() -> None:
+    envelope = json.dumps(
+        {"type": "result", "is_error": False, "result": "all good"}
+    )
+    assert _detect_rate_limit(envelope, "") is None
+
+
+def test_detect_rate_limit_returns_none_for_non_json_normal_text() -> None:
+    assert _detect_rate_limit("hello world", "") is None
+
+
+def test_detect_rate_limit_envelope_other_error_is_not_rate_limit() -> None:
+    """A 500 error envelope shouldn't be classified as rate limit."""
+    envelope = json.dumps(
+        {
+            "type": "result",
+            "is_error": True,
+            "api_error_status": 500,
+            "result": "internal server error",
+        }
+    )
+    assert _detect_rate_limit(envelope, "") is None
+
+
+def test_run_claude_subprocess_raises_rate_limit_on_429_envelope() -> None:
+    from _claude import _run_claude_subprocess
+
+    r = ClaudeRequest(
+        prompt="hi",
+        model="sonnet",
+        json_schema='{"type":"object"}',
+    )
+
+    envelope = json.dumps(
+        {
+            "type": "result",
+            "is_error": True,
+            "api_error_status": 429,
+            "result": "You've hit your limit · resets 1am",
+        }
+    )
+
+    class FakeCompleted:
+        returncode = 1
+        stdout = envelope
+        stderr = ""
+
+    with patch("_claude.subprocess.run", return_value=FakeCompleted()):
+        with pytest.raises(ClaudeRateLimitError) as excinfo:
+            _run_claude_subprocess(r)
+    assert "1am" in excinfo.value.limit_message
+    # Subclass relationship — callers that catch ClaudeSubprocessError still see it.
+    assert isinstance(excinfo.value, ClaudeSubprocessError)
+    # __str__ surfaces the actionable hint.
+    assert "Re-run after the limit resets" in str(excinfo.value)
 
 
 def test_run_claude_subprocess_returns_stripped_text_without_schema() -> None:

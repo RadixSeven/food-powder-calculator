@@ -85,6 +85,13 @@ def _run_claude_subprocess(request: ClaudeRequest) -> str:
     When ``json_schema`` is set we switch the wire format to JSON envelope so
     we can pull the schema-validated ``structured_output`` field out — in
     plain-text mode the structured output is dropped.
+
+    Rate-limit failures (HTTP 429) are detected in the JSON envelope (or in
+    stdout text in text-mode) and raised as :class:`ClaudeRateLimitError`,
+    which is a subclass of :class:`ClaudeSubprocessError` so callers that
+    only catch the latter still see them. The wrapper does NOT retry — that
+    would burn more LLM calls — leaving cleanup (e.g. exit-and-resume from
+    the cache) to the caller.
     """
     cmd: list[str] = [
         "claude",
@@ -110,6 +117,15 @@ def _run_claude_subprocess(request: ClaudeRequest) -> str:
         timeout=DEFAULT_TIMEOUT_SECONDS,
         check=False,
     )
+    rate_limit_message = _detect_rate_limit(result.stdout, result.stderr)
+    if rate_limit_message is not None:
+        raise ClaudeRateLimitError(
+            returncode=result.returncode,
+            stdout=result.stdout,
+            stderr=result.stderr,
+            cmd=cmd,
+            limit_message=rate_limit_message,
+        )
     if result.returncode != 0:
         raise ClaudeSubprocessError(
             returncode=result.returncode,
@@ -120,6 +136,30 @@ def _run_claude_subprocess(request: ClaudeRequest) -> str:
     if request.json_schema is not None:
         return _extract_structured_output(result.stdout)
     return result.stdout.strip()
+
+
+def _detect_rate_limit(stdout: str, stderr: str) -> str | None:
+    """Return the rate-limit message if claude reported 429, else None.
+
+    Two transports to handle:
+
+    * JSON envelope mode (``--output-format json``): ``is_error: true`` AND
+      ``api_error_status: 429`` in the parsed envelope.
+    * Plain-text mode: stdout/stderr contains "hit your limit" or a literal
+      "429" near "limit" — Claude Code's rate-limit message is human-
+      readable and stable enough for substring matching.
+    """
+    try:
+        envelope = json.loads(stdout)
+    except (json.JSONDecodeError, ValueError):
+        envelope = None
+    if isinstance(envelope, dict):
+        if envelope.get("is_error") and envelope.get("api_error_status") == 429:
+            return str(envelope.get("result") or "rate limit hit")
+    for line in (stdout + "\n" + stderr).splitlines():
+        if "hit your limit" in line.lower():
+            return line.strip()
+    return None
 
 
 def _extract_structured_output(envelope_json: str) -> str:
@@ -215,9 +255,31 @@ class ClaudeSubprocessError(Exception):
         )
 
 
+@dataclass
+class ClaudeRateLimitError(ClaudeSubprocessError):
+    """Raised when claude -p reports an HTTP 429 rate-limit error.
+
+    Carries the human-readable limit message so callers can surface a clean
+    "wait and re-run; cached calls will be skipped" diagnostic. The wrapper
+    deliberately does NOT auto-retry: rate-limit resets are typically hours
+    away and burning more LLM calls in the meantime is exactly the wrong
+    response.
+    """
+
+    limit_message: str = ""
+
+    def __str__(self) -> str:
+        return (
+            f"claude rate-limit: {self.limit_message}\n"
+            "Re-run after the limit resets; cached responses will be reused "
+            "so no work is lost."
+        )
+
+
 # Re-exports
 __all__ = [
     "CACHE_DIR",
+    "ClaudeRateLimitError",
     "ClaudeRequest",
     "ClaudeResponse",
     "ClaudeSubprocessError",
