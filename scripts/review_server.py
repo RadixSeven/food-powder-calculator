@@ -34,6 +34,7 @@ from PIL import Image, ImageOps
 
 from group_photos import GROUPS_JSON, RAW_PHOTOS_DIR
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
 THUMBNAIL_LONGEST_SIDE = 320
 
 INDEX_TEMPLATE = """<!doctype html>
@@ -131,12 +132,49 @@ def create_app(
     groups_json: Path = GROUPS_JSON,
     photos_dir: Path = RAW_PHOTOS_DIR,
 ) -> Flask:
+    """Build the review Flask app.
+
+    ``photos_dir`` is the *fallback* lookup directory for thumbnails — the
+    actual lookup first tries to resolve the path stored in
+    ``groups.json`` (which may live in a sample directory, in
+    ``data/raw_photos/``, or anywhere). Photos arriving via the
+    extension-pool boundary-resolution stage carry repo-relative paths,
+    so we have to honour those too.
+    """
     app = Flask(__name__)
+
+    def resolve_photo(filename: str) -> Path | None:
+        """Find the on-disk JPEG for ``filename`` (a basename).
+
+        Looks first at every photo path stored in groups.json (resolved
+        against the groups_json file's directory for repo-relative
+        entries), then falls back to ``photos_dir / filename``.
+        """
+        groups = _load_groups(groups_json)
+        groups_root = groups_json.resolve().parent
+        for g in groups:
+            photos = g["photos"]
+            assert isinstance(photos, list)
+            for p in photos:
+                stored = Path(str(p["path"]))
+                if stored.name != filename:
+                    continue
+                candidate = (
+                    stored if stored.is_absolute() else (groups_root / stored)
+                )
+                if candidate.exists():
+                    return candidate
+                # The plan stores paths repo-relative to the project root
+                # (data/raw_photos/...). Try that too.
+                repo_relative = REPO_ROOT / stored
+                if repo_relative.exists():
+                    return repo_relative
+        fallback = photos_dir / filename
+        return fallback if fallback.exists() else None
 
     @app.get("/")
     def index() -> str:
         groups = _load_groups(groups_json)
-        # Add a `filename` field per photo for thumbnail rendering.
         for g in groups:
             photos = g["photos"]
             assert isinstance(photos, list)
@@ -148,15 +186,15 @@ def create_app(
 
     @app.get("/thumb/<path:filename>")
     def thumb(filename: str) -> Response:
-        src = photos_dir / filename
-        if not src.exists():
+        src = resolve_photo(filename)
+        if src is None:
             abort(404)
         return _serve_thumbnail(src)
 
     @app.get("/raw/<path:filename>")
     def raw(filename: str) -> Response:
-        src = photos_dir / filename
-        if not src.exists():
+        src = resolve_photo(filename)
+        if src is None:
             abort(404)
         return send_file(str(src.resolve()), mimetype="image/jpeg")
 

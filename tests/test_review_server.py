@@ -126,6 +126,89 @@ def test_raw_404_for_unknown_filename(
     assert response.status_code == 404
 
 
+def test_thumb_resolves_extension_pool_paths(tmp_path: Path) -> None:
+    """Photos that arrived via the boundary-resolution extension pool
+    have paths that point outside ``photos_dir`` (e.g. data/raw_photos/).
+    The server must still serve their thumbnails by following the path
+    stored in groups.json."""
+    sample_dir = tmp_path / "sample"
+    sample_dir.mkdir()
+    extension_dir = tmp_path / "extension"
+    extension_dir.mkdir()
+    _solid_image(sample_dir / "in_sample.jpg")
+    _solid_image(extension_dir / "in_extension.jpg")
+    groups_json = tmp_path / "groups.json"
+    groups_json.write_text(
+        json.dumps(
+            {
+                "groups": [
+                    {
+                        "id": "g1",
+                        "store": "MOM",
+                        "photos": [
+                            {
+                                "path": str(sample_dir / "in_sample.jpg"),
+                                "roles": ["front"],
+                            },
+                            {
+                                "path": str(extension_dir / "in_extension.jpg"),
+                                "roles": ["price-tag"],
+                            },
+                        ],
+                        "warnings": [],
+                        "locked": False,
+                    },
+                ]
+            }
+        )
+    )
+
+    app = create_app(groups_json=groups_json, photos_dir=sample_dir)
+    client = app.test_client()
+    # Sample photo: resolves via groups.json path AND via fallback dir.
+    assert client.get("/thumb/in_sample.jpg").status_code == 200
+    # Extension photo: resolves only via the path stored in groups.json.
+    assert client.get("/thumb/in_extension.jpg").status_code == 200
+    assert client.get("/raw/in_extension.jpg").status_code == 200
+
+
+def test_thumb_resolves_repo_relative_paths(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Paths stored as repo-relative (e.g. data/raw_photos/x.jpg) are
+    resolved against REPO_ROOT."""
+    fake_root = tmp_path / "repo"
+    fake_root.mkdir()
+    (fake_root / "data" / "raw_photos").mkdir(parents=True)
+    _solid_image(fake_root / "data" / "raw_photos" / "rel.jpg")
+    groups_json = tmp_path / "groups.json"
+    groups_json.write_text(
+        json.dumps(
+            {
+                "groups": [
+                    {
+                        "id": "g1",
+                        "store": "MOM",
+                        "photos": [
+                            {
+                                "path": "data/raw_photos/rel.jpg",
+                                "roles": ["front"],
+                            }
+                        ],
+                        "warnings": [],
+                        "locked": False,
+                    }
+                ]
+            }
+        )
+    )
+
+    monkeypatch.setattr("review_server.REPO_ROOT", fake_root)
+    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
+    client = app.test_client()
+    assert client.get("/thumb/rel.jpg").status_code == 200
+
+
 def test_post_updates_group_in_place(fixture_paths: tuple[Path, Path]) -> None:
     groups_json, photos_dir = fixture_paths
     app = create_app(groups_json=groups_json, photos_dir=photos_dir)
