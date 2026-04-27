@@ -148,8 +148,9 @@ def test_call_uses_cache_when_present(tmp_path: Path) -> None:
     r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
     cache_dir = tmp_path / "cache"
     cached_text = "cached!"
-    cache_path = cache_dir / f"{_request_sha(r)}.json"
-    cache_dir.mkdir()
+    response_dir = cache_dir / "responses"
+    response_dir.mkdir(parents=True)
+    cache_path = response_dir / f"{_request_sha(r)}.json"
     cache_path.write_text(json.dumps({"text": cached_text}))
 
     with patch("_claude.CACHE_DIR", cache_dir):
@@ -173,7 +174,7 @@ def test_call_writes_cache_after_fresh_run(tmp_path: Path) -> None:
 
     assert response.cached is False
     assert response.text == "fresh response"
-    cache_path = cache_dir / f"{_request_sha(r)}.json"
+    cache_path = cache_dir / "responses" / f"{_request_sha(r)}.json"
     assert cache_path.exists()
     payload = json.loads(cache_path.read_text())
     assert payload["text"] == "fresh response"
@@ -188,7 +189,8 @@ def test_call_creates_cache_dir_if_missing(tmp_path: Path) -> None:
         with patch("_claude._run_claude_subprocess", return_value="ok"):
             call(r)
 
-    assert cache_dir.exists()
+    assert (cache_dir / "responses").exists()
+    assert (cache_dir / "requests").exists()
 
 
 def test_call_records_request_on_fresh_run(tmp_path: Path) -> None:
@@ -220,8 +222,9 @@ def test_call_records_request_even_when_response_is_cached(
     img = _make_image(tmp_path, "a.png", (255, 0, 0))
     r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
     cache_dir = tmp_path / "cache"
-    cache_dir.mkdir()
-    (cache_dir / f"{_request_sha(r)}.json").write_text(
+    response_dir = cache_dir / "responses"
+    response_dir.mkdir(parents=True)
+    (response_dir / f"{_request_sha(r)}.json").write_text(
         json.dumps({"text": "cached!"})
     )
 

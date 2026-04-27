@@ -22,11 +22,13 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CACHE_DIR = REPO_ROOT / "data" / "cache"
-# Subdir of CACHE_DIR that records every request we send (independent of
-# whether a response is cached), so a re-run can be audited from disk.
-# Derived from CACHE_DIR at call time so tests that patch CACHE_DIR pick
-# up the override automatically.
+# Subdirs of CACHE_DIR. Requests are recorded for every call (independent
+# of whether a response is cached) so a re-run can be audited from disk;
+# responses live in their own subdir to keep the top-level cache directory
+# browsable. Both are derived from CACHE_DIR at call time so tests that
+# patch CACHE_DIR pick up the override automatically.
 REQUEST_CACHE_SUBDIR = "requests"
+RESPONSE_CACHE_SUBDIR = "responses"
 
 # Wall-clock cap per claude invocation. Long enough for vision calls on
 # large images, short enough that a hung subprocess doesn't block forever.
@@ -80,9 +82,10 @@ def call(request: ClaudeRequest) -> ClaudeResponse:
     """
     request_sha = _request_sha(request)
     request_cache_dir = CACHE_DIR / REQUEST_CACHE_SUBDIR
+    response_cache_dir = CACHE_DIR / RESPONSE_CACHE_SUBDIR
     request_cache_dir.mkdir(parents=True, exist_ok=True)
     request_cache_path = request_cache_dir / f"{request_sha}.json"
-    cache_path = CACHE_DIR / f"{request_sha}.json"
+    cache_path = response_cache_dir / f"{request_sha}.json"
     with request_cache_path.open("w") as req_cache_file:
         json.dump(asdict(request), req_cache_file, default=str)
     if cache_path.exists():
@@ -98,7 +101,7 @@ def call(request: ClaudeRequest) -> ClaudeResponse:
     text = _run_with_rate_limit_retry(request)
     elapsed = time.monotonic() - start
 
-    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    response_cache_dir.mkdir(parents=True, exist_ok=True)
     cache_path.write_text(
         json.dumps({"text": text, "request_sha": request_sha}, indent=2)
     )
