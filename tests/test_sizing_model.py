@@ -203,3 +203,22 @@ def test_fit_posterior_recovers_population_signal() -> None:
 def test_fit_posterior_rejects_empty_probes() -> None:
     with pytest.raises(ValueError, match="at least one probe"):
         fit_posterior([], draws=10, tune=10, chains=1)
+
+
+def test_fit_posterior_handles_probes_far_below_prior_mean() -> None:
+    """Regression: when the binary search probes a size MUCH smaller than the
+    prior's expected legible size and gets matched=True, the likelihood at
+    the jittered starting point can drop to -inf without the
+    P_MATCH_FLOOR clip. fit_posterior must remain stable."""
+    rng = np.random.default_rng(123)
+    # True s_i around log(64) — far below the prior mean of log(980).
+    true_log_s = rng.normal(loc=math.log(64), scale=0.2, size=4)
+    probes: list[Probe] = []
+    for i, log_s in enumerate(true_log_s):
+        for size in (32, 64, 128, 256, 512):
+            matched = math.log(size) >= log_s
+            probes.append(Probe(photo_id=f"p{i}", size=size, matched=matched))
+    posterior = fit_posterior(probes, draws=100, tune=100, chains=2, seed=7)
+    median_mu = float(np.median(posterior.mu_samples))
+    # Posterior mu should land well below the prior mean (data dominates).
+    assert median_mu < math.log(200)

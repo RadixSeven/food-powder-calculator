@@ -33,10 +33,19 @@ import numpy as np
 import pymc as pm
 from numpy.typing import NDArray
 
-# Smooth ramp width on the log-size axis for the probe likelihood. A small
-# value approximates a step function ("match iff x >= s_i") while keeping
-# gradients available to NUTS.
-LOG_SIZE_RAMP_TAU = 0.10
+# Ramp width on the log-size axis for the probe likelihood. Sets how
+# sharply ``P(match)`` transitions from 0 to 1 as ``log size`` crosses
+# ``log s_i``. The 95%-band spans ``±1.65 · tau`` log units (= a factor of
+# e^(3.3·tau) in pixels). 0.30 gives a transition width of ~factor-of-2.7
+# in pixels — informative but soft enough to absorb the noise that lucky-
+# pass probes inject during binary search.
+LOG_SIZE_RAMP_TAU = 0.30
+
+# Floor / ceiling on the per-probe Bernoulli probability. Without this,
+# the prior + jittered starting point can put a photo's ``log s_i`` far
+# from a probe size, sending ``log P`` to -inf and crashing NUTS at
+# initialization.
+P_MATCH_FLOOR = 1e-6
 
 
 @dataclass(frozen=True)
@@ -104,7 +113,9 @@ def fit_posterior(
         sigma = pm.HalfNormal("sigma", sigma=0.5)
         log_s = pm.Normal("log_s", mu=mu, sigma=sigma, shape=n_photos)
         z = (log_sizes - log_s[photo_for_probe]) / LOG_SIZE_RAMP_TAU
-        p_match = pm.math.invprobit(z)
+        p_match = pm.math.clip(
+            pm.math.invprobit(z), P_MATCH_FLOOR, 1.0 - P_MATCH_FLOOR
+        )
         pm.Bernoulli("obs", p=p_match, observed=matched)
         idata = pm.sample(
             draws=draws,
