@@ -60,6 +60,10 @@ class Posterior:
     n_photos_observed: int  # number of distinct photos that contributed probes
 
 
+PRIOR_MU = math.log(980)
+PRIOR_SIGMA = 1.076032 * math.log(2)
+
+
 def fit_posterior(
     probes: list[Probe],
     *,
@@ -73,7 +77,14 @@ def fit_posterior(
     The model:
 
     * ``log s_i ~ Normal(mu, sigma)`` per photo.
-    * ``mu ~ Normal(log 1024, 1)``  — prior centered at 1024 px.
+    * ``mu ~ Normal(log 980, 1.076032 * log 2)``  — feasibility-bounded prior.
+      Lower bound: longest-side 320 px (the user reports being able to read a
+      nutrition label at 241×320, so 320 is a plausible floor for the
+      population's smallest legible size). Upper bound: 2998 px (well below
+      the camera's max dimension of 4080 — anything close to that is
+      effectively the original photo). On a base-2 log scale the bounds are
+      lg 320 ≈ 8.32 and lg 2998 ≈ 11.55, giving lg-mean ≈ 9.937 (= lg 980).
+      Code expresses both in natural-log units.
     * ``sigma ~ HalfNormal(0.5)``  — order-of-magnitude variation tolerated.
     * ``P(match | x, s_i) = Phi((log x - log s_i) / tau)``.
     """
@@ -89,7 +100,7 @@ def fit_posterior(
     photo_for_probe = np.array([photo_idx[p.photo_id] for p in probes])
 
     with pm.Model():  # pyrefly: ignore[bad-context-manager]
-        mu = pm.Normal("mu", mu=math.log(1024), sigma=1.0)
+        mu = pm.Normal("mu", mu=PRIOR_MU, sigma=PRIOR_SIGMA)
         sigma = pm.HalfNormal("sigma", sigma=0.5)
         log_s = pm.Normal("log_s", mu=mu, sigma=sigma, shape=n_photos)
         z = (log_sizes - log_s[photo_for_probe]) / LOG_SIZE_RAMP_TAU
