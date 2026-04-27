@@ -194,9 +194,15 @@ def classify_photo(
         if delta is not None:
             timing_hint = (
                 f"\n\nTime between Image 1 and Image 2: {delta:.1f} seconds. "
-                "Photos taken within ~30 seconds of each other are usually "
-                "the SAME product (multi-angle documentation of one bottle). "
-                "Gaps of several minutes typically mark a new product."
+                "A short gap (under ~30 seconds) is STRONG evidence the "
+                "photos document the same product — lean toward "
+                "same-product even when the two shots look very "
+                "different (e.g. front vs. sideways back panel). A long "
+                "gap is only WEAK evidence of a new product: the user "
+                "may have paused, deleted a mis-shot, or walked back to "
+                "photograph a missed price tag, so trust visual evidence "
+                "(same bottle shape/color, same shelf, same brand text) "
+                "over a long time delta."
             )
 
     prompt = (
