@@ -1,0 +1,32 @@
+group_id: 20260426_mom_025
+store: MOM
+front:
+  product_name: organic whole psyllium husk unflavored
+  manufacturer: mom
+nutrition:
+  rows:
+  - - supplement facts
+  - - 'serving size: 4.2 g (2 heaping teaspoons)'
+  - - 'servings per container: 80'
+  - - amount per serving
+    - '%daily value'
+  - - calories
+    - '15'
+    - ''
+  - - total carbohydrate
+    - 4 g
+    - 1%*
+  - - dietary fiber
+    - 4 g
+    - 14%*
+  - - organic psyllium husk (plantago ovata)
+    - 4.2 g
+    - '**'
+  - - '* percent daily values are based on a 2,000 calorie diet.'
+  - - '** daily value not established.'
+price_tag:
+  store: MOM
+  price_cents: 1599
+  description: mom whl psyllium husk og 11.9 oz
+  size: 11.9 oz
+  upc: '719985934803'

@@ -1,0 +1,26 @@
+group_id: 20260426_mom_029
+store: MOM
+front:
+  product_name: vitamin d + k2
+  manufacturer: thorne
+nutrition:
+  rows:
+  - - supplement facts
+  - - 'serving size: two drops'
+  - - 'servings per container: 600'
+  - - 'two drops contain:'
+    - ''
+    - '% daily value'
+  - - vitamin d (as vitamin d3) (1,000 iu)
+    - 25 mcg
+    - ▮
+  - - vitamin k (as vitamin k2 (menatetrenone))†
+    - 200 mcg
+    - ▮
+  - - † daily value (dv) ▮
+price_tag:
+  store: MOM
+  price_cents: 2999
+  description: thorne vitamin d/k2
+  size: 1 fz
+  upc: '693749500018'

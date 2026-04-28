@@ -4,6 +4,7 @@ build/
 *.egg-info
 dist
 data/stitched/
+data/stitched_panels/
 data/cache/
 __pycache__/
 .coverage

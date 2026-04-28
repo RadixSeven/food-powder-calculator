@@ -1,0 +1,22 @@
+group_id: 20260426_mom_020
+store: MOM
+front:
+  product_name: magnesium glycinate 400 mg 270 vegan capsules
+  manufacturer: mom
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 3 vegan capsules
+  - - servings per container 90
+  - - ''
+    - amount per serving
+    - '% daily value'
+  - - magnesium (from magnesium glycinate)
+    - 400 mg
+    - 95%
+price_tag:
+  store: MOM
+  price_cents: 2899
+  description: moms magnesium glycinate 270cnt
+  size: 270 cnt
+  upc: '787500064144'

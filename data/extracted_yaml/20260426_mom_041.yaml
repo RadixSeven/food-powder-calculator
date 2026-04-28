@@ -1,0 +1,40 @@
+group_id: 20260426_mom_041
+store: MOM
+front:
+  product_name: organic balanced plant protein blend natural vanilla flavor
+  manufacturer: mom
+nutrition:
+  rows:
+  - - supplement facts
+  - - 'serving size: 23 g (1 scoop)'
+  - - 'servings per container: about 17'
+  - - amount per serving
+    - '% daily value'
+  - - calories
+    - '85'
+    - ''
+  - - total fat
+    - 2 g
+    - 3%*
+  - - sodium
+    - 280 mg
+    - 12%
+  - - total carbohydrate
+    - 2 g
+    - <1%*
+  - - protein
+    - 15 g
+    - ''
+  - - calcium
+    - 30 mg
+    - 2%
+  - - iron
+    - 5 mg
+    - 28%
+  - - '* percent daily values are based on a 2,000 calorie diet.'
+price_tag:
+  store: MOM
+  price_cents: 2599
+  description: moms vegan pro blend van 12.6oz
+  size: 12.6oz
+  upc: '719985942174'

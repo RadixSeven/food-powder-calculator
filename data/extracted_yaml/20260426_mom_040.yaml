@@ -1,0 +1,52 @@
+group_id: 20260426_mom_040
+store: MOM
+front:
+  product_name: organic protein protein powder vanilla bean flavored
+  manufacturer: orgain
+nutrition:
+  rows:
+  - - nutrition facts
+  - - about 20 servings per container
+  - - serving size
+    - 2 scoops (46g)
+  - - amount per serving
+  - - calories
+    - '150'
+  - - ''
+    - '% daily value*'
+  - - total fat 3.5g
+    - 4%
+  - - saturated fat 0.5g
+    - 3%
+  - - trans fat 0g
+    - ''
+  - - cholesterol 0mg
+    - 0%
+  - - sodium 390mg
+    - 17%
+  - - total carbohydrate 15g
+    - 5%
+  - - dietary fiber 4g
+    - 14%
+  - - total sugars less than 1g
+    - ''
+  - - includes 0g added sugars
+    - 0%
+  - - protein 21g
+    - 32%
+  - - vitamin d 0mcg
+    - 0%
+  - - calcium 60mg
+    - 4%
+  - - iron 6.5mg
+    - 35%
+  - - potassium 100mg
+    - 2%
+  - - '*the % daily value (dv) tells you how much a nutrient in a serving of food
+      contributes to a daily diet. 2,000'
+price_tag:
+  store: MOM
+  price_cents: 3399
+  description: orgain protein vanilla og 2.03lb
+  size: 2.03lb
+  upc: '851770003254'

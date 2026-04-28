@@ -1,0 +1,137 @@
+group_id: 20260426_mom_035
+store: MOM
+front:
+  product_name: liquid multi whole food-based multivitamin & multimineral energy &
+    vitality
+  manufacturer: bluebonnet
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 2 tablespoons (30 ml)
+  - - servings per container ▮
+  - - ''
+    - amount per serving
+    - '% daily value'
+  - - calories
+    - '50'
+    - ''
+  - - total carbohydrate
+    - 14 g
+    - 5%*
+  - - total sugars
+    - 5 g
+    - ''
+  - - includes 5 g added sugars
+    - ''
+    - 10%*
+  - - vitamin a (as 2700 iu retinyl palmitate and 600 iu beta-carotene)
+    - 900 mcg
+    - 100%
+  - - vitamin c (as l-ascorbic acid and calcium ascorbate)
+    - 500 mg
+    - 556%
+  - - vitamin d3 (as 1600 iu cholecalciferol)
+    - 40 mcg
+    - 200%
+  - - vitamin e (as 44.8 iu d-alpha tocopheryl ▮)
+    - 30 mg
+    - 200%
+  - - thiamin (as thiamin mononitrate)
+    - 20 mg
+    - 1667%
+  - - riboflavin (as riboflavin 5'-phosphate)
+    - 20 mg
+    - 1538%
+  - - niacin (as niacinamide)
+    - 20 mg
+    - 125%
+  - - vitamin b6 (as pyridoxine hydrochloride)
+    - 20 mg
+    - 1176%
+  - - folate (as 740 mcg folic acid)
+    - 400 mcg dfe
+    - 100%
+  - - vitamin b12 (as cyanocobalamin)
+    - 100 mcg
+    - 4167%
+  - - biotin (as d-biotin)
+    - 30 mcg
+    - 100%
+  - - pantothenic acid
+    - 10 mg
+    - 200%
+  - - choline (as choline bitartrate)
+    - 25 mg
+    - 5%
+  - - calcium (as calcium phosphate citrate and calcium ascorbate)
+    - 130 mg
+    - 10%
+  - - phosphorus (as calcium potassium phosphate citrate)
+    - 60 mg
+    - 5%
+  - - iodine (as potassium iodide)
+    - 150 mcg
+    - 100%
+  - - magnesium (as magnesium ▮)
+    - 50 mg
+    - ▮
+  - - copper (as sodium copper chlorophyllin)
+    - 1 mg
+    - 111%
+  - - manganese (as manganese gluconate)
+    - 2 mg
+    - 87%
+  - - chromium (as nicotinate glycinate chelate)
+    - 15 mcg
+    - 43%
+  - - molybdenum (as sodium molybdate)
+    - 90 mcg
+    - 200%
+  - - sodium
+    - 20 mg
+    - <1%
+  - - potassium (as calcium potassium phosphate citrate)
+    - 100 mg
+    - 2%
+  - - greens blend (spirulina powder, chlorella powder)
+    - 400 mg
+    - †
+  - - fruit and vegetable blend (beet juice powder, cranberry powder, orange juice
+      powder, papaya powder, tomato concentrate powder, strawberry powder, apple powder,
+      guava powder, peach powder, acerola berry concentrate, apricot powder, mango
+      powder, red raspberry powder, kiwi powder, lemon juice powder, pomegranate powder)
+    - 250 mg
+    - †
+  - - inositol
+    - 25 mg
+    - †
+  - - paba (para-aminobenzoic acid)
+    - 15 mg
+    - †
+  - - american ginseng root extract
+    - 10 mg
+    - †
+  - - astragalus root extract
+    - 10 mg
+    - †
+  - - quercetin
+    - 10 mg
+    - †
+  - - rutin
+    - 10 mg
+    - †
+  - - ginger root extract
+    - 10 mg
+    - †
+  - - lycopene
+    - 5 mg
+    - †
+  - - ▮
+    - 750 mcg
+    - †
+price_tag:
+  store: MOM
+  price_cents: 4199
+  description: bb spr earth ml nutri lq 32 fz
+  size: 32 fz
+  upc: '743715000971'

@@ -1,0 +1,87 @@
+group_id: 20260426_cvs_001
+store: CVS
+front:
+  product_name: multi 50+ for him 90 tablets
+  manufacturer: nature made
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 1 tablet
+  - - ''
+    - amount per tablet
+    - '% daily value'
+  - - vitamin a (as retinyl acetate and beta carotene)
+    - ▮
+    - ▮
+  - - vitamin c (as ascorbic acid)
+    - ▮
+    - ▮
+  - - vitamin d3 (as cholecalciferol)
+    - ▮
+    - ▮
+  - - vitamin e (as dl-alpha tocopheryl acetate)
+    - ▮
+    - ▮
+  - - vitamin k (as phytonadione)
+    - ▮
+    - ▮
+  - - thiamin (as thiamine mononitrate)
+    - ▮ mg
+    - ▮
+  - - riboflavin
+    - ▮ mg
+    - ▮
+  - - niacin
+    - ▮
+    - ▮
+  - - vitamin b6 (as pyridoxine hydrochloride)
+    - ▮
+    - ▮
+  - - folate (▮ mcg dfe ▮ mcg folic acid)
+    - ▮
+    - ▮
+  - - vitamin b12 (as cyanocobalamin)
+    - ▮
+    - ▮
+  - - biotin
+    - ▮
+    - ▮
+  - - pantothenic acid
+    - ▮
+    - ▮
+  - - calcium (as calcium carbonate)
+    - ▮ mg
+    - ▮
+  - - iodine (as potassium iodide)
+    - ▮
+    - ▮
+  - - magnesium (as magnesium oxide)
+    - ▮
+    - ▮
+  - - zinc (as zinc oxide)
+    - ▮
+    - ▮
+  - - selenium (as sodium selenate)
+    - ▮
+    - ▮
+  - - copper (as copper sulfate)
+    - ▮
+    - ▮
+  - - manganese (as manganese sulfate)
+    - ▮
+    - ▮
+  - - chromium (as chromium chloride)
+    - ▮
+    - ▮
+  - - molybdenum (as sodium molybdate)
+    - ▮
+    - ▮
+  - - lycopene
+    - ▮
+    - ▮
+price_tag:
+  store: CVS
+  price_cents: 1749
+  description: nm mv him 50+
+  size: 90ct
+  upc: 01790

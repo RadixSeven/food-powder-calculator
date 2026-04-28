@@ -1,0 +1,20 @@
+group_id: 20260426_mom_008
+store: MOM
+front:
+  product_name: high potency vitamin d3 250 mcg (10,000 i.u.) 200 softgels
+  manufacturer: country life
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 1 softgel
+  - - amount per serving
+    - '% daily value'
+  - - vitamin d (d3)
+    - 250 mcg (10,000 ▮)
+    - ▮
+price_tag:
+  store: MOM
+  price_cents: 2699
+  description: cl vitamin d3 10000 iu 200 cnt
+  size: 200 cnt
+  upc: 015794058168

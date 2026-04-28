@@ -1,0 +1,21 @@
+group_id: 20260426_mom_026
+store: MOM
+front:
+  product_name: mk-7 bioactive vitamin k2 90 mcg 120 softgels
+  manufacturer: jarrow formulas
+nutrition:
+  rows:
+  - - serving size 1 softgel
+  - - ''
+    - amount per serving
+    - ▮
+  - - vitamin k2 (as mk-7 [menaquinone-7])
+    - ▮
+    - ▮
+  - - † daily value (dv) not established.
+price_tag:
+  store: MOM
+  price_cents: 4699
+  description: jrrw mk-7 120 cnt
+  size: 120 cnt
+  upc: '790011300076'

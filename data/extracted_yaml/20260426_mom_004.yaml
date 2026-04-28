@@ -1,0 +1,20 @@
+group_id: 20260426_mom_004
+store: MOM
+front:
+  product_name: nac n-acetyl cysteine 750 mg 30 vegan capsules
+  manufacturer: country life
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 1 capsule
+  - - amount per serving
+    - '% daily value'
+  - - nac (n-acetyl cysteine) 750 mg
+    - '*'
+  - - '* daily value not established.'
+price_tag:
+  store: MOM
+  price_cents: 1399
+  description: ''
+  size: ''
+  upc: 015794016861

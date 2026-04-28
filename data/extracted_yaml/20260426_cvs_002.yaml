@@ -1,0 +1,63 @@
+group_id: 20260426_cvs_002
+store: CVS
+front:
+  product_name: multi 130 tablets
+  manufacturer: nature made
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 1 tablet
+  - - amount per serving
+    - '% daily value'
+  - - vitamin a 750 mcg (as retinyl acetate and beta-carotene)
+    - ▮
+  - - vitamin c (as ascorbic acid) 180 mg
+    - 200%
+  - - vitamin d3 25 mcg (1000 iu)
+    - 125%
+  - - vitamin e ▮ mg ▮
+    - 100%
+  - - vitamin k ▮
+    - ▮
+  - - thiamin (vitamin b1) ▮
+    - ▮
+  - - riboflavin (vitamin b2) ▮
+    - ▮
+  - - niacin ▮
+    - ▮
+  - - vitamin b6 ▮
+    - ▮
+  - - folate ▮
+    - ▮
+  - - vitamin b12 ▮
+    - ▮
+  - - biotin 30 mcg
+    - 100%
+  - - pantothenic acid 10 mg
+    - ▮
+  - - calcium (as calcium carbonate) ▮ mg
+    - ▮
+  - - phosphorus (as ▮) ▮ mg
+    - ▮
+  - - iodine (as potassium iodide) 150 mcg
+    - 100%
+  - - magnesium (as magnesium oxide) 100 mg
+    - 24%
+  - - zinc (as zinc oxide) ▮ mg
+    - ▮
+  - - selenium (as sodium selenate) 70 mcg
+    - 127%
+  - - copper (as copper sulfate) ▮ mg
+    - ▮
+  - - manganese (as manganese sulfate) 2.3 mg
+    - 100%
+  - - chromium (as chromium chloride) ▮ mcg
+    - ▮
+  - - molybdenum (as sodium molybdate) 50 mcg
+    - 111%
+price_tag:
+  store: CVS
+  price_cents: 1649
+  description: nm multi complete
+  size: 130s
+  upc: 02518

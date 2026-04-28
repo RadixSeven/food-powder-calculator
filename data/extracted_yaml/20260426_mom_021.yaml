@@ -1,0 +1,37 @@
+group_id: 20260426_mom_021
+store: MOM
+front:
+  product_name: ultra omega-3 epa + dha 1,000 mg 120 softgels
+  manufacturer: mom
+nutrition:
+  rows:
+  - - serving size 1 softgel
+  - - ''
+    - amount per serving
+    - '% daily value'
+  - - calories
+    - '10'
+    - ''
+  - - total fat
+    - 1 g
+    - 1%*
+  - - fish oil concentrate (from sustainably harvested anchovy, sardine, mackerel)
+    - 1,250 mg
+    - '**'
+  - - omega-3
+    - 1,063 mg
+    - '**'
+  - - epa (eicosapentaenoic acid)
+    - 687 mg
+    - '**'
+  - - dha (docosahexaenoic acid)
+    - 313 mg
+    - '**'
+  - - '*percent daily values are based on a 2,000 calorie diet.'
+  - - '**daily value not established'
+price_tag:
+  store: MOM
+  price_cents: 4999
+  description: moms ultra omega-3 mini 120 cnt
+  size: 120 cnt
+  upc: '787500094639'

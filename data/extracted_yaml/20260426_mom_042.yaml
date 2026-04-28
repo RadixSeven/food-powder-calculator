@@ -1,0 +1,46 @@
+group_id: 20260426_mom_042
+store: MOM
+front:
+  product_name: organic vegan protein powder chocolate
+  manufacturer: mom
+nutrition:
+  rows:
+  - - supplement facts
+  - - 'serving size: 1 scoop (41 g)'
+  - - 'servings per container: 10'
+  - - amount per serving
+    - ''
+    - '% daily value'
+  - - calories
+    - '140'
+    - ''
+  - - total fat
+    - 3 g
+    - 4%*
+  - - sodium
+    - 280 mg
+    - 12%
+  - - total carbohydrate
+    - 8 g
+    - 3%*
+  - - dietary fiber
+    - 6 g
+    - 21%*
+  - - protein
+    - 20 g
+    - ''
+  - - calcium
+    - 30 mg
+    - 2%
+  - - iron
+    - 8 mg
+    - 44%
+  - - potassium
+    - 149 mg
+    - 3%
+price_tag:
+  store: MOM
+  price_cents: 3399
+  description: mom's choc prtn pwdr 14.5 oz
+  size: 14.5 oz
+  upc: '719985952104'

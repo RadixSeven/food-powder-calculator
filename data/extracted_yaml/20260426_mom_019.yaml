@@ -1,0 +1,138 @@
+group_id: 20260426_mom_019
+store: MOM
+front:
+  product_name: food rich men's 45+ multi 90 vegetarian tablets
+  manufacturer: mom
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 3 tablets
+  - - servings per container 30
+  - - amount per serving
+    - ''
+    - '% daily value'
+  - - vitamin a (as beta carotene)
+    - 750 mcg rae (2,500 iu)
+    - 83%
+  - - vitamin c (as ascorbic acid)
+    - 300 mg
+    - 333%
+  - - vitamin d (as cholecalciferol)
+    - 10 mcg (400iu)
+    - 50%
+  - - vitamin e (as d-alpha tocopheryl succinate)
+    - 50 mg (75 iu)
+    - 333%
+  - - thiamine (as thiamine mononitrate)
+    - 60 mg
+    - 5,000%
+  - - riboflavin
+    - 60 mg
+    - 4,615%
+  - - niacin (as nicotinic acid)
+    - 30 mg
+    - 188%
+  - - vitamin b6 (as pyridoxine hydrochloride)
+    - 60 mg
+    - 3,529%
+  - - folate
+    - 1,333 mcg dfe (800 mcg folic acid)
+    - 333%
+  - - vitamin b12 (as cyanocobalamin)
+    - 400 mcg
+    - 16,667%
+  - - biotin
+    - 300 mcg
+    - 1,000%
+  - - pantothenic acid (as calcium pantothenate)
+    - 100 mg
+    - 2,000%
+  - - choline (as choline bitartrate)
+    - 180 mg
+    - 33%
+  - - calcium (from calcium citrate, calcium phosphate)
+    - 240 mg
+    - 18%
+  - - iron (from ferrous fumarate)
+    - 4 mg
+    - 22%
+  - - iodine (from potassium iodide)
+    - 150 mcg
+    - 100%
+  - - magnesium (from magnesium oxide)
+    - 200 mg
+    - 48%
+  - - zinc (from zinc oxide)
+    - 30 mg
+    - 273%
+  - - selenium (from l-selenomethionine)
+    - 200 mcg
+    - 364%
+  - - copper (from cupric oxide)
+    - 2 mg
+    - 222%
+  - - manganese (from manganous gluconate)
+    - 2 mg
+    - 87%
+  - - chromium (from chromium chloride)
+    - 200 mcg
+    - 571%
+  - - molybdenum (from sodium molybdate)
+    - 45 mcg
+    - 100%
+  - - amount per serving
+    - ''
+    - '% daily value'
+  - - saw palmetto extract (berries) (serenoa repens)
+    - 100 mg
+    - '*'
+  - - cinnamomum sp. (bark)
+    - 100 mg
+    - '*'
+  - - bilberry (fruit)
+    - 50 mg
+    - '*'
+  - - ginger extract (rhizome)
+    - 40 mg
+    - '*'
+  - - inositol
+    - 30 mg
+    - '*'
+  - - betaine hcl
+    - 25 mg
+    - '*'
+  - - grape extract (seed)
+    - 20 mg
+    - '*'
+  - - enzyme blend (papain, lipase, protease, amylase, beet root fiber, bromelain)
+    - 20 mg
+    - '*'
+  - - tomato (fruit)
+    - 10 mg
+    - '*'
+  - - lemon bioflavonoid complex (from fruit)
+    - 10 mg
+    - '*'
+  - - lutein/zeaxanthin (from lutemax™ 2020) (from aztec marigold) (tagetes erecta)
+      (flower)
+    - 3.75 mg
+    - '*'
+  - - lycopene (from tomato)
+    - 2 mg
+    - '*'
+  - - boron (from boron gluconate)
+    - 200 mcg
+    - '*'
+  - - vanadium (from vanadyl sulfate)
+    - 2 mcg
+    - '*'
+  - - '* daily value not established'
+  - - 'other ingredients: cellulose, modified cellulose gum, stearic acid (vegetable
+      source), silica, magnesium stearate (vegetable source), glycerin, cinnamon (bark)
+      oil.'
+price_tag:
+  store: MOM
+  price_cents: 2499
+  description: moms mens 45+ multi 90 cnt
+  size: 90 cnt
+  upc: '719985538346'

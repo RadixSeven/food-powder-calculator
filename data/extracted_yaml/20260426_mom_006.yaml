@@ -1,0 +1,15 @@
+group_id: 20260426_mom_006
+store: MOM
+front:
+  product_name: dhea 25 mg 90 vegan capsules
+  manufacturer: country life
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 1 capsule
+price_tag:
+  store: MOM
+  price_cents: 1999
+  description: cl dhea 25 mg 90 cnt
+  size: 90 cnt
+  upc: 015794016700

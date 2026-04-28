@@ -1,0 +1,47 @@
+group_id: 20260426_mom_028
+store: MOM
+front:
+  product_name: basic nutrients 2/day 60 capsules
+  manufacturer: thorne
+nutrition:
+  rows:
+  - - supplement facts
+  - - 'serving size: two capsules'
+  - - 'servings per container: 30'
+  - - 'two capsules contain:'
+    - ''
+    - '%dv'
+  - - vitamin a (450 mcg from beta carotene and 600 mcg as palmitate)
+    - 1.05 mg
+    - 117%
+  - - vitamin c (as ascorbic acid)
+    - 250 mg
+    - 278%
+  - - vitamin d (as vitamin d3) (2,000 iu)
+    - 50 mcg
+    - 250%
+  - - vitamin e (as d-alpha tocopheryl acid succinate)
+    - 16.5 mg
+    - 110%
+  - - vitamin k (200 mcg as vitamin k1 and 200 mcg as vitamin k2 as mk-4)
+    - 400 mcg
+    - 333%
+  - - thiamin (as thiamin hcl)
+    - 50 mg
+    - 4,167%
+  - - riboflavin (as riboflavin 5'-phosphate sodium)
+    - 12 mg
+    - 923%
+  - - niacin (as niacinamide)
+    - 80 mg
+    - 500%
+  - - vitamin b6 (as pyridoxal 5'-phosphate)
+    - 20 mg
+    - 1,176%
+  - - peel back for additional supplement facts
+price_tag:
+  store: MOM
+  price_cents: 3199
+  description: thorne basic ntrnts 2day 60 cnt
+  size: 60 cnt
+  upc: '693749002871'

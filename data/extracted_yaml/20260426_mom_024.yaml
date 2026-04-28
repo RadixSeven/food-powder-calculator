@@ -1,0 +1,55 @@
+group_id: 20260426_mom_024
+store: MOM
+front:
+  product_name: plant-based fiber complex unflavored
+  manufacturer: mom
+nutrition:
+  rows:
+  - - supplement fa▮
+    - ''
+    - ''
+  - - 'serving size: 1 scoop, included (10 grams)'
+    - ''
+    - ''
+  - - 'servings per container: 30'
+    - ''
+    - ''
+  - - amount per serving
+    - ''
+    - ▮
+  - - calories
+    - ▮
+    - ''
+  - - total carbohydrate
+    - ▮
+    - 3%**
+  - - dietary fiber
+    - 7 ▮
+    - 25%**
+  - - plant fiber complex
+    - 9.73 ▮
+    - ▮
+  - - (oat fiber, apple fiber, rice bran, apple pectin▮
+    - ''
+    - ''
+  - - colon support complex
+    - 118 m▮
+    - ▮
+  - - (fennel [seed], prune, kelp [whole plant], pars▮
+    - ''
+    - ''
+  - - '[aerial parts], carrot [root], broccoli [head], ca▮'
+    - ''
+    - ''
+  - - '[head], lactobacillus acidophilus, vegetarian▮'
+    - ''
+    - ''
+  - - blend [pro▮
+    - ''
+    - ''
+price_tag:
+  store: MOM
+  price_cents: 2599
+  description: moms plant bsd fiber pwdr 10.5oz
+  size: 10.5oz
+  upc: '719985109300'

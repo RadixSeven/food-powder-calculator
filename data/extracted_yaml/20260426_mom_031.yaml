@@ -1,0 +1,33 @@
+group_id: 20260426_mom_031
+store: MOM
+front:
+  product_name: trace minerals 90 capsules
+  manufacturer: thorne
+nutrition:
+  rows:
+  - - supplement facts
+  - - 'serving size: one capsule'
+  - - 'one capsule contains:'
+    - ''
+    - '%dv'
+  - - zinc (as traacs® zinc bisglycinate chelate)†
+    - 15 mg
+    - 136%
+  - - selenium (as l-selenomethionine)
+    - 100 mcg
+    - 182%
+  - - manganese (as manganese citrate)
+    - 2.5 mg
+    - 109%
+  - - chromium (as traacs® chromium nicotinate glycinate chelate)†
+    - 100 mcg
+    - 286%
+  - - boron (as bororganic™ boron glycinate complex)††
+    - 200 mcg
+    - ▮
+price_tag:
+  store: MOM
+  price_cents: 1999
+  description: thorne trace minerals 90cnt
+  size: 90 cnt
+  upc: '693749242031'

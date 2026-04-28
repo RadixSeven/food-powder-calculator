@@ -1,0 +1,29 @@
+group_id: 20260426_mom_011
+store: MOM
+front:
+  product_name: high absorption magnesium glycinate 350 mg 120 vegcaps
+  manufacturer: solaray
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 4 vegcaps
+  - - servings per container 30
+  - - ''
+    - amount per serving
+    - '% daily value'
+  - - calories
+    - '10'
+    - ''
+  - - magnesium (from magnesium bisglycinate)
+    - 350 mg
+    - 83%
+  - - bioperine black pepper extract (piper nigrum) (fruit)
+    - 5 mg
+    - '*'
+  - - '* daily value not established'
+price_tag:
+  store: MOM
+  price_cents: 2299
+  description: solaral mg glycinate 350mg 120ct
+  size: 120ct
+  upc: 076280549010

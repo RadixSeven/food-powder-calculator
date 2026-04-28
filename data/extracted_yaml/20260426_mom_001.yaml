@@ -1,0 +1,258 @@
+group_id: 20260426_mom_001
+store: MOM
+front:
+  product_name: liquid multivitamin orange mango flavored 30 fl oz
+  manufacturer: new chapter
+nutrition:
+  rows:
+  - - ''
+    - amount per serving
+    - '% dv for 2-3 years'
+    - amount per serving
+    - '% dv for 4-13 years'
+    - amount per serving
+    - '% dv for 14+ years'
+  - - serving size
+    - 7.4 ml (1 tbsp + 1 tsp)
+    - ''
+    - 15 ml (1 tbsp)
+    - ''
+    - 30 ml (2 tbsp)
+    - ''
+  - - about
+    - '20'
+    - ''
+    - ▮
+    - ''
+    - ▮
+    - ''
+  - - calories
+    - '5'
+    - ''
+    - ▮
+    - ''
+    - ▮
+    - ''
+  - - total carbohydrate
+    - 1 g
+    - ▮%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - total sugars
+    - 1 g
+    - ''
+    - ▮
+    - ''
+    - ▮
+    - ''
+  - - includes ▮ g added sugars
+    - ▮
+    - ▮%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - vitamin a (as beta-carotene)
+    - 225 mcg
+    - 25%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - vitamin c
+    - 9 mg
+    - 60%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - vitamin d3 (as cholecalciferol)
+    - 2.5 mcg (100 iu)
+    - 17%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - vitamin e
+    - 3.4 mg
+    - 65%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - vitamin k
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - thiamin
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - riboflavin
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - niacin
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - vitamin b6
+    - 0.65 mg
+    - ▮%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - folate
+    - 0.65 mg dfe
+    - ▮%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - vitamin b12
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - biotin
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - pantothenic acid
+    - 0.65 mg
+    - 25%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - calcium
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - iron
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - iodine
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - magnesium
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - zinc
+    - 1.5 mg
+    - 50%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - selenium
+    - 16 mcg
+    - 75%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - manganese
+    - 0.27 mg
+    - 25%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - chromium
+    - 5.5 mcg
+    - 50%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - molybdenum
+    - 11.3 mcg
+    - 65%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - sodium
+    - 0 mg
+    - 0%
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - organic superfood blend
+    - 25 mg
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+    - ▮
+  - - organic elderberry (sambucus nigra) (fruit)
+    - ▮
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - organic black currant (ribes nigrum) (fruit) extract
+    - ▮
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - organic grape (vitis vinifera) (seed) extract
+    - ▮
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - organic acerola (malpighia glabra) (fruit) extract
+    - ▮
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+price_tag:
+  store: MOM
+  price_cents: 4599
+  description: nc lqud mltvitmn orng mng 30 fz
+  size: 30 fz
+  upc: '727783904379'

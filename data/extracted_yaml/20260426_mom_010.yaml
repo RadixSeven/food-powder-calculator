@@ -1,0 +1,19 @@
+group_id: 20260426_mom_010
+store: MOM
+front:
+  product_name: easy iron 25 mg 90 vegan capsules
+  manufacturer: country life
+nutrition:
+  rows:
+  - - amount per serving
+    - ''
+    - '% daily value'
+  - - iron (as ferrous bisglycinate chelate)†(ferrochel®)
+    - 25 mg
+    - 139%
+price_tag:
+  store: MOM
+  price_cents: 1379
+  description: ''
+  size: 90 cnt
+  upc: 015794026594

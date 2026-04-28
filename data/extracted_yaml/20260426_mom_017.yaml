@@ -1,0 +1,113 @@
+group_id: 20260426_mom_017
+store: MOM
+front:
+  product_name: advanced men's multi 60 vegetarian capsules
+  manufacturer: mom
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 2 vegetarian capsules
+  - - servings per container 30
+  - - ''
+    - amount per serving
+    - '% dv'
+  - - vitamin a (as 50% retinyl palmitate, 47% beta carotene)
+    - 1500 mcg
+    - 167%
+  - - vitamin c (as ascorbic acid)
+    - 90 mg
+    - 100%
+  - - vitamin d3 (as cholecalciferol)
+    - 25 mcg
+    - 125%
+  - - vitamin e (as d-alpha tocopheryl succinate)
+    - 20 mg
+    - 133%
+  - - thiamin (as thiamin hydrochloride)
+    - 15 mg
+    - ▮
+  - - riboflavin (as riboflavin 5'-phosphate)
+    - 15 mg
+    - 1154%
+  - - niacin (as niacin and niacinamide)
+    - 50 mg
+    - ▮
+  - - vitamin b6 (as pyridoxal 5'-phosphate)
+    - 20 mg
+    - ▮
+  - - folate (as l-5-methyltetrahydrofolate)(magnafolate®)(400 mcg folic acid)
+    - 680 mcg dfe
+    - 170%
+  - - vitamin b12 (as methylcobalamin)
+    - 100 mcg
+    - 4166%
+  - - biotin
+    - 300 mcg
+    - 1000%
+  - - pantothenic acid (as d-calcium pantothenate)
+    - 25 mg
+    - 500%
+  - - choline (from potassium citrate)
+    - 150 mg
+    - ▮
+  - - ▮ (from l-selenomethionine)
+    - 20 mg
+    - ▮
+  - - ''
+    - amount per serving
+    - '% dv'
+  - - copper
+    - 2 mg
+    - 222%
+  - - manganese (as manganese amino acid chelate)
+    - 2 mg
+    - ▮
+  - - chromium (as chromium polynicotinate)(chromemate®)
+    - 200 mcg
+    - 571%
+  - - molybdenum (from molybdenum amino acid chelate)
+    - 50 mcg
+    - 167%
+  - - ▮ picolinate (▮)
+    - ▮
+    - ▮
+  - - alpha lipoic acid
+    - 100 mg
+    - '*'
+  - - ▮
+    - 80 mg
+    - '*'
+  - - ▮ (from ▮ seed extract)
+    - 80 mg
+    - '*'
+  - - pumpkin (cucurbita pepo) seed powder
+    - 70 mg
+    - '*'
+  - - quercetin
+    - 40 mg
+    - '*'
+  - - calmax® marigold
+    - 40 mg
+    - '*'
+  - - ▮ flower extract
+    - 25 mg
+    - '*'
+  - - lutein
+    - 10 mg
+    - '*'
+  - - zeaxanthin
+    - 2 mg
+    - '*'
+  - - boron (from boron citrate)
+    - 2 mg
+    - '*'
+  - - vitamin k2 (as menaquinone-7)
+    - 45 mcg
+    - '*'
+  - - '*daily value not established'
+price_tag:
+  store: MOM
+  price_cents: 2999
+  description: moms coenzymte adv m mlt 60 vcap
+  size: 60 vcap
+  upc: '787500094110'

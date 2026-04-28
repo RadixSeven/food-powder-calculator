@@ -1,0 +1,72 @@
+group_id: 20260426_mom_015
+store: MOM
+front:
+  product_name: men's 55+ one daily multivitamin 120 tablets
+  manufacturer: megafood
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 1 tablet
+    - ''
+    - servings per container ▮
+    - ''
+  - - amount per serving
+    - '% daily value'
+    - amount per serving
+    - '% daily value'
+  - - vitamin a (as beta carotene) 180 mcg rae
+    - 20%
+    - pantothenic acid (as d-calcium pantothenate) ▮
+    - ▮
+  - - vitamin c (as ascorbic acid) 90 mg
+    - 100%
+    - iodine (as fermented iodine glycinate) 80 mcg
+    - ▮
+  - - vitamin d3 (as fermented cholecalciferol) 40 mcg
+    - 200%
+    - zinc (as zinc bisglycinate) 12 mg
+    - ▮
+  - - vitamin e (as d-alpha tocopherol from sunflower seed oil) 8 mg
+    - 53%
+    - selenium (as fermented selenium glycinate) ▮
+    - ▮
+  - - vitamin k (as phytonadione) 90 mcg
+    - 75%
+    - manganese (as fermented manganese bisglycinate) 2 mg
+    - ▮
+  - - thiamin (as thiamine hydrochloride) 1.2 mg
+    - 100%
+    - gtf chromium (as fermented chromium glycinate, nicotinate, glutamate) 45 mcg
+    - ▮
+  - - riboflavin (as riboflavin) 1.4 mg
+    - 108%
+    - molybdenum (as fermented molybdenum bisglycinate) 45 mcg
+    - ▮
+  - - niacin (as niacinamide) 20 mg ne
+    - 125%
+    - food blend 293 mg
+    - ''
+  - - vitamin b6 (as pyridoxine hydrochloride) 3.8 mg
+    - 224%
+    - organic orange, organic brown rice, organic ▮, organic blueberry, carrot, cabbage,
+      organic ▮
+    - ''
+  - - folate (as calcium l-5-methyltetrahydrofolate) 200 mcg dfe (120 mcg l-5-mthf)
+    - 50%
+    - ''
+    - ''
+  - - vitamin b12 (as methylcobalamin) 5 mcg
+    - 208%
+    - ''
+    - ''
+  - - biotin (as biotin) 50 mcg
+    - 167%
+    - ''
+    - ''
+  - - '** daily value not established'
+price_tag:
+  store: MOM
+  price_cents: 6999
+  description: mgfd men one daily 55+ 120 cnt
+  size: 120 cnt
+  upc: 051494103579

@@ -1,0 +1,22 @@
+group_id: 20260426_mom_016
+store: MOM
+front:
+  product_name: vitamin k2 120 mcg vitamk7 60 vegetarian capsules
+  manufacturer: mom
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 1 vegetarian capsule
+  - - ''
+    - amount per serving
+    - '% daily value'
+  - - vitamin k2 (as menaquinone-7)(vitamk7®)*
+    - 120 mcg
+    - ‡
+  - - ‡daily value not established
+price_tag:
+  store: MOM
+  price_cents: 2199
+  description: mom's vit k2 120mcg 60 cap
+  size: 60 cap
+  upc: '787500097418'

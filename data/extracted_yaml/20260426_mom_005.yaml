@@ -1,0 +1,17 @@
+group_id: 20260426_mom_005
+store: MOM
+front:
+  product_name: dhea 10 mg 50 vegan capsules
+  manufacturer: country life
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 1 capsule
+  - - amount per serving
+    - '% daily value'
+price_tag:
+  store: MOM
+  price_cents: 1199
+  description: cl dhea 10 mg 50 cnt
+  size: 50 cnt
+  upc: 015794016656

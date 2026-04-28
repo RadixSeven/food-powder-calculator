@@ -1,0 +1,22 @@
+group_id: 20260426_mom_030
+store: MOM
+front:
+  product_name: nac n-acetylcysteine
+  manufacturer: thorne
+nutrition:
+  rows:
+  - - supplement facts
+  - - 'serving size: one capsule'
+  - - 'one capsule contains:'
+    - ''
+    - '%dv'
+  - - n-acetyl-l-cysteine
+    - 500 mg
+    - ''
+  - - '*daily value (dv) not established.'
+price_tag:
+  store: MOM
+  price_cents: 2899
+  description: thorne nac 90caps
+  size: 90 caps
+  upc: '693749560029'

@@ -1,0 +1,31 @@
+group_id: 20260426_mom_023
+store: MOM
+front:
+  product_name: clearfiber powder
+  manufacturer: mom
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 1 tablespoon (approximately 4 grams)
+  - - servings per container 35
+  - - ''
+    - amount per serving
+    - '% daily value'
+  - - calories 20
+    - ''
+    - ''
+  - - total carbohydrate
+    - 4 g
+    - 1%*
+  - - dietary fiber
+    - 3 g
+    - 12%*
+  - - soluble fiber
+    - 3 g
+    - ''
+price_tag:
+  store: MOM
+  price_cents: 1599
+  description: mom's clear fiber 5 oz
+  size: 5 oz
+  upc: '787500074211'

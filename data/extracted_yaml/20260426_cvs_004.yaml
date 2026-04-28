@@ -1,0 +1,20 @@
+group_id: 20260426_cvs_004
+store: CVS
+front:
+  product_name: high absorption magnesium glycinate 200 mg 60 capsules
+  manufacturer: nature made
+nutrition:
+  rows:
+  - - supplement facts
+  - - serving size 2 capsules
+  - - servings per container 30
+  - - amount per serving
+    - '% daily value'
+  - - magnesium (from magnesium bisglycinate) 200 mg
+    - 48%
+price_tag:
+  store: CVS
+  price_cents: 2299
+  description: nm mag glyc 200mg
+  size: 60ct
+  upc: '04313'
