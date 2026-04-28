@@ -177,13 +177,26 @@ def process_group_to_yaml(
     gold_path: Path = GOLD_GROUPS_JSON,
     stitched_root: Path = STITCHED_PANELS_DIR,
     out_dir: Path = EXTRACTED_YAML_DIR,
+    skip_if_exists: bool = True,
 ) -> Path:
     """End-to-end for one group: bbox/crop/stitch + extract + write YAML.
 
     Returns the path of the written YAML. Idempotent at the bbox/crop
-    layer (cached) and at the extraction layer (also cached). Writes
-    a fresh YAML each call — that's a few microseconds.
+    layer (cached) and at the extraction layer (also cached). With
+    ``skip_if_exists=True`` (default), groups whose YAML already
+    exists are short-circuited — useful for resuming a long batch
+    after a config change without redoing the cheap-to-cache work
+    we've already paid for. Pass ``skip_if_exists=False`` (or delete
+    the YAML beforehand) to force re-extraction.
     """
+    out_path = out_dir / f"{group_id}.yaml"
+    if skip_if_exists and out_path.exists():
+        print(
+            f"[extract_yaml] {group_id}: YAML exists, skipping",
+            file=sys.stderr,
+            flush=True,
+        )
+        return out_path
     group = load_group(gold_path, group_id)
     by_role = detect_and_crop_group(
         group, crop_dir=stitched_root / group_id / "crops"
@@ -192,7 +205,6 @@ def process_group_to_yaml(
         group_id, by_role, out_dir=stitched_root / group_id
     )
     extraction = extract_group(artifacts)
-    out_path = out_dir / f"{group_id}.yaml"
     write_extraction_yaml(extraction, out_path)
     print(
         f"[extract_yaml] {group_id}: wrote {out_path}",
@@ -224,6 +236,11 @@ def main() -> int:  # pragma: no cover — CLI entry, exercised manually
         default=EXTRACTED_YAML_DIR,
         help="Where to write extracted YAML files.",
     )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Re-extract even if a YAML already exists for the group.",
+    )
     args = parser.parse_args()
     failures: list[tuple[str, str]] = []
     for gid in args.group_ids:
@@ -233,6 +250,7 @@ def main() -> int:  # pragma: no cover — CLI entry, exercised manually
                 gold_path=args.gold,
                 stitched_root=args.stitched_root,
                 out_dir=args.out_dir,
+                skip_if_exists=not args.force,
             )
         except Exception as e:  # pragma: no cover — last-line resilience
             failures.append((gid, repr(e)))

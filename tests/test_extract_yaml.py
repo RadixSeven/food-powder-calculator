@@ -277,3 +277,78 @@ def test_process_group_to_yaml_propagates_missing_group_id(
             stitched_root=tmp_path / "stitched",
             out_dir=tmp_path / "yaml",
         )
+
+
+def test_process_group_to_yaml_skips_existing_yaml_by_default(
+    tmp_path: Path,
+) -> None:
+    """A pre-existing YAML for a group short-circuits the whole pipeline
+    without calling the extractor — so resuming a long batch doesn't
+    pay for groups already processed."""
+    yaml_dir = tmp_path / "yaml"
+    yaml_dir.mkdir()
+    pre_existing = yaml_dir / "g1.yaml"
+    pre_existing.write_text("group_id: g1\nstore: MOM\n")
+
+    with patch("extract_yaml.load_group") as mock_load:
+        with patch("extract_yaml.detect_and_crop_group") as mock_detect:
+            with patch("extract_yaml.extract_group") as mock_extract:
+                out = process_group_to_yaml(
+                    "g1",
+                    gold_path=tmp_path / "gold.json",
+                    stitched_root=tmp_path / "stitched",
+                    out_dir=yaml_dir,
+                )
+    mock_load.assert_not_called()
+    mock_detect.assert_not_called()
+    mock_extract.assert_not_called()
+    assert out == pre_existing
+    # Original file content should be preserved (not rewritten).
+    assert pre_existing.read_text() == "group_id: g1\nstore: MOM\n"
+
+
+def test_process_group_to_yaml_force_reextracts(tmp_path: Path) -> None:
+    """skip_if_exists=False rebuilds the YAML even if one exists —
+    the path used by the --force CLI flag for re-running after a
+    config change."""
+    gold = tmp_path / "gold.json"
+    img = tmp_path / "p.jpg"
+    _save(img)
+    gold.write_text(
+        f'{{"groups": [{{"id": "g1", "photos": ['
+        f'{{"path": "{img.name}", "roles": ["front"]}}]}}]}}'
+    )
+    yaml_dir = tmp_path / "yaml"
+    yaml_dir.mkdir()
+    (yaml_dir / "g1.yaml").write_text("stale: true\n")
+
+    fake_artifacts = GroupArtifacts(
+        group_id="g1",
+        store="MOM",
+        panels_by_role={"front": img},
+        stitched={"front": False},
+    )
+    fake_extraction = GroupExtraction(
+        group_id="g1",
+        store="MOM",
+        front=FrontExtraction(product_name="x", manufacturer=""),
+        nutrition=None,
+        price_tag=None,
+    )
+    with patch("extract_yaml.detect_and_crop_group", return_value={}):
+        with patch(
+            "extract_yaml.stitch_role_outputs", return_value=fake_artifacts
+        ):
+            with patch(
+                "extract_yaml.extract_group", return_value=fake_extraction
+            ):
+                process_group_to_yaml(
+                    "g1",
+                    gold_path=gold,
+                    stitched_root=tmp_path / "stitched",
+                    out_dir=yaml_dir,
+                    skip_if_exists=False,
+                )
+    # YAML overwritten with fresh extraction, not preserved as 'stale: true'.
+    parsed = yaml.safe_load((yaml_dir / "g1.yaml").read_text())
+    assert parsed["group_id"] == "g1"
