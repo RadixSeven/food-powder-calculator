@@ -52,6 +52,8 @@ def stitch_role_panels(
     panel_paths: list[Path],
     text_direction: str,
     out_path: Path,
+    *,
+    match_scale: bool = True,
 ) -> None:
     """Stitch ``panel_paths`` along ``text_direction`` and write JPEG.
 
@@ -60,6 +62,17 @@ def stitch_role_panels(
     Each panel is centered along the cross-axis on a separator-color
     canvas — this is how a shorter frame next to a taller one stays
     visually anchored.
+
+    When ``match_scale`` is True (the default), all panels are
+    downsampled to share a common longest-side equal to the smallest
+    panel's longest-side. This eliminates the multi-scale issue where
+    one frame is naturally 3000px wide and another is 800px — without
+    matching, opus reads the larger ones at high detail and the
+    smaller ones as illegible blurs in the same stitched image.
+    Downsampling never gains information but keeps every per-pixel
+    text size consistent across the stitch. Set False to preserve raw
+    crop sizes (useful for debugging or when sizes are already
+    matched).
     """
     if not panel_paths:
         raise ValueError("stitch_role_panels requires at least one panel")
@@ -72,6 +85,10 @@ def stitch_role_panels(
     try:
         for p in panel_paths:
             panels.append(Image.open(p).convert("RGB"))
+
+        if match_scale and len(panels) > 1:
+            target_longest = min(max(img.size) for img in panels)
+            panels = _resize_to_longest(panels, target_longest)
 
         if text_direction == "horizontal":
             canvas = _stitch_horizontal(panels)
@@ -86,6 +103,31 @@ def stitch_role_panels(
     finally:
         for img in panels:
             img.close()
+
+
+def _resize_to_longest(
+    panels: list[Image.Image], target_longest: int
+) -> list[Image.Image]:
+    """Resize each panel so its longest side equals ``target_longest``.
+
+    Panels already at that longest-side are returned unchanged; the
+    rest get :meth:`PIL.Image.thumbnail`-style proportional shrinking
+    using LANCZOS resampling. Original images are closed and replaced
+    with the resized copies; the caller still owns the returned list
+    and is responsible for closing them.
+    """
+    out: list[Image.Image] = []
+    for img in panels:
+        longest = max(img.size)
+        if longest == target_longest:
+            out.append(img)
+            continue
+        ratio = target_longest / longest
+        new_size = (int(img.width * ratio), int(img.height * ratio))
+        resized = img.resize(new_size, Image.Resampling.LANCZOS)
+        img.close()
+        out.append(resized)
+    return out
 
 
 def _stitch_horizontal(panels: list[Image.Image]) -> Image.Image:
