@@ -167,6 +167,112 @@ def test_to_pixels_converts_fractional_coords() -> None:
 
 
 # ---------------------------------------------------------------------------
+# PanelBbox.expanded — curved-bottle margin
+# ---------------------------------------------------------------------------
+
+
+def test_expanded_grows_in_all_directions() -> None:
+    panel = PanelBbox(
+        kind="nutrition",
+        x_min_frac=0.2,
+        y_min_frac=0.3,
+        x_max_frac=0.7,
+        y_max_frac=0.8,
+        text_direction="horizontal",
+    )
+    grown = panel.expanded(0.05)
+    assert abs(grown.x_min_frac - 0.15) < 1e-9
+    assert abs(grown.y_min_frac - 0.25) < 1e-9
+    assert abs(grown.x_max_frac - 0.75) < 1e-9
+    assert abs(grown.y_max_frac - 0.85) < 1e-9
+    assert grown.kind == "nutrition"
+    assert grown.text_direction == "horizontal"
+
+
+def test_expanded_clamps_to_unit_interval() -> None:
+    """Expansion past image edges clamps to [0, 1] so the result is
+    always a valid normalized bbox."""
+    panel = PanelBbox(
+        kind="front",
+        x_min_frac=0.02,
+        y_min_frac=0.0,
+        x_max_frac=0.99,
+        y_max_frac=1.0,
+        text_direction="horizontal",
+    )
+    grown = panel.expanded(0.10)
+    assert grown.x_min_frac == 0.0
+    assert grown.y_min_frac == 0.0
+    assert grown.x_max_frac == 1.0
+    assert grown.y_max_frac == 1.0
+
+
+def test_detect_panels_applies_expansion_by_default(tmp_path: Path) -> None:
+    """The default expansion is what makes axis-aligned bboxes work on
+    cylindrical bottles where text curves at the edges. Verify the
+    parsed PanelBbox is the expanded version, not the raw model output."""
+    img = tmp_path / "photo.jpg"
+    _make_image(img, (1000, 1000))
+    fake = _stub(
+        {
+            "panels": [
+                {
+                    "kind": "nutrition",
+                    "x_min_frac": 0.30,
+                    "y_min_frac": 0.20,
+                    "x_max_frac": 0.70,
+                    "y_max_frac": 0.80,
+                    "text_direction": "horizontal",
+                }
+            ]
+        }
+    )
+    with patch("role_bbox.call", return_value=fake):
+        with patch("role_bbox.resize_to_longest_side", return_value=img):
+            panels = detect_panels(
+                img, expected_roles=("nutrition",), expand_frac=0.05
+            )
+    p = panels[0]
+    # Raw model output was [0.30, 0.20, 0.70, 0.80]; with 5% expansion
+    # the returned PanelBbox should be [0.25, 0.15, 0.75, 0.85].
+    assert abs(p.x_min_frac - 0.25) < 1e-9
+    assert abs(p.y_min_frac - 0.15) < 1e-9
+    assert abs(p.x_max_frac - 0.75) < 1e-9
+    assert abs(p.y_max_frac - 0.85) < 1e-9
+
+
+def test_detect_panels_expand_frac_zero_returns_raw_model_output(
+    tmp_path: Path,
+) -> None:
+    """Passing expand_frac=0 disables the post-processing margin, useful
+    if a caller wants to compare model raw output to the expanded version."""
+    img = tmp_path / "photo.jpg"
+    _make_image(img, (1000, 1000))
+    fake = _stub(
+        {
+            "panels": [
+                {
+                    "kind": "nutrition",
+                    "x_min_frac": 0.30,
+                    "y_min_frac": 0.20,
+                    "x_max_frac": 0.70,
+                    "y_max_frac": 0.80,
+                    "text_direction": "horizontal",
+                }
+            ]
+        }
+    )
+    with patch("role_bbox.call", return_value=fake):
+        with patch("role_bbox.resize_to_longest_side", return_value=img):
+            panels = detect_panels(
+                img, expected_roles=("nutrition",), expand_frac=0.0
+            )
+    p = panels[0]
+    assert p.x_min_frac == 0.30
+    assert p.x_max_frac == 0.70
+
+
+# ---------------------------------------------------------------------------
 # crop_panel
 # ---------------------------------------------------------------------------
 

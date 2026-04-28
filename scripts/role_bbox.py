@@ -30,6 +30,16 @@ CROP_CACHE_DIR = REPO_ROOT / "data" / "cache" / "cropped_panels"
 ROLE_KINDS = ("front", "nutrition", "ingredients", "other-label", "price-tag")
 TEXT_DIRECTIONS = ("horizontal", "vertical")
 
+# Cylindrical bottles have curved label edges that the bbox detector
+# consistently crops past — both haiku and sonnet treat the visible
+# axis-aligned text area as the panel and cut off the leading/trailing
+# characters of rows that are at the curve. Post-process every
+# detected bbox by expanding this fraction in each direction (clamped
+# to [0, 1]) before cropping. 5% catches typical bottle curvature on
+# this dataset; the small extra background it pulls in is much less
+# costly than missing characters at the start of nutrient names.
+DEFAULT_BBOX_EXPAND_FRAC = 0.05
+
 BBOX_SYSTEM_PROMPT = (
     "You locate text-bearing labels on the PRIMARY product in a "
     "product photo. The primary product is the one the photo is "
@@ -64,11 +74,23 @@ def _bbox_prompt(expected_roles: tuple[str, ...]) -> str:
         "For each panel return: "
         f'`"kind"` — one of {roles_str}; '
         '`"x_min_frac"`, `"y_min_frac"`, `"x_max_frac"`, `"y_max_frac"` — '
-        "TIGHT bounding-box coordinates (fractions in [0, 1], (0,0) "
-        "top-left, (1,1) bottom-right) cropped close to the printed text "
-        "only. Exclude bottle curvature, specular glare, hands, shelf, "
-        "and background — at most a few percent margin past the readable "
-        "text on each side; and "
+        "bounding-box coordinates (fractions in [0, 1], (0,0) top-left, "
+        "(1,1) bottom-right) that contain the WHOLE printed panel. "
+        "INCLUDE all text that belongs to the panel even when it is "
+        "at the curved edge of a cylindrical bottle (text near the left "
+        "or right edge that distorts as the bottle curves away — that "
+        "text is part of the panel, do not crop into it). For a bottle, "
+        "the bbox should span the full width of the visible label face, "
+        "from where the label clearly begins on one side to where it "
+        "clearly ends on the other side, plus a small margin. EXCLUDE "
+        "the surrounding non-label area: the hand holding the package, "
+        "the shelf below, the background products, and the bottle's "
+        "cap or base. When in doubt about the panel boundary, prefer "
+        "INCLUDING more rather than less — a generous bbox that captures "
+        "all the text is far better than a tight one that cuts off "
+        "characters at the curve. The bbox must contain every readable "
+        "row of the panel; do not omit rows because they are at "
+        "smaller scale than the rest. "
         '`"text_direction"` — `"horizontal"` if the text reads '
         'left-to-right as the photo is oriented, or `"vertical"` if it '
         "reads top-to-bottom (e.g. text rotated 90 degrees because the "
@@ -154,6 +176,23 @@ class PanelBbox:
             int(self.y_max_frac * height),
         )
 
+    def expanded(self, frac: float) -> PanelBbox:
+        """Return a bbox expanded by ``frac`` in each direction, clamped to [0, 1].
+
+        ``frac`` is a fractional margin — 0.05 means 5% of the image
+        width/height is added to each side. Clamping keeps the result
+        a valid normalized bbox even when the original box was already
+        near an image edge.
+        """
+        return PanelBbox(
+            kind=self.kind,
+            x_min_frac=max(0.0, self.x_min_frac - frac),
+            y_min_frac=max(0.0, self.y_min_frac - frac),
+            x_max_frac=min(1.0, self.x_max_frac + frac),
+            y_max_frac=min(1.0, self.y_max_frac + frac),
+            text_direction=self.text_direction,
+        )
+
 
 def detect_panels(
     image_path: Path,
@@ -161,6 +200,7 @@ def detect_panels(
     expected_roles: tuple[str, ...],
     model: str = "haiku",
     detect_at_longest_side: int = 1024,
+    expand_frac: float = DEFAULT_BBOX_EXPAND_FRAC,
 ) -> tuple[PanelBbox, ...]:
     """Run the bbox detector at a small resize and return per-panel boxes.
 
@@ -174,6 +214,12 @@ def detect_panels(
     The detector runs at ``detect_at_longest_side`` (default 1024 px) —
     bbox detection doesn't need full resolution and the smaller image
     cuts the call cost without measurably hurting box accuracy.
+
+    ``expand_frac`` (default 0.05) post-processes every detected bbox
+    by expanding the box that fraction in each direction. This catches
+    text near the curved edges of cylindrical bottle labels, where
+    haiku/sonnet consistently crop past the curve and miss the
+    leading/trailing characters of rows.
     """
     if not expected_roles:
         raise ValueError("expected_roles must be non-empty")
@@ -203,7 +249,7 @@ def detect_panels(
             x_max_frac=float(p["x_max_frac"]),
             y_max_frac=float(p["y_max_frac"]),
             text_direction=str(p["text_direction"]),
-        )
+        ).expanded(expand_frac)
         for p in payload["panels"]
     )
 
