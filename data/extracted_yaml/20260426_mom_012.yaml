@@ -5,88 +5,123 @@ front:
   manufacturer: solaray
 nutrition:
   rows:
-  - - supplement facts
-  - - serving size 2 vegcaps
-  - - servings per container 30
+  - - serving size
+    - 2 vegcaps
+    - ''
+  - - servings per container
+    - '30'
+    - ''
   - - amount per serving
+    - ''
+    - '%dv'
   - - vitamin a (as liposomal beta carotene)
     - 900 mcg
+    - 100%
   - - vitamin c (as liposomal ascorbic acid)
     - 90 mg
+    - 100%
   - - vitamin d-3 (as liposomal cholecalciferol from algae)
     - 20 mcg
+    - 100%
   - - vitamin e (as liposomal d-alpha tocopherol from sunflower oil)
     - 15 mg
-  - - vitamin k-1 (as liposomal phylloquinone)
+    - 100%
+  - - vitamin k (as liposomal phylloquinone)
     - 120 mcg
-  - - thiamine (as liposomal benfotiamine) (b-1)
+    - 100%
+  - - thiamine (as liposomal benfotiamine)
     - 1.2 mg
-  - - riboflavin (as liposomal riboflavin-5-phosphate) (b-2)
+    - 100%
+  - - riboflavin (as liposomal riboflavin-5-phosphate (b-2))
     - 1.3 mg
-  - - niacin (as liposomal niacinamide) (b-3)
+    - 100%
+  - - niacin (as liposomal niacinamide (b-3))
     - 16 mg
-  - - vitamin b-6 (as liposomal pyridoxal-5-phosphate) (p5p)
-    - ▮
+    - 100%
+  - - vitamin b-6 (as liposomal pyridoxal-5-phosphate (psp))
+    - 1.7 mg
+    - 100%
   - - folate (from liposomal (6s)-5-methyltetrahydrofolic acid, glucosamine salt)
-    - 400 mcg dfe (235 mcg folic acid)
+    - 400 mcg dfe
+    - 100%
   - - vitamin b-12 (as liposomal methylcobalamin)
     - 1,000 mcg
-  - - biotin (liposomal biotin)
+    - 41,667%
+  - - biotin (from liposomal biotin)
     - 30 mcg
-  - - pantothenic acid (as liposomal calcium d-pantothenate) (b-5)
+    - 100%
+  - - pantothenic acid (from liposomal calcium d-pantothenate (b-5))
     - 5 mg
+    - 100%
   - - choline (from liposomal choline bitartrate)
-    - ▮
+    - 5 mg
+    - <1%
   - - iodine (from liposomal potassium iodide)
     - 150 mcg
+    - 100%
   - - magnesium (from liposomal magnesium oxide)
-    - 20 mg
+    - 2 mg
+    - <1%
   - - zinc (from liposomal zinc citrate)
     - 11 mg
+    - 100%
   - - selenium (as liposomal yeast-free l-selenomethionine)
     - 55 mcg
-  - - manganese (as liposomal manganese amino acid chelate)
+    - 100%
+  - - manganese (from liposomal manganese citrate)
     - 2.3 mg
+    - 100%
   - - chromium (from liposomal chromium picolinate)
     - 35 mcg
+    - 100%
   - - amount per serving
+    - ''
     - '%dv'
   - - molybdenum (from liposomal molybdenum citrate)
     - 45 mcg
     - 100%
   - - glycine (liposomal glycine)
     - 60 mg
-    - †
+    - '*'
   - - inositol (liposomal inositol)
     - 25 mg
-    - †
+    - '*'
   - - paba (liposomal paba)
     - 5 mg
-    - †
-  - - liposomal trace minerals
+    - '*'
+  - - liposomal trace mineral complex
     - 5 mg
-    - †
-  - - lutein (from liposomal marigold (tagetes spp.) (flower extract))
-    - 1 mg
-    - †
+    - '*'
+  - - lutein (from liposomal marigold (tagetes spp.) flower extract)
+    - 5 mg
+    - '*'
   - - coq10 (liposomal coq10)
-    - 5 mg
-    - †
-  - - rose hips (liposomal rose hips) (rosa canina) (fruit)
-    - 5 mg
-    - †
-  - - acerola (liposomal acerola) (malpighia spp.) (fruit)
+    - 3 mg
+    - '*'
+  - - rose hips (liposomal rose hip) (rosa canina) (fruit)
     - 2 mg
-    - †
+    - '*'
+  - - acerola (liposomal acerola) (malpighia spp.) (fruit juice)
+    - 2 mg
+    - '*'
   - - l-leucine (liposomal l-leucine)
-    - 12.5 mg
-    - †
+    - 15 mg
+    - '*'
   - - l-isoleucine (liposomal l-isoleucine)
     - 12.5 mg
-    - †
+    - '*'
   - - l-valine (liposomal l-valine)
     - 12.5 mg
-    - †
+    - '*'
+  - - l-glutamine (liposomal l-glutamine)
+    - 5 mg
+    - '*'
+  - - pumpkin (liposomal pumpkin) (cucurbita pepo) (hulled seed)
+    - 5 mg
+    - '*'
+  - - '*daily value (dv) not established.'
+    - ''
+    - ''
 price_tag:
   store: MOM
   price_cents: 3999

@@ -7,8 +7,14 @@ front:
 nutrition:
   rows:
   - - supplement facts
+    - ''
+    - ''
   - - serving size 2 tablespoons (30 ml)
-  - - servings per container ▮
+    - ''
+    - ''
+  - - servings per container 32
+    - ''
+    - ''
   - - ''
     - amount per serving
     - '% daily value'
@@ -17,13 +23,13 @@ nutrition:
     - ''
   - - total carbohydrate
     - 14 g
-    - 5%*
+    - 5%**
   - - total sugars
     - 5 g
-    - ''
+    - '**'
   - - includes 5 g added sugars
     - ''
-    - 10%*
+    - 10%**
   - - vitamin a (as 2700 iu retinyl palmitate and 600 iu beta-carotene)
     - 900 mcg
     - 100%
@@ -33,7 +39,7 @@ nutrition:
   - - vitamin d3 (as 1600 iu cholecalciferol)
     - 40 mcg
     - 200%
-  - - vitamin e (as 44.8 iu d-alpha tocopheryl ▮)
+  - - vitamin e (as 44.8 iu dl-alpha tocopheryl from sunflower)
     - 30 mg
     - 200%
   - - thiamin (as thiamin mononitrate)
@@ -48,16 +54,16 @@ nutrition:
   - - vitamin b6 (as pyridoxine hydrochloride)
     - 20 mg
     - 1176%
-  - - folate (as 740 mcg folic acid)
+  - - folate (as 240 mcg folic acid)
     - 400 mcg dfe
     - 100%
   - - vitamin b12 (as cyanocobalamin)
     - 100 mcg
     - 4167%
   - - biotin (as d-biotin)
-    - 30 mcg
-    - 100%
-  - - pantothenic acid
+    - 600 mcg
+    - 2000%
+  - - pantothenic acid (as d-calcium pantothenate)
     - 10 mg
     - 200%
   - - choline (as choline bitartrate)
@@ -72,10 +78,16 @@ nutrition:
   - - iodine (as potassium iodide)
     - 150 mcg
     - 100%
-  - - magnesium (as magnesium ▮)
+  - - magnesium (as magnesium bisglycinate chelate)
     - 50 mg
+    - 12%
+  - - zinc (as zinc gluconate)
+    - 11 mg
+    - 100%
+  - - selenium ▮
     - ▮
-  - - copper (as sodium copper chlorophyllin)
+    - ▮
+  - - copper (as sodium copper chlorophyll)
     - 1 mg
     - 111%
   - - manganese (as manganese gluconate)
@@ -90,45 +102,54 @@ nutrition:
   - - sodium
     - 20 mg
     - <1%
-  - - potassium (as calcium potassium phosphate citrate)
+  - - potassium (as potassium phosphate citrate)
     - 100 mg
     - 2%
-  - - greens blend (spirulina powder, chlorella powder)
+  - - greens blend
     - 400 mg
-    - †
-  - - fruit and vegetable blend (beet juice powder, cranberry powder, orange juice
-      powder, papaya powder, tomato concentrate powder, strawberry powder, apple powder,
-      guava powder, peach powder, acerola berry concentrate, apricot powder, mango
-      powder, red raspberry powder, kiwi powder, lemon juice powder, pomegranate powder)
-    - 250 mg
-    - †
+    - '*'
+  - - (spirulina powder, chlorella powder)
+    - ''
+    - ''
+  - - fruit and vegetable blend
+    - 200 mg
+    - '*'
+  - - (beet juice powder, cranberry powder, orange juice powder, papaya powder, tomato
+      concentrate powder, strawberry powder, apple powder, guava powder, peach powder,
+      acerola berry concentrate, apricot powder, mango powder, red raspberry powder,
+      kiwi powder, lemon juice powder, pomegranate powder)
+    - ''
+    - ''
   - - inositol
-    - 25 mg
-    - †
+    - 20 mg
+    - '*'
   - - paba (para-aminobenzoic acid)
     - 15 mg
-    - †
+    - '*'
   - - american ginseng root extract
     - 10 mg
-    - †
+    - '*'
   - - astragalus root extract
     - 10 mg
-    - †
+    - '*'
   - - quercetin
     - 10 mg
-    - †
+    - '*'
   - - rutin
     - 10 mg
-    - †
+    - '*'
   - - ginger root extract
-    - 10 mg
-    - †
-  - - lycopene
     - 5 mg
-    - †
-  - - ▮
+    - '*'
+  - - lycopene
     - 750 mcg
-    - †
+    - '*'
+  - - '*percent daily values based on a 2,000 calorie diet.'
+    - ''
+    - ''
+  - - '*daily value not established.'
+    - ''
+    - ''
 price_tag:
   store: MOM
   price_cents: 4199

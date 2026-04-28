@@ -5,12 +5,17 @@ front:
   manufacturer: megafood
 nutrition:
   rows:
-  - - supplement facts
   - - serving size 1 capsule
-    - servings per container ▮
+    - servings per container 60
   - - amount per serving
     - '% daily value'
   - - vitamin d3 (as cholecalciferol) 125 mcg (5000 iu)
-    - ▮
+    - 625%
   - - vitamin k (as phytonadione) 120 mcg
-    - ▮
+    - 100%
+  - - vitamin k2 (as menaquinone-7) 80 mcg
+    - '**'
+  - - cabbage 10 mg
+    - '**'
+  - - '**daily value not established'
+    - ''

@@ -6,88 +6,94 @@ front:
 nutrition:
   rows:
   - - supplement facts
-  - - 'serving size: ▮'
-  - - 'servings per container: ▮'
+  - - serving size 1 capsule
   - - ''
     - amount per serving
     - '% daily value'
-  - - ▮
-    - ▮
-    - ▮
-  - - vitamin a (▮)
-    - ▮
-    - ▮
-  - - vitamin c (▮)
-    - ▮
-    - ▮
-  - - vitamin d (▮)
-    - ▮
-    - ▮
-  - - vitamin e (▮)
-    - ▮
-    - ▮
-  - - vitamin k (▮)
-    - ▮
-    - ▮
-  - - thiamin (▮)
-    - ▮ mg
-    - ▮
-  - - riboflavin (▮)
-    - ▮
-    - ▮
-  - - niacin (▮)
+  - - vitamin a (as beta carotene, retinyl palmitate)
+    - 1,500 mcg (5,000 iu)
+    - 167%
+  - - vitamin c (as calcium ascorbate, ascorbyl palmitate)
+    - 60 mg
+    - 67%
+  - - vitamin d (as ergocalciferol)
+    - 25 mcg (1,000 iu)
+    - 125%
+  - - vitamin e (as d-alpha tocopherol)
+    - 81 mg (120 iu)
+    - 540%
+  - - vitamin k (as phytonadione)
+    - 25 mcg
+    - 21%
+  - - thiamin (vitamin b1)
+    - 10 mg
+    - 833%
+  - - riboflavin (vitamin b2) (as riboflavin, riboflavin 5'-phosphate)
+    - 10 mg
+    - 769%
+  - - niacin (as niacinamide, niacin, inositol hexanicotinate)
     - 40 mg
     - 250%
-  - - vitamin b6 (▮)
+  - - vitamin b6 (as pyridoxine hydrochloride, pyridoxal 5' phosphate)
+    - 20 mg
+    - 1,176%
+  - - folate
+    - 667 mcg dfe (400 mcg folic acid)
+    - 167%
+  - - vitamin b12 (as methylcobalamin)
+    - 667 mcg
     - ▮
+  - - biotin (as d-biotin)
+    - 100 mcg
+    - 333%
+  - - pantothenic acid (as calcium d-pantothenate)
+    - 40 mg
+    - 800%
+  - - choline (from choline bitartrate)
+    - 12 mg
+    - 2%
+  - - calcium (as calcium hydroxyapatite, calcium ascorbate, calcium d-pantothenate,
+      calcium citrate, dicalcium phosphate)
+    - 5 mg
+    - <1%
+  - - phosphorus (as calcium hydroxyapatite, dicalcium phosphate)
+    - 5 mg
+    - <1%
+  - - iodine (as potassium iodide)
+    - 20 mcg
     - ▮
-  - - folate (▮)
+  - - magnesium (as magnesium citrate)
+    - 5 mg
+    - <1%
+  - - zinc (as zinc monomethionine)
+    - 15 mg
+    - 136%
+  - - selenium (as selenium rice chelate)
+    - 20 mcg
+    - 36%
+  - - copper (as copper citrate)
+    - 1 mg
+    - 111%
+  - - manganese (as manganese citrate)
+    - 2 mg
+    - 87%
+  - - chromium (as chromium picolinate)
+    - 120 mcg
+    - 343%
+  - - molybdenum (as molybdenum amino acid chelate rice based)
+    - 20 mcg
+    - 44%
+  - - potassium (as potassium citrate)
+    - 10 mg
+    - <1%
+  - - inositol (as inositol, inositol hexanicotinate)
+    - 5 mg
     - ▮
+  - - silica (as silica, horsetail extract [stem])
+    - 3.8 mg
     - ▮
-  - - vitamin b12 (▮)
-    - ▮
-    - ▮
-  - - biotin (▮)
-    - ▮
-    - ▮
-  - - pantothenic acid (▮)
-    - ▮
-    - ▮
-  - - calcium (▮)
-    - ▮ mg
-    - ▮
-  - - iodine (▮)
-    - ▮
-    - ▮
-  - - magnesium (▮)
-    - ▮
-    - ▮
-  - - zinc (▮)
-    - ▮
-    - ▮
-  - - selenium (▮)
-    - ▮
-    - ▮
-  - - copper (▮)
-    - ▮
-    - ▮
-  - - manganese (▮)
-    - ▮
-    - ▮
-  - - chromium (▮)
-    - ▮
-    - ▮
-  - - molybdenum (▮)
-    - ▮
-    - ▮
-  - - ▮
-    - ▮
-    - ▮
-  - - ▮
-    - ▮
-    - ▮
-  - - ▮
-    - ▮
+  - - boron (as boron citrate)
+    - 500 mcg
     - ▮
 price_tag:
   store: MOM

@@ -24,8 +24,10 @@ nutrition:
     - 6 g
     - '**'
   - - organic resistant tapioca dextrin
-    - ▮
-    - ''
+    - 6.6 g
+    - '**'
+  - - '**daily value not established.'
+  - - '***percent daily values are based on a 2,000 calorie diet.'
 price_tag:
   store: MOM
   price_cents: 2399

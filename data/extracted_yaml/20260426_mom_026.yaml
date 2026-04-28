@@ -5,13 +5,12 @@ front:
   manufacturer: jarrow formulas
 nutrition:
   rows:
+  - - supplement facts
   - - serving size 1 softgel
   - - ''
     - amount per serving
-    - ▮
   - - vitamin k2 (as mk-7 [menaquinone-7])
-    - ▮
-    - ▮
+    - 90 mcg †
   - - † daily value (dv) not established.
 price_tag:
   store: MOM

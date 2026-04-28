@@ -1,250 +1,257 @@
 group_id: 20260426_mom_001
 store: MOM
 front:
-  product_name: liquid multivitamin orange mango flavored 30 fl oz
+  product_name: liquid multivitamin
   manufacturer: new chapter
 nutrition:
   rows:
+  - - supplement facts
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
   - - ''
-    - amount per serving
-    - '% dv for 2-3 years'
-    - amount per serving
-    - '% dv for 4-13 years'
-    - amount per serving
-    - '% dv for 14+ years'
+    - 2-3 years
+    - ''
+    - 4-13 years
+    - ''
+    - 14+ years
+    - ''
   - - serving size
-    - 7.4 ml (1 tbsp + 1 tsp)
+    - 7.4 ml (1 tsp. + ½ tsp.)
     - ''
-    - 15 ml (1 tbsp)
+    - 15 ml (1 tbsp.)
     - ''
-    - 30 ml (2 tbsp)
+    - 30 ml (2 tbsp.)
     - ''
-  - - about
-    - '20'
+  - - servings per container
+    - about 120
     - ''
-    - ▮
+    - about 60
     - ''
-    - ▮
+    - about 30
     - ''
+  - - amount per serving
+    - ''
+    - '%dv for 2-3 years'
+    - ''
+    - '%dv for 4-13 years'
+    - ''
+    - '%dv for 14+ years'
   - - calories
-    - '5'
+    - '6'
     - ''
-    - ▮
+    - '15'
     - ''
-    - ▮
+    - '30'
     - ''
-  - - total carbohydrate
-    - 1 g
-    - ▮%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - total sugars
-    - 1 g
-    - ''
-    - ▮
-    - ''
-    - ▮
-    - ''
-  - - includes ▮ g added sugars
-    - ▮
-    - ▮%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - vitamin a (as beta-carotene)
+  - - total carbohydrates
+    - 1.5 g
+    - 1%**
+    - 4 g
+    - 1%**
+    - 7 g
+    - 3%**
+  - - vitamin a (100% as beta-carotene)
     - 225 mcg
-    - 25%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - vitamin c
-    - 9 mg
-    - 60%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - vitamin d3 (as cholecalciferol)
-    - 2.5 mcg (100 iu)
-    - 17%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - vitamin e
-    - 3.4 mg
-    - 65%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - vitamin k
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - thiamin
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - riboflavin
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - niacin
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - vitamin b6
-    - 0.65 mg
-    - ▮%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - folate
-    - 0.65 mg dfe
-    - ▮%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - vitamin b12
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - biotin
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - pantothenic acid
-    - 0.65 mg
-    - 25%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - calcium
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - iron
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - iodine
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - magnesium
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - zinc
-    - 1.5 mg
-    - 50%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - selenium
-    - 16 mcg
     - 75%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - manganese
-    - 0.27 mg
-    - 25%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - chromium
-    - 5.5 mcg
+    - 450 mcg
     - 50%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - molybdenum
-    - 11.3 mcg
+    - 900 mcg
+    - 100%
+  - - vitamin c (as ascorbic acid)
+    - 5 mg
+    - 33%
+    - 9 mg
+    - 10%
+    - 18 mg
+    - 20%
+  - - vitamin d3 (as cholecalciferol from lichen)
+    - 3.5 mcg (140 iu)
+    - 23%
+    - 7 mcg (280 iu)
+    - 35%
+    - 14 mcg (560 iu)
+    - 70%
+  - - vitamin e (as d-alpha-tocopheryl acetate)
+    - 3.8 mg
+    - 63%
+    - 7.5 mg
+    - 50%
+    - 15 mg
+    - 100%
+  - - vitamin k (as phylloquinone (k1))
+    - 15 mcg
+    - 50%
+    - 30 mcg
+    - 25%
+    - 60 mcg
+    - 50%
+  - - thiamin (as thiamine hydrochloride and from ferment media)
+    - 0.63 mg
+    - 126%
+    - 1.25 mg
+    - 104%
+    - 2.5 mg
+    - 208%
+  - - riboflavin (and from ferment media)
+    - 0.63 mg
+    - 126%
+    - 1.25 mg
+    - 96%
+    - 2.5 mg
+    - 192%
+  - - niacin (as niacinamide and as nicotinic acid from ferment media)
+    - 7.5 mg
+    - 125%
+    - 15 mg
+    - 94%
+    - 30 mg
+    - 188%
+  - - vitamin b6 (as pyridoxine hydrochloride and from ferment media)
+    - 0.63 mg
+    - 126%
+    - 1.25 mg
+    - 74%
+    - 2.5 mg
+    - 147%
+  - - folate (as l-5-methylfolate)
+    - 20 mcg dfe
+    - 13%
+    - 40 mcg dfe
+    - 10%
+    - 80 mcg dfe
+    - 20%
+  - - vitamin b12 (as cyanocobalamin)
+    - 0.6 mcg
+    - 67%
+    - 1.2 mcg
+    - 50%
+    - 2.4 mcg
+    - 100%
+  - - biotin (and from ferment media)
+    - 7.5 mcg
+    - 94%
+    - 15 mcg
+    - 50%
+    - 30 mcg
+    - 100%
+  - - pantothenic acid (as calcium d-pantothenate and from ferment media)
+    - 1.3 mg
     - 65%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - sodium
-    - 0 mg
-    - 0%
-    - ▮
-    - ▮
-    - ▮
-    - ▮
+    - 2.5 mg
+    - 50%
+    - 5 mg
+    - 100%
+  - - choline (as choline bitartrate)
+    - 5 mg
+    - 3%
+    - 10 mg
+    - 2%
+    - 20 mg
+    - 4%
+  - - calcium (as calcium citrate)
+    - 7 mg
+    - 1%
+    - 13 mg
+    - 1%
+    - 26 mg
+    - 2%
+  - - iodine (as potassium iodide)
+    - 38 mcg
+    - 42%
+    - 75 mcg
+    - 50%
+    - 150 mcg
+    - 100%
+  - - magnesium (as magnesium citrate)
+    - 3 mg
+    - 4%
+    - 6 mg
+    - 1%
+    - 13 mg
+    - 3%
+  - - zinc (as zinc citrate)
+    - 1.4 mg
+    - 47%
+    - 2.8 mg
+    - 25%
+    - 5.5 mg
+    - 50%
+  - - selenium (as selenium glycinate)
+    - 14 mcg
+    - 70%
+    - 28 mcg
+    - 51%
+    - 55 mcg
+    - 100%
+  - - manganese (as manganese citrate)
+    - 0.01 mg
+    - 1%
+    - 0.02 mg
+    - 1%
+    - 0.04 mg
+    - 2%
+  - - chromium (as chromium picolinate)
+    - 0.6 mcg
+    - 5%
+    - 1.2 mcg
+    - 3%
+    - 2.4 mcg
+    - 7%
+  - - molybdenum (as molybdenum glycinate chelate)
+    - 11.3 mcg
+    - 66%
+    - 22.5 mcg
+    - 50%
+    - 45 mcg
+    - 100%
   - - organic superfood blend
     - 25 mg
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-    - ▮
-  - - organic elderberry (sambucus nigra) (fruit)
-    - ▮
+    - •
+    - 50 mg
+    - •
+    - 100 mg
+    - •
+  - - organic elderberry (sambucus nigra) (fruit),
     - ''
     - ''
     - ''
     - ''
     - ''
-  - - organic black currant (ribes nigrum) (fruit) extract
-    - ▮
+    - ''
+  - - organic black currant (ribes nigrum) (fruit) extract,
     - ''
     - ''
     - ''
     - ''
     - ''
-  - - organic grape (vitis vinifera) (seed) extract
-    - ▮
+    - ''
+  - - organic grape (vitis vinifera) (seed) extract,
     - ''
     - ''
     - ''
     - ''
     - ''
-  - - organic acerola (malpighia glabra) (fruit) extract
-    - ▮
+    - ''
+  - - organic acerola (malpighia glabra l.) (fruit)
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - • daily value (dv) not established
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - '** percent daily values are based on a 2,000 calorie diet'
+    - ''
     - ''
     - ''
     - ''

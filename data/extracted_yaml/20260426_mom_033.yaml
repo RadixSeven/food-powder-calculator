@@ -12,155 +12,143 @@ nutrition:
   - - amount per serving
     - '% daily value'
   - - calories
-    - ▮
+    - '40'
     - ''
   - - total carbohydrate
-    - ▮
-    - ▮
+    - 11 g
+    - 4%**
+  - - dietary fiber
+    - <1 g
+    - 2%**
   - - total sugars
-    - ▮
-    - ▮
-  - - includes ▮g added sugars
+    - 5 g
+    - †
+  - - includes 5g added sugars
     - ''
-    - ▮
-  - - vitamin a
-    - ▮
-    - ▮
-  - - vitamin c
-    - ▮
-    - ▮
-  - - vitamin d
-    - ▮
-    - ▮
-  - - vitamin e
-    - ▮
-    - ▮
-  - - thiamin
-    - ▮
-    - ▮
-  - - riboflavin
-    - ▮
-    - ▮
-  - - niacin
-    - ▮
-    - ▮
-  - - vitamin b6
-    - ▮
-    - ▮
-  - - folate
-    - ▮
-    - ▮
-  - - vitamin b12
-    - ▮
-    - ▮
+    - 10%**
+  - - vitamin a (as palmitate, beta carotene)
+    - 840 mcg rae (2800 iu)
+    - 93%
+  - - vitamin d (as cholecalciferol) (vegan d3)
+    - 25 mcg (1000 iu)
+    - 125%
+  - - vitamin e (as d-alpha tocopheryl acetate)
+    - 134 mg (200 iu)
+    - 893%
+  - - vitamin k (as phylloquinone)
+    - 50 mcg
+    - 42%
+  - - riboflavin (vitamin b2)
+    - 26 mg
+    - 2000%
+  - - niacin (as niacinamide)
+    - 20 mg ne
+    - 125%
+  - - vitamin b6 (as pyridoxine hcl)
+    - 10 mg
+    - 588%
+  - - folate (as calcium-l-5-methyl-tetrahydrofolate)
+    - 708 mcg dfe (425 mcg l-methylfolate)
+    - 177%
+  - - vitamin b12 (as methylcobalamin)
+    - 1000 mcg
+    - 41,667%
   - - biotin
-    - ▮
-    - ▮
-  - - pantothenic acid
-    - ▮
-    - ▮
+    - 100 mcg
+    - 333%
   - - choline (as bitartrate)
-    - ▮
-    - ▮
+    - 13 mg
+    - 2%
   - - calcium (as citrate)
-    - ▮
-    - ▮
+    - 50 mg
+    - 4%
   - - iodine (as potassium iodide)
-    - ▮
-    - ▮
+    - 150 mcg
+    - 100%
   - - magnesium (as citrate)
-    - ▮
-    - ▮
+    - 25 mg
+    - 6%
   - - zinc (as gluconate)
-    - ▮
-    - ▮
+    - 7.5 mg
+    - 68%
   - - selenium (as selenomethionine)
-    - ▮
-    - ▮
+    - 25 mcg
+    - 45%
   - - copper (from mulberry leaf-derived sodium copper chlorophyllin)
-    - ▮
-    - ▮
+    - 3 mg
+    - 333%
   - - manganese (as gluconate)
-    - ▮
-    - ▮
-  - - chromium (as chromium ▮)
-    - ▮
-    - ▮
-  - - vitamin k (as ▮)
-    - ▮
-    - ▮
-  - - molybdenum (as ▮)
-    - ▮
-    - ▮
+    - 2 mg
+    - 87%
+  - - chromium (as picolinate)
+    - 20 mcg
+    - 57%
+  - - vitamin k (as menaquinone-7)
+    - 50 mcg
+    - †
   - - multi-color whole food blend
-    - ▮
-    - ''
-  - - green and red whole food blend
     - 760 mg
-    - ''
-  - - ▮ (organic apple, carrot, guava fruit, peach fruit, strawberry fruit, watermelon
-      fruit, mangosteen fruit, orange juice, ▮ red, cherry fruit)
-    - ''
-    - ''
-  - - blue whole food blend (acai, ▮, blueberry fruit, ▮, bilberry fruit, blackberry
-      fruit, plum fruit, ▮ berry, pomegranate fruit, wolfberry (goji), passion fruit,
-      grape juice)
-    - ''
-    - ''
-  - - white whole food blend (banana, date, parsnip, ▮ chia, prebiotic, modified citrus
-      pectin, lemon peel, bamboo, horseradish root, chicory root fiber, konjac root
-      fiber, acacia, white kidney bean, rice husk, sage, tapioca root starch, cauliflower,
-      lemon bark, artichoke, turnip, white tea leaf, potato tuber)
-    - ''
-    - ''
-  - - yellow whole food blend (pineapple fruit, mango fruit, tangerine fruit, pear
-      juice fruit, amla, acerola, cider vinegar, cinnamon, clove, fennel seed, hops,
-      kiwi fruit, marjoram, oregano, pumpkin seed, rosemary, valerian ▮, grapefruit,
-      honeydew melon)
-    - ''
-    - ''
+    - †
+  - - green and red whole food blend
+  - - fructooligosaccharides (fos), brown rice ▮, ▮, ▮, ▮, apricot fruit, ▮, olive
+      fruit, ▮, grape seed extract, ▮, green tea leaf
+  - - amount per serving
+  - - blue whole food blend
+  - - agave (plant juice), west indian cherry (malpighia glabra), fig fruit, blueberry
+      fruit, carob pod, hibiscus flower, kale leaf, prune fruit, rose hips fruit,
+      lingonberry fruit, elderberry fruit, blackberry fruit, plum fruit, açai berry,
+      pomegranate fruit, wolfberry (goji), passion fruit, grape juice
+  - - white whole food blend
+  - - banana, date, parsnip root, chia protein, modified citrus pectin, lemon peel,
+      bamboo, horseradish root, chicory root fiber, konjac root fiber, acacia, white
+      kidney bean, rice husk, sage, tapioca root starch, cauliflower, onion bulb,
+      artichoke, turnip, white tea leaf, potato tuber
+  - - yellow whole food blend
+  - - pineapple fruit, mango fruit, tangerine fruit, pear juice fruit, amla, apple
+      cider vinegar, cinnamon, clove, fennel seed, hops, kiwi, lemongrass, oregano,
+      pumpkin seed, rosemary, watercress, grapefruit, honeydew melon
   - - amino acids
-    - 2000 mg
-    - ''
-  - - essential and non-essential amino acids from spirulina algae and whole-food
+    - 2000 mcg
+    - †
+  - - essential and non-essential amino acids from spirulina algae and whole food
       phytoalgae (supplying l-isoleucine, l-valine, l-glycine, l-lysine, l-serine,
       l-phenylalanine, l-threonine, l-proline, l-tyrosine, l-cysteine, l-histidine,
-      l-methionine acid)
-    - ''
-    - ''
-  - - green omega root extract (▮ ginseng)
+      l-methionine
+  - - inositol
+    - 30 mg
+    - †
+  - - korean ginseng root extract (panax ginseng)
     - 25 mg
-    - ''
-  - - trans-resveratrol
-    - ▮
-    - ''
-  - - (from polygonum cuspidatum root)
-    - ''
-    - ''
+    - †
+  - - trans-resveratrol (from polygonum cuspidatum root)
+    - 25 mg
+    - †
   - - whole food omega fatty acid blend
     - 25 mg
-    - ''
-  - - (supplying ▮ mg naturally-occurring omega-3, omega-6, and other healthful fatty
-      acids)
-    - ''
-    - ''
-  - - (from flaxseed, spirulina, sunflower seed oil powder, black currant juice, borage)
-    - ''
-    - ''
-  - - enzyme-rich whole food blend
+    - †
+  - - (supplying 13 mg naturally occurring omega-3, omega-9, and other healthful fatty
+      acids) (from flaxseed, spirulina, sunflower seed oil powder, black currant juice,
+      borage)
+  - - enzyme-rich whole food blend —
     - 25 mg
-    - ''
+    - †
   - - pineapple fruit, papaya fruit, turmeric, parsley leaf
-    - ''
-    - ''
-  - - probiotic, antioxidant and whole food blend
+  - - bioflavonoid, antioxidant and whole food blend
     - 25 mg
-    - ''
-  - - boost - active resveratrol, ▮, ▮, ▮ (citrus sinensis fruit), turmeric (curcuma
-      longa root), l-quercetin (dimorphandra mollis seed bark), ▮ (cordyceps sinensis),
-      alpha-lipoic acid, ▮-lipoic acid, glutathione, msm (methylsulfonylmethane)
-    - ''
-    - ''
+    - †
+  - - —active flavanols, flavanones, flavones & naringin (citrus sinensis fruit);
+      hesperidin (from citrus sinensis whole fruit); quercetin (dimorphandra mollis)
+      and rutin (sophora japonica), alpha-lipoic acid, r-lipoic acid, glutathione,
+      msm (methylsulfonylmethane)
+  - - coenzyme q10
+    - 10 mg
+    - †
+  - - lutein (active carotenoid from marigold flower extract)
+    - 3 mg
+    - †
+  - - lycopene (active carotenoid from tomato)
+    - 2.5 mg
+    - †
 price_tag:
   store: MOM
   price_cents: 5999

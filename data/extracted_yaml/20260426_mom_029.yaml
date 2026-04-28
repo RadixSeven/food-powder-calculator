@@ -1,7 +1,7 @@
 group_id: 20260426_mom_029
 store: MOM
 front:
-  product_name: vitamin d + k2
+  product_name: vitamin d + k2 dietary supplement
   manufacturer: thorne
 nutrition:
   rows:
@@ -10,14 +10,14 @@ nutrition:
   - - 'servings per container: 600'
   - - 'two drops contain:'
     - ''
-    - '% daily value'
+    - '%dv'
   - - vitamin d (as vitamin d3) (1,000 iu)
     - 25 mcg
-    - ▮
+    - 125%
   - - vitamin k (as vitamin k2 (menatetrenone))†
     - 200 mcg
-    - ▮
-  - - † daily value (dv) ▮
+    - 167%
+  - - † daily value (dv)
 price_tag:
   store: MOM
   price_cents: 2999
