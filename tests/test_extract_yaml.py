@@ -44,6 +44,11 @@ def test_extract_group_calls_each_role_extractor(tmp_path: Path) -> None:
             "nutrition": nutrition_img,
             "price-tag": tag_img,
         },
+        crops_by_role={
+            "front": (front_img,),
+            "nutrition": (nutrition_img,),
+            "price-tag": (tag_img,),
+        },
         stitched={"front": False, "nutrition": False, "price-tag": False},
     )
 
@@ -68,7 +73,8 @@ def test_extract_group_calls_each_role_extractor(tmp_path: Path) -> None:
                 result = extract_group(artifacts)
 
     # Front context is forwarded to nutrition extraction.
-    assert mock_nutr.call_args.args == (nutrition_img, front_result)
+    # Nutrition takes a tuple of crops (multi-image path) plus the front.
+    assert mock_nutr.call_args.args == ((nutrition_img,), front_result)
     # Store is forwarded to price-tag extraction (MOM vs CVS prompt).
     assert mock_tag.call_args.kwargs["store"] == "MOM"
     assert result.front == front_result
@@ -85,6 +91,7 @@ def test_extract_group_skips_missing_roles(tmp_path: Path) -> None:
         group_id="g1",
         store="MOM",
         panels_by_role={"front": front_img},
+        crops_by_role={"front": (front_img,)},
         stitched={"front": False},
     )
     with patch(
@@ -107,11 +114,12 @@ def test_extract_group_skips_missing_roles(tmp_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_nutrition_with_front_context_augments_system_prompt(
+def test_nutrition_single_with_front_context_augments_system_prompt(
     tmp_path: Path,
 ) -> None:
-    """Front product name is prepended to the nutrition system prompt
-    so the model can disambiguate multi-column %DV tables."""
+    """Single-image nutrition + front context: product name prepended
+    to system prompt so the model can disambiguate multi-column %DV
+    tables."""
     img = tmp_path / "n.jpg"
     _save(img)
     front = FrontExtraction(
@@ -123,7 +131,7 @@ def test_nutrition_with_front_context_augments_system_prompt(
         text='{"rows": [["calories", "10"]]}', cached=False, request_sha="x"
     )
     with patch("extract_yaml.call", return_value=fake) as mock_call:
-        result = _extract_nutrition_with_front_context(img, front)
+        result = _extract_nutrition_with_front_context((img,), front)
     request = mock_call.call_args.args[0]
     sp = request.system_prompt or ""
     assert "children's liquid multi" in sp
@@ -134,19 +142,58 @@ def test_nutrition_with_front_context_augments_system_prompt(
 def test_nutrition_without_front_falls_back_to_bare_prompt(
     tmp_path: Path,
 ) -> None:
-    """If front extraction failed (front=None), use the unmodified
-    nutrition extractor."""
+    """Single-image nutrition with no front context uses the bare
+    extract_nutrition (no system-prompt augmentation)."""
     img = tmp_path / "n.jpg"
     _save(img)
     fake_table = NutritionTable(rows=(("x", "y"),))
     with patch(
         "extract_yaml.extract_nutrition", return_value=fake_table
     ) as mock_nutr:
-        with patch("extract_yaml.call") as mock_call:
-            result = _extract_nutrition_with_front_context(img, None)
+        result = _extract_nutrition_with_front_context((img,), None)
     mock_nutr.assert_called_once()
-    mock_call.assert_not_called()
     assert result == fake_table
+
+
+def test_nutrition_multi_image_passes_all_crops(tmp_path: Path) -> None:
+    """Multi-shot groups bypass stitching and pass every crop as a
+    separate attachment to extract_nutrition_multi — the change that
+    avoids stitch-artifact loss."""
+    img_a = tmp_path / "a.jpg"
+    img_b = tmp_path / "b.jpg"
+    img_c = tmp_path / "c.jpg"
+    for p in (img_a, img_b, img_c):
+        _save(p)
+    fake_table = NutritionTable(rows=(("calories", "100"),))
+    with patch(
+        "extract_yaml.extract_nutrition_multi", return_value=fake_table
+    ) as mock_multi:
+        result = _extract_nutrition_with_front_context(
+            (img_a, img_b, img_c), None
+        )
+    mock_multi.assert_called_once()
+    args = mock_multi.call_args.args
+    assert args[0] == (img_a, img_b, img_c)
+    assert result == fake_table
+
+
+def test_nutrition_multi_image_forwards_front_context(tmp_path: Path) -> None:
+    """Multi-image path also threads the front context through."""
+    img_a = tmp_path / "a.jpg"
+    img_b = tmp_path / "b.jpg"
+    for p in (img_a, img_b):
+        _save(p)
+    front = FrontExtraction(
+        product_name="some multi", manufacturer="some brand"
+    )
+    fake_table = NutritionTable(rows=(("x", "y"),))
+    with patch(
+        "extract_yaml.extract_nutrition_multi", return_value=fake_table
+    ) as mock_multi:
+        _extract_nutrition_with_front_context((img_a, img_b), front)
+    context = mock_multi.call_args.kwargs["extra_system_context"]
+    assert "some multi" in context
+    assert "some brand" in context
 
 
 def test_nutrition_with_front_omits_manufacturer_when_empty(
@@ -161,7 +208,7 @@ def test_nutrition_with_front_omits_manufacturer_when_empty(
 
     fake = ClaudeResponse(text='{"rows": []}', cached=False, request_sha="x")
     with patch("extract_yaml.call", return_value=fake) as mock_call:
-        _extract_nutrition_with_front_context(img, front)
+        _extract_nutrition_with_front_context((img,), front)
     sp = mock_call.call_args.args[0].system_prompt or ""
     assert "some product" in sp
     assert " by " not in sp
@@ -238,6 +285,7 @@ def test_process_group_to_yaml_writes_yaml_at_expected_path(
         group_id="g1",
         store="MOM",
         panels_by_role={"front": img},
+        crops_by_role={"front": (img,)},
         stitched={"front": False},
     )
     fake_extraction = GroupExtraction(
@@ -326,6 +374,7 @@ def test_process_group_to_yaml_force_reextracts(tmp_path: Path) -> None:
         group_id="g1",
         store="MOM",
         panels_by_role={"front": img},
+        crops_by_role={"front": (img,)},
         stitched={"front": False},
     )
     fake_extraction = GroupExtraction(

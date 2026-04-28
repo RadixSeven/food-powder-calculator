@@ -70,6 +70,7 @@ def test_single_shot_role_uses_crop_directly_without_stitching(
     by_role = {"nutrition": [(crop, _bbox("nutrition"))]}
     artifacts = stitch_role_outputs("g1", by_role, out_dir=tmp_path / "out")
     assert artifacts.panels_by_role["nutrition"] == crop
+    assert artifacts.crops_by_role["nutrition"] == (crop,)
     assert artifacts.stitched["nutrition"] is False
 
 
@@ -89,6 +90,7 @@ def test_multi_shot_role_stitches_along_majority_axis(
     artifacts = stitch_role_outputs("g1", by_role, out_dir=tmp_path / "out")
     out_path = artifacts.panels_by_role["nutrition"]
     assert out_path != a and out_path != b  # newly created stitched file
+    assert artifacts.crops_by_role["nutrition"] == (a, b)
     assert artifacts.stitched["nutrition"] is True
     with Image.open(out_path) as result:
         with Image.open(a) as src:

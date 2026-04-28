@@ -43,14 +43,27 @@ STRICT_ROLES = ("front", "nutrition", "price-tag")
 
 @dataclass(frozen=True)
 class GroupArtifacts:
-    """One stitched/cropped output per role for a single group."""
+    """Per-role outputs for a single group.
+
+    Two views of the same crops:
+
+    * ``panels_by_role`` — single image path per role. For multi-shot
+      roles this is the stitched output; for single-shot it's the
+      crop itself. Used by extractors that want one image (front,
+      price-tag).
+    * ``crops_by_role`` — full per-photo crop list per role, in
+      capture order. Used by extractors that want to send each crop
+      as a separate attachment to the model rather than working from
+      a stitched/resampled composite (the nutrition multi-image path
+      that avoids stitch artifacts).
+    """
 
     group_id: str
     store: str
-    # role → final image path. None if the group has no photos for that role.
     panels_by_role: dict[str, Path]
-    # role → True if the path came from stitching multiple crops; False if
-    # it's a single crop that didn't need stitching.
+    crops_by_role: dict[str, tuple[Path, ...]]
+    # role → True if the panels_by_role path came from stitching
+    # multiple crops; False if it's a single crop.
     stitched: dict[str, bool]
 
 
@@ -128,12 +141,14 @@ def stitch_role_outputs(
     """
     out_dir.mkdir(parents=True, exist_ok=True)
     panels_by_role: dict[str, Path] = {}
+    crops_by_role: dict[str, tuple[Path, ...]] = {}
     stitched_flag: dict[str, bool] = {}
     for role, items in by_role.items():
         if not items:
             continue
         crop_paths = [p for p, _ in items]
         bboxes = [b for _, b in items]
+        crops_by_role[role] = tuple(crop_paths)
         if len(crop_paths) == 1:
             # Single-shot bypass: the crop IS the per-role output.
             panels_by_role[role] = crop_paths[0]
@@ -157,6 +172,7 @@ def stitch_role_outputs(
         group_id=group_id,
         store=store,
         panels_by_role=panels_by_role,
+        crops_by_role=crops_by_role,
         stitched=stitched_flag,
     )
 

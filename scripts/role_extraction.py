@@ -144,14 +144,83 @@ class NutritionTable:
     rows: tuple[tuple[str, ...], ...]
 
 
+NUTRITION_MULTI_SYSTEM_PROMPT = (
+    "You extract the nutrition / supplement facts table from photos "
+    "of a product. You may receive multiple photos covering different "
+    "portions of the same panel — e.g. a wrap-around bottle label "
+    "shot from different angles, or partial views where each photo "
+    "shows a slice of the table. Combine the rows you can see across "
+    "all photos into a single table, deduplicating rows that appear "
+    "in more than one photo (matching by nutrient name when "
+    "available, otherwise by row position within each photo). "
+    'Return a JSON object with one key, `"rows"`, whose value is an '
+    "array of arrays of strings. Each inner array is one row of the "
+    "combined table, in top-to-bottom order as they appear on the "
+    "panel. Within a row, cells go left-to-right in the column order "
+    "printed on the panel; do not reorder or merge columns. Header "
+    "rows (e.g. `Amount per serving`, age-band columns) are rows too "
+    "— emit them in source order so column meaning is preserved. Use "
+    'an empty string `""` for cells the panel leaves blank. Use '
+    f'`"{UNKNOWN_MARKER}"` only for cells whose text is genuinely '
+    "occluded across all photos (no photo shows that cell readable). "
+    "If a cell is readable in any photo, prefer that reading. "
+    "Lower-case all text; preserve punctuation. Do not invent values. "
+    "Return JSON only, no prose."
+)
+
+NUTRITION_MULTI_PROMPT = (
+    "Extract the combined nutrition / supplement facts table from "
+    "these {n} photos of the same product, following the "
+    "instructions in the system prompt."
+)
+
+
 def extract_nutrition(image_path: Path, model: str) -> NutritionTable:
-    """Extract the nutrition table from a (typically cropped) panel photo."""
+    """Extract the nutrition table from a single (typically cropped) panel photo."""
     response = call(
         ClaudeRequest(
             prompt=NUTRITION_PROMPT,
             model=model,
             image_paths=(image_path,),
             system_prompt=NUTRITION_SYSTEM_PROMPT,
+            json_schema=NUTRITION_JSON_SCHEMA,
+        )
+    )
+    payload = json.loads(response.text)
+    return NutritionTable(
+        rows=tuple(tuple(str(c) for c in row) for row in payload["rows"])
+    )
+
+
+def extract_nutrition_multi(
+    image_paths: tuple[Path, ...],
+    model: str,
+    *,
+    extra_system_context: str = "",
+) -> NutritionTable:
+    """Extract a single combined nutrition table from multiple photos.
+
+    Sends every photo to the model as a separate image attachment in
+    one call; the model handles deduplication across overlapping
+    views. Avoids the lossy resize+re-encode that pre-stitching
+    introduces and lets the model see each crop at its native
+    resolution. ``extra_system_context`` is prepended to the system
+    prompt — useful for front-context augmentation that helps the
+    model interpret ambiguous columns.
+    """
+    if not image_paths:
+        raise ValueError("extract_nutrition_multi requires at least one image")
+    system_prompt = (
+        extra_system_context + NUTRITION_MULTI_SYSTEM_PROMPT
+        if extra_system_context
+        else NUTRITION_MULTI_SYSTEM_PROMPT
+    )
+    response = call(
+        ClaudeRequest(
+            prompt=NUTRITION_MULTI_PROMPT.format(n=len(image_paths)),
+            model=model,
+            image_paths=image_paths,
+            system_prompt=system_prompt,
             json_schema=NUTRITION_JSON_SCHEMA,
         )
     )

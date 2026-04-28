@@ -24,6 +24,7 @@ from role_extraction import (
     PriceTag,
     extract_front,
     extract_nutrition,
+    extract_nutrition_multi,
     extract_price_tag,
 )
 
@@ -119,6 +120,42 @@ def test_extract_nutrition_handles_empty_table(tmp_path: Path) -> None:
     with patch("role_extraction.call", return_value=fake):
         table = extract_nutrition(img, "opus")
     assert table.rows == ()
+
+
+def test_extract_nutrition_multi_passes_all_images(tmp_path: Path) -> None:
+    """Multi-image extraction sends every crop as a separate attachment
+    in one call, bypassing the lossy stitch+resize pipeline."""
+    img_a = tmp_path / "a.jpg"
+    img_b = tmp_path / "b.jpg"
+    img_c = tmp_path / "c.jpg"
+    for p in (img_a, img_b, img_c):
+        p.write_bytes(b"fake")
+    fake = _stub_response({"rows": [["calories", "100"], ["protein", "5g"]]})
+    with patch("role_extraction.call", return_value=fake) as mock_call:
+        result = extract_nutrition_multi((img_a, img_b, img_c), "opus")
+    request = mock_call.call_args.args[0]
+    assert request.image_paths == (img_a, img_b, img_c)
+    assert result.rows == (("calories", "100"), ("protein", "5g"))
+
+
+def test_extract_nutrition_multi_prepends_extra_context(tmp_path: Path) -> None:
+    """The orchestrator passes a front-derived context preamble; the
+    function prepends it to the system prompt before the multi-image
+    instructions so column-disambiguation hints reach the model."""
+    img = tmp_path / "a.jpg"
+    img.write_bytes(b"fake")
+    fake = _stub_response({"rows": []})
+    with patch("role_extraction.call", return_value=fake) as mock_call:
+        extract_nutrition_multi(
+            (img,), "opus", extra_system_context="Context: hello world.\n\n"
+        )
+    sp = mock_call.call_args.args[0].system_prompt or ""
+    assert sp.startswith("Context: hello world.")
+
+
+def test_extract_nutrition_multi_rejects_empty_input(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="at least one image"):
+        extract_nutrition_multi((), "opus")
 
 
 # ---------------------------------------------------------------------------

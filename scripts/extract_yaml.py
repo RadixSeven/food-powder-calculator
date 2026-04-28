@@ -48,6 +48,7 @@ from role_extraction import (
     PriceTag,
     extract_front,
     extract_nutrition,
+    extract_nutrition_multi,
     extract_price_tag,
 )
 
@@ -82,15 +83,15 @@ def extract_group(artifacts: GroupArtifacts) -> GroupExtraction:
         front = extract_front(artifacts.panels_by_role["front"], FRONT_MODEL)
 
     nutrition: NutritionTable | None = None
-    if "nutrition" in artifacts.panels_by_role:
+    if "nutrition" in artifacts.crops_by_role:
+        crops = artifacts.crops_by_role["nutrition"]
         print(
-            f"  [extract] {artifacts.group_id}: nutrition",
+            f"  [extract] {artifacts.group_id}: nutrition "
+            f"({len(crops)} crop{'s' if len(crops) > 1 else ''})",
             file=sys.stderr,
             flush=True,
         )
-        nutrition = _extract_nutrition_with_front_context(
-            artifacts.panels_by_role["nutrition"], front
-        )
+        nutrition = _extract_nutrition_with_front_context(crops, front)
 
     price_tag: PriceTag | None = None
     if "price-tag" in artifacts.panels_by_role:
@@ -115,34 +116,49 @@ def extract_group(artifacts: GroupArtifacts) -> GroupExtraction:
 
 
 def _extract_nutrition_with_front_context(
-    image_path: Path, front: FrontExtraction | None
+    image_paths: tuple[Path, ...], front: FrontExtraction | None
 ) -> NutritionTable:
-    """Augment the nutrition system prompt with the front product name.
+    """Run nutrition extraction with optional front-text context.
 
-    Knowing the product name (e.g., "Children's Liquid Multivitamin
-    Ages 2-13") helps the model interpret ambiguous column headers
-    (which %DV column is for kids? which for adults?). When front
-    extraction failed or wasn't available, falls back to the bare
-    nutrition prompt.
+    Single-image path goes through :func:`extract_nutrition`;
+    multi-image path goes through :func:`extract_nutrition_multi`,
+    which sends every crop as a separate attachment so the model
+    sees each at native resolution and handles deduplication
+    itself — no stitch artifacts.
+
+    Front product name is prepended to the system prompt as context
+    so the model can disambiguate ambiguous columns (e.g. age-band
+    %DV columns). When front extraction failed, falls back to the
+    bare extractor.
     """
-    if front is None:
-        return extract_nutrition(image_path, NUTRITION_MODEL)
-    # Reuse the schema/prompt from role_extraction; the only difference
-    # from the bare extractor is the one-line preamble we prepend to
-    # the system prompt.
-    augmented_system = (
-        f"Context: this image is the nutrition / supplement facts panel "
-        f"for the product {front.product_name!r}"
-        + (f" by {front.manufacturer!r}" if front.manufacturer else "")
-        + ". Use that to disambiguate column headers (e.g. age-band "
-        "%DV columns) when reading the table.\n\n" + NUTRITION_SYSTEM_PROMPT
+    context = ""
+    if front is not None:
+        context = (
+            "Context: these images show the nutrition / supplement "
+            f"facts panel for the product {front.product_name!r}"
+            + (f" by {front.manufacturer!r}" if front.manufacturer else "")
+            + ". Use that to disambiguate column headers (e.g. "
+            "age-band %DV columns) when reading the table.\n\n"
+        )
+    if len(image_paths) == 1:
+        if front is None:
+            return extract_nutrition(image_paths[0], NUTRITION_MODEL)
+        return _extract_nutrition_single_with_context(image_paths[0], context)
+    return extract_nutrition_multi(
+        image_paths, NUTRITION_MODEL, extra_system_context=context
     )
+
+
+def _extract_nutrition_single_with_context(
+    image_path: Path, context: str
+) -> NutritionTable:
+    """Single-image nutrition extraction with a context preamble."""
     response = call(
         ClaudeRequest(
             prompt=NUTRITION_PROMPT,
             model=NUTRITION_MODEL,
             image_paths=(image_path,),
-            system_prompt=augmented_system,
+            system_prompt=context + NUTRITION_SYSTEM_PROMPT,
             json_schema=NUTRITION_JSON_SCHEMA,
         )
     )
