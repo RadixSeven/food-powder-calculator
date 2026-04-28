@@ -225,13 +225,30 @@ def main() -> int:  # pragma: no cover — CLI entry, exercised manually
         help="Where to write extracted YAML files.",
     )
     args = parser.parse_args()
+    failures: list[tuple[str, str]] = []
     for gid in args.group_ids:
-        process_group_to_yaml(
-            gid,
-            gold_path=args.gold,
-            stitched_root=args.stitched_root,
-            out_dir=args.out_dir,
+        try:
+            process_group_to_yaml(
+                gid,
+                gold_path=args.gold,
+                stitched_root=args.stitched_root,
+                out_dir=args.out_dir,
+            )
+        except Exception as e:  # pragma: no cover — last-line resilience
+            failures.append((gid, repr(e)))
+            print(
+                f"[extract_yaml] {gid}: FAILED — {e!r}; continuing",
+                file=sys.stderr,
+                flush=True,
+            )
+    if failures:
+        print(
+            f"\n[extract_yaml] {len(failures)} group(s) failed:",
+            file=sys.stderr,
+            flush=True,
         )
+        for gid, err in failures:
+            print(f"  {gid}: {err}", file=sys.stderr, flush=True)
     return 0
 
 
