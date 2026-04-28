@@ -199,7 +199,7 @@ def detect_panels(
     *,
     expected_roles: tuple[str, ...],
     model: str = "haiku",
-    detect_at_longest_side: int = 1024,
+    detect_at_longest_side: int = 2048,
     expand_frac: float = DEFAULT_BBOX_EXPAND_FRAC,
 ) -> tuple[PanelBbox, ...]:
     """Run the bbox detector at a small resize and return per-panel boxes.
@@ -211,9 +211,11 @@ def detect_panels(
     the model cannot emit off-target kinds even if it sees background
     products' panels.
 
-    The detector runs at ``detect_at_longest_side`` (default 1024 px) —
-    bbox detection doesn't need full resolution and the smaller image
-    cuts the call cost without measurably hurting box accuracy.
+    The detector runs at ``detect_at_longest_side`` (default 2048 px).
+    Bumped from 1024 after observing systematic bbox failures (bottom
+    cuts, right cuts, hand-instead-of-panel) on user-flagged groups —
+    haiku at 1024 was missing edges that became visible at 2048
+    without a meaningful cost increase.
 
     ``expand_frac`` (default 0.05) post-processes every detected bbox
     by expanding the box that fraction in each direction. This catches
