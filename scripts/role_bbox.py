@@ -31,79 +31,107 @@ ROLE_KINDS = ("front", "nutrition", "ingredients", "other-label", "price-tag")
 TEXT_DIRECTIONS = ("horizontal", "vertical")
 
 BBOX_SYSTEM_PROMPT = (
-    "You are an expert at locating text-bearing labels on product photos. "
-    "Identify every distinct readable panel in the image and return one "
-    "tight bounding box per panel. Do not invent panels that aren't "
-    "clearly readable. Crop each box tight to the readable text area: "
-    "exclude bottle curvature, specular glare, hands holding the package, "
-    "and surrounding shelf / background. Return JSON only, no prose."
+    "You locate text-bearing labels on the PRIMARY product in a "
+    "product photo. The primary product is the one the photo is "
+    "focused on: typically held by a hand, in the foreground, "
+    "largest, sharpest, and centered. Ignore everything else in the "
+    "frame: products on adjacent shelves, products behind or beside "
+    "the primary product, and partial / out-of-focus products at the "
+    "edges. A shelf price tag belongs to the primary product only if "
+    "it is the directly attached / adjacent tag for that exact "
+    "product — tags belonging to other shelf items are NOT primary. "
+    "Return JSON only, no prose."
 )
 
-BBOX_PROMPT = (
-    "Identify every text-bearing label or panel in this product photo. "
-    "For each panel return: "
-    '`"kind"` — one of '
-    f"{', '.join(repr(k) for k in ROLE_KINDS)}; "
-    '`"x_min_frac"`, `"y_min_frac"`, `"x_max_frac"`, `"y_max_frac"` — '
-    "tight bounding-box coordinates as fractions in [0, 1] with (0,0) at "
-    "the top-left and (1,1) at the bottom-right; and "
-    '`"text_direction"` — `"horizontal"` if the text reads left-to-right '
-    'as the photo is oriented, or `"vertical"` if it reads top-to-bottom '
-    "(e.g. text rotated 90 degrees because the package is on its side). "
-    "Return JSON only."
-)
 
-BBOX_JSON_SCHEMA = json.dumps(
-    {
-        "type": "object",
-        "properties": {
-            "panels": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "kind": {"type": "string", "enum": list(ROLE_KINDS)},
-                        "x_min_frac": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 1,
+def _bbox_prompt(expected_roles: tuple[str, ...]) -> str:
+    """Build the prompt with role choices restricted to the expected set.
+
+    Restricting the choices to roles the caller knows the photo can
+    contain (via position-derived rules, e.g. front=first, price-tag=
+    last) eliminates the failure mode where the detector reports
+    background products' panels — the model literally cannot emit an
+    off-target role since the schema enum doesn't include it.
+    """
+    roles_str = ", ".join(repr(k) for k in expected_roles)
+    return (
+        "Identify the text-bearing labels and panels of the PRIMARY product "
+        "in this photo. Do not report panels belonging to other products on "
+        "adjacent shelves or in the background — only the primary subject. "
+        "If the photo is just a shelf price tag, the primary product IS "
+        "that price tag. Look ONLY for these role kinds: "
+        f"{roles_str}. Skip any other panels. "
+        "For each panel return: "
+        f'`"kind"` — one of {roles_str}; '
+        '`"x_min_frac"`, `"y_min_frac"`, `"x_max_frac"`, `"y_max_frac"` — '
+        "TIGHT bounding-box coordinates (fractions in [0, 1], (0,0) "
+        "top-left, (1,1) bottom-right) cropped close to the printed text "
+        "only. Exclude bottle curvature, specular glare, hands, shelf, "
+        "and background — at most a few percent margin past the readable "
+        "text on each side; and "
+        '`"text_direction"` — `"horizontal"` if the text reads '
+        'left-to-right as the photo is oriented, or `"vertical"` if it '
+        "reads top-to-bottom (e.g. text rotated 90 degrees because the "
+        "package is on its side). Return JSON only."
+    )
+
+
+def _bbox_json_schema(expected_roles: tuple[str, ...]) -> str:
+    """Schema with the kind enum restricted to ``expected_roles``."""
+    return json.dumps(
+        {
+            "type": "object",
+            "properties": {
+                "panels": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "kind": {
+                                "type": "string",
+                                "enum": list(expected_roles),
+                            },
+                            "x_min_frac": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1,
+                            },
+                            "y_min_frac": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1,
+                            },
+                            "x_max_frac": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1,
+                            },
+                            "y_max_frac": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1,
+                            },
+                            "text_direction": {
+                                "type": "string",
+                                "enum": list(TEXT_DIRECTIONS),
+                            },
                         },
-                        "y_min_frac": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 1,
-                        },
-                        "x_max_frac": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 1,
-                        },
-                        "y_max_frac": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 1,
-                        },
-                        "text_direction": {
-                            "type": "string",
-                            "enum": list(TEXT_DIRECTIONS),
-                        },
+                        "required": [
+                            "kind",
+                            "x_min_frac",
+                            "y_min_frac",
+                            "x_max_frac",
+                            "y_max_frac",
+                            "text_direction",
+                        ],
+                        "additionalProperties": False,
                     },
-                    "required": [
-                        "kind",
-                        "x_min_frac",
-                        "y_min_frac",
-                        "x_max_frac",
-                        "y_max_frac",
-                        "text_direction",
-                    ],
-                    "additionalProperties": False,
-                },
-            }
-        },
-        "required": ["panels"],
-        "additionalProperties": False,
-    }
-)
+                }
+            },
+            "required": ["panels"],
+            "additionalProperties": False,
+        }
+    )
 
 
 @dataclass(frozen=True)
@@ -130,25 +158,40 @@ class PanelBbox:
 def detect_panels(
     image_path: Path,
     *,
+    expected_roles: tuple[str, ...],
     model: str = "haiku",
     detect_at_longest_side: int = 1024,
 ) -> tuple[PanelBbox, ...]:
     """Run the bbox detector at a small resize and return per-panel boxes.
 
+    ``expected_roles`` is required: the caller declares which roles the
+    photo is expected to contain (front/nutrition/price-tag are
+    deterministic from group position; loose roles can be passed when
+    relevant). The schema enum is restricted to ``expected_roles`` so
+    the model cannot emit off-target kinds even if it sees background
+    products' panels.
+
     The detector runs at ``detect_at_longest_side`` (default 1024 px) —
     bbox detection doesn't need full resolution and the smaller image
     cuts the call cost without measurably hurting box accuracy.
     """
+    if not expected_roles:
+        raise ValueError("expected_roles must be non-empty")
+    if any(r not in ROLE_KINDS for r in expected_roles):
+        bad = [r for r in expected_roles if r not in ROLE_KINDS]
+        raise ValueError(
+            f"expected_roles contains unknown kind(s) {bad}; valid: {ROLE_KINDS}"
+        )
     detect_path = resize_to_longest_side(
         image_path, detect_at_longest_side, CROP_CACHE_DIR / "detect_inputs"
     )
     response = call(
         ClaudeRequest(
-            prompt=BBOX_PROMPT,
+            prompt=_bbox_prompt(expected_roles),
             model=model,
             image_paths=(detect_path,),
             system_prompt=BBOX_SYSTEM_PROMPT,
-            json_schema=BBOX_JSON_SCHEMA,
+            json_schema=_bbox_json_schema(expected_roles),
         )
     )
     payload = json.loads(response.text)

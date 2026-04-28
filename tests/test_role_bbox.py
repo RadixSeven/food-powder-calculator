@@ -10,12 +10,13 @@ import json
 from pathlib import Path
 from unittest.mock import patch
 
+import pytest
 from PIL import Image
 
 from _claude import ClaudeResponse
 from role_bbox import (
-    BBOX_JSON_SCHEMA,
     PanelBbox,
+    _bbox_json_schema,
     crop_panel,
     detect_panels,
 )
@@ -63,7 +64,9 @@ def test_detect_panels_parses_haiku_response(tmp_path: Path) -> None:
     )
     with patch("role_bbox.call", return_value=fake):
         with patch("role_bbox.resize_to_longest_side", return_value=img):
-            panels = detect_panels(img)
+            panels = detect_panels(
+                img, expected_roles=("nutrition", "ingredients")
+            )
     assert len(panels) == 2
     assert panels[0].kind == "nutrition"
     assert panels[1].kind == "ingredients"
@@ -79,7 +82,7 @@ def test_detect_panels_uses_haiku_by_default(tmp_path: Path) -> None:
         "role_bbox.call", return_value=_stub({"panels": []})
     ) as mock_call:
         with patch("role_bbox.resize_to_longest_side", return_value=img):
-            detect_panels(img)
+            detect_panels(img, expected_roles=("nutrition",))
     request = mock_call.call_args.args[0]
     assert request.model == "haiku"
 
@@ -94,7 +97,9 @@ def test_detect_panels_runs_on_resized_input(tmp_path: Path) -> None:
         with patch(
             "role_bbox.resize_to_longest_side", return_value=resized
         ) as mock_resize:
-            detect_panels(img, detect_at_longest_side=1024)
+            detect_panels(
+                img, expected_roles=("nutrition",), detect_at_longest_side=1024
+            )
     assert mock_resize.call_args.args[1] == 1024
 
 
@@ -104,8 +109,44 @@ def test_detect_panels_handles_empty_panels(tmp_path: Path) -> None:
     _make_image(img, (1000, 1000))
     with patch("role_bbox.call", return_value=_stub({"panels": []})):
         with patch("role_bbox.resize_to_longest_side", return_value=img):
-            panels = detect_panels(img)
+            panels = detect_panels(img, expected_roles=("nutrition",))
     assert panels == ()
+
+
+def test_detect_panels_constrains_schema_to_expected_roles(
+    tmp_path: Path,
+) -> None:
+    """The whole point of expected_roles: the schema enum is restricted
+    so the model literally cannot emit a kind we didn't ask for. This
+    is what eliminates the front/price-tag false-positives from
+    background products on adjacent shelves."""
+    img = tmp_path / "photo.jpg"
+    _make_image(img, (1000, 1000))
+    with patch(
+        "role_bbox.call", return_value=_stub({"panels": []})
+    ) as mock_call:
+        with patch("role_bbox.resize_to_longest_side", return_value=img):
+            detect_panels(img, expected_roles=("nutrition",))
+    request = mock_call.call_args.args[0]
+    schema = json.loads(request.json_schema or "")
+    kind_enum = schema["properties"]["panels"]["items"]["properties"]["kind"][
+        "enum"
+    ]
+    assert kind_enum == ["nutrition"]
+
+
+def test_detect_panels_rejects_empty_expected_roles(tmp_path: Path) -> None:
+    img = tmp_path / "photo.jpg"
+    _make_image(img, (1000, 1000))
+    with pytest.raises(ValueError, match="expected_roles must be non-empty"):
+        detect_panels(img, expected_roles=())
+
+
+def test_detect_panels_rejects_unknown_role(tmp_path: Path) -> None:
+    img = tmp_path / "photo.jpg"
+    _make_image(img, (1000, 1000))
+    with pytest.raises(ValueError, match="unknown kind"):
+        detect_panels(img, expected_roles=("nutrition", "made_up_role"))
 
 
 # ---------------------------------------------------------------------------
@@ -194,19 +235,11 @@ def test_crop_panel_is_idempotent(tmp_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_bbox_schema_pins_role_kinds_and_directions() -> None:
-    """The schema enums are how the model knows which strings are valid;
-    if someone edits ROLE_KINDS we want this test to flag the schema
-    didn't get updated alongside."""
-    schema = json.loads(BBOX_JSON_SCHEMA)
+def test_bbox_schema_pins_text_directions() -> None:
+    """``text_direction`` enum must stay in sync with TEXT_DIRECTIONS;
+    if someone edits one and not the other, this test flags it."""
+    schema = json.loads(_bbox_json_schema(("nutrition",)))
     panel_props = schema["properties"]["panels"]["items"]["properties"]
-    assert set(panel_props["kind"]["enum"]) == {
-        "front",
-        "nutrition",
-        "ingredients",
-        "other-label",
-        "price-tag",
-    }
     assert set(panel_props["text_direction"]["enum"]) == {
         "horizontal",
         "vertical",
