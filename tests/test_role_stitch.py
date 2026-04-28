@@ -228,6 +228,65 @@ def test_match_scale_skips_when_only_one_panel(tmp_path: Path) -> None:
         assert result.size == (1234, 567)
 
 
+def test_max_output_longest_side_caps_huge_stitches(tmp_path: Path) -> None:
+    """Multi-shot stitches can balloon past 10000 px (4 panels × 3000
+    px each on the long axis); Claude's vision pipeline downsamples
+    those internally and unpredictably. Capping the output longest-
+    side here lets us control the resampling — LANCZOS at our quality
+    setting beats whatever server-side resize the API does."""
+    a = tmp_path / "a.jpg"
+    b = tmp_path / "b.jpg"
+    _save(a, (3000, 1500), (255, 0, 0))
+    _save(b, (3000, 1500), (0, 0, 255))
+    out = tmp_path / "stitched.jpg"
+    # Without match_scale, raw widths sum to >6000; after capping at
+    # 4096, the longest side should equal exactly 4096.
+    stitch_role_panels(
+        [a, b],
+        "horizontal",
+        out,
+        match_scale=False,
+        max_output_longest_side=4096,
+    )
+    with Image.open(out) as result:
+        assert max(result.size) == 4096
+
+
+def test_max_output_longest_side_none_disables_cap(tmp_path: Path) -> None:
+    """Passing None disables the cap; useful for debugging or when
+    callers want raw stitched output."""
+    a = tmp_path / "a.jpg"
+    b = tmp_path / "b.jpg"
+    _save(a, (5000, 1000), (255, 0, 0))
+    _save(b, (5000, 1000), (0, 0, 255))
+    out = tmp_path / "stitched.jpg"
+    stitch_role_panels(
+        [a, b],
+        "horizontal",
+        out,
+        match_scale=False,
+        max_output_longest_side=None,
+    )
+    with Image.open(out) as result:
+        # 5000 + sep + 5000 = 10004 — uncapped.
+        assert max(result.size) > 9000
+
+
+def test_max_output_longest_side_skips_when_already_smaller(
+    tmp_path: Path,
+) -> None:
+    """If the stitched canvas is already under the cap, no resize is
+    applied — wasted CPU + JPEG re-encode loss for nothing."""
+    a = tmp_path / "a.jpg"
+    _save(a, (1000, 500), (255, 0, 0))
+    out = tmp_path / "stitched.jpg"
+    stitch_role_panels(
+        [a], "horizontal", out, match_scale=False, max_output_longest_side=4096
+    )
+    with Image.open(out) as result:
+        assert result.size == (1000, 500)
+
+
 def test_match_scale_off_preserves_raw_sizes(tmp_path: Path) -> None:
     """Disabling match_scale keeps the raw crop sizes — useful for
     debugging or when sizes are already coordinated upstream."""

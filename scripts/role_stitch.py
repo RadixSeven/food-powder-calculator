@@ -30,6 +30,15 @@ from role_bbox import PanelBbox
 SEPARATOR_PX = 4
 SEPARATOR_COLOR = (200, 200, 200)
 
+# Cap the output's longest side so Claude's vision pipeline doesn't
+# downsample uncontrollably. Multi-shot stitches can balloon to
+# 10000+ px on the long axis when 3-5 photos at 3000px each are
+# concatenated; the API then downsamples internally and we lose
+# detail in unpredictable ways. Capping the output here lets us
+# control the resampling — LANCZOS at our quality setting beats
+# whatever the server-side resize uses.
+DEFAULT_MAX_OUTPUT_LONGEST_SIDE = 4096
+
 
 def stitch_axis_for_panels(panels: list[PanelBbox]) -> str:
     """Pick the stitch axis from the majority ``text_direction``.
@@ -54,6 +63,7 @@ def stitch_role_panels(
     out_path: Path,
     *,
     match_scale: bool = True,
+    max_output_longest_side: int | None = DEFAULT_MAX_OUTPUT_LONGEST_SIDE,
 ) -> None:
     """Stitch ``panel_paths`` along ``text_direction`` and write JPEG.
 
@@ -94,6 +104,19 @@ def stitch_role_panels(
             canvas = _stitch_horizontal(panels)
         else:
             canvas = _stitch_vertical(panels)
+
+        if (
+            max_output_longest_side is not None
+            and max(canvas.size) > max_output_longest_side
+        ):
+            ratio = max_output_longest_side / max(canvas.size)
+            new_size = (
+                int(canvas.width * ratio),
+                int(canvas.height * ratio),
+            )
+            shrunk = canvas.resize(new_size, Image.Resampling.LANCZOS)
+            canvas.close()
+            canvas = shrunk
 
         out_path.parent.mkdir(parents=True, exist_ok=True)
         try:
