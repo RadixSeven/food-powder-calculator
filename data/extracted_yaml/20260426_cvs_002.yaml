@@ -1,78 +1,64 @@
 group_id: 20260426_cvs_002
 store: CVS
 front:
-  product_name: nature made multi 130 tablets
+  product_name: multi 130 tablets
   manufacturer: nature made
 nutrition:
   rows:
+  - - supplement facts
   - - serving size 1 tablet
-    - ''
-    - ''
-    - ''
   - - amount per serving
     - '% daily value'
     - amount per serving
     - '% daily value'
-  - - vitamin a 750 mcg
+  - - vitamin a 750 mcg (as retinyl acetate and beta carotene)
     - 83%
     - biotin 30 mcg
     - 100%
-  - - (as retinyl acetate and beta carotene)
-    - ''
-    - pantothenic acid 10 mg
-    - 200%
   - - vitamin c (as ascorbic acid) 180 mg
     - 200%
-    - (as d-calcium pantothenate)
-    - ''
-  - - vitamin d3 25 mcg (1000 iu)
+    - pantothenic acid 10 mg (as d-calcium pantothenate)
+    - 200%
+  - - vitamin d3 25 mcg (1000 iu) (as cholecalciferol)
     - 125%
     - calcium (as calcium carbonate) 160 mg
     - 12%
-  - - (as cholecalciferol)
-    - ''
+  - - vitamin e 22.5 mg (as dl-alpha tocopheryl acetate)
+    - 150%
     - iron (as ferrous fumarate) 18 mg
     - 100%
-  - - vitamin e 22.5 mg
-    - 150%
-    - iodine (as potassium iodide) 150 mcg
-    - 100%
-  - - (as dl-alpha tocopheryl acetate)
-    - ''
-    - magnesium (as magnesium oxide) 100 mg
-    - 24%
   - - vitamin k (as phytonadione) 80 mcg
     - 67%
-    - zinc (as zinc oxide) 11 mg
+    - iodine (as potassium iodide) 150 mcg
     - 100%
   - - thiamin (as thiamine mononitrate) 1.5 mg
     - 125%
-    - selenium (as sodium selenate) 55 mcg
-    - 100%
+    - magnesium (as magnesium oxide) 100 mg
+    - 24%
   - - riboflavin 1.7 mg
     - 131%
-    - copper (as cupric sulfate) 0.9 mg
+    - zinc (as zinc oxide) 11 mg
     - 100%
   - - niacin (as niacinamide) 20 mg
     - 125%
+    - selenium (as sodium selenate) 55 mcg
+    - 100%
+  - - vitamin b6 2 mg (as pyridoxine hydrochloride)
+    - 118%
+    - copper (as cupric sulfate) 0.9 mg
+    - 100%
+  - - folate 665 mcg dfe (400 mcg folic acid)
+    - 166%
     - manganese (as manganese sulfate) 2.3 mg
     - 100%
-  - - vitamin b6 2 mg
-    - 118%
+  - - vitamin b12 (as cyanocobalamin) 6 mcg
+    - 250%
     - chromium (as chromium chloride) 35 mcg
     - 100%
-  - - (as pyridoxine hydrochloride)
+  - - ''
     - ''
     - molybdenum (as sodium molybdate) 50 mcg
     - 111%
-  - - folate 680 mcg dfe (400 mcg folic acid)
-    - 170%
-    - ''
-    - ''
-  - - vitamin b12 (as cyanocobalamin) 6 mcg
-    - 250%
-    - ''
-    - ''
 price_tag:
   store: CVS
   price_cents: 1649

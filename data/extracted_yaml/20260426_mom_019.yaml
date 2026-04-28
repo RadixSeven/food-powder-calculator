@@ -36,8 +36,11 @@ nutrition:
     - 60 mg
     - 3,529%
   - - folate
-    - 1,333 mcg dfe (800 mcg folic acid)
+    - 1,333 mcg dfe
     - 333%
+  - - ''
+    - (800 mcg folic acid)
+    - ''
   - - vitamin b12 (as cyanocobalamin)
     - 400 mcg
     - 16,667%
@@ -83,9 +86,12 @@ nutrition:
   - - amount per serving
     - ''
     - '% daily value'
-  - - saw palmetto extract (berries) (serenoa repens)
+  - - saw palmetto extract (berries)
     - 100 mg
     - '*'
+  - - (serenoa repens)
+    - ''
+    - ''
   - - cinnamomum sp. (bark)
     - 100 mg
     - '*'
@@ -104,19 +110,33 @@ nutrition:
   - - grape extract (seed)
     - 20 mg
     - '*'
-  - - enzyme blend (papain, lipase, protease, amylase, beet root fiber, bromelain)
+  - - enzyme blend
     - 20 mg
     - '*'
+  - - (papain, lipase, protease,
+    - ''
+    - ''
+  - - amylase, beet root fiber, bromelain)
+    - ''
+    - ''
   - - tomato (fruit)
     - 10 mg
     - '*'
-  - - lemon bioflavonoid complex (from fruit)
+  - - lemon bioflavonoid complex
     - 10 mg
     - '*'
-  - - lutein/zeaxanthin (from lutemax™ 2020) (from aztec marigold) (tagetes erecta)
-      (flower)
+  - - (from fruit)
+    - ''
+    - ''
+  - - lutein/zeaxanthin
     - 3.75 mg
     - '*'
+  - - (from lutemax™ 2020)
+    - ''
+    - ''
+  - - (from aztec marigold) (tagetes erecta)
+    - ''
+    - ''
   - - lycopene (from tomato)
     - 2 mg
     - '*'
@@ -127,9 +147,8 @@ nutrition:
     - 2 mcg
     - '*'
   - - '* daily value not established'
-  - - 'other ingredients: cellulose, modified cellulose gum, stearic acid (vegetable
-      source), silica, magnesium stearate (vegetable source), glycerin, cinnamon (bark)
-      oil.'
+  - - 'other ingredients: cellulose, modified cellulose gum, stearic acid (vegetable),
+      silica, magnesium stearate (vegetable), glycerin, cinnamon (bark) oil.'
 price_tag:
   store: MOM
   price_cents: 2499

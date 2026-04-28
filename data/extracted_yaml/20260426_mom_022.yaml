@@ -28,6 +28,7 @@ nutrition:
     - '**'
   - - '**daily value not established.'
   - - '***percent daily values are based on a 2,000 calorie diet.'
+  - - 'other ingredients: none.'
 price_tag:
   store: MOM
   price_cents: 2399

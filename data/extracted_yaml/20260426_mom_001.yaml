@@ -1,7 +1,7 @@
 group_id: 20260426_mom_001
 store: MOM
 front:
-  product_name: liquid multivitamin
+  product_name: liquid multivitamin orange flavor 30 fl oz
   manufacturer: new chapter
 nutrition:
   rows:
@@ -12,14 +12,14 @@ nutrition:
     - ''
     - ''
     - ''
-  - - ''
+  - - serving size
     - 2-3 years
     - ''
     - 4-13 years
     - ''
     - 14+ years
     - ''
-  - - serving size
+  - - ''
     - 7.4 ml (1 tsp. + ½ tsp.)
     - ''
     - 15 ml (1 tbsp.)
@@ -33,8 +33,8 @@ nutrition:
     - ''
     - about 30
     - ''
-  - - amount per serving
-    - ''
+  - - ''
+    - amount per serving
     - '%dv for 2-3 years'
     - ''
     - '%dv for 4-13 years'
@@ -49,7 +49,7 @@ nutrition:
     - ''
   - - total carbohydrates
     - 1.5 g
-    - 1%**
+    - 1%***
     - 4 g
     - 1%**
     - 7 g
@@ -82,7 +82,7 @@ nutrition:
     - 50%
     - 15 mg
     - 100%
-  - - vitamin k (as phylloquinone (k1))
+  - - vitamin k (as phylloquinone [k1])
     - 15 mcg
     - 50%
     - 30 mcg
@@ -199,7 +199,7 @@ nutrition:
     - 5%
     - 1.2 mcg
     - 3%
-    - 2.4 mcg
+    - 2.3 mcg
     - 7%
   - - molybdenum (as molybdenum glycinate chelate)
     - 11.3 mcg
@@ -208,42 +208,16 @@ nutrition:
     - 50%
     - 45 mcg
     - 100%
-  - - organic superfood blend
+  - - 'organic superfood blend: organic elderberry (sambucus nigra) (fruit), organic
+      black currant (ribes nigrum) (fruit) extract, organic grape (vitis vinifera)
+      (seed) extract, organic acerola (malpighia glabra l.) (fruit)'
     - 25 mg
-    - •
+    - '*'
     - 50 mg
-    - •
+    - '*'
     - 100 mg
-    - •
-  - - organic elderberry (sambucus nigra) (fruit),
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-  - - organic black currant (ribes nigrum) (fruit) extract,
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-  - - organic grape (vitis vinifera) (seed) extract,
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-  - - organic acerola (malpighia glabra l.) (fruit)
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-  - - • daily value (dv) not established
+    - '*'
+  - - '* daily value (dv) not established'
     - ''
     - ''
     - ''
@@ -251,6 +225,13 @@ nutrition:
     - ''
     - ''
   - - '** percent daily values are based on a 2,000 calorie diet'
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - '*** percent daily values are based on a 1,000 calorie diet'
     - ''
     - ''
     - ''

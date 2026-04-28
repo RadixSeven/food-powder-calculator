@@ -5,6 +5,7 @@ front:
   manufacturer: mom
 nutrition:
   rows:
+  - - supplement facts
   - - serving size 1 softgel
   - - ''
     - amount per serving
@@ -27,8 +28,8 @@ nutrition:
   - - dha (docosahexaenoic acid)
     - 313 mg
     - '**'
-  - - '*percent daily values are based on a 2,000 calorie diet.'
-  - - '**daily value not established'
+  - - '* percent daily values are based on a 2,000 calorie diet.'
+  - - '** daily value not established'
 price_tag:
   store: MOM
   price_cents: 4999

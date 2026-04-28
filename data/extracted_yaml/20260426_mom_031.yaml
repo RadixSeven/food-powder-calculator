@@ -6,11 +6,15 @@ front:
 nutrition:
   rows:
   - - supplement facts
+    - ''
+    - ''
   - - 'serving size: one capsule'
+    - ''
+    - ''
   - - 'one capsule contains:'
     - ''
     - '%dv'
-  - - zinc (as traacs® zinc bisglycinate chelate)††
+  - - zinc (as traacs® zinc bisglycinate chelate)†
     - 15 mg
     - 136%
   - - selenium (as l-selenomethionine)
@@ -19,13 +23,15 @@ nutrition:
   - - manganese (as manganese citrate)
     - 2.5 mg
     - 109%
-  - - chromium (as traacs® chromium nicotinate glycinate chelate)††
+  - - chromium (as traacs® chromium nicotinate glycinate chelate)†
     - 100 mcg
     - 286%
   - - boron (as bororganic™ boron glycinate complex)††
     - 700 mcg
     - '*'
   - - '*daily value (dv) not established.'
+    - ''
+    - ''
 price_tag:
   store: MOM
   price_cents: 1999

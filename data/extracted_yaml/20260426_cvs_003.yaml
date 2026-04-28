@@ -1,17 +1,20 @@
 group_id: 20260426_cvs_003
 store: CVS
 front:
-  product_name: nature made d3 2000 iu (50 mcg) 400 tablets
+  product_name: d3 2000 iu (50 mcg) 400 tablets
   manufacturer: nature made
 nutrition:
   rows:
   - - supplement facts
   - - serving size 1 tablet
   - - amount per tablet
+    - ''
     - '% daily value'
-  - - vitamin d3 (as cholecalciferol) 50 mcg (2000 iu)
+  - - vitamin d3 (as cholecalciferol)
+    - 50 mcg (2000 iu)
     - 250%
-  - - calcium (as calcium carbonate) 90 mg
+  - - calcium (as calcium carbonate)
+    - 90 mg
     - 7%
 price_tag:
   store: CVS

@@ -5,6 +5,7 @@ front:
   manufacturer: megafood
 nutrition:
   rows:
+  - - supplement facts
   - - serving size 1 capsule
     - servings per container 60
   - - amount per serving
@@ -18,4 +19,3 @@ nutrition:
   - - cabbage 10 mg
     - '**'
   - - '**daily value not established'
-    - ''

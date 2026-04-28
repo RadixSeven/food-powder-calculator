@@ -38,6 +38,7 @@ nutrition:
   - - potassium
     - 149 mg
     - 3%
+  - - '* percent daily values are based on a 2,000 calorie diet.'
 price_tag:
   store: MOM
   price_cents: 3399

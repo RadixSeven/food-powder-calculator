@@ -12,7 +12,7 @@ nutrition:
     - '%dv'
   - - n-acetyl-l-cysteine
     - 500 mg
-    - ''
+    - '*'
   - - '*daily value (dv) not established.'
 price_tag:
   store: MOM

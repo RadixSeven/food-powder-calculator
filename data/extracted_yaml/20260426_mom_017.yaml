@@ -10,7 +10,7 @@ nutrition:
   - - servings per container 30
   - - ''
     - amount per serving
-    - '%dv'
+    - '% dv'
   - - vitamin a (as 53% retinyl palmitate, 47% beta carotene)
     - 1500 mcg
     - 167%
@@ -26,17 +26,17 @@ nutrition:
   - - thiamin (as thiamin hydrochloride)
     - 15 mg
     - 1250%
-  - - riboflavin (as riboflavin-5'-phosphate)
+  - - riboflavin (as riboflavin 5'-phosphate)
     - 15 mg
     - 1154%
   - - niacin (as niacin and niacinamide)
     - 50 mg
     - 313%
-  - - vitamin b6 (as pyridoxal 5-phosphate)
+  - - vitamin b6 (as pyridoxal 5'-phosphate)
     - 25 mg
     - 1471%
-  - - folate (as l-5 methyltetrahydrofolate (magnafolate®c))
-    - 680 mcg dfe (400 mcg folic acid)
+  - - folate (as l-5 methyltetrahydrofolate) (magnafolate®c) (400 mcg folic acid)
+    - 680 mcg dfe
     - 170%
   - - vitamin b12 (as methylcobalamin)
     - 1000 mcg
@@ -50,7 +50,7 @@ nutrition:
   - - iodine (from potassium iodide)
     - 150 mcg
     - 100%
-  - - zinc (from zinc monomethionine (l-optizinc®))
+  - - zinc (from zinc methionine) (l-optizinc®)
     - 20 mg
     - 182%
   - - selenium (from l-selenomethionine)
@@ -58,14 +58,14 @@ nutrition:
     - 364%
   - - ''
     - amount per serving
-    - '%dv'
+    - '% dv'
   - - copper (from copper bisglycinate chelate)
     - 2 mg
     - 222%
   - - manganese (from manganese amino acid chelate)
     - 2 mg
     - 87%
-  - - chromium (from chromium polynicotinate) (chromemate®)
+  - - chromium (from chromium polynicotinate)(chromemate®)
     - 200 mcg
     - 571%
   - - molybdenum (from molybdenum amino acid chelate)

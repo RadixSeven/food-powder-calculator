@@ -11,24 +11,28 @@ nutrition:
   - - amount per serving
     - '% daily value'
   - - calories
-    - ▮
+    - '40'
+    - ''
   - - total carbohydrate
-    - ▮
-    - ▮
+    - 8 g
+    - 3%*
   - - dietary fiber
-    - ▮
-    - ▮
+    - 7 g
+    - 25%*
   - - plant fiber complex
-    - 9.7▮
-    - ▮
-  - - (oat fiber, apple fiber, rice bran, apple pecti▮
+    - 9.73 g
+    - ''
+  - - (oat fiber, apple fiber, rice bran, apple pectin (fruit))
+    - ''
+    - ''
   - - colon support complex
-    - 118▮
-    - ▮
-  - - (fennel [seed], prune, kelp [whole plant], pa▮
-  - - '[aerial parts], carrot [root], broccoli [head], ▮'
-  - - '[head], lactobacillus acidophilus, vegetarian ▮'
-  - - blend (protease, amylase, lipase, cellulase])
+    - 118 mg
+    - ''
+  - - (fennel [seed], prune, kelp [whole plant], parsley [aerial parts], carrot [root],
+      broccoli [head], cabbage [head], lactobacillus acidophilus, vegetarian enzyme
+      blend (protease, amylase, lipase, cellulase))
+    - ''
+    - ''
   - - '* daily value not established.'
   - - '**percent daily values are based on a 2,000 calorie diet.'
   - - 'other ingredients: xanthan gum.'

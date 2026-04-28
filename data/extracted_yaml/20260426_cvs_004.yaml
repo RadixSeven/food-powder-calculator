@@ -5,12 +5,13 @@ front:
   manufacturer: nature made
 nutrition:
   rows:
-  - - supplement facts
   - - serving size 2 capsules
+    - ''
   - - servings per container 30
+    - ''
   - - amount per serving
     - '% daily value'
-  - - magnesium (from magnesium bisglycinate) 200 mg
+  - - magnesium (as magnesium bisglycinate) 200 mg
     - 48%
 price_tag:
   store: CVS

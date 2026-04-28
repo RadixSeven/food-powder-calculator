@@ -8,8 +8,8 @@ nutrition:
   - - supplement facts
   - - 'serving size: 1 vegetarian caplet'
   - - 'servings per container: 60'
-  - - ''
-    - amount per serving
+  - - amount per serving
+    - ''
     - '% daily value'
   - - vitamin a (as beta-carotene)
     - 900 mcg
@@ -17,7 +17,7 @@ nutrition:
   - - vitamin c (as ascorbic acid)
     - 90 mg
     - 100%
-  - - vitamin d (as cholecalciferol)
+  - - vitamin d (as d3 cholecalciferol)
     - 50 mcg (2,000 iu)
     - 250%
   - - vitamin e (as d-alpha tocopheryl succinate)
@@ -35,15 +35,12 @@ nutrition:
   - - niacin (as niacinamide)
     - 20 mg
     - 125%
-  - - vitamin b-6 (as pyridoxal-5-hydrochloride)
+  - - vitamin b-6 (as pyridoxine hydrochloride)
     - 20 mg
     - 1,176%
   - - folate (as folic acid)
-    - 400 mcg dfe
+    - 400 mcg dfe (240 mcg folic acid)
     - 100%
-  - - (240 mcg folic acid)
-    - ''
-    - ''
   - - vitamin b12 (as methylcobalamin)
     - 10 mcg
     - 417%
@@ -54,35 +51,26 @@ nutrition:
     - 13 mg
     - 260%
   - - choline (as choline bitartrate)
-    - 25 mg
-    - 5%
-  - - calcium
+    - 55 mg
+    - 10%
+  - - calcium (from red algae (lithothamnion sp.))
     - 25 mg
     - 2%
-  - - (red algae (lithothamnion sp.))
-    - ''
-    - ''
-  - - iodine
+  - - iodine (from inactivated yeast (saccharomyces cerevisiae))
     - 150 mcg
     - 100%
-  - - (from inactivated yeast (saccharomyces cerevisiae))
-    - ''
-    - ''
-  - - magnesium
+  - - magnesium (as magnesium oxide from seawater)
     - 50 mg
     - 12%
-  - - (as magnesium oxide from seawater)
+  - - amount per serving
     - ''
-    - ''
-  - - ''
-    - amount per serving
     - '% daily value'
   - - zinc (as zinc citrate)
     - 11 mg
     - 100%
   - - selenium (as selenium l-methionine complex)
-    - 60 mcg
-    - 109%
+    - 55 mcg
+    - 100%
   - - copper (as copper chelate)
     - 0.9 mg
     - 100%
@@ -97,32 +85,30 @@ nutrition:
     - 100%
   - - organic rainbow superfoods blend
     - 80 mg
-    - '*'
+    - '**'
   - - organic spirulina, organic beet (root), organic broccoli (floret, stem), organic
       kale (leaf), organic spinach (leaf), organic blackberry (fruit), organic blueberry
-      (fruit), organic cranberry (fruit)
+      (fruit), organic carrot (root), organic cranberry (fruit)
     - ''
     - ''
   - - men's botanical blend
     - 66 mg
-    - '*'
+    - '**'
   - - ashwagandha extract (root), organic green tea extract (leaf), organic chlorella,
       lycopene (from tomato (fruit))
     - ''
     - ''
   - - ginger, enzyme and probiotic blend
     - 27 mg
-    - '*'
+    - '**'
   - - ginger juice extract (root), bromelain (from pineapple stem), papain (from papaya
-      (fruit)), bacillus coagulans mtcc 5856 (1 million cfu)
+      fruit latex), bacillus coagulans mtcc 5856 (1 million cfu***)
     - ''
     - ''
-  - - '*daily value not established'
-    - ''
-    - ''
+  - - '**daily value not established.'
 price_tag:
   store: MOM
   price_cents: 2699
-  description: ''
-  size: ''
+  description: rl vibrance men's one 60 cnt
+  size: 60 cnt
   upc: 021888217137

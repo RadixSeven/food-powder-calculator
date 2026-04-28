@@ -1,38 +1,34 @@
 group_id: 20260426_mom_037
 store: MOM
 front:
-  product_name: liquid advantage active 55 vitamins, minerals, herbs, antioxidants
-    passion berry
+  product_name: active 55 vitamins, minerals, herbs, antioxidants passion berry
   manufacturer: buried treasure
 nutrition:
   rows:
   - - supplement facts
   - - 32 servings per container
   - - serving size 2 tbsp. 30 ml
-  - - ''
-    - amount per serving
+  - - amount per serving
     - '% daily value'
   - - calories
     - '37'
-    - ''
   - - total fat
     - 0 g
     - 0%
   - - cholesterol
     - 0 mg
-    - 0%
   - - sodium
     - 14 mg
-    - ''
   - - total carbohydrates
     - 9 g
-    - 3%
+    - 3%*
   - - sugar
-    - 9 g
-    - ''
-  - - vitamin a (100% as beta-carotene 9036 mcg)
+    - 0 g
+    - †
+  - - vitamin a
     - 4518 mcg
     - 502%
+  - - (100% as beta-carotene 9036 mcg)
   - - vitamin c (ascorbic acid)
     - 500 mg
     - 555%
@@ -40,11 +36,12 @@ nutrition:
     - 100 mg
     - 8%
   - - vitamin d (ergocalciferol)
-    - 9 mcg
-    - 60%
-  - - vitamin e (alpha tocopherol acetate complex)
+    - 30 mcg
+    - 150%
+  - - vitamin e
     - 314 mg
     - 2093%
+  - - (alpha tocopherol acetate complex)
   - - vitamin k (phytonadione)
     - 50 mcg
     - 41%
@@ -55,17 +52,19 @@ nutrition:
     - 40 mg
     - 1538%
   - - niacin (as niacinamide)
-    - 40 mg
-    - 250%
+    - 50 mg
+    - 312%
   - - vitamin b-6 (pyridoxine hcl)
     - 40 mg
     - 1666%
-  - - folate (calcium l-5 methyltetrahydrofolate)
+  - - folate
     - 400 mcg
     - 100%
-  - - vitamin b-12 (methylcobalamin)
+  - - (calcium l-5 methyltetrahydrofolate)
+  - - vitamin b-12
     - 1,000 mcg
-    - 4166%
+    - 41667%
+  - - (methylcobalamin)
   - - biotin
     - 300 mcg
     - 1000%
@@ -81,11 +80,10 @@ nutrition:
   - - zinc (citrate)
     - 15 mg
     - 136%
-  - - selenium (l-selenomethionine)
+  - - selenium
     - 100 mcg
     - 182%
-  - - ''
-    - amount per serving
+  - - amount per serving
     - '% daily value'
   - - copper (gluconate)
     - 1 mg
@@ -97,7 +95,7 @@ nutrition:
     - 100 mcg
     - 286%
   - - molybdenum
-    - 20 mcg
+    - 20 mg
     - 44%
   - - choline (bitartrate)
     - 20 mg
@@ -114,18 +112,21 @@ nutrition:
   - - paba (para-aminobenzoic acid)
     - 50 mg
     - †
-  - - citrus bioflavonoids (hesperidin)
+  - - citrus bioflavonoids
     - 80 mg
     - †
+  - - (hesperidin)
   - - rutin
     - 30 mg
     - †
-  - - grape seed extract 95% proanthocyanidins
+  - - grape seed extract
     - 15 mg
     - †
-  - - ginkgo biloba extr. (leaves) 24% ginkgo flavoglycosides
+  - - 95% proanthocyanidins
+  - - ginkgo biloba extr. (leaves)
     - 10 mg
     - †
+  - - 24% ginkgo flavoglycosides
   - - rosemary extr. (leaves)
     - 10 mg
     - †
@@ -136,21 +137,23 @@ nutrition:
     - 2 mg
     - †
   - - l-glutathione
-    - 5 mg
+    - 2 mg
     - †
   - - vanadium
-    - 2 mg
+    - 1 mg
     - †
   - - lycopene
     - 200 mcg
     - †
-  - - 70+ fulvic acid minerals proprietary blend
+  - - 70+ fulvic acid minerals
     - 8 mg
     - †
-  - - super food blend beet, bilberry, blueberry, pomegranate, barley grass, spinach,
-      wolfberry, chlorophyll, cranberry and spirulina.
+  - - proprietary blend
+  - - super food blend
     - 500 mg
     - †
+  - - beet, bilberry, blueberry, pomegranate, barley grass, spinach, wolfberry, chlorophyll,
+      cranberry and spirulina.
 price_tag:
   store: MOM
   price_cents: 3999

@@ -7,16 +7,10 @@ front:
 nutrition:
   rows:
   - - supplement facts
-    - ''
-    - ''
   - - serving size 2 tablespoons (30 ml)
-    - ''
-    - ''
   - - servings per container 32
+  - - amount per serving
     - ''
-    - ''
-  - - ''
-    - amount per serving
     - '% daily value'
   - - calories
     - '50'
@@ -39,13 +33,13 @@ nutrition:
   - - vitamin d3 (as 1600 iu cholecalciferol)
     - 40 mcg
     - 200%
-  - - vitamin e (as 44.8 iu dl-alpha tocopheryl from sunflower)
+  - - vitamin e (as 44.8 iu d-alpha tocopherol from sunflower)
     - 30 mg
     - 200%
   - - thiamin (as thiamin mononitrate)
     - 20 mg
     - 1667%
-  - - riboflavin (as riboflavin 5'-phosphate)
+  - - riboflavin (as riboflavin 5' phosphate)
     - 20 mg
     - 1538%
   - - niacin (as niacinamide)
@@ -61,15 +55,15 @@ nutrition:
     - 100 mcg
     - 4167%
   - - biotin (as d-biotin)
-    - 600 mcg
-    - 2000%
+    - 10 mg
+    - 33%
   - - pantothenic acid (as d-calcium pantothenate)
     - 10 mg
     - 200%
   - - choline (as choline bitartrate)
     - 25 mg
     - 5%
-  - - calcium (as calcium phosphate citrate and calcium ascorbate)
+  - - calcium (as calcium potassium phosphate citrate and calcium ascorbate)
     - 130 mg
     - 10%
   - - phosphorus (as calcium potassium phosphate citrate)
@@ -84,9 +78,12 @@ nutrition:
   - - zinc (as zinc gluconate)
     - 11 mg
     - 100%
-  - - selenium ▮
-    - ▮
-    - ▮
+  - - selenium (as selenium ▮)
+    - 20 mcg
+    - 36%
+  - - amount per serving
+    - ''
+    - '% daily value'
   - - copper (as sodium copper chlorophyll)
     - 1 mg
     - 111%
@@ -102,26 +99,20 @@ nutrition:
   - - sodium
     - 20 mg
     - <1%
-  - - potassium (as potassium phosphate citrate)
+  - - potassium (as calcium potassium phosphate citrate)
     - 100 mg
     - 2%
-  - - greens blend
+  - - greens blend (spirulina powder, chlorella powder)
     - 400 mg
     - '*'
-  - - (spirulina powder, chlorella powder)
-    - ''
-    - ''
-  - - fruit and vegetable blend
+  - - fruit and vegetable blend (beet juice powder, cranberry powder, orange juice
+      powder, papaya powder, tomato concentrate powder, strawberry powder, apple powder,
+      guava powder, peach powder, acerola berry concentrate, apricot powder, mango
+      powder, red raspberry powder, kiwi powder, lemon juice powder, pomegranate powder)
     - 200 mg
     - '*'
-  - - (beet juice powder, cranberry powder, orange juice powder, papaya powder, tomato
-      concentrate powder, strawberry powder, apple powder, guava powder, peach powder,
-      acerola berry concentrate, apricot powder, mango powder, red raspberry powder,
-      kiwi powder, lemon juice powder, pomegranate powder)
-    - ''
-    - ''
   - - inositol
-    - 20 mg
+    - 25 mg
     - '*'
   - - paba (para-aminobenzoic acid)
     - 15 mg
@@ -144,12 +135,8 @@ nutrition:
   - - lycopene
     - 750 mcg
     - '*'
-  - - '*percent daily values based on a 2,000 calorie diet.'
-    - ''
-    - ''
-  - - '*daily value not established.'
-    - ''
-    - ''
+  - - '**percent daily values based on a ▮'
+  - - '*daily value not established'
 price_tag:
   store: MOM
   price_cents: 4199

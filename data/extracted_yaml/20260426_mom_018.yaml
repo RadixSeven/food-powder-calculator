@@ -20,12 +20,9 @@ nutrition:
   - - vitamin k
     - 55 mcg
     - 46%
-  - - (as menaquinone-7)
-    - ''
-    - ''
 price_tag:
   store: MOM
   price_cents: 1599
   description: mom's vitamin d3 k2 tablet 60cnt
   size: 60 cnt
-  upc: '719985112317'
+  upc: '719998512317'

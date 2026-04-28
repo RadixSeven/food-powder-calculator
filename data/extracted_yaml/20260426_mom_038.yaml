@@ -1,30 +1,17 @@
 group_id: 20260426_mom_038
 store: MOM
 front:
-  product_name: mary ruth's liquid morning multivitamin raspberry
-  manufacturer: mary ruth's
+  product_name: liquid morning multivitamin raspberry
+  manufacturer: maryruth's
 nutrition:
   rows:
   - - supplement facts
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-  - - ''
-    - 1-3 years
-    - ''
-    - 4-13 years
-    - ''
-    - 14+ years
-    - ''
   - - serving size
-    - 1/2 tsp (2.5 ml)
+    - 1-3 years 1/2 tsp (2.5 ml)
     - ''
-    - 1 tbsp (15 ml)
+    - 4-13 years 1 tbsp (15 ml)
     - ''
-    - 2 tbsp (30 ml)
+    - 14+ years 2 tbsp (30 ml)
     - ''
   - - servings per container
     - about 355
@@ -61,7 +48,7 @@ nutrition:
     - 56%
     - 1,010 mcg
     - 112%
-  - - vitamin c (as ascorbic acid)
+  - - vitamin c (ascorbic acid)
     - 8 mg
     - 50%
     - 45 mg
@@ -83,7 +70,7 @@ nutrition:
     - 18 mg
     - 120%
   - - thiamin (as thiamine hydrochloride)
-    - 0.5 mg
+    - 1.5 mg
     - 100%
     - 3 mg
     - 250%
@@ -139,8 +126,8 @@ nutrition:
     - 10 mg
     - 200%
   - - choline (as choline bitartrate)
-    - ''
-    - ''
+    - ▮
+    - ▮
     - 10 mg
     - 2%
     - 20 mg
@@ -173,13 +160,20 @@ nutrition:
     - †
     - 30 mg
     - †
-  - - proprietary branched chain amino acid complex (l-leucine, l-isoleucine, l-valine)
+  - - proprietary branched chain amino acid complex
     - 2.1 mg
     - †
     - 13 mg
     - †
     - 25 mg
     - †
+  - - l-leucine, l-isoleucine, l-valine
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
   - - betaine
     - 0.8 mg
     - †
@@ -195,29 +189,11 @@ nutrition:
     - 5 mg
     - †
   - - '*percent daily values (dv) are based on a 2,000 calorie diet.'
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
   - - '**percent daily values (dv) are based on a 1,000 calorie diet.'
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
   - - †daily value (dv) not established.
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
 price_tag:
   store: MOM
   price_cents: 3499
   description: mr lqud mrng mltvtn rsbry 30fz
   size: 30 fz
-  upc: '850029392064'
+  upc: '830029392064'

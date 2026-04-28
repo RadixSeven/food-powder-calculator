@@ -6,14 +6,20 @@ front:
 nutrition:
   rows:
   - - supplement facts
-  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - serving size
     - 1-3 years
     - ''
     - 4-13 years
     - ''
     - 14+ years
     - ''
-  - - serving size
+  - - ''
     - 1/2 tsp (2.5 ml)
     - ''
     - 1 tbsp (15 ml)
@@ -35,7 +41,7 @@ nutrition:
     - ''
     - '% dv for 14+ years'
   - - calories
-    - ▮
+    - ''
     - ''
     - '20'
     - ''
@@ -45,72 +51,135 @@ nutrition:
     - 1 g
     - 1%**
     - 5 g
-    - 2%**
+    - 2%*
     - 9 g
-    - 3%**
-  - - vitamin c (as ascorbic acid)
+    - 3%*
+  - - vitamin c
     - 1 mg
     - 8%
     - 8 mg
-    - 8%
+    - 9%
     - 15 mg
     - 17%
-  - - vitamin d (as cholecalciferol)
-    - 1.7 mcg (68 iu)
+  - - (as ascorbic acid)
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - vitamin d
+    - 1.7 mcg
     - 11%
-    - 10 mcg (400 iu)
+    - 10 mcg
     - 50%
-    - 20 mcg (800 iu)
+    - 20 mcg
     - 100%
-  - - calcium (as calcium citrate)
-    - 60 mg
-    - 6%
+  - - (as cholecalciferol)
+    - (68 iu)
+    - ''
+    - (400 iu)
+    - ''
+    - (800 iu)
+    - ''
+  - - calcium
+    - ''
+    - ''
     - 60 mg
     - 5%
     - 120 mg
     - 9%
-  - - magnesium (as magnesium citrate)
+  - - (as calcium citrate)
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - magnesium
     - 10 mg
     - 10%
     - 50 mg
     - 11%
     - 95 mg
     - 23%
-  - - zinc (as zinc citrate)
+  - - (as magnesium citrate)
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - zinc
     - 0.7 mg
     - 22%
     - 4 mg
     - 36%
     - 8 mg
     - 73%
-  - - selenium (as selenium amino acid chelate)
-    - 4.2 mcg
+  - - (as zinc citrate)
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - selenium
+    - 4 mcg
     - 21%
     - 25 mcg
     - 45%
     - 50 mcg
     - 91%
-  - - copper (as copper citrate)
+  - - (as selenium amino acid chelate)
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - copper
+    - ''
+    - ''
     - 0.03 mg
     - 3%
     - 0.05 mg
     - 6%
-    - ▮
-    - ▮
-  - - manganese (as manganese citrate)
+  - - (as copper citrate)
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - manganese
     - 0.42 mg
     - 35%
     - 2.5 mg
     - 109%
     - 5 mg
     - 217%
-  - - chromium (as chromium polynicotinate)
+  - - (as manganese citrate)
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - chromium
     - 4.2 mcg
     - 38%
     - 25 mcg
     - 71%
     - 50 mcg
     - 143%
+  - - (as chromium polynicotinate)
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
   - - proprietary blend
     - 5.6 mg
     - †
@@ -126,5 +195,23 @@ nutrition:
     - ''
     - ''
   - - '*percent daily values (dv) are based on a 2,000 calorie diet.'
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
   - - '**percent daily values (dv) are based on a 1,000 calorie diet.'
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
   - - †daily value (dv) not established.
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''

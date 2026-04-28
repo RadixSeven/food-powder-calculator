@@ -17,13 +17,13 @@ nutrition:
   - - magnesium (from magnesium bisglycinate)
     - 350 mg
     - 83%
-  - - bioperine black pepper extract (piper nigrum) (fruit)
+  - - bioperine® black pepper extract (piper nigrum) (fruit)
     - 5 mg
     - '*'
-  - - '* daily value not established'
+  - - '*daily value not established.'
 price_tag:
   store: MOM
   price_cents: 2299
   description: solaral mg glycinate 350mg 120ct
-  size: 120ct
+  size: 120 cnt
   upc: 076280549010

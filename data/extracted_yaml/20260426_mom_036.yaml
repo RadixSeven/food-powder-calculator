@@ -6,8 +6,9 @@ front:
   manufacturer: buried treasure
 nutrition:
   rows:
+  - - supplement facts
   - - 32 servings per container
-  - - serving size 2 tbsp. 30 ml
+    - serving size 2 tbsp 30 ml
   - - ''
     - amount per serving
     - '% daily value*'
@@ -19,40 +20,32 @@ nutrition:
     - 0%
   - - cholesterol
     - 0 mg
-    - 0%
+    - ''
   - - sodium
     - 14 mg
-    - ▮
+    - ''
   - - total carbohydrates
     - 9 g
     - 3%
   - - sugar
-    - 9 g
-    - ''
+    - 0 g
+    - †
   - - vitamin a
     - 3012 mcg
     - 334%
   - - (100% as beta-carotene 6024 mcg)
-    - ''
-    - ''
   - - vitamin c
     - 1,000 mg
     - 1111%
   - - (ascorbic acid)
-    - ''
-    - ''
   - - vitamin d
     - 30 mcg
     - 150%
   - - (ergocalciferol)
-    - ''
-    - ''
   - - vitamin e
     - 314 mg
     - 2093%
   - - (alpha tocopherol acetate complex)
-    - ''
-    - ''
   - - vitamin b-1 (thiamin)
     - 50 mg
     - 4167%
@@ -62,21 +55,18 @@ nutrition:
   - - niacin (niacinamide)
     - 50 mg
     - 312%
-  - - vitamin b-6 (pyridoxine hcl)
+  - - vitamin b-6
     - 50 mg
     - 2941%
+  - - (pyridoxine hcl)
   - - folate
     - 500 mcg
     - 125%
   - - (calcium l-5 methyltetrahydrofolate)
-    - ''
-    - ''
   - - vitamin b-12
     - 1,000 mcg
     - 41666%
   - - (methylcobalamin)
-    - ''
-    - ''
   - - biotin
     - 300 mcg
     - 1000%
@@ -87,8 +77,11 @@ nutrition:
     - 100 mg
     - 8%
   - - magnesium (citrate)
-    - 100 mg
-    - 24%
+    - 50 mg
+    - 12%
+  - - ''
+    - amount per serving
+    - '% daily value*'
   - - zinc (citrate)
     - 15 mg
     - 136%
@@ -102,38 +95,40 @@ nutrition:
     - 100 mcg
     - 181%
   - - (l-selenomethionine)
-    - ''
-    - ''
   - - chromium (picolinate)
     - 35 mcg
     - 100%
-  - - ▮
+  - - choline (bitartrate)
     - 20 mg
     - 4%
-  - - ▮
+  - - potassium (citrate)
     - 50 mg
     - <1%
-  - - citrus bioflavonoids (hesperidin)
+  - - citrus bioflavonoids
     - 65 mg
     - †
+  - - (hesperidin)
   - - inositol
     - 50 mg
     - †
-  - - paba (para-aminobenzoic acid)
+  - - paba
     - 50 mg
     - †
-  - - rutin (sophora japonica l.)
+  - - (para-aminobenzoic acid)
+  - - rutin (sophorae japonica l.)
     - 40 mg
     - †
-  - - rosemary extract (leaves) (salvia rosmarinus)
+  - - rosemary extract
     - 30 mg
     - †
+  - - (leaves) (salvia rosmarinus)
   - - ginkgo biloba extract (leaves)
     - 10 mg
     - †
-  - - grape seed extract (vitis vinifera)
+  - - grape seed extract
     - 5 mg
     - †
+  - - (vitis vinifera)
   - - alpha lipoic acid
     - 3 mg
     - †
@@ -147,15 +142,11 @@ nutrition:
     - 17 mg
     - †
   - - proprietary blend
-    - ''
-    - ''
   - - super food blend
     - 500 mg
     - †
   - - beet, bilberry, blueberry, pomegranate, barley grass, spinach, wolfberry, chlorophyll,
       cranberry and spirulina
-    - ''
-    - ''
 price_tag:
   store: MOM
   price_cents: 3999

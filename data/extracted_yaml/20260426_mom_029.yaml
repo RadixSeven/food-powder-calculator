@@ -1,7 +1,7 @@
 group_id: 20260426_mom_029
 store: MOM
 front:
-  product_name: vitamin d + k2 dietary supplement
+  product_name: vitamin d + k2
   manufacturer: thorne
 nutrition:
   rows:
@@ -17,7 +17,7 @@ nutrition:
   - - vitamin k (as vitamin k2 (menatetrenone))†
     - 200 mcg
     - 167%
-  - - † daily value (dv)
+  - - daily value (dv)
 price_tag:
   store: MOM
   price_cents: 2999
