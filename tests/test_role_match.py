@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import pytest
+
 from role_extraction import (
     UNKNOWN_MARKER,
     FrontExtraction,
@@ -133,6 +135,79 @@ def test_score_nutrition_all_unknown_returns_one() -> None:
     b = NutritionTable(rows=(("calories", UNKNOWN_MARKER),))
     # 1 of 1 comparable cells match → 1.0
     assert score_nutrition(a, b) == 1.0
+
+
+def test_score_nutrition_value_only_view_falls_back_to_position() -> None:
+    """Wrap-around photo where the nutrient-name column is off-frame:
+    cell 0 is the first value column and many rows share the same
+    starting value (e.g. `0.63 mg` repeats across multiple B-vitamin
+    rows). Name-keyed matching would collide on those duplicates;
+    position-keyed matching pairs row N in A with row N in B and
+    correctly scores them as identical."""
+    rows = (
+        ("0.63 mg", "126%", "1.25 mg", "104%"),  # thiamin
+        ("0.63 mg", "126%", "1.25 mg", "96%"),  # riboflavin
+        ("7.5 mg", "125%", "15 mg", "94%"),  # niacin
+        ("0.63 mg", "126%", "1.25 mg", "78%"),  # b6
+    )
+    a = NutritionTable(rows=rows)
+    b = NutritionTable(rows=rows)
+    assert score_nutrition(a, b) == 1.0
+
+
+def test_score_nutrition_value_only_view_detects_real_mismatch() -> None:
+    """In position-fallback mode, a single differing cell still drops
+    the score by exactly one cell — we haven't lost detection power,
+    just changed the matching strategy."""
+    a = NutritionTable(
+        rows=(
+            ("0.63 mg", "126%", "1.25 mg", "104%"),
+            ("7.5 mg", "125%", "15 mg", "94%"),
+        )
+    )
+    b = NutritionTable(
+        rows=(
+            ("0.63 mg", "126%", "1.25 mg", "104%"),
+            ("7.5 mg", "999%", "15 mg", "94%"),  # one cell off
+        )
+    )
+    assert score_nutrition(a, b) == 7 / 8
+
+
+def test_score_nutrition_falls_back_to_position_when_marker_in_name() -> None:
+    """If most cell-0 values are the unknown marker, name-keying would
+    collapse all those rows to one bucket. Fall back to position."""
+    a = NutritionTable(
+        rows=(
+            (UNKNOWN_MARKER, "1.5 g", "1%"),
+            (UNKNOWN_MARKER, "225 mcg", "75%"),
+            (UNKNOWN_MARKER, "5 mg", "33%"),
+        )
+    )
+    b = NutritionTable(
+        rows=(
+            (UNKNOWN_MARKER, "1.5 g", "1%"),
+            (UNKNOWN_MARKER, "225 mcg", "75%"),
+            (UNKNOWN_MARKER, "5 mg", "33%"),
+        )
+    )
+    assert score_nutrition(a, b) == 1.0
+
+
+def test_score_nutrition_position_mode_penalizes_extra_rows() -> None:
+    """In position mode, when one extraction has extra rows the other
+    doesn't, the extra cells go in the denominator only — not numerator."""
+    a = NutritionTable(
+        rows=(
+            ("0.63 mg", "126%"),
+            ("7.5 mg", "125%"),
+            ("1.3 mg", "65%"),
+        )
+    )
+    b = NutritionTable(rows=(("0.63 mg", "126%"),))
+    # Row 0 matches (2 cells). Rows 1 and 2 in A have no counterpart →
+    # 4 cells unmatched. Total 6 comparable cells, 2 match → 1/3.
+    assert score_nutrition(a, b) == pytest.approx(2 / 6)
 
 
 def test_score_nutrition_only_masked_cells_treated_as_match() -> None:
