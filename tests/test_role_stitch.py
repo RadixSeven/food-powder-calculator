@@ -178,14 +178,15 @@ def test_stitch_creates_output_directory_if_missing(tmp_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_match_scale_downsamples_larger_panels_to_smallest(
+def test_match_scale_upsamples_smaller_panels_to_largest(
     tmp_path: Path,
 ) -> None:
     """When two panels have very different natural sizes (the multi-shot
     scale-mismatch problem the user flagged: one frame at 3000px, another
-    at 800px), the stitcher downsamples the larger one to match. After
-    matching, both panels use the same number of pixels per text glyph
-    and opus can read them as one coherent panel."""
+    at 800px), the stitcher resizes the smaller to match the larger.
+    Matching to MAX (rather than MIN) preserves detail in the largest
+    panel — smaller panels upsample to fill canvas without info gain
+    but also without losing the detail that the bigger panel carries."""
     big = tmp_path / "big.jpg"
     small = tmp_path / "small.jpg"
     _save(big, (3000, 1500), (255, 0, 0))
@@ -193,9 +194,9 @@ def test_match_scale_downsamples_larger_panels_to_smallest(
     out = tmp_path / "stitched.jpg"
     stitch_role_panels([big, small], "horizontal", out, match_scale=True)
     with Image.open(out) as result:
-        # Big downsampled to longest=800 (preserving aspect 2:1) → 800x400.
-        # Small unchanged at 800x400. Stitch width = 800 + sep + 800.
-        assert result.size == (800 + SEPARATOR_PX + 800, 400)
+        # Big unchanged at 3000x1500. Small upsampled to longest=3000
+        # (preserving aspect 2:1) → 3000x1500. Stitch width = 3000 + sep + 3000.
+        assert result.size == (3000 + SEPARATOR_PX + 3000, 1500)
 
 
 def test_match_scale_default_is_on(tmp_path: Path) -> None:
@@ -211,8 +212,9 @@ def test_match_scale_default_is_on(tmp_path: Path) -> None:
     stitch_role_panels([big, small], "horizontal", out_default)
     stitch_role_panels([big, small], "horizontal", out_off, match_scale=False)
     with Image.open(out_default) as a, Image.open(out_off) as b:
-        # match_scale=True downsamples big to 1000-wide; off keeps 2000.
-        assert a.size[0] < b.size[0]
+        # match_scale=True upsamples small to 2000-wide → canvas is wider
+        # than the off-default which keeps small at 1000-wide.
+        assert a.size[0] > b.size[0]
 
 
 def test_match_scale_skips_when_only_one_panel(tmp_path: Path) -> None:

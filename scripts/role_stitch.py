@@ -63,16 +63,16 @@ def stitch_role_panels(
     canvas — this is how a shorter frame next to a taller one stays
     visually anchored.
 
-    When ``match_scale`` is True (the default), all panels are
-    downsampled to share a common longest-side equal to the smallest
-    panel's longest-side. This eliminates the multi-scale issue where
-    one frame is naturally 3000px wide and another is 800px — without
-    matching, opus reads the larger ones at high detail and the
-    smaller ones as illegible blurs in the same stitched image.
-    Downsampling never gains information but keeps every per-pixel
-    text size consistent across the stitch. Set False to preserve raw
-    crop sizes (useful for debugging or when sizes are already
-    matched).
+    When ``match_scale`` is True (the default), every panel is
+    resized so its longest-side matches the LARGEST panel's longest-
+    side. This eliminates the multi-scale issue where one frame is
+    naturally 3000px and another is 800px — without matching, opus
+    reads the larger ones at high detail and the smaller ones as
+    illegible blurs. Matching to MAX (rather than min) preserves the
+    detail in the largest panel; smaller panels just upsample to fill
+    the canvas without information gain — but also without losing
+    detail in the panels that have it. Set False to preserve raw crop
+    sizes (useful for debugging or when sizes are already matched).
     """
     if not panel_paths:
         raise ValueError("stitch_role_panels requires at least one panel")
@@ -87,7 +87,7 @@ def stitch_role_panels(
             panels.append(Image.open(p).convert("RGB"))
 
         if match_scale and len(panels) > 1:
-            target_longest = min(max(img.size) for img in panels)
+            target_longest = max(max(img.size) for img in panels)
             panels = _resize_to_longest(panels, target_longest)
 
         if text_direction == "horizontal":
@@ -111,10 +111,11 @@ def _resize_to_longest(
     """Resize each panel so its longest side equals ``target_longest``.
 
     Panels already at that longest-side are returned unchanged; the
-    rest get :meth:`PIL.Image.thumbnail`-style proportional shrinking
-    using LANCZOS resampling. Original images are closed and replaced
-    with the resized copies; the caller still owns the returned list
-    and is responsible for closing them.
+    rest get LANCZOS-resampled proportional resize (up or down,
+    depending on whether their longest-side is below or above the
+    target). Original images are closed and replaced with the
+    resized copies; the caller still owns the returned list and is
+    responsible for closing them.
     """
     out: list[Image.Image] = []
     for img in panels:
