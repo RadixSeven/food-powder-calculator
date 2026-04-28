@@ -1,0 +1,239 @@
+"""Run role-specific extraction on per-group stitched panels.
+
+Consumes the artifacts from :mod:`group_pipeline` (one image per role
+per group) and produces one structured YAML file per group with the
+combined per-role extraction output.
+
+Roles handled:
+
+* ``front``: product name + manufacturer (haiku is enough — the
+  panel is large, simple text).
+* ``nutrition``: full table extraction (opus — the table is dense
+  and column ordering matters for downstream codegen).
+* ``price-tag``: store-conditional price/UPC fields (haiku — the
+  fields are short and structured).
+
+The front extraction runs first; its product name is appended to the
+nutrition system prompt as context, so the model can disambiguate
+multi-column tables (kid-vs-adult %DV columns are easier to assign
+when "Children's Liquid Multivitamin Ages 2-13" is in scope).
+"""
+
+from __future__ import annotations
+
+import argparse
+import dataclasses
+import json
+import sys
+from dataclasses import dataclass
+from pathlib import Path
+
+import yaml
+
+from _claude import ClaudeRequest, call
+from group_pipeline import (
+    GOLD_GROUPS_JSON,
+    STITCHED_PANELS_DIR,
+    GroupArtifacts,
+    detect_and_crop_group,
+    load_group,
+    stitch_role_outputs,
+)
+from role_extraction import (
+    NUTRITION_JSON_SCHEMA,
+    NUTRITION_PROMPT,
+    NUTRITION_SYSTEM_PROMPT,
+    FrontExtraction,
+    NutritionTable,
+    PriceTag,
+    extract_front,
+    extract_nutrition,
+    extract_price_tag,
+)
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+EXTRACTED_YAML_DIR = REPO_ROOT / "data" / "extracted_yaml"
+
+NUTRITION_MODEL = "opus"
+FRONT_MODEL = "haiku"
+PRICE_TAG_MODEL = "haiku"
+
+
+@dataclass(frozen=True)
+class GroupExtraction:
+    """Combined per-role extractions for one group."""
+
+    group_id: str
+    store: str
+    front: FrontExtraction | None
+    nutrition: NutritionTable | None
+    price_tag: PriceTag | None
+
+
+def extract_group(artifacts: GroupArtifacts) -> GroupExtraction:
+    """Run role-specific extraction on each per-role artifact."""
+    front: FrontExtraction | None = None
+    if "front" in artifacts.panels_by_role:
+        print(
+            f"  [extract] {artifacts.group_id}: front",
+            file=sys.stderr,
+            flush=True,
+        )
+        front = extract_front(artifacts.panels_by_role["front"], FRONT_MODEL)
+
+    nutrition: NutritionTable | None = None
+    if "nutrition" in artifacts.panels_by_role:
+        print(
+            f"  [extract] {artifacts.group_id}: nutrition",
+            file=sys.stderr,
+            flush=True,
+        )
+        nutrition = _extract_nutrition_with_front_context(
+            artifacts.panels_by_role["nutrition"], front
+        )
+
+    price_tag: PriceTag | None = None
+    if "price-tag" in artifacts.panels_by_role:
+        print(
+            f"  [extract] {artifacts.group_id}: price-tag ({artifacts.store})",
+            file=sys.stderr,
+            flush=True,
+        )
+        price_tag = extract_price_tag(
+            artifacts.panels_by_role["price-tag"],
+            PRICE_TAG_MODEL,
+            store=artifacts.store,
+        )
+
+    return GroupExtraction(
+        group_id=artifacts.group_id,
+        store=artifacts.store,
+        front=front,
+        nutrition=nutrition,
+        price_tag=price_tag,
+    )
+
+
+def _extract_nutrition_with_front_context(
+    image_path: Path, front: FrontExtraction | None
+) -> NutritionTable:
+    """Augment the nutrition system prompt with the front product name.
+
+    Knowing the product name (e.g., "Children's Liquid Multivitamin
+    Ages 2-13") helps the model interpret ambiguous column headers
+    (which %DV column is for kids? which for adults?). When front
+    extraction failed or wasn't available, falls back to the bare
+    nutrition prompt.
+    """
+    if front is None:
+        return extract_nutrition(image_path, NUTRITION_MODEL)
+    # Reuse the schema/prompt from role_extraction; the only difference
+    # from the bare extractor is the one-line preamble we prepend to
+    # the system prompt.
+    augmented_system = (
+        f"Context: this image is the nutrition / supplement facts panel "
+        f"for the product {front.product_name!r}"
+        + (f" by {front.manufacturer!r}" if front.manufacturer else "")
+        + ". Use that to disambiguate column headers (e.g. age-band "
+        "%DV columns) when reading the table.\n\n" + NUTRITION_SYSTEM_PROMPT
+    )
+    response = call(
+        ClaudeRequest(
+            prompt=NUTRITION_PROMPT,
+            model=NUTRITION_MODEL,
+            image_paths=(image_path,),
+            system_prompt=augmented_system,
+            json_schema=NUTRITION_JSON_SCHEMA,
+        )
+    )
+    payload = json.loads(response.text)
+    return NutritionTable(
+        rows=tuple(tuple(str(c) for c in row) for row in payload["rows"])
+    )
+
+
+def write_extraction_yaml(extraction: GroupExtraction, out_path: Path) -> None:
+    """Serialize the extraction to YAML for human review and codegen."""
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    payload: dict[str, object] = {
+        "group_id": extraction.group_id,
+        "store": extraction.store,
+    }
+    if extraction.front is not None:
+        payload["front"] = dataclasses.asdict(extraction.front)
+    if extraction.nutrition is not None:
+        payload["nutrition"] = {
+            "rows": [list(row) for row in extraction.nutrition.rows]
+        }
+    if extraction.price_tag is not None:
+        payload["price_tag"] = dataclasses.asdict(extraction.price_tag)
+    with out_path.open("w") as f:
+        yaml.safe_dump(payload, f, sort_keys=False, allow_unicode=True)
+
+
+def process_group_to_yaml(
+    group_id: str,
+    *,
+    gold_path: Path = GOLD_GROUPS_JSON,
+    stitched_root: Path = STITCHED_PANELS_DIR,
+    out_dir: Path = EXTRACTED_YAML_DIR,
+) -> Path:
+    """End-to-end for one group: bbox/crop/stitch + extract + write YAML.
+
+    Returns the path of the written YAML. Idempotent at the bbox/crop
+    layer (cached) and at the extraction layer (also cached). Writes
+    a fresh YAML each call — that's a few microseconds.
+    """
+    group = load_group(gold_path, group_id)
+    by_role = detect_and_crop_group(
+        group, crop_dir=stitched_root / group_id / "crops"
+    )
+    artifacts = stitch_role_outputs(
+        group_id, by_role, out_dir=stitched_root / group_id
+    )
+    extraction = extract_group(artifacts)
+    out_path = out_dir / f"{group_id}.yaml"
+    write_extraction_yaml(extraction, out_path)
+    print(
+        f"[extract_yaml] {group_id}: wrote {out_path}",
+        file=sys.stderr,
+        flush=True,
+    )
+    return out_path
+
+
+def main() -> int:  # pragma: no cover — CLI entry, exercised manually
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "group_ids",
+        nargs="+",
+        help="One or more group IDs to process.",
+    )
+    parser.add_argument(
+        "--gold", type=Path, default=GOLD_GROUPS_JSON, help="Gold-groups JSON."
+    )
+    parser.add_argument(
+        "--stitched-root",
+        type=Path,
+        default=STITCHED_PANELS_DIR,
+        help="Per-group stitched-panel output root.",
+    )
+    parser.add_argument(
+        "--out-dir",
+        type=Path,
+        default=EXTRACTED_YAML_DIR,
+        help="Where to write extracted YAML files.",
+    )
+    args = parser.parse_args()
+    for gid in args.group_ids:
+        process_group_to_yaml(
+            gid,
+            gold_path=args.gold,
+            stitched_root=args.stitched_root,
+            out_dir=args.out_dir,
+        )
+    return 0
+
+
+if __name__ == "__main__":  # pragma: no cover
+    raise SystemExit(main())
