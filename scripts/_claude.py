@@ -30,9 +30,10 @@ CACHE_DIR = REPO_ROOT / "data" / "cache"
 REQUEST_CACHE_SUBDIR = "requests"
 RESPONSE_CACHE_SUBDIR = "responses"
 
-# Wall-clock cap per claude invocation. Long enough for vision calls on
-# large images, short enough that a hung subprocess doesn't block forever.
-DEFAULT_TIMEOUT_SECONDS = 180
+# Wall-clock cap per claude invocation. Long enough for opus vision calls
+# on dense stitched nutrition panels (which routinely take 3-5 minutes),
+# short enough that a hung subprocess doesn't block forever.
+DEFAULT_TIMEOUT_SECONDS = 600
 
 # Minimum sleep between rate-limit retries so we don't pound the server even
 # if the parsed reset time has already passed (server-side lag is a known
