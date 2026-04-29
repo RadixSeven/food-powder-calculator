@@ -56,12 +56,17 @@ class GroupArtifacts:
       as a separate attachment to the model rather than working from
       a stitched/resampled composite (the nutrition multi-image path
       that avoids stitch artifacts).
+
+    ``crop_sources`` maps each crop path to the source photo it was
+    cropped from. Needed by review tooling that wants to display the
+    crop alongside the original.
     """
 
     group_id: str
     store: str
     panels_by_role: dict[str, Path]
     crops_by_role: dict[str, tuple[Path, ...]]
+    crop_sources: dict[Path, Path]
     # role → True if the panels_by_role path came from stitching
     # multiple crops; False if it's a single crop.
     stitched: dict[str, bool]
@@ -76,18 +81,27 @@ def assign_expected_roles(photo_roles: set[str]) -> tuple[str, ...]:
     return tuple(r for r in ROLE_KINDS if r in photo_roles)
 
 
+@dataclass(frozen=True)
+class CropResult:
+    """One crop produced by detect-and-crop for a photo."""
+
+    crop_path: Path
+    source_photo: Path
+    bbox: PanelBbox
+
+
 def detect_and_crop_group(
     group: JsonObject,
     *,
     crop_dir: Path,
-) -> dict[str, list[tuple[Path, PanelBbox]]]:
+) -> dict[str, list[CropResult]]:
     """Run bbox detection + crop for every photo in a group.
 
-    Returns role → list of (crop_path, bbox) in capture order. Photos
+    Returns role → list of crop results in capture order. Photos
     whose gold entry has no known-role kinds are skipped (they're
     loose-only and we don't have ground truth to constrain them).
     """
-    by_role: dict[str, list[tuple[Path, PanelBbox]]] = defaultdict(list)
+    by_role: dict[str, list[CropResult]] = defaultdict(list)
     photos = group.get("photos") or []
     if not isinstance(photos, list):
         return by_role
@@ -123,13 +137,17 @@ def detect_and_crop_group(
             continue
         for panel in panels:
             cropped = crop_panel(photo_path, panel, out_dir=crop_dir)
-            by_role[panel.kind].append((cropped, panel))
+            by_role[panel.kind].append(
+                CropResult(
+                    crop_path=cropped, source_photo=photo_path, bbox=panel
+                )
+            )
     return by_role
 
 
 def stitch_role_outputs(
     group_id: str,
-    by_role: dict[str, list[tuple[Path, PanelBbox]]],
+    by_role: dict[str, list[CropResult]],
     *,
     out_dir: Path,
 ) -> GroupArtifacts:
@@ -142,13 +160,16 @@ def stitch_role_outputs(
     out_dir.mkdir(parents=True, exist_ok=True)
     panels_by_role: dict[str, Path] = {}
     crops_by_role: dict[str, tuple[Path, ...]] = {}
+    crop_sources: dict[Path, Path] = {}
     stitched_flag: dict[str, bool] = {}
     for role, items in by_role.items():
         if not items:
             continue
-        crop_paths = [p for p, _ in items]
-        bboxes = [b for _, b in items]
+        crop_paths = [item.crop_path for item in items]
+        bboxes = [item.bbox for item in items]
         crops_by_role[role] = tuple(crop_paths)
+        for item in items:
+            crop_sources[item.crop_path] = item.source_photo
         if len(crop_paths) == 1:
             # Single-shot bypass: the crop IS the per-role output.
             panels_by_role[role] = crop_paths[0]
@@ -160,21 +181,60 @@ def stitch_role_outputs(
             panels_by_role[role] = stitched_path
             stitched_flag[role] = True
 
-    # store is deterministic from group_id prefix (Phase A decision).
-    if group_id.startswith("20260426_mom"):
-        store = "MOM"
-    elif group_id.startswith("20260426_cvs"):
-        store = "CVS"
-    else:
-        store = "UNKNOWN"
-
     return GroupArtifacts(
         group_id=group_id,
-        store=store,
+        store=_store_for_group_id(group_id),
         panels_by_role=panels_by_role,
         crops_by_role=crops_by_role,
+        crop_sources=crop_sources,
         stitched=stitched_flag,
     )
+
+
+def _store_for_group_id(group_id: str) -> str:
+    """Derive the store from the deterministic group-id prefix."""
+    if group_id.startswith("20260426_mom"):
+        return "MOM"
+    if group_id.startswith("20260426_cvs"):
+        return "CVS"
+    return "UNKNOWN"
+
+
+def write_manifest(artifacts: GroupArtifacts, manifest_path: Path) -> None:
+    """Write a JSON manifest of the canonical crops produced by this run.
+
+    The per-group output directory accumulates stale crops as the bbox
+    detector evolves (different prompts → different bbox coords →
+    different filenames; old files don't get cleaned up). The manifest
+    records *exactly* which crops belong to the latest run, so review
+    tooling and future codegen can ignore the stragglers.
+    """
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    crop_entries: list[dict[str, object]] = []
+    for role, crops in artifacts.crops_by_role.items():
+        for crop_path in crops:
+            source = artifacts.crop_sources[crop_path]
+            crop_entries.append(
+                {
+                    "role": role,
+                    "crop": _repo_relative(crop_path),
+                    "source_photo": _repo_relative(source),
+                }
+            )
+    payload: dict[str, object] = {
+        "group_id": artifacts.group_id,
+        "store": artifacts.store,
+        "crops": crop_entries,
+    }
+    manifest_path.write_text(json.dumps(payload, indent=2))
+
+
+def _repo_relative(path: Path) -> str:
+    """Return ``path`` as a string relative to :data:`REPO_ROOT` when possible."""
+    try:
+        return str(path.resolve().relative_to(REPO_ROOT))
+    except ValueError:
+        return str(path)
 
 
 def process_group(group: JsonObject, *, out_root: Path) -> GroupArtifacts:
@@ -190,8 +250,10 @@ def process_group(group: JsonObject, *, out_root: Path) -> GroupArtifacts:
         file=sys.stderr,
         flush=True,
     )
-    by_role = detect_and_crop_group(group, crop_dir=out_root / gid / "crops")
-    artifacts = stitch_role_outputs(gid, by_role, out_dir=out_root / gid)
+    group_dir = out_root / gid
+    by_role = detect_and_crop_group(group, crop_dir=group_dir / "crops")
+    artifacts = stitch_role_outputs(gid, by_role, out_dir=group_dir)
+    write_manifest(artifacts, group_dir / "manifest.json")
     summary = ", ".join(
         f"{r}={'stitched' if artifacts.stitched[r] else 'single'}"
         for r in STRICT_ROLES

@@ -49,6 +49,11 @@ def test_extract_group_calls_each_role_extractor(tmp_path: Path) -> None:
             "nutrition": (nutrition_img,),
             "price-tag": (tag_img,),
         },
+        crop_sources={
+            front_img: front_img,
+            nutrition_img: nutrition_img,
+            tag_img: tag_img,
+        },
         stitched={"front": False, "nutrition": False, "price-tag": False},
     )
 
@@ -92,6 +97,7 @@ def test_extract_group_skips_missing_roles(tmp_path: Path) -> None:
         store="MOM",
         panels_by_role={"front": front_img},
         crops_by_role={"front": (front_img,)},
+        crop_sources={front_img: front_img},
         stitched={"front": False},
     )
     with patch(
@@ -286,6 +292,7 @@ def test_process_group_to_yaml_writes_yaml_at_expected_path(
         store="MOM",
         panels_by_role={"front": img},
         crops_by_role={"front": (img,)},
+        crop_sources={img: img},
         stitched={"front": False},
     )
     fake_extraction = GroupExtraction(
@@ -375,6 +382,7 @@ def test_process_group_to_yaml_force_reextracts(tmp_path: Path) -> None:
         store="MOM",
         panels_by_role={"front": img},
         crops_by_role={"front": (img,)},
+        crop_sources={img: img},
         stitched={"front": False},
     )
     fake_extraction = GroupExtraction(

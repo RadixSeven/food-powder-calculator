@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from unittest.mock import patch
 
@@ -11,11 +12,13 @@ from _json_types import JsonValue
 import pytest
 
 from group_pipeline import (
+    CropResult,
     assign_expected_roles,
     detect_and_crop_group,
     load_group,
     process_group,
     stitch_role_outputs,
+    write_manifest,
 )
 from role_bbox import PanelBbox
 
@@ -59,6 +62,15 @@ def test_assign_expected_roles_returns_empty_for_unknown_only() -> None:
 # ---------------------------------------------------------------------------
 
 
+def _crop(path: Path, kind: str, *, src: Path | None = None) -> CropResult:
+    """Build a CropResult with the bbox covering the whole crop, defaulting
+    ``source_photo`` to the crop itself for tests that don't track sources.
+    """
+    return CropResult(
+        crop_path=path, source_photo=src or path, bbox=_bbox(kind)
+    )
+
+
 def test_single_shot_role_uses_crop_directly_without_stitching(
     tmp_path: Path,
 ) -> None:
@@ -67,10 +79,11 @@ def test_single_shot_role_uses_crop_directly_without_stitching(
     Hand the crop straight to downstream extraction."""
     crop = tmp_path / "single.jpg"
     _save(crop, (800, 600))
-    by_role = {"nutrition": [(crop, _bbox("nutrition"))]}
+    by_role = {"nutrition": [_crop(crop, "nutrition")]}
     artifacts = stitch_role_outputs("g1", by_role, out_dir=tmp_path / "out")
     assert artifacts.panels_by_role["nutrition"] == crop
     assert artifacts.crops_by_role["nutrition"] == (crop,)
+    assert artifacts.crop_sources[crop] == crop
     assert artifacts.stitched["nutrition"] is False
 
 
@@ -82,10 +95,7 @@ def test_multi_shot_role_stitches_along_majority_axis(
     _save(a, (200, 100))
     _save(b, (200, 100))
     by_role = {
-        "nutrition": [
-            (a, _bbox("nutrition", "horizontal")),
-            (b, _bbox("nutrition", "horizontal")),
-        ]
+        "nutrition": [_crop(a, "nutrition"), _crop(b, "nutrition")],
     }
     artifacts = stitch_role_outputs("g1", by_role, out_dir=tmp_path / "out")
     out_path = artifacts.panels_by_role["nutrition"]
@@ -101,7 +111,7 @@ def test_multi_shot_role_stitches_along_majority_axis(
 def test_store_assigned_from_group_id_prefix(tmp_path: Path) -> None:
     crop = tmp_path / "x.jpg"
     _save(crop, (100, 100))
-    by_role = {"front": [(crop, _bbox("front"))]}
+    by_role = {"front": [_crop(crop, "front")]}
     mom = stitch_role_outputs(
         "20260426_mom_007", by_role, out_dir=tmp_path / "out"
     )
@@ -215,6 +225,61 @@ def test_process_group_rejects_missing_id(tmp_path: Path) -> None:
     group: dict[str, JsonValue] = {"photos": []}
     with pytest.raises(ValueError, match="missing string 'id'"):
         process_group(group, out_root=tmp_path / "out")
+
+
+def test_write_manifest_records_crops_and_sources(tmp_path: Path) -> None:
+    """The manifest is the canonical 'current crops' list — review tooling
+    reads it instead of glob-ing the per-group crops/ directory which
+    accumulates stale files as the bbox prompt evolves."""
+    crop = tmp_path / "crops" / "p1__nutrition__0_0_1000_1000.jpg"
+    src = tmp_path / "raw_photos" / "p1.jpg"
+    crop.parent.mkdir()
+    src.parent.mkdir()
+    _save(crop, (100, 100))
+    _save(src, (200, 200))
+    artifacts = stitch_role_outputs(
+        "20260426_mom_001",
+        {"nutrition": [_crop(crop, "nutrition", src=src)]},
+        out_dir=tmp_path / "out",
+    )
+    manifest_path = tmp_path / "out" / "manifest.json"
+    write_manifest(artifacts, manifest_path)
+    payload = json.loads(manifest_path.read_text())
+    assert payload["group_id"] == "20260426_mom_001"
+    assert payload["store"] == "MOM"
+    assert payload["crops"] == [
+        {
+            "role": "nutrition",
+            "crop": str(crop),
+            "source_photo": str(src),
+        }
+    ]
+
+
+def test_write_manifest_resolves_repo_relative_paths(tmp_path: Path) -> None:
+    """Crops under REPO_ROOT serialize as repo-relative strings so the
+    manifest is portable across machines / checkouts."""
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    crop = repo / "data" / "crops" / "p__front__0_0_1000_1000.jpg"
+    src = repo / "data" / "raw" / "p.jpg"
+    crop.parent.mkdir(parents=True)
+    src.parent.mkdir(parents=True)
+    _save(crop, (100, 100))
+    _save(src, (100, 100))
+    artifacts = stitch_role_outputs(
+        "20260426_mom_001",
+        {"front": [_crop(crop, "front", src=src)]},
+        out_dir=repo / "out",
+    )
+    manifest_path = repo / "out" / "manifest.json"
+    with patch("group_pipeline.REPO_ROOT", repo):
+        write_manifest(artifacts, manifest_path)
+    payload = json.loads(manifest_path.read_text())
+    assert (
+        payload["crops"][0]["crop"] == "data/crops/p__front__0_0_1000_1000.jpg"
+    )
+    assert payload["crops"][0]["source_photo"] == "data/raw/p.jpg"
 
 
 def test_load_group_finds_matching_group(tmp_path: Path) -> None:
