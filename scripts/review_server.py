@@ -100,16 +100,36 @@ change; no submit button.</p>
   </div>
   <div class="controls">
     <label>
-      <input type="checkbox" class="errors-flag" {% if g.has_errors %}checked{% endif %}>
+      <input type="checkbox" class="errors-flag" autocomplete="off"
+        data-server-checked="{{ '1' if g.has_errors else '0' }}"
+        {% if g.has_errors %}checked{% endif %}>
       Errors
     </label>
-    <textarea class="comment" placeholder="comment (optional)">{{ g.comment }}</textarea>
+    <textarea class="comment" placeholder="comment (optional)" autocomplete="off"
+      data-server-value="{{ g.comment }}">{{ g.comment }}</textarea>
     <span class="saved">saved</span>
   </div>
 </div>
 {% endfor %}
 
 <script>
+// Browsers' bfcache restores form input values across reloads/back-forward,
+// overriding the server-rendered state we just sent. Re-sync from
+// data-server-* attributes whenever the page becomes visible. Without this
+// the checkbox/comment for the previously-reviewed session "follows" the
+// user into a fresh review run.
+function syncFromServerState() {
+  document.querySelectorAll('.group').forEach(div => {
+    const flag = div.querySelector('.errors-flag');
+    const comment = div.querySelector('.comment');
+    flag.checked = flag.dataset.serverChecked === '1';
+    comment.value = comment.dataset.serverValue;
+    div.classList.toggle('has-errors', flag.checked);
+  });
+}
+window.addEventListener('pageshow', syncFromServerState);
+syncFromServerState();
+
 document.querySelectorAll('.group').forEach(div => {
   const id = div.dataset.id;
   const flag = div.querySelector('.errors-flag');
@@ -126,6 +146,8 @@ document.querySelectorAll('.group').forEach(div => {
     }).then(r => {
       if (r.ok) {
         div.classList.toggle('has-errors', flag.checked);
+        flag.dataset.serverChecked = flag.checked ? '1' : '0';
+        comment.dataset.serverValue = comment.value;
         saved.classList.add('show');
         setTimeout(() => saved.classList.remove('show'), 600);
       }

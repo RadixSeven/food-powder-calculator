@@ -74,6 +74,40 @@ def test_index_renders_each_group(fixture_paths: tuple[Path, Path]) -> None:
     assert ">a.jpg<" in body
 
 
+def test_form_controls_carry_server_state_and_disable_autocomplete(
+    fixture_paths: tuple[Path, Path],
+) -> None:
+    """Browsers' bfcache restores form values across page reloads, overriding
+    server-rendered state. Defenses: ``autocomplete="off"`` on each control
+    plus ``data-server-*`` attributes that JS re-applies on ``pageshow``.
+    """
+    groups_json, photos_dir = fixture_paths
+    # Pre-populate g1 with a non-default review state so the rendered HTML
+    # carries something the JS can re-apply.
+    payload = json.loads(groups_json.read_text())
+    g1 = next(g for g in payload["groups"] if g["id"] == "g1")
+    g1["has_errors"] = True
+    g1["comment"] = "needs another look"
+    groups_json.write_text(json.dumps(payload))
+
+    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
+    body = app.test_client().get("/").data.decode()
+
+    # Both controls disable browser autocomplete and carry server state in
+    # data-server-* attributes that the page-load JS re-applies.
+    assert 'class="errors-flag" autocomplete="off"' in body
+    assert 'data-server-checked="1"' in body  # g1 is flagged
+    assert 'data-server-checked="0"' in body  # g2 is not flagged
+    assert (
+        'class="comment" placeholder="comment (optional)" autocomplete="off"'
+        in body
+    )
+    assert 'data-server-value="needs another look"' in body
+    # The pageshow handler is what neutralizes bfcache restoration; assert
+    # it's wired up so a future refactor can't drop it silently.
+    assert "addEventListener('pageshow', syncFromServerState)" in body
+
+
 def test_index_returns_empty_when_groups_json_missing(tmp_path: Path) -> None:
     """If no groups.json yet, render an empty list rather than 500."""
     app = create_app(groups_json=tmp_path / "missing.json", photos_dir=tmp_path)
