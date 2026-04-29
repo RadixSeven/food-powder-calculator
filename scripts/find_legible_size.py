@@ -1,14 +1,20 @@
-"""Per-photo binary-search for the smallest legible longest-side.
+"""Per-photo binary-search for the smallest legible longest-side (dormant).
 
-For each photo:
+The active pipeline does not use per-photo sizing — it sends the bbox
+detector its inputs at a fixed 2048 px (see :mod:`role_bbox`) and caps
+stitched output at 4096 px (see :mod:`role_stitch`). This module and
+its siblings (:mod:`sizing_model`, :mod:`run_sizing`, :mod:`stitch`)
+are kept as reference for the Phase A3 design that fits a Bayesian
+posterior over per-photo minimum legible sizes.
 
-1. Use Opus 4.7 at full resolution to extract a reference payload (text +
-   barcode digit strings). That's the ground truth.
-2. Pick the cheapest model (Haiku 4.5 → Sonnet 4.6 → Opus 4.7) that
-   matches the reference at full resolution. That becomes the "search
-   model" — we use it for the binary-search probes because it's cheap.
-3. Binary-search for the smallest longest-side at which the search model
-   still extracts a payload that matches the reference.
+For each photo, the search would:
+
+1. Use Opus 4.7 at full resolution to extract a reference payload
+   (text + barcode digit strings). Ground truth.
+2. Pick the cheapest model that matches the reference at full
+   resolution (Haiku 4.5 → Sonnet 4.6 → Opus 4.7) — the "search model".
+3. Binary-search for the smallest longest-side at which the search
+   model still matches the reference.
 """
 
 from __future__ import annotations

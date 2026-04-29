@@ -1,17 +1,17 @@
-"""Per-group stitched images for the YAML-extraction stage.
+"""Phase A draft of whole-group stitching — no longer used in the pipeline.
 
-Each group in ``data/gold_groups.json`` becomes one stitched JPEG in
-``data/stitched/<group_id>.jpg``. Each source photo is resized to its
-*own* measured ``min_legible_size`` (from
-``find_legible_size.binary_search_min_size``) before stitching, so a
-front-of-package photo can be downsampled aggressively while a small-
-print supplement-facts wrap-around stays close to original resolution.
+Originally produced one stitched JPEG per group in ``data/stitched/``
+by resizing each source photo to its measured ``min_legible_size``
+(from :mod:`find_legible_size`) before vertical concat. The active
+pipeline has since moved to per-role stitching in :mod:`role_stitch`
+(via :mod:`group_pipeline`) and, for nutrition specifically, to the
+no-stitch multi-image attachment path in
+:func:`role_extraction.extract_nutrition_multi`.
 
-The first full run is slow: ~10 Claude calls per photo × ~200 photos
-under a 5-hour rolling rate-limit window, with the auto-retry handling
-the waits. Subsequent runs reuse the per-call cache in ``data/cache/``
-and complete in seconds. Per-group output is idempotent — if a stitched
-file exists, the group is skipped.
+Kept for now as a reference implementation alongside its tests; the
+sizing-finder modules (:mod:`find_legible_size`, :mod:`sizing_model`,
+:mod:`run_sizing`) are likewise dormant. Safe to delete once we're
+confident the per-photo sizing approach is permanently retired.
 """
 
 from __future__ import annotations
