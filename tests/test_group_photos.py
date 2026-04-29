@@ -377,7 +377,8 @@ def test_assign_groups_extension_pool_extends_running_group(
     tmp_path: Path,
 ) -> None:
     """When the sample ends mid-group, extension_pool keeps classifying
-    until a new-product transition confirms the boundary."""
+    until a new-product transition confirms the boundary.
+    """
     sample = _photos_in(
         tmp_path,
         [
@@ -427,7 +428,8 @@ def test_assign_groups_extension_pool_skips_photos_at_or_before_last_seen(
     tmp_path: Path,
 ) -> None:
     """Extension entries whose filename sorts at/before the last-seen photo
-    are filtered out (defensive against unsorted pools)."""
+    are filtered out (defensive against unsorted pools).
+    """
     sample = _photos_in(tmp_path, ["PXL_20260426_165855659.jpg"])
     # Extension contains an OLDER filename + a NEWER one. Only the newer
     # should be considered.
@@ -500,7 +502,8 @@ def test_assign_groups_extension_pool_stops_at_first_boundary(
     tmp_path: Path,
 ) -> None:
     """When the next photo is already a new product, no extension photos
-    are added to the running group."""
+    are added to the running group.
+    """
     sample = _photos_in(
         tmp_path,
         [

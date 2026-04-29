@@ -1,3 +1,5 @@
+"""Food entry for Soylent Original meal-replacement powder, v1.9."""
+
 from display_units import DisplayUnits
 from food import Food, Cost, NutritionFacts
 

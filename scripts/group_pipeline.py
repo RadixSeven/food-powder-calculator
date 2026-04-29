@@ -264,6 +264,7 @@ def process_group(group: JsonObject, *, out_root: Path) -> GroupArtifacts:
 
 
 def load_group(gold_path: Path, group_id: str) -> JsonObject:
+    """Look up one group dict by id from the gold-groups JSON file."""
     payload: JsonValue = json.loads(gold_path.read_text())
     if not isinstance(payload, dict):
         raise ValueError(f"Expected JSON object at {gold_path}")
@@ -281,6 +282,7 @@ def load_group(gold_path: Path, group_id: str) -> JsonObject:
 
 
 def main() -> int:  # pragma: no cover — CLI entry, exercised manually
+    """Command-line entry: bbox + crop + stitch + manifest for each group."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "group_ids",

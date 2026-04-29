@@ -75,7 +75,8 @@ def test_detect_panels_parses_haiku_response(tmp_path: Path) -> None:
 
 def test_detect_panels_uses_haiku_by_default(tmp_path: Path) -> None:
     """We assume haiku unless the caller overrides; cost-sensitive defaults
-    matter because this runs once per photo."""
+    matter because this runs once per photo.
+    """
     img = tmp_path / "photo.jpg"
     _make_image(img, (1000, 1000))
     with patch(
@@ -119,7 +120,8 @@ def test_detect_panels_constrains_schema_to_expected_roles(
     """The whole point of expected_roles: the schema enum is restricted
     so the model literally cannot emit a kind we didn't ask for. This
     is what eliminates the front/price-tag false-positives from
-    background products on adjacent shelves."""
+    background products on adjacent shelves.
+    """
     img = tmp_path / "photo.jpg"
     _make_image(img, (1000, 1000))
     with patch(
@@ -191,7 +193,8 @@ def test_expanded_grows_in_all_directions() -> None:
 
 def test_expanded_clamps_to_unit_interval() -> None:
     """Expansion past image edges clamps to [0, 1] so the result is
-    always a valid normalized bbox."""
+    always a valid normalized bbox.
+    """
     panel = PanelBbox(
         kind="front",
         x_min_frac=0.02,
@@ -210,7 +213,8 @@ def test_expanded_clamps_to_unit_interval() -> None:
 def test_detect_panels_applies_expansion_by_default(tmp_path: Path) -> None:
     """The default expansion is what makes axis-aligned bboxes work on
     cylindrical bottles where text curves at the edges. Verify the
-    parsed PanelBbox is the expanded version, not the raw model output."""
+    parsed PanelBbox is the expanded version, not the raw model output.
+    """
     img = tmp_path / "photo.jpg"
     _make_image(img, (1000, 1000))
     fake = _stub(
@@ -245,7 +249,8 @@ def test_detect_panels_expand_frac_zero_returns_raw_model_output(
     tmp_path: Path,
 ) -> None:
     """Passing expand_frac=0 disables the post-processing margin, useful
-    if a caller wants to compare model raw output to the expanded version."""
+    if a caller wants to compare model raw output to the expanded version.
+    """
     img = tmp_path / "photo.jpg"
     _make_image(img, (1000, 1000))
     fake = _stub(
@@ -296,7 +301,8 @@ def test_crop_panel_writes_jpeg_at_expected_size(tmp_path: Path) -> None:
 
 def test_crop_panel_filename_encodes_coords_and_kind(tmp_path: Path) -> None:
     """The filename is deterministic given the source + bbox so re-runs
-    are idempotent and downstream callers can predict the path."""
+    are idempotent and downstream callers can predict the path.
+    """
     img = tmp_path / "photo.jpg"
     _make_image(img, (1000, 1000))
     panel = PanelBbox(
@@ -343,7 +349,8 @@ def test_crop_panel_is_idempotent(tmp_path: Path) -> None:
 
 def test_bbox_schema_pins_text_directions() -> None:
     """``text_direction`` enum must stay in sync with TEXT_DIRECTIONS;
-    if someone edits one and not the other, this test flags it."""
+    if someone edits one and not the other, this test flags it.
+    """
     schema = json.loads(_bbox_json_schema(("nutrition",)))
     panel_props = schema["properties"]["panels"]["items"]["properties"]
     assert set(panel_props["text_direction"]["enum"]) == {

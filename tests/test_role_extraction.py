@@ -76,7 +76,8 @@ def test_extract_nutrition_returns_immutable_nested_tuples(
     tmp_path: Path,
 ) -> None:
     """Nested arrays come back as a frozen dataclass of tuples-of-tuples
-    so downstream code can use it as a hash / dict key without copying."""
+    so downstream code can use it as a hash / dict key without copying.
+    """
     img = tmp_path / "panel.jpg"
     img.write_bytes(b"fake")
     fake = _stub_response(
@@ -100,7 +101,8 @@ def test_extract_nutrition_returns_immutable_nested_tuples(
 
 def test_extract_nutrition_preserves_unknown_marker(tmp_path: Path) -> None:
     """The model emits the special marker for unreadable cells; the parser
-    must round-trip it unchanged so the comparator can treat it specially."""
+    must round-trip it unchanged so the comparator can treat it specially.
+    """
     img = tmp_path / "panel.jpg"
     img.write_bytes(b"fake")
     fake = _stub_response(
@@ -124,7 +126,8 @@ def test_extract_nutrition_handles_empty_table(tmp_path: Path) -> None:
 
 def test_extract_nutrition_multi_passes_all_images(tmp_path: Path) -> None:
     """Multi-image extraction sends every crop as a separate attachment
-    in one call, bypassing the lossy stitch+resize pipeline."""
+    in one call, bypassing the lossy stitch+resize pipeline.
+    """
     img_a = tmp_path / "a.jpg"
     img_b = tmp_path / "b.jpg"
     img_c = tmp_path / "c.jpg"
@@ -141,7 +144,8 @@ def test_extract_nutrition_multi_passes_all_images(tmp_path: Path) -> None:
 def test_extract_nutrition_multi_prepends_extra_context(tmp_path: Path) -> None:
     """The orchestrator passes a front-derived context preamble; the
     function prepends it to the system prompt before the multi-image
-    instructions so column-disambiguation hints reach the model."""
+    instructions so column-disambiguation hints reach the model.
+    """
     img = tmp_path / "a.jpg"
     img.write_bytes(b"fake")
     fake = _stub_response({"rows": []})
@@ -219,7 +223,8 @@ def test_extract_price_tag_allows_empty_upc_when_unreadable(
 ) -> None:
     """If the model can't read the UPC slug, it returns "" — the comparator
     handles a missing UPC as a low-confidence cross-check rather than a
-    confident mismatch."""
+    confident mismatch.
+    """
     img = tmp_path / "tag.jpg"
     img.write_bytes(b"fake")
     fake = _stub_response(

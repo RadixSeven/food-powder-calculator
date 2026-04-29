@@ -1,3 +1,5 @@
+"""Food entry for Gold Standard 100% Whey, vanilla."""
+
 from display_units import DisplayUnits
 from food import Food, Cost, NutritionFacts
 

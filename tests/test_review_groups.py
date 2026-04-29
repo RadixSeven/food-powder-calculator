@@ -318,7 +318,8 @@ def test_thumb_skips_groups_with_non_list_photos_field(
 ) -> None:
     """resolve_photo's iteration over groups must tolerate a malformed
     photos field (str instead of list) and skip non-dict entries instead of
-    blowing up."""
+    blowing up.
+    """
     photos_dir = tmp_path / "photos"
     photos_dir.mkdir()
     _solid_image(photos_dir / "real.jpg")
@@ -356,7 +357,8 @@ def test_thumb_skips_groups_with_non_list_photos_field(
 
 def test_index_tolerates_garbled_photo_entries(tmp_path: Path) -> None:
     """A group whose photos field isn't a list, or contains non-dict items
-    or non-string paths, renders as if it had no photos rather than 500."""
+    or non-string paths, renders as if it had no photos rather than 500.
+    """
     groups_json = tmp_path / "g.json"
     groups_json.write_text(
         json.dumps(
@@ -426,7 +428,8 @@ def test_thumb_resolves_extension_pool_paths(tmp_path: Path) -> None:
     """Photos that arrived via the boundary-resolution extension pool
     have paths that point outside ``photos_dir`` (e.g. data/raw_photos/).
     The server must still serve their thumbnails by following the path
-    stored in groups.json."""
+    stored in groups.json.
+    """
     sample_dir = tmp_path / "sample"
     sample_dir.mkdir()
     extension_dir = tmp_path / "extension"
@@ -472,7 +475,8 @@ def test_thumb_resolves_repo_relative_paths(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """Paths stored as repo-relative (e.g. data/raw_photos/x.jpg) are
-    resolved against REPO_ROOT."""
+    resolved against REPO_ROOT.
+    """
     fake_root = tmp_path / "repo"
     fake_root.mkdir()
     (fake_root / "data" / "raw_photos").mkdir(parents=True)

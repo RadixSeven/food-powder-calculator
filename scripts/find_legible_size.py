@@ -234,7 +234,7 @@ def _extract_json_object(raw: str) -> str:
 
 
 def _levenshtein_ratio(a: str, b: str) -> float:
-    """Normalized similarity in [0, 1]: 1 - distance / max(len(a), len(b))."""
+    """Return normalized similarity in [0, 1] (1 minus distance / longest)."""
     if not a and not b:
         return 1.0
     distance = _levenshtein(a, b)
@@ -242,7 +242,7 @@ def _levenshtein_ratio(a: str, b: str) -> float:
 
 
 def _levenshtein(a: str, b: str) -> int:
-    """Standard DP edit distance — fine for the short normalized strings here."""
+    """Compute DP edit distance — fine for the short normalized strings here."""
     if a == b:
         return 0
     if not a:

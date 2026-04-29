@@ -195,7 +195,8 @@ def test_call_creates_cache_dir_if_missing(tmp_path: Path) -> None:
 
 def test_call_records_request_on_fresh_run(tmp_path: Path) -> None:
     """Every call writes the serialized request into requests/<sha>.json so
-    a re-run is auditable from disk even before the response comes back."""
+    a re-run is auditable from disk even before the response comes back.
+    """
     img = _make_image(tmp_path, "a.png", (255, 0, 0))
     r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
     cache_dir = tmp_path / "cache"
@@ -218,7 +219,8 @@ def test_call_records_request_even_when_response_is_cached(
 ) -> None:
     """A cache hit short-circuits the subprocess but still records the
     request, so the on-disk request log is complete regardless of whether
-    each call hit the cache or the network."""
+    each call hit the cache or the network.
+    """
     img = _make_image(tmp_path, "a.png", (255, 0, 0))
     r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
     cache_dir = tmp_path / "cache"
@@ -284,7 +286,8 @@ def test_detect_rate_limit_text_mode_substring_only_in_stderr() -> None:
 
 def test_detect_rate_limit_text_mode_no_per_line_match() -> None:
     """Defensive: even if line-splitting fails to find the marker, the
-    substring path returns the generic message rather than None."""
+    substring path returns the generic message rather than None.
+    """
     # Force a case where the marker is in stdout but split() yields the
     # only line — already covered by the substring check at end.
     msg = _detect_rate_limit("hit your limit", "")
@@ -391,7 +394,8 @@ def test_parse_reset_time_picks_nearest_occurrence_for_recently_passed_reset() -
 ):
     """Server lag scenario: now=01:05am, message says 'resets 1am'. Picking
     'today's 01:00' (just past) is nearer than 'tomorrow's 01:00', and the
-    sleep computation will then floor to 60s."""
+    sleep computation will then floor to 60s.
+    """
     tz = ZoneInfo("America/New_York")
     now = datetime(2026, 4, 27, 1, 5, tzinfo=tz)
     target = _parse_reset_time("resets 1am (America/New_York)", now=now)
@@ -424,7 +428,8 @@ def test_parse_reset_time_dated_in_future_keeps_current_year() -> None:
 def test_parse_reset_time_dated_far_in_past_rolls_to_next_year() -> None:
     """A 'Jan 1' message read in late December has target = THIS year's Jan 1
     on the first parse, which is ~11 months in the past — advance to next
-    year."""
+    year.
+    """
     tz = ZoneInfo("UTC")
     now = datetime(2026, 12, 30, 9, 0, tzinfo=tz)
     target = _parse_reset_time("resets Jan 1, 1pm (UTC)", now=now)
@@ -472,7 +477,8 @@ def test_compute_sleep_seconds_falls_back_when_unparseable() -> None:
 
 def test_call_retries_after_rate_limit_and_succeeds(tmp_path: Path) -> None:
     """First subprocess call hits 429; wrapper sleeps and retries; second
-    call succeeds. time.sleep is mocked so the test stays fast."""
+    call succeeds. time.sleep is mocked so the test stays fast.
+    """
     cache_dir = tmp_path / "cache"
     rate_limit_envelope = json.dumps(
         {
@@ -569,7 +575,8 @@ def test_detect_structured_output_failure_falls_back_to_default_message() -> (
     None
 ):
     """If the envelope has the right subtype but no errors list, surface a
-    sensible default rather than None."""
+    sensible default rather than None.
+    """
     envelope = json.dumps(
         {
             "type": "result",
@@ -657,7 +664,8 @@ def test_run_claude_subprocess_extracts_structured_output_when_schema_set(
     tmp_path: Path,
 ) -> None:
     """With json_schema set, the wrapper switches to --output-format json and
-    pulls `structured_output` out of the envelope."""
+    pulls `structured_output` out of the envelope.
+    """
     from _claude import _run_claude_subprocess
 
     img = _make_image(tmp_path, "a.png", (255, 0, 0))

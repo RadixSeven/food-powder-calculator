@@ -231,6 +231,7 @@ def process_group_to_yaml(
 
 
 def main() -> int:  # pragma: no cover — CLI entry, exercised manually
+    """Command-line entry: extract YAML for one or more group ids."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "group_ids",

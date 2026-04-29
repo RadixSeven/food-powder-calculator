@@ -60,7 +60,8 @@ def test_stitch_axis_majority_wins() -> None:
 
 def test_stitch_axis_tie_breaks_horizontal() -> None:
     """Most product packaging is photographed upright with horizontal text;
-    on a tie we should default that way rather than guess."""
+    on a tie we should default that way rather than guess.
+    """
     assert (
         stitch_axis_for_panels([_panel("horizontal"), _panel("vertical")])
         == "horizontal"
@@ -97,7 +98,8 @@ def test_stitch_horizontal_centers_shorter_panel_vertically(
 
     Disable scale matching for this test so the panels keep their
     raw heights (100 vs 300) and the centering math is unambiguous;
-    centering is the behavior under test, not the scale match."""
+    centering is the behavior under test, not the scale match.
+    """
     short = tmp_path / "short.jpg"
     tall = tmp_path / "tall.jpg"
     _save(short, (100, 100), (255, 0, 0))
@@ -135,7 +137,8 @@ def test_stitch_vertical_centers_narrower_panel_horizontally(
 ) -> None:
     """Centering on the cross-axis for vertical stitching. Like the
     horizontal version, disable scale matching to keep raw widths
-    so the centering offset is unambiguous."""
+    so the centering offset is unambiguous.
+    """
     narrow = tmp_path / "narrow.jpg"
     wide = tmp_path / "wide.jpg"
     _save(narrow, (100, 100), (255, 0, 0))
@@ -199,7 +202,8 @@ def test_match_scale_upsamples_smaller_panels_to_largest(
     at 800px), the stitcher resizes the smaller to match the larger.
     Matching to MAX (rather than MIN) preserves detail in the largest
     panel — smaller panels upsample to fill canvas without info gain
-    but also without losing the detail that the bigger panel carries."""
+    but also without losing the detail that the bigger panel carries.
+    """
     big = tmp_path / "big.jpg"
     small = tmp_path / "small.jpg"
     _save(big, (3000, 1500), (255, 0, 0))
@@ -223,7 +227,8 @@ def test_match_scale_upsamples_smaller_panels_to_largest(
 def test_match_scale_default_is_on(tmp_path: Path) -> None:
     """Default behavior matches scale — match_scale=True is what the
     orchestrator wants and is the safe default for any caller passing
-    multiple panels of varying natural sizes."""
+    multiple panels of varying natural sizes.
+    """
     big = tmp_path / "big.jpg"
     small = tmp_path / "small.jpg"
     _save(big, (2000, 1000), (255, 0, 0))
@@ -240,7 +245,8 @@ def test_match_scale_default_is_on(tmp_path: Path) -> None:
 
 def test_match_scale_skips_when_only_one_panel(tmp_path: Path) -> None:
     """A one-panel call has nothing to match against; match_scale is a
-    no-op and the output is the panel itself at its natural size."""
+    no-op and the output is the panel itself at its natural size.
+    """
     a = tmp_path / "a.jpg"
     _save(a, (1234, 567), (255, 0, 0))
     out = tmp_path / "stitched.jpg"
@@ -254,7 +260,8 @@ def test_max_output_longest_side_caps_huge_stitches(tmp_path: Path) -> None:
     px each on the long axis); Claude's vision pipeline downsamples
     those internally and unpredictably. Capping the output longest-
     side here lets us control the resampling — LANCZOS at our quality
-    setting beats whatever server-side resize the API does."""
+    setting beats whatever server-side resize the API does.
+    """
     a = tmp_path / "a.jpg"
     b = tmp_path / "b.jpg"
     _save(a, (3000, 1500), (255, 0, 0))
@@ -275,7 +282,8 @@ def test_max_output_longest_side_caps_huge_stitches(tmp_path: Path) -> None:
 
 def test_max_output_longest_side_none_disables_cap(tmp_path: Path) -> None:
     """Passing None disables the cap; useful for debugging or when
-    callers want raw stitched output."""
+    callers want raw stitched output.
+    """
     a = tmp_path / "a.jpg"
     b = tmp_path / "b.jpg"
     _save(a, (5000, 1000), (255, 0, 0))
@@ -297,7 +305,8 @@ def test_max_output_longest_side_skips_when_already_smaller(
     tmp_path: Path,
 ) -> None:
     """If the stitched canvas is already under the cap, no resize is
-    applied — wasted CPU + JPEG re-encode loss for nothing."""
+    applied — wasted CPU + JPEG re-encode loss for nothing.
+    """
     a = tmp_path / "a.jpg"
     _save(a, (1000, 500), (255, 0, 0))
     out = tmp_path / "stitched.jpg"
@@ -310,7 +319,8 @@ def test_max_output_longest_side_skips_when_already_smaller(
 
 def test_match_scale_off_preserves_raw_sizes(tmp_path: Path) -> None:
     """Disabling match_scale keeps the raw crop sizes — useful for
-    debugging or when sizes are already coordinated upstream."""
+    debugging or when sizes are already coordinated upstream.
+    """
     big = tmp_path / "big.jpg"
     small = tmp_path / "small.jpg"
     _save(big, (2000, 1000), (255, 0, 0))

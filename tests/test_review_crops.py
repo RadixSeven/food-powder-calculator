@@ -180,7 +180,8 @@ def test_index_legend_and_instructions_appear_at_top_and_bottom(
     fixture_paths: tuple[Path, Path, Path, Path, Path],
 ) -> None:
     """The user wants the legend + instructions in both places so they
-    don't have to scroll back when reviewing a long page."""
+    don't have to scroll back when reviewing a long page.
+    """
     gold, stitched_root, reviews, _, _ = fixture_paths
     app = _make_app(
         gold_groups_json=gold,
@@ -201,7 +202,8 @@ def test_index_warns_when_strict_role_missing(
 ) -> None:
     """A group whose manifest has no front/nutrition/price-tag crops
     surfaces a warning — the reviewer needs to know the pipeline is
-    short on data, not just that the crops are bad."""
+    short on data, not just that the crops are bad.
+    """
     repo_root = tmp_path / "repo"
     repo_root.mkdir()
     monkeypatch.setattr("_review_crops.REPO_ROOT", repo_root)
@@ -227,7 +229,8 @@ def test_index_filters_to_reviewed_roles(
 ) -> None:
     """Manifest entries whose role isn't in REVIEWED_ROLES (e.g.
     ingredients, other-label) don't render — the user only wants to
-    review the strict roles right now."""
+    review the strict roles right now.
+    """
     repo_root = tmp_path / "repo"
     raw_dir = repo_root / "data" / "raw"
     crops_dir = repo_root / "data" / "crops"
@@ -275,7 +278,8 @@ def test_index_handles_groups_without_manifests(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """A gold group with no manifest yet (pipeline hasn't run) renders
-    as zero crops with the missing-role warnings — not a 500."""
+    as zero crops with the missing-role warnings — not a 500.
+    """
     repo_root = tmp_path / "repo"
     repo_root.mkdir()
     monkeypatch.setattr("_review_crops.REPO_ROOT", repo_root)
@@ -301,7 +305,8 @@ def test_index_renders_form_state_from_crop_reviews(
     fixture_paths: tuple[Path, Path, Path, Path, Path],
 ) -> None:
     """A pre-existing crop_reviews.json should drive the rendered form
-    values + checkbox state, so reload-after-restart doesn't lose work."""
+    values + checkbox state, so reload-after-restart doesn't lose work.
+    """
     gold, stitched_root, reviews, front_crop, _ = fixture_paths
     reviews.write_text(
         json.dumps(
@@ -341,7 +346,8 @@ def test_thumb_serves_crop_and_source(
     fixture_paths: tuple[Path, Path, Path, Path, Path],
 ) -> None:
     """Both /crops/thumb/crop/... and /crops/thumb/source/... resolve
-    via the manifest entries to actual on-disk JPEGs."""
+    via the manifest entries to actual on-disk JPEGs.
+    """
     gold, stitched_root, reviews, front_crop, source_path = fixture_paths
     app = _make_app(
         gold_groups_json=gold,
@@ -374,7 +380,8 @@ def test_thumb_404_for_unknown_kind(
     fixture_paths: tuple[Path, Path, Path, Path, Path],
 ) -> None:
     """The image route distinguishes 'crop' vs 'source' from the URL;
-    any other kind is a 404 rather than serving the wrong image."""
+    any other kind is a 404 rather than serving the wrong image.
+    """
     gold, stitched_root, reviews, front_crop, _ = fixture_paths
     app = _make_app(
         gold_groups_json=gold,
@@ -508,7 +515,8 @@ def test_post_replaces_existing_state_in_place(
     fixture_paths: tuple[Path, Path, Path, Path, Path],
 ) -> None:
     """A second POST overwrites the same crop's previous state — and
-    leaves other crops + groups in the file untouched."""
+    leaves other crops + groups in the file untouched.
+    """
     gold, stitched_root, reviews, front_crop, _ = fixture_paths
     reviews.write_text(
         json.dumps(
@@ -583,7 +591,8 @@ def test_build_render_groups_skips_non_dict_group_entries(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """Mid-edit gold-groups data may have garbled entries; render the
-    good ones instead of crashing the page."""
+    good ones instead of crashing the page.
+    """
     repo_root = tmp_path / "repo"
     repo_root.mkdir()
     monkeypatch.setattr("_review_crops.REPO_ROOT", repo_root)
@@ -613,7 +622,8 @@ def test_build_render_groups_skips_malformed_manifest_entries(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """Manifest entries with the wrong shape (missing keys, wrong
-    types) get skipped instead of breaking the page."""
+    types) get skipped instead of breaking the page.
+    """
     repo_root = tmp_path / "repo"
     repo_root.mkdir()
     monkeypatch.setattr("_review_crops.REPO_ROOT", repo_root)
@@ -648,7 +658,8 @@ def test_thumb_404_when_manifest_entry_has_non_string_paths(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """The resolver must skip manifest entries whose crop/source_photo
-    fields aren't strings — otherwise it could 500 trying to Path(int)."""
+    fields aren't strings — otherwise it could 500 trying to Path(int).
+    """
     repo_root = tmp_path / "repo"
     repo_root.mkdir()
     monkeypatch.setattr("_review_crops.REPO_ROOT", repo_root)
@@ -679,7 +690,8 @@ def test_index_handles_non_dict_review_state_for_a_group(
     fixture_paths: tuple[Path, Path, Path, Path, Path],
 ) -> None:
     """A garbled crop_reviews.json (non-dict crops field) shouldn't
-    crash; the page falls back to default form values."""
+    crash; the page falls back to default form values.
+    """
     gold, stitched_root, reviews, _, _ = fixture_paths
     reviews.write_text(
         json.dumps(
@@ -707,7 +719,8 @@ def test_load_crop_reviews_returns_empty_for_non_dict_groups_field(
     tmp_path: Path,
 ) -> None:
     """If groups isn't an object, the loader returns {} so the page
-    doesn't try to iterate a string."""
+    doesn't try to iterate a string.
+    """
     from _review_crops import _load_crop_reviews
 
     path = tmp_path / "crop_reviews.json"
@@ -719,7 +732,8 @@ def test_thumb_404_when_manifest_crops_field_is_not_a_list(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """resolve_image must return None when manifest.crops is the wrong
-    shape — a 404 from the resolver becomes a 404 from the route."""
+    shape — a 404 from the resolver becomes a 404 from the route.
+    """
     repo_root = tmp_path / "repo"
     repo_root.mkdir()
     monkeypatch.setattr("_review_crops.REPO_ROOT", repo_root)
@@ -744,7 +758,8 @@ def test_thumb_skips_non_dict_manifest_entries(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """If a manifest entry is the wrong shape, the resolver skips it
-    rather than crashing on .get of a non-dict."""
+    rather than crashing on .get of a non-dict.
+    """
     repo_root = tmp_path / "repo"
     raw_dir = repo_root / "raw"
     raw_dir.mkdir(parents=True)
@@ -784,7 +799,8 @@ def test_ordered_manifest_entries_returns_empty_for_non_list_crops(
     tmp_path: Path,
 ) -> None:
     """The display-order helper falls back to [] when crops isn't a list,
-    keeping the page rendering rather than 500-ing on garbled input."""
+    keeping the page rendering rather than 500-ing on garbled input.
+    """
     from _review_crops import _ordered_manifest_entries
 
     assert _ordered_manifest_entries({"crops": "oops"}) == []
@@ -796,7 +812,8 @@ def test_post_handles_non_dict_existing_payload(
 ) -> None:
     """If crop_reviews.json was hand-edited to a non-object top-level
     state, the POST should still write a fresh shell rather than
-    crash."""
+    crash.
+    """
     gold, stitched_root, reviews, front_crop, _ = fixture_paths
     reviews.write_text("[]")  # JSON array, not object
     app = _make_app(

@@ -137,12 +137,16 @@ GROUPING_JSON_SCHEMA = json.dumps(
 
 @dataclasses.dataclass
 class PhotoEntry:
+    """One photo's path plus the roles it plays in its product group."""
+
     path: str
     roles: list[str]
 
 
 @dataclasses.dataclass
 class Group:
+    """One product group — photos taken back-to-back of the same item."""
+
     id: str
     store: str  # "MOM" | "CVS"
     photos: list[PhotoEntry]
@@ -160,15 +164,18 @@ class Classification:
 
 
 def store_for(filename: str) -> str:
+    """Return ``"CVS"`` or ``"MOM"`` for ``filename`` per the filename cutoff."""
     return "CVS" if filename >= CVS_CUTOFF_FILENAME else "MOM"
 
 
 def list_photos(photo_dir: Path | None = None) -> list[Path]:
+    """Return raw PXL_*.jpg files in lexical (capture-time) order."""
     base = photo_dir if photo_dir is not None else RAW_PHOTOS_DIR
     return sorted(base.glob("PXL_*.jpg"))
 
 
 def make_group_id(store: str, sequence_in_store: int) -> str:
+    """Format the deterministic group id ``20260426_<store>_<seq>``."""
     short = store.lower()
     return f"20260426_{short}_{sequence_in_store:03d}"
 
@@ -337,6 +344,7 @@ def compute_group_warnings(group: Group) -> list[str]:
 
 
 def write_groups(groups: list[Group], out_path: Path = GROUPS_JSON) -> None:
+    """Serialize ``groups`` to ``out_path`` as the canonical groups JSON."""
     out_path.parent.mkdir(parents=True, exist_ok=True)
     payload = {"groups": [dataclasses.asdict(g) for g in groups]}
     out_path.write_text(json.dumps(payload, indent=2))
@@ -427,6 +435,7 @@ def _extract_json_object(raw: str) -> str:
 
 
 def main() -> int:
+    """Command-line entry: walk raw photos and write the groups JSON."""
     parser = argparse.ArgumentParser(description="Group raw photos by product.")
     parser.add_argument(
         "--limit",

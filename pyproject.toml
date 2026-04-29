@@ -26,6 +26,40 @@ target-version = "py313"
 [tool.ruff.format]
 docstring-code-format = true
 
+[tool.ruff.lint]
+# Default ruff rules (E, F) plus a curated docstring set. The whole
+# pydocstyle ruleset (everything under D) is too noisy on this codebase
+# — D205/D213/D300 fire on stylistic micro-formatting that doesn't
+# improve maintainability. Keep the rules whose violations are real
+# bugs: missing docstrings, non-imperative summaries, missing terminal
+# period.
+extend-select = [
+    "D100",  # missing module docstring
+    "D101",  # missing class docstring
+    "D103",  # missing public-function docstring
+    "D104",  # missing package docstring
+    "D209",  # multi-line `"""` closing on its own line
+    "D210",  # surrounding whitespace
+    "D300",  # triple-double-quote convention
+    "D400",  # first line ends with period
+    "D401",  # imperative-mood summary
+    "D403",  # first-word capitalization
+    "D404",  # first word is "This"
+]
+
+[tool.ruff.lint.pydocstyle]
+# pep257: imperative-mood summary, summary fits on first line, blank line
+# between summary and any extended description. Matches the existing
+# in-tree style.
+convention = "pep257"
+
+[tool.ruff.lint.per-file-ignores]
+# Test functions are self-documenting via their names; a "missing
+# docstring" rule on every test_* function adds noise without value.
+# Keep formatting rules so any test that *does* have a docstring follows
+# the same style.
+"tests/**" = ["D100", "D101", "D103", "D104"]
+
 [tool.pyrefly]
 search-path = ["src", "stubs", "scripts"]
 project-includes = ["src", "tests", "scripts"]

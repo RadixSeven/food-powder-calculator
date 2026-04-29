@@ -29,6 +29,8 @@ GOLD_GROUPS_JSON = REPO_ROOT / "data" / "gold_groups.json"
 
 @dataclass(frozen=True)
 class Summary:
+    """One row of the per-group review table — fields a human scans."""
+
     group_id: str
     store: str
     front_name: str
@@ -42,6 +44,7 @@ class Summary:
 
 
 def load_summary(yaml_path: Path) -> Summary:
+    """Read a per-group YAML and project it down to a flat :class:`Summary`."""
     parsed = cast(dict[str, object], yaml.safe_load(yaml_path.read_text()))
     front = cast(dict[str, str], parsed.get("front") or {})
     nutrition = cast(dict[str, object], parsed.get("nutrition") or {})
@@ -64,12 +67,14 @@ def load_summary(yaml_path: Path) -> Summary:
 
 
 def gold_group_count(gold_path: Path) -> int:
+    """Count the groups in the gold JSON (denominator for the summary report)."""
     payload = cast(dict[str, object], json.loads(gold_path.read_text()))
     groups = cast(list[object], payload.get("groups") or [])
     return len(groups)
 
 
 def report(summaries: list[Summary], expected_total: int) -> None:
+    """Print the per-group summary table plus an aggregate footer."""
     print(
         f"{'group':22s} {'store':4s} "
         f"{'front':45s} {'rows':4s} {'unk%':5s} {'price':6s} "
@@ -132,6 +137,7 @@ def report(summaries: list[Summary], expected_total: int) -> None:
 
 
 def main() -> int:  # pragma: no cover — CLI entry, exercised manually
+    """Command-line entry: load every YAML in a directory and print a report."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--yaml-dir",

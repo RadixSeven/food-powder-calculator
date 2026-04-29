@@ -92,7 +92,8 @@ def test_matches_reference_text_above_threshold_no_barcodes() -> None:
 
 def test_matches_reference_default_ignores_barcodes() -> None:
     """Default mode passes any text-similar candidate, regardless of barcodes
-    — barcodes degrade before the surrounding text under downsampling."""
+    — barcodes degrade before the surrounding text under downsampling.
+    """
     ref = ExtractedPayload(text="hello", barcodes=("123", "456"))
     has_one = ExtractedPayload(text="hello", barcodes=("123",))
     has_none = ExtractedPayload(text="hello", barcodes=())
@@ -312,7 +313,8 @@ def test_binary_search_treats_structured_output_failure_as_no_match(
 ) -> None:
     """At small sizes the model can fail to produce valid JSON
     (ClaudeStructuredOutputError). Binary search must treat that as a
-    ``matched=False`` probe and keep searching, not crash."""
+    ``matched=False`` probe and keep searching, not crash.
+    """
     src = tmp_path / "src.jpg"
     _solid_image(src, (2048, 1024))
 

@@ -1,3 +1,5 @@
+"""Food entry for Health Code Premium Whey Protein."""
+
 from display_units import DisplayUnits
 from food import Food, Cost, NutritionFacts
 

@@ -195,6 +195,7 @@ def _summarize_posterior(posterior: Posterior) -> PosteriorSummary:
 
 
 def main() -> int:
+    """Command-line entry: run the sizing study and write the results JSON."""
     parser = argparse.ArgumentParser(
         description="Run the sizing study and write data/sizing_results.json."
     )

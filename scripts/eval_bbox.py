@@ -36,6 +36,8 @@ STRICT_ROLES = ("front", "nutrition", "price-tag")
 
 @dataclass(frozen=True)
 class PhotoEval:
+    """One photo's gold vs detected roles, restricted to the strict set."""
+
     name: str
     gold_strict: frozenset[str]
     detected_strict: frozenset[str]
@@ -83,6 +85,7 @@ def evaluate(
 
 
 def report(evals: list[PhotoEval]) -> None:
+    """Print per-role TP/FP/FN/TN counts plus the per-photo verdict table."""
     print(
         f"{'photo':45s} {'gold':28s} {'detected':28s} {'extras':25s} {'verdict':s}"
     )
@@ -146,6 +149,7 @@ def report(evals: list[PhotoEval]) -> None:
 
 
 def main() -> int:
+    """Command-line entry: load gold, run detection, print the report."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--limit",

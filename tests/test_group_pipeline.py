@@ -46,7 +46,8 @@ def _bbox(kind: str, text_direction: str = "horizontal") -> PanelBbox:
 def test_assign_expected_roles_filters_to_known_kinds() -> None:
     """Loose roles are valid kinds too; only completely unknown labels
     get filtered. The order is canonical (ROLE_KINDS) for prompt
-    determinism across runs."""
+    determinism across runs.
+    """
     assert assign_expected_roles({"front", "nutrition", "made-up-role"}) == (
         "front",
         "nutrition",
@@ -76,7 +77,8 @@ def test_single_shot_role_uses_crop_directly_without_stitching(
 ) -> None:
     """The user's optimization: when a role has only one crop in the
     group, stitching adds no value (no other frame to align with).
-    Hand the crop straight to downstream extraction."""
+    Hand the crop straight to downstream extraction.
+    """
     crop = tmp_path / "single.jpg"
     _save(crop, (800, 600))
     by_role = {"nutrition": [_crop(crop, "nutrition")]}
@@ -136,7 +138,8 @@ def test_process_group_skips_photos_with_no_known_roles(
 ) -> None:
     """Photos whose gold roles list is empty (or all unknown) get
     skipped without calling the detector — they're loose-only and
-    we have no constraint to feed in."""
+    we have no constraint to feed in.
+    """
     img = tmp_path / "p.jpg"
     _save(img, (1000, 1000))
     empty_roles: list[JsonValue] = []
@@ -158,7 +161,8 @@ def test_detect_and_crop_group_handles_malformed_photos(
 ) -> None:
     """A non-list 'photos' field, non-dict photo entries, missing 'path',
     and non-list 'roles' all get skipped without raising — gold data is
-    typed JsonObject but defensiveness catches mid-edit weirdness."""
+    typed JsonObject but defensiveness catches mid-edit weirdness.
+    """
     img = tmp_path / "good.jpg"
     _save(img, (100, 100))
     group: dict[str, JsonValue] = {
@@ -182,7 +186,8 @@ def test_detect_and_crop_group_handles_non_list_photos(
 ) -> None:
     """If 'photos' isn't a list, the function returns the empty defaultdict
     without crashing — defensive guard matters because gold_groups.json
-    is hand-edited."""
+    is hand-edited.
+    """
     group: dict[str, JsonValue] = {"id": "g", "photos": "wrong type"}
     with patch("group_pipeline.detect_panels") as mock_detect:
         result = detect_and_crop_group(group, crop_dir=tmp_path / "crops")
@@ -195,7 +200,8 @@ def test_process_group_warns_when_detector_returns_no_panels(
 ) -> None:
     """If the detector returns () for a photo whose gold expects a role,
     log a warning and continue — losing a single photo shouldn't fail
-    the whole group."""
+    the whole group.
+    """
     img = tmp_path / "p.jpg"
     _save(img, (100, 100))
     group: dict[str, JsonValue] = {
@@ -214,7 +220,8 @@ def test_process_group_warns_when_detector_returns_no_panels(
 
 def test_stitch_role_outputs_skips_empty_role_lists(tmp_path: Path) -> None:
     """A role key with an empty list of items shouldn't produce an output
-    or crash — defensive guard against upstream ordering bugs."""
+    or crash — defensive guard against upstream ordering bugs.
+    """
     artifacts = stitch_role_outputs(
         "g1", {"nutrition": []}, out_dir=tmp_path / "out"
     )
@@ -230,7 +237,8 @@ def test_process_group_rejects_missing_id(tmp_path: Path) -> None:
 def test_write_manifest_records_crops_and_sources(tmp_path: Path) -> None:
     """The manifest is the canonical 'current crops' list — review tooling
     reads it instead of glob-ing the per-group crops/ directory which
-    accumulates stale files as the bbox prompt evolves."""
+    accumulates stale files as the bbox prompt evolves.
+    """
     crop = tmp_path / "crops" / "p1__nutrition__0_0_1000_1000.jpg"
     src = tmp_path / "raw_photos" / "p1.jpg"
     crop.parent.mkdir()
@@ -258,7 +266,8 @@ def test_write_manifest_records_crops_and_sources(tmp_path: Path) -> None:
 
 def test_write_manifest_resolves_repo_relative_paths(tmp_path: Path) -> None:
     """Crops under REPO_ROOT serialize as repo-relative strings so the
-    manifest is portable across machines / checkouts."""
+    manifest is portable across machines / checkouts.
+    """
     repo = tmp_path / "repo"
     repo.mkdir()
     crop = repo / "data" / "crops" / "p__front__0_0_1000_1000.jpg"
@@ -318,7 +327,8 @@ def test_process_group_dispatches_expected_roles_per_photo(
 ) -> None:
     """Each photo's bbox call should be parameterized with its own
     gold-derived expected_roles — this is what enables the schema-
-    restriction to suppress off-target detections."""
+    restriction to suppress off-target detections.
+    """
     img1 = tmp_path / "p1.jpg"
     img2 = tmp_path / "p2.jpg"
     _save(img1, (1000, 1000))

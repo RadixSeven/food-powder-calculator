@@ -161,7 +161,8 @@ def test_should_stop_when_posterior_is_essentially_degenerate() -> None:
 
 def test_should_not_stop_when_posterior_is_loose_with_room_to_shrink() -> None:
     """A loose posterior with a chosen X below the upper bound benefits from
-    narrowing, so the rule should keep going."""
+    narrowing, so the rule should keep going.
+    """
     loose = _hand_posterior(
         mean_log_s=math.log(1024), std_log_s=0.4, n_photos=10
     )
@@ -178,7 +179,8 @@ def test_should_not_stop_when_posterior_is_loose_with_room_to_shrink() -> None:
 
 def test_fit_posterior_recovers_population_signal() -> None:
     """End-to-end smoke test: feed the model probes generated from a known s_i
-    and assert the posterior mean of mu lands near the truth."""
+    and assert the posterior mean of mu lands near the truth.
+    """
     rng = np.random.default_rng(42)
     true_log_s = rng.normal(loc=math.log(512), scale=0.3, size=8)
     probes: list[Probe] = []
@@ -209,7 +211,8 @@ def test_fit_posterior_handles_probes_far_below_prior_mean() -> None:
     """Regression: when the binary search probes a size MUCH smaller than the
     prior's expected legible size and gets matched=True, the likelihood at
     the jittered starting point can drop to -inf without the
-    P_MATCH_FLOOR clip. fit_posterior must remain stable."""
+    P_MATCH_FLOOR clip. fit_posterior must remain stable.
+    """
     rng = np.random.default_rng(123)
     # True s_i around log(64) — far below the prior mean of log(980).
     true_log_s = rng.normal(loc=math.log(64), scale=0.2, size=4)

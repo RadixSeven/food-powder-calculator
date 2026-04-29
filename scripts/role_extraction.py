@@ -298,7 +298,8 @@ PRICE_TAG_CVS_PROMPT = (
 class PriceTag:
     """Shelf-tag fields. ``upc`` is store-conditional: the full 12-digit
     UPC for MOM tags, the 5-digit `I3*` header slug for CVS tags. Empty
-    string when the field is absent or unreadable."""
+    string when the field is absent or unreadable.
+    """
 
     store: str  # "MOM" or "CVS"
     price_cents: int

@@ -90,7 +90,8 @@ def test_landing_marks_crops_disabled_when_inputs_missing(
 ) -> None:
     """When the crops-view inputs aren't supplied (e.g. a fresh repo
     with no gold-groups), the landing page shows the crops link as
-    disabled with a why-message rather than 404-ing on click."""
+    disabled with a why-message rather than 404-ing on click.
+    """
     groups_json, photos_dir, *_ = fixture_paths
     app = create_app(
         groups_json=groups_json,
@@ -128,7 +129,8 @@ def test_create_app_skips_crops_when_either_input_is_none(
 ) -> None:
     """Both crops-view inputs (gold + stitched root) must be set;
     setting only one leaves the view unregistered. Lets a fresh-repo
-    smoke test of the groups view succeed without forging crops state."""
+    smoke test of the groups view succeed without forging crops state.
+    """
     groups_json, photos_dir, gold, _stitched, _crops = fixture_paths
     app = create_app(
         groups_json=groups_json,

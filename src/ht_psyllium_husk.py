@@ -1,3 +1,5 @@
+"""Food entry for Harris Teeter whole-husk psyllium fiber."""
+
 from display_units import DisplayUnits
 from food import Food, Cost, NutritionFacts
 

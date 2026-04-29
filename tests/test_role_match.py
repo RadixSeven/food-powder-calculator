@@ -31,7 +31,8 @@ def test_score_front_identical_returns_one() -> None:
 
 def test_score_front_both_empty_manufacturer_treated_as_match() -> None:
     """A panel with no manufacturer line shouldn't penalize the score —
-    both runs correctly returning empty manufacturer is agreement."""
+    both runs correctly returning empty manufacturer is agreement.
+    """
     a = FrontExtraction(product_name="men's one", manufacturer="")
     b = FrontExtraction(product_name="men's one", manufacturer="")
     assert score_front(a, b) == 1.0
@@ -77,7 +78,8 @@ def test_score_nutrition_one_empty_returns_zero() -> None:
 
 def test_score_nutrition_row_order_independent() -> None:
     """Rows are matched by their first cell, so row order doesn't matter —
-    this is the whole point vs. text-distance comparison."""
+    this is the whole point vs. text-distance comparison.
+    """
     a = NutritionTable(
         rows=(
             ("calories", "6", "15"),
@@ -119,7 +121,8 @@ def test_score_nutrition_missing_row_counts_as_full_mismatch() -> None:
 
 def test_score_nutrition_unknown_marker_excluded_from_comparison() -> None:
     """An unreadable cell shouldn't be charged against the model — it's
-    uncomparable and drops out of both numerator and denominator."""
+    uncomparable and drops out of both numerator and denominator.
+    """
     a = NutritionTable(rows=(("calories", "6", "15"),))
     b = NutritionTable(rows=(("calories", UNKNOWN_MARKER, "15"),))
     # Without the marker exclusion, this would be 2/3. With it, the
@@ -130,7 +133,8 @@ def test_score_nutrition_unknown_marker_excluded_from_comparison() -> None:
 def test_score_nutrition_all_unknown_returns_one() -> None:
     """If every comparable cell is masked, the comparison is vacuous —
     treat as a match rather than dividing zero by zero. The nutrient-name
-    column matches normally; only the value cells are masked."""
+    column matches normally; only the value cells are masked.
+    """
     a = NutritionTable(rows=(("calories", UNKNOWN_MARKER),))
     b = NutritionTable(rows=(("calories", UNKNOWN_MARKER),))
     # 1 of 1 comparable cells match → 1.0
@@ -143,7 +147,8 @@ def test_score_nutrition_value_only_view_falls_back_to_position() -> None:
     starting value (e.g. `0.63 mg` repeats across multiple B-vitamin
     rows). Name-keyed matching would collide on those duplicates;
     position-keyed matching pairs row N in A with row N in B and
-    correctly scores them as identical."""
+    correctly scores them as identical.
+    """
     rows = (
         ("0.63 mg", "126%", "1.25 mg", "104%"),  # thiamin
         ("0.63 mg", "126%", "1.25 mg", "96%"),  # riboflavin
@@ -158,7 +163,8 @@ def test_score_nutrition_value_only_view_falls_back_to_position() -> None:
 def test_score_nutrition_value_only_view_detects_real_mismatch() -> None:
     """In position-fallback mode, a single differing cell still drops
     the score by exactly one cell — we haven't lost detection power,
-    just changed the matching strategy."""
+    just changed the matching strategy.
+    """
     a = NutritionTable(
         rows=(
             ("0.63 mg", "126%", "1.25 mg", "104%"),
@@ -176,7 +182,8 @@ def test_score_nutrition_value_only_view_detects_real_mismatch() -> None:
 
 def test_score_nutrition_falls_back_to_position_when_marker_in_name() -> None:
     """If most cell-0 values are the unknown marker, name-keying would
-    collapse all those rows to one bucket. Fall back to position."""
+    collapse all those rows to one bucket. Fall back to position.
+    """
     a = NutritionTable(
         rows=(
             (UNKNOWN_MARKER, "1.5 g", "1%"),
@@ -196,7 +203,8 @@ def test_score_nutrition_falls_back_to_position_when_marker_in_name() -> None:
 
 def test_score_nutrition_position_mode_penalizes_extra_rows() -> None:
     """In position mode, when one extraction has extra rows the other
-    doesn't, the extra cells go in the denominator only — not numerator."""
+    doesn't, the extra cells go in the denominator only — not numerator.
+    """
     a = NutritionTable(
         rows=(
             ("0.63 mg", "126%"),
@@ -214,7 +222,8 @@ def test_score_nutrition_only_masked_cells_treated_as_match() -> None:
     """Edge case: a row where every cell — including the key — is masked.
     The two tables agree that the row exists but neither can read any of
     it; with all comparable cells dropped, total_cells is 0 and we
-    short-circuit to 1.0 rather than divide by zero."""
+    short-circuit to 1.0 rather than divide by zero.
+    """
     a = NutritionTable(rows=((UNKNOWN_MARKER, UNKNOWN_MARKER),))
     b = NutritionTable(rows=((UNKNOWN_MARKER, UNKNOWN_MARKER),))
     assert score_nutrition(a, b) == 1.0

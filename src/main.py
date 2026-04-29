@@ -1,3 +1,10 @@
+"""Food-mix optimizer entry point.
+
+Wires the catalog of :class:`Food` instances into a Pyomo MILP that finds
+the cheapest mix satisfying daily-intake constraints, then prints the
+solution and unit conversions. Run via ``pants run src:main``.
+"""
+
 import sys
 from typing import Iterable
 
@@ -71,7 +78,7 @@ def format_one_day_recipe(
 
 
 def main() -> int:
-    """Calculate the optimal food mix"""
+    """Calculate the optimal food mix."""
     max_carbs = 80  # Maximum carbohydrates per day in grams
     calories_per_day = 2000  # Calories per day
 

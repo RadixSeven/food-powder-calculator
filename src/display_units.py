@@ -1,3 +1,11 @@
+"""Quantity-display unit conversions for foods and supplements.
+
+Defines :class:`DisplayUnits`, which connects the three quantity scales the
+optimizer juggles: per-package units (the unit a shopper buys in), per-
+serving units (the unit a recipe scales by), and grams (the SI unit
+nutrition facts are reported in).
+"""
+
 import math
 from dataclasses import dataclass
 

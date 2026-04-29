@@ -191,6 +191,7 @@ def stitch_all_groups(
 
 
 def main() -> int:
+    """Command-line entry: stitch each group's photos into a single JPEG."""
     parser = argparse.ArgumentParser(
         description="Stitch one image per product group, sized per-photo."
     )

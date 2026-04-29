@@ -131,7 +131,8 @@ def test_run_sizing_skips_stop_check_under_seed_size(
     fake_photos: _FakePhotoSet, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """seed_size guard: fit_posterior shouldn't be called inside the loop
-    until n_seen >= seed_size. It still gets one final call for the summary."""
+    until n_seen >= seed_size. It still gets one final call for the summary.
+    """
     fit_calls = _wire_mocks(monkeypatch, should_stop=False)
     run_sizing(fake_photos.photos, seed_size=10)  # > photos available
     # Final summary fit only — none triggered inside the loop.
@@ -142,7 +143,8 @@ def test_run_sizing_processes_all_candidates_when_stop_never_fires(
     fake_photos: _FakePhotoSet, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """Without a should_stop and with seed_size <= n_photos, every candidate
-    is probed (no max-photos cap)."""
+    is probed (no max-photos cap).
+    """
     _wire_mocks(monkeypatch, should_stop=False)
     results = run_sizing(fake_photos.photos, seed_size=1)
     assert len(results.per_photo) == 3

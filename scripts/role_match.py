@@ -91,10 +91,11 @@ def score_nutrition(a: NutritionTable, b: NutritionTable) -> float:
 
 
 def _has_usable_names(table: NutritionTable) -> bool:
-    """A table has usable names iff at least half its rows have a
-    distinct, readable, non-marker cell-0. The "distinct" check rules
-    out tables where cell 0 is actually a value column (many duplicates,
-    e.g. `0.63 mg` repeated across multiple B-vitamin rows).
+    """Return True iff at least half the rows have a distinct, readable name.
+
+    The "distinct" check rules out tables where cell 0 is actually a value
+    column (many duplicates, e.g. ``0.63 mg`` repeated across multiple
+    B-vitamin rows).
 
     Caller (:func:`score_nutrition`) handles the empty-table case
     before calling, so we don't repeat the guard here.

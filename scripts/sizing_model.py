@@ -200,7 +200,7 @@ def expected_cost_of_more_probes(
     probe_size_px: int,
     cost_per_token: float,
 ) -> float:
-    """Expected cost (USD-equivalent) of running binary searches on more photos."""
+    """Estimate cost (USD-equivalent) of running binary searches on more photos."""
     tokens_per_probe = tokens_for_size(probe_size_px)
     return (
         n_more_photos
@@ -219,7 +219,7 @@ def expected_savings_from_more_probes(
     cost_per_token: float,
     cumulative_fail_threshold: float = 0.001,
 ) -> float:
-    """Expected token-cost savings if we add probes for ``n_more_probe_photos`` photos.
+    """Estimate token-cost savings of adding probes for ``n_more_probe_photos`` photos.
 
     Approximation: assume the posterior over ``mu``/``sigma`` shrinks
     proportionally to ``sqrt(N/(N+K))`` after adding K more photos. A
@@ -269,7 +269,7 @@ def should_stop(
     cost_per_token: float,
     confidence: float = 0.995,
 ) -> bool:
-    """True if more probes are very unlikely to pay back.
+    """Return True if more probes are very unlikely to pay back.
 
     We're not Monte-Carloing the cost/savings posterior here — both quantities
     are approximations. The user-specified rule "stop when P(cost > savings)

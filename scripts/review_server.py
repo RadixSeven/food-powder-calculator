@@ -121,6 +121,7 @@ def create_app(
 
 
 def main() -> int:
+    """Command-line entry: parse args and run the Flask app."""
     parser = argparse.ArgumentParser(description="Multi-view review server")
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--host", default="127.0.0.1")

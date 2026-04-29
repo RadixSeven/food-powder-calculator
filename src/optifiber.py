@@ -1,3 +1,5 @@
+"""Food entry for Kirkland Signature Optifiber prebiotic fiber."""
+
 from display_units import DisplayUnits
 from food import Food, Cost, NutritionFacts
 

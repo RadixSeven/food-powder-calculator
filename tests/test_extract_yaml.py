@@ -89,7 +89,8 @@ def test_extract_group_calls_each_role_extractor(tmp_path: Path) -> None:
 
 def test_extract_group_skips_missing_roles(tmp_path: Path) -> None:
     """A group missing nutrition (no nutrition shot in gold) leaves the
-    nutrition field None rather than calling the extractor."""
+    nutrition field None rather than calling the extractor.
+    """
     front_img = tmp_path / "front.jpg"
     _save(front_img)
     artifacts = GroupArtifacts(
@@ -125,7 +126,8 @@ def test_nutrition_single_with_front_context_augments_system_prompt(
 ) -> None:
     """Single-image nutrition + front context: product name prepended
     to system prompt so the model can disambiguate multi-column %DV
-    tables."""
+    tables.
+    """
     img = tmp_path / "n.jpg"
     _save(img)
     front = FrontExtraction(
@@ -149,7 +151,8 @@ def test_nutrition_without_front_falls_back_to_bare_prompt(
     tmp_path: Path,
 ) -> None:
     """Single-image nutrition with no front context uses the bare
-    extract_nutrition (no system-prompt augmentation)."""
+    extract_nutrition (no system-prompt augmentation).
+    """
     img = tmp_path / "n.jpg"
     _save(img)
     fake_table = NutritionTable(rows=(("x", "y"),))
@@ -164,7 +167,8 @@ def test_nutrition_without_front_falls_back_to_bare_prompt(
 def test_nutrition_multi_image_passes_all_crops(tmp_path: Path) -> None:
     """Multi-shot groups bypass stitching and pass every crop as a
     separate attachment to extract_nutrition_multi — the change that
-    avoids stitch-artifact loss."""
+    avoids stitch-artifact loss.
+    """
     img_a = tmp_path / "a.jpg"
     img_b = tmp_path / "b.jpg"
     img_c = tmp_path / "c.jpg"
@@ -206,7 +210,8 @@ def test_nutrition_with_front_omits_manufacturer_when_empty(
     tmp_path: Path,
 ) -> None:
     """An empty manufacturer field shouldn't pollute the context line
-    with `by ''`. The augmentation drops the `by X` clause entirely."""
+    with `by ''`. The augmentation drops the `by X` clause entirely.
+    """
     img = tmp_path / "n.jpg"
     _save(img)
     front = FrontExtraction(product_name="some product", manufacturer="")
@@ -253,7 +258,8 @@ def test_write_extraction_yaml_includes_all_present_fields(
 
 def test_write_extraction_yaml_skips_none_fields(tmp_path: Path) -> None:
     """When a role wasn't extracted (gold didn't have it), the YAML
-    omits the key rather than writing 'null' — keeps human review clean."""
+    omits the key rather than writing 'null' — keeps human review clean.
+    """
     extraction = GroupExtraction(
         group_id="g1",
         store="MOM",
@@ -278,7 +284,8 @@ def test_process_group_to_yaml_writes_yaml_at_expected_path(
 ) -> None:
     """Smoke test that the full path (load gold → bbox → crop → stitch →
     extract → write) wires up correctly when the LLM-bound parts are
-    mocked. Validates the integration glue, not the extraction quality."""
+    mocked. Validates the integration glue, not the extraction quality.
+    """
     gold = tmp_path / "gold.json"
     img = tmp_path / "img.jpg"
     _save(img)
@@ -339,7 +346,8 @@ def test_process_group_to_yaml_skips_existing_yaml_by_default(
 ) -> None:
     """A pre-existing YAML for a group short-circuits the whole pipeline
     without calling the extractor — so resuming a long batch doesn't
-    pay for groups already processed."""
+    pay for groups already processed.
+    """
     yaml_dir = tmp_path / "yaml"
     yaml_dir.mkdir()
     pre_existing = yaml_dir / "g1.yaml"
@@ -365,7 +373,8 @@ def test_process_group_to_yaml_skips_existing_yaml_by_default(
 def test_process_group_to_yaml_force_reextracts(tmp_path: Path) -> None:
     """skip_if_exists=False rebuilds the YAML even if one exists —
     the path used by the --force CLI flag for re-running after a
-    config change."""
+    config change.
+    """
     gold = tmp_path / "gold.json"
     img = tmp_path / "p.jpg"
     _save(img)

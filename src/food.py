@@ -1,3 +1,11 @@
+"""Core data model: :class:`Food`, :class:`Cost`, :class:`NutritionFacts`.
+
+Every food in the optimizer's catalog is one :class:`Food` instance. The
+nested :class:`Cost` and :class:`NutritionFacts` are split out so they
+can be filled independently — cost typically comes from a shelf tag or
+online lookup, nutrition from the package's facts panel.
+"""
+
 from dataclasses import dataclass
 
 from display_units import DisplayUnits

@@ -99,7 +99,7 @@ def _bbox_prompt(expected_roles: tuple[str, ...]) -> str:
 
 
 def _bbox_json_schema(expected_roles: tuple[str, ...]) -> str:
-    """Schema with the kind enum restricted to ``expected_roles``."""
+    """Build the JSON schema, restricting the kind enum to ``expected_roles``."""
     return json.dumps(
         {
             "type": "object",

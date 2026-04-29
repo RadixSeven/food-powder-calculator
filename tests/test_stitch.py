@@ -128,7 +128,8 @@ def test_stitch_group_rejects_empty_input(tmp_path: Path) -> None:
 @pytest.fixture
 def fake_gold(tmp_path: Path) -> tuple[Path, Path, Path]:
     """Build a minimal groups JSON pointing at tmp photos. Returns
-    (gold_groups_json, photos_dir, out_dir)."""
+    (gold_groups_json, photos_dir, out_dir).
+    """
     photos_dir = tmp_path / "photos"
     photos_dir.mkdir()
     out_dir = tmp_path / "out"
@@ -224,7 +225,8 @@ def test_stitch_all_groups_skips_photos_whose_sizing_fails(
     """If compute_min_legible_size raises ClaudeStructuredOutputError on a
     given photo (the reference Opus call couldn't satisfy the schema), that
     photo is dropped from the group and the remaining photos still get
-    stitched."""
+    stitched.
+    """
     gold_groups_json, _photos_dir, out_dir = fake_gold
     monkeypatch.setattr("stitch.REPO_ROOT", tmp_path)
     monkeypatch.setattr("stitch.STITCH_RESIZE_CACHE", tmp_path / "stitch_rs")
@@ -256,7 +258,8 @@ def test_stitch_all_groups_skips_group_when_every_photo_fails_sizing(
 ) -> None:
     """If every photo in a group fails sizing, the group is skipped rather
     than producing an empty stitched image (or crashing on stitch_group's
-    empty-input ValueError)."""
+    empty-input ValueError).
+    """
     gold_groups_json, _photos_dir, out_dir = fake_gold
     monkeypatch.setattr("stitch.REPO_ROOT", tmp_path)
     monkeypatch.setattr("stitch.STITCH_RESIZE_CACHE", tmp_path / "stitch_rs")
@@ -281,7 +284,8 @@ def test_stitch_all_groups_skips_non_dict_photo_entries(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """A photos array containing non-dict entries (a stray string) is
-    tolerated — those entries are skipped, valid ones are still stitched."""
+    tolerated — those entries are skipped, valid ones are still stitched.
+    """
     photos_dir = tmp_path / "photos"
     photos_dir.mkdir()
     p = photos_dir / "PXL_001.jpg"
@@ -317,7 +321,8 @@ def test_stitch_all_groups_skips_malformed_group_entries(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """Garbage in the groups array (non-dict, missing id, bad photos) is
-    silently skipped — defensive against partial / hand-edited files."""
+    silently skipped — defensive against partial / hand-edited files.
+    """
     photos_dir = tmp_path / "photos"
     photos_dir.mkdir()
     p = photos_dir / "PXL_001.jpg"
