@@ -22,6 +22,17 @@ def _save(
     Image.new("RGB", size, color).save(path, "JPEG", quality=85)
 
 
+def _is_red(pixel: object) -> bool:
+    """JPEG-at-q85 round-trip drifts 255 ~1 on solid-color pixels.
+
+    Use a tolerance so tests assert "this pixel is red" rather than
+    "this pixel matches a fragile exact tuple".
+    """
+    assert isinstance(pixel, tuple)
+    r, g, b = pixel[0], pixel[1], pixel[2]
+    return r > 240 and g < 15 and b < 15
+
+
 def _panel(text_direction: str) -> PanelBbox:
     return PanelBbox(
         kind="nutrition",
@@ -97,10 +108,10 @@ def test_stitch_horizontal_centers_shorter_panel_vertically(
         # The top-left of the short panel should be 100px down on the canvas
         # (canvas is 300 tall, panel is 100 tall, so y=100 leaves 100px above
         # and 100px below). Sample the pixel at (50, 50) — should be background.
-        bg_pixel = result.getpixel((50, 50))
-        red_pixel = result.getpixel((50, 150))
-        assert bg_pixel == SEPARATOR_COLOR
-        assert red_pixel == (255, 0, 0)
+        assert result.getpixel((50, 50)) == SEPARATOR_COLOR
+        # JPEG-at-q85 round-trip drifts 255 by ~1 on solid-color pixels;
+        # an exact triple-equals would be too tight.
+        assert _is_red(result.getpixel((50, 150)))
 
 
 # ---------------------------------------------------------------------------
@@ -135,7 +146,9 @@ def test_stitch_vertical_centers_narrower_panel_horizontally(
         # Narrow panel should be horizontally centered: canvas width 300,
         # panel width 100, so x=100 leaves 100 background on each side.
         assert result.getpixel((50, 50)) == SEPARATOR_COLOR
-        assert result.getpixel((150, 50)) == (255, 0, 0)
+        # JPEG-at-q85 round-trip drifts 255 by ~1 on solid-color pixels;
+        # an exact triple-equals would be too tight.
+        assert _is_red(result.getpixel((150, 50)))
 
 
 # ---------------------------------------------------------------------------
@@ -192,7 +205,15 @@ def test_match_scale_upsamples_smaller_panels_to_largest(
     _save(big, (3000, 1500), (255, 0, 0))
     _save(small, (800, 400), (0, 0, 255))
     out = tmp_path / "stitched.jpg"
-    stitch_role_panels([big, small], "horizontal", out, match_scale=True)
+    # Disable the longest-side cap so the test asserts on raw match-scale
+    # output; the cap has its own dedicated tests below.
+    stitch_role_panels(
+        [big, small],
+        "horizontal",
+        out,
+        match_scale=True,
+        max_output_longest_side=None,
+    )
     with Image.open(out) as result:
         # Big unchanged at 3000x1500. Small upsampled to longest=3000
         # (preserving aspect 2:1) → 3000x1500. Stitch width = 3000 + sep + 3000.
