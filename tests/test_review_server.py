@@ -1,7 +1,8 @@
-"""Tests for scripts/review_server.py.
+"""Tests for scripts/review_server.py — the multi-view entry point.
 
-Uses Flask's test client; no real network. Image thumbnails are generated
-on real (small) Pillow inputs.
+Covers the landing page, view-enable rules, redirects, and the CLI
+``main`` glue. View-specific behaviour lives in the per-view test
+files (test_review_groups, test_review_crops).
 """
 
 from __future__ import annotations
@@ -12,448 +13,25 @@ from unittest.mock import patch
 
 import pytest
 from PIL import Image
-from review_server import _format_gap, create_app, main
+
+from review_server import create_app, main
 
 
 def _solid_image(path: Path) -> None:
-    Image.new("RGB", (200, 100), (200, 50, 50)).save(path, "JPEG")
+    Image.new("RGB", (40, 40), (200, 50, 50)).save(path, "JPEG")
 
 
 @pytest.fixture
-def fixture_paths(tmp_path: Path) -> tuple[Path, Path]:
-    photos_dir = tmp_path / "raw"
-    photos_dir.mkdir()
-    for name in ("a.jpg", "b.jpg"):
-        _solid_image(photos_dir / name)
-    groups_json = tmp_path / "groups.json"
-    groups_json.write_text(
-        json.dumps(
-            {
-                "groups": [
-                    {
-                        "id": "g1",
-                        "store": "MOM",
-                        "photos": [
-                            {"path": "raw/a.jpg", "roles": ["front"]},
-                            {"path": "raw/b.jpg", "roles": ["nutrition"]},
-                        ],
-                        "warnings": ["missing shelf price tag"],
-                        "locked": False,
-                    },
-                    {
-                        "id": "g2",
-                        "store": "CVS",
-                        "photos": [
-                            {"path": "raw/a.jpg", "roles": ["front"]},
-                        ],
-                        "warnings": [],
-                        "locked": False,
-                    },
-                ]
-            },
-            indent=2,
-        )
-    )
-    return groups_json, photos_dir
+def fixture_paths(tmp_path: Path) -> tuple[Path, Path, Path, Path, Path]:
+    """Build minimal-but-valid inputs for both views.
 
-
-def test_index_renders_each_group(fixture_paths: tuple[Path, Path]) -> None:
-    groups_json, photos_dir = fixture_paths
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    client = app.test_client()
-    response = client.get("/")
-    assert response.status_code == 200
-    body = response.data.decode()
-    assert "g1" in body
-    assert "g2" in body
-    assert "missing shelf price tag" in body
-    # Thumbnails are referenced by filename and link to the raw photo.
-    assert "/thumb/a.jpg" in body
-    assert 'href="/raw/a.jpg"' in body
-    # Filename is shown as a label so the user can scan the surrounding photos.
-    assert ">a.jpg<" in body
-
-
-def test_form_controls_carry_server_state_and_disable_autocomplete(
-    fixture_paths: tuple[Path, Path],
-) -> None:
-    """Browsers' bfcache restores form values across page reloads, overriding
-    server-rendered state. Defenses: ``autocomplete="off"`` on each control
-    plus ``data-server-*`` attributes that JS re-applies on ``pageshow``.
+    Returns ``(groups_json, photos_dir, gold_groups_json, stitched_root,
+    crop_reviews_json)``. Tests can pass these straight to ``create_app``
+    or stash a subset on disk and feed ``None`` for the rest.
     """
-    groups_json, photos_dir = fixture_paths
-    # Pre-populate g1 with a non-default review state so the rendered HTML
-    # carries something the JS can re-apply.
-    payload = json.loads(groups_json.read_text())
-    g1 = next(g for g in payload["groups"] if g["id"] == "g1")
-    g1["has_errors"] = True
-    g1["comment"] = "needs another look"
-    groups_json.write_text(json.dumps(payload))
-
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    body = app.test_client().get("/").data.decode()
-
-    # Both controls disable browser autocomplete and carry server state in
-    # data-server-* attributes that the page-load JS re-applies.
-    assert 'class="errors-flag" autocomplete="off"' in body
-    assert 'data-server-checked="1"' in body  # g1 is flagged
-    assert 'data-server-checked="0"' in body  # g2 is not flagged
-    assert (
-        'class="comment" placeholder="comment (optional)" autocomplete="off"'
-        in body
-    )
-    assert 'data-server-value="needs another look"' in body
-    # The pageshow handler is what neutralizes bfcache restoration; assert
-    # it's wired up so a future refactor can't drop it silently.
-    assert "addEventListener('pageshow', syncFromServerState)" in body
-
-
-def test_index_returns_empty_when_groups_json_missing(tmp_path: Path) -> None:
-    """If no groups.json yet, render an empty list rather than 500."""
-    app = create_app(groups_json=tmp_path / "missing.json", photos_dir=tmp_path)
-    client = app.test_client()
-    response = client.get("/")
-    assert response.status_code == 200
-    assert "0 groups" in response.data.decode()
-
-
-def test_thumbnail_returns_jpeg(fixture_paths: tuple[Path, Path]) -> None:
-    groups_json, photos_dir = fixture_paths
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    client = app.test_client()
-    response = client.get("/thumb/a.jpg")
-    assert response.status_code == 200
-    assert response.mimetype == "image/jpeg"
-
-
-def test_thumbnail_404_for_unknown_filename(
-    fixture_paths: tuple[Path, Path],
-) -> None:
-    groups_json, photos_dir = fixture_paths
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    client = app.test_client()
-    response = client.get("/thumb/nope.jpg")
-    assert response.status_code == 404
-
-
-def test_raw_returns_full_resolution_jpeg(
-    fixture_paths: tuple[Path, Path],
-) -> None:
-    """Clicking a thumbnail opens /raw/<filename> in a new tab; serve it as-is."""
-    groups_json, photos_dir = fixture_paths
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    client = app.test_client()
-    response = client.get("/raw/a.jpg")
-    assert response.status_code == 200
-    assert response.mimetype == "image/jpeg"
-    # The /raw bytes match the on-disk file (no resize).
-    assert response.data == (photos_dir / "a.jpg").read_bytes()
-
-
-def test_raw_404_for_unknown_filename(
-    fixture_paths: tuple[Path, Path],
-) -> None:
-    groups_json, photos_dir = fixture_paths
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    client = app.test_client()
-    response = client.get("/raw/nope.jpg")
-    assert response.status_code == 404
-
-
-def test_format_gap_seconds_is_short_when_under_threshold() -> None:
-    text, short = _format_gap(
-        "PXL_20260426_170617596.MP.jpg", "PXL_20260426_170636147.MP.jpg"
-    )
-    # 18.6 seconds → rendered as "19 s" and flagged short.
-    assert text == "19 s"
-    assert short is True
-
-
-def test_format_gap_minutes() -> None:
-    text, short = _format_gap(
-        "PXL_20260426_165737000.jpg", "PXL_20260426_170012000.jpg"
-    )
-    # 2 min 35 s → not flagged short
-    assert text == "2 min 35 s"
-    assert short is False
-
-
-def test_format_gap_hours() -> None:
-    text, short = _format_gap(
-        "PXL_20260426_170617596.MP.jpg", "PXL_20260426_180942709.MP.jpg"
-    )
-    # ~73 min → "1 h 13 min"
-    assert text is not None and text.startswith("1 h ")
-    assert short is False
-
-
-def test_format_gap_returns_none_for_first_group() -> None:
-    text, short = _format_gap(None, "PXL_20260426_170617596.MP.jpg")
-    assert text is None
-    assert short is False
-
-
-def test_format_gap_returns_none_for_unparseable_names() -> None:
-    text, short = _format_gap("foo.jpg", "bar.jpg")
-    assert text is None
-    assert short is False
-
-
-def test_index_renders_inter_group_gaps(tmp_path: Path) -> None:
-    """The index should display a time-delta header between groups."""
-    photos_dir = tmp_path
-    for name in (
-        "PXL_20260426_170617596.MP.jpg",
-        "PXL_20260426_170636147.MP.jpg",
-        "PXL_20260426_180942709.MP.jpg",
-    ):
-        _solid_image(photos_dir / name)
-    groups_json = tmp_path / "groups.json"
-    groups_json.write_text(
-        json.dumps(
-            {
-                "groups": [
-                    {
-                        "id": "g1",
-                        "store": "MOM",
-                        "photos": [
-                            {
-                                "path": str(
-                                    photos_dir / "PXL_20260426_170617596.MP.jpg"
-                                ),
-                                "roles": ["front"],
-                            }
-                        ],
-                        "warnings": [],
-                        "locked": False,
-                    },
-                    {
-                        "id": "g2",
-                        "store": "MOM",
-                        "photos": [
-                            {
-                                "path": str(
-                                    photos_dir / "PXL_20260426_170636147.MP.jpg"
-                                ),
-                                "roles": ["front"],
-                            }
-                        ],
-                        "warnings": [],
-                        "locked": False,
-                    },
-                    {
-                        "id": "g3",
-                        "store": "CVS",
-                        "photos": [
-                            {
-                                "path": str(
-                                    photos_dir / "PXL_20260426_180942709.MP.jpg"
-                                ),
-                                "roles": ["front"],
-                            }
-                        ],
-                        "warnings": [],
-                        "locked": False,
-                    },
-                ]
-            }
-        )
-    )
-
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    client = app.test_client()
-    body = client.get("/").data.decode()
-    # 19-second gap between g1 and g2 → flagged short.
-    assert "19 s" in body
-    assert 'class="gap short"' in body
-    # ~1h gap between g2 and g3 → not flagged short.
-    assert "1 h" in body
-
-
-def test_load_groups_returns_empty_for_non_object_top_level(
-    tmp_path: Path,
-) -> None:
-    groups_json = tmp_path / "g.json"
-    groups_json.write_text("[]")
-    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
-    client = app.test_client()
-    body = client.get("/").data.decode()
-    assert "0 groups" in body
-
-
-def test_load_groups_returns_empty_when_groups_field_is_not_a_list(
-    tmp_path: Path,
-) -> None:
-    groups_json = tmp_path / "g.json"
-    groups_json.write_text(json.dumps({"groups": "oops"}))
-    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
-    client = app.test_client()
-    body = client.get("/").data.decode()
-    assert "0 groups" in body
-
-
-def test_load_groups_filters_out_non_dict_entries(tmp_path: Path) -> None:
-    groups_json = tmp_path / "g.json"
-    groups_json.write_text(
-        json.dumps(
-            {
-                "groups": [
-                    "not a group",
-                    {
-                        "id": "real",
-                        "store": "MOM",
-                        "photos": [],
-                        "warnings": [],
-                    },
-                ]
-            }
-        )
-    )
-    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
-    client = app.test_client()
-    body = client.get("/").data.decode()
-    assert "1 groups" in body
-    assert "real" in body
-
-
-def test_thumb_skips_groups_with_non_list_photos_field(
-    tmp_path: Path,
-) -> None:
-    """resolve_photo's iteration over groups must tolerate a malformed
-    photos field (str instead of list) and skip non-dict entries instead of
-    blowing up."""
     photos_dir = tmp_path / "photos"
     photos_dir.mkdir()
-    _solid_image(photos_dir / "real.jpg")
-    groups_json = tmp_path / "g.json"
-    groups_json.write_text(
-        json.dumps(
-            {
-                "groups": [
-                    {
-                        "id": "g1",
-                        "store": "MOM",
-                        "photos": "oops",
-                        "warnings": [],
-                    },
-                    {
-                        "id": "g2",
-                        "store": "MOM",
-                        "photos": [
-                            "just a string",
-                            {
-                                "path": str(photos_dir / "real.jpg"),
-                                "roles": ["front"],
-                            },
-                        ],
-                        "warnings": [],
-                    },
-                ]
-            }
-        )
-    )
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    client = app.test_client()
-    response = client.get("/thumb/real.jpg")
-    assert response.status_code == 200
-
-
-def test_index_tolerates_garbled_photo_entries(tmp_path: Path) -> None:
-    """A group whose photos field isn't a list, or contains non-dict items
-    or non-string paths, renders as if it had no photos rather than 500."""
-    groups_json = tmp_path / "g.json"
-    groups_json.write_text(
-        json.dumps(
-            {
-                "groups": [
-                    {
-                        "id": "g1",
-                        "store": "MOM",
-                        "photos": "oops",
-                        "warnings": [],
-                    },
-                    {
-                        "id": "g2",
-                        "store": "MOM",
-                        "photos": [
-                            "not a dict",
-                            {"path": 42, "roles": []},
-                            {"path": "ok.jpg", "roles": ["front"]},
-                        ],
-                        "warnings": [],
-                    },
-                ]
-            }
-        )
-    )
-    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
-    client = app.test_client()
-    response = client.get("/")
-    assert response.status_code == 200
-
-
-def test_update_group_in_place_returns_404_for_non_object_top_level(
-    tmp_path: Path,
-) -> None:
-    groups_json = tmp_path / "g.json"
-    groups_json.write_text("[]")
-    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
-    client = app.test_client()
-    response = client.post(
-        "/api/group/anything", json={"has_errors": True, "comment": "x"}
-    )
-    assert response.status_code == 404
-
-
-def test_update_group_in_place_returns_404_when_groups_not_a_list(
-    tmp_path: Path,
-) -> None:
-    groups_json = tmp_path / "g.json"
-    groups_json.write_text(json.dumps({"groups": "oops"}))
-    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
-    client = app.test_client()
-    response = client.post(
-        "/api/group/anything", json={"has_errors": True, "comment": "x"}
-    )
-    assert response.status_code == 404
-
-
-def test_update_group_in_place_skips_non_dict_entries(tmp_path: Path) -> None:
-    groups_json = tmp_path / "g.json"
-    groups_json.write_text(
-        json.dumps(
-            {
-                "groups": [
-                    "skip me",
-                    {
-                        "id": "real",
-                        "store": "MOM",
-                        "photos": [],
-                        "warnings": [],
-                    },
-                ]
-            }
-        )
-    )
-    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
-    client = app.test_client()
-    response = client.post(
-        "/api/group/real", json={"has_errors": True, "comment": "ok"}
-    )
-    assert response.status_code == 200
-
-
-def test_thumb_resolves_extension_pool_paths(tmp_path: Path) -> None:
-    """Photos that arrived via the boundary-resolution extension pool
-    have paths that point outside ``photos_dir`` (e.g. data/raw_photos/).
-    The server must still serve their thumbnails by following the path
-    stored in groups.json."""
-    sample_dir = tmp_path / "sample"
-    sample_dir.mkdir()
-    extension_dir = tmp_path / "extension"
-    extension_dir.mkdir()
-    _solid_image(sample_dir / "in_sample.jpg")
-    _solid_image(extension_dir / "in_extension.jpg")
+    _solid_image(photos_dir / "a.jpg")
     groups_json = tmp_path / "groups.json"
     groups_json.write_text(
         json.dumps(
@@ -463,54 +41,7 @@ def test_thumb_resolves_extension_pool_paths(tmp_path: Path) -> None:
                         "id": "g1",
                         "store": "MOM",
                         "photos": [
-                            {
-                                "path": str(sample_dir / "in_sample.jpg"),
-                                "roles": ["front"],
-                            },
-                            {
-                                "path": str(extension_dir / "in_extension.jpg"),
-                                "roles": ["price-tag"],
-                            },
-                        ],
-                        "warnings": [],
-                        "locked": False,
-                    },
-                ]
-            }
-        )
-    )
-
-    app = create_app(groups_json=groups_json, photos_dir=sample_dir)
-    client = app.test_client()
-    # Sample photo: resolves via groups.json path AND via fallback dir.
-    assert client.get("/thumb/in_sample.jpg").status_code == 200
-    # Extension photo: resolves only via the path stored in groups.json.
-    assert client.get("/thumb/in_extension.jpg").status_code == 200
-    assert client.get("/raw/in_extension.jpg").status_code == 200
-
-
-def test_thumb_resolves_repo_relative_paths(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
-    """Paths stored as repo-relative (e.g. data/raw_photos/x.jpg) are
-    resolved against REPO_ROOT."""
-    fake_root = tmp_path / "repo"
-    fake_root.mkdir()
-    (fake_root / "data" / "raw_photos").mkdir(parents=True)
-    _solid_image(fake_root / "data" / "raw_photos" / "rel.jpg")
-    groups_json = tmp_path / "groups.json"
-    groups_json.write_text(
-        json.dumps(
-            {
-                "groups": [
-                    {
-                        "id": "g1",
-                        "store": "MOM",
-                        "photos": [
-                            {
-                                "path": "data/raw_photos/rel.jpg",
-                                "roles": ["front"],
-                            }
+                            {"path": "photos/a.jpg", "roles": ["front"]}
                         ],
                         "warnings": [],
                         "locked": False,
@@ -519,63 +50,104 @@ def test_thumb_resolves_repo_relative_paths(
             }
         )
     )
-
-    monkeypatch.setattr("review_server.REPO_ROOT", fake_root)
-    app = create_app(groups_json=groups_json, photos_dir=tmp_path)
-    client = app.test_client()
-    assert client.get("/thumb/rel.jpg").status_code == 200
-
-
-def test_post_updates_group_in_place(fixture_paths: tuple[Path, Path]) -> None:
-    groups_json, photos_dir = fixture_paths
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    client = app.test_client()
-    response = client.post(
-        "/api/group/g1",
-        json={"has_errors": True, "comment": "boundary off by one"},
+    gold_groups_json = tmp_path / "gold.json"
+    gold_groups_json.write_text(
+        json.dumps({"groups": [{"id": "g1", "store": "MOM"}]})
     )
-    assert response.status_code == 200
-
-    payload = json.loads(groups_json.read_text())
-    g1 = next(g for g in payload["groups"] if g["id"] == "g1")
-    assert g1["has_errors"] is True
-    assert g1["comment"] == "boundary off by one"
-
-
-def test_post_404_when_group_id_not_found(
-    fixture_paths: tuple[Path, Path],
-) -> None:
-    groups_json, photos_dir = fixture_paths
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    client = app.test_client()
-    response = client.post(
-        "/api/group/no-such-id",
-        json={"has_errors": True, "comment": ""},
+    stitched_root = tmp_path / "stitched"
+    stitched_root.mkdir()
+    crop_reviews_json = tmp_path / "crop_reviews.json"
+    return (
+        groups_json,
+        photos_dir,
+        gold_groups_json,
+        stitched_root,
+        crop_reviews_json,
     )
-    assert response.status_code == 404
 
 
-def test_post_handles_missing_json_body(
-    fixture_paths: tuple[Path, Path],
+def test_landing_lists_both_views_when_enabled(
+    fixture_paths: tuple[Path, Path, Path, Path, Path],
 ) -> None:
-    """A POST with no body should not crash; defaults to errors=False, no comment."""
-    groups_json, photos_dir = fixture_paths
-    app = create_app(groups_json=groups_json, photos_dir=photos_dir)
-    client = app.test_client()
-    response = client.post("/api/group/g1")
-    assert response.status_code == 200
+    """With both views enabled, the landing page links to each one."""
+    groups_json, photos_dir, gold, stitched, crops = fixture_paths
+    app = create_app(
+        groups_json=groups_json,
+        photos_dir=photos_dir,
+        gold_groups_json=gold,
+        stitched_root=stitched,
+        crop_reviews_json=crops,
+    )
+    body = app.test_client().get("/").data.decode()
+    assert 'href="/groups/"' in body
+    assert 'href="/crops/"' in body
+    # No "disabled" markup when both inputs are present.
+    assert "disabled:" not in body
 
-    payload = json.loads(groups_json.read_text())
-    g1 = next(g for g in payload["groups"] if g["id"] == "g1")
-    assert g1["has_errors"] is False
-    assert g1["comment"] == ""
+
+def test_landing_marks_crops_disabled_when_inputs_missing(
+    fixture_paths: tuple[Path, Path, Path, Path, Path],
+) -> None:
+    """When the crops-view inputs aren't supplied (e.g. a fresh repo
+    with no gold-groups), the landing page shows the crops link as
+    disabled with a why-message rather than 404-ing on click."""
+    groups_json, photos_dir, *_ = fixture_paths
+    app = create_app(
+        groups_json=groups_json,
+        photos_dir=photos_dir,
+        gold_groups_json=None,
+        stitched_root=None,
+    )
+    body = app.test_client().get("/").data.decode()
+    assert 'href="/groups/"' in body
+    assert 'href="/crops/"' not in body
+    assert "disabled:" in body
+
+
+def test_root_path_redirects_for_each_view(
+    fixture_paths: tuple[Path, Path, Path, Path, Path],
+) -> None:
+    """A user typing /groups (no slash) should land on /groups/."""
+    groups_json, photos_dir, gold, stitched, crops = fixture_paths
+    app = create_app(
+        groups_json=groups_json,
+        photos_dir=photos_dir,
+        gold_groups_json=gold,
+        stitched_root=stitched,
+        crop_reviews_json=crops,
+    )
+    client = app.test_client()
+    for prefix in ("/groups", "/crops"):
+        response = client.get(prefix)
+        assert response.status_code == 302
+        assert response.headers["Location"].endswith(f"{prefix}/")
+
+
+def test_create_app_skips_crops_when_either_input_is_none(
+    fixture_paths: tuple[Path, Path, Path, Path, Path],
+) -> None:
+    """Both crops-view inputs (gold + stitched root) must be set;
+    setting only one leaves the view unregistered. Lets a fresh-repo
+    smoke test of the groups view succeed without forging crops state."""
+    groups_json, photos_dir, gold, _stitched, _crops = fixture_paths
+    app = create_app(
+        groups_json=groups_json,
+        photos_dir=photos_dir,
+        gold_groups_json=gold,
+        stitched_root=None,
+    )
+    # /crops/ is unregistered → 404 from Flask's URL map.
+    assert app.test_client().get("/crops/").status_code == 404
+    # /groups/ still works.
+    assert app.test_client().get("/groups/").status_code == 200
 
 
 def test_main_starts_app_with_supplied_args(
-    fixture_paths: tuple[Path, Path], monkeypatch: pytest.MonkeyPatch
+    fixture_paths: tuple[Path, Path, Path, Path, Path],
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Main parses CLI args and hands them to create_app + Flask.run."""
-    groups_json, photos_dir = fixture_paths
+    groups_json, photos_dir, gold, stitched, crops = fixture_paths
 
     captured: dict[str, object] = {}
 
@@ -596,6 +168,12 @@ def test_main_starts_app_with_supplied_args(
             str(groups_json),
             "--photos-dir",
             str(photos_dir),
+            "--gold-groups-json",
+            str(gold),
+            "--stitched-root",
+            str(stitched),
+            "--crop-reviews-json",
+            str(crops),
         ],
     )
     with patch("review_server.Flask.run", side_effect=fake_run):
