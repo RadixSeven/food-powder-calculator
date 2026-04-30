@@ -169,9 +169,17 @@ def store_for(filename: str) -> str:
 
 
 def list_photos(photo_dir: Path | None = None) -> list[Path]:
-    """Return raw PXL_*.jpg files in lexical (capture-time) order."""
+    """Return raw PXL_*.jpg files in capture-time order.
+
+    Photos live in per-batch subdirectories
+    (``data/raw_photos/<batch>/``); the glob recurses one level so
+    every batch's PXL files come back, **sorted by filename** (which
+    is the millisecond-resolution capture timestamp) rather than by
+    full path — that way photos taken on the same day across two
+    batches still interleave correctly.
+    """
     base = photo_dir if photo_dir is not None else RAW_PHOTOS_DIR
-    return sorted(base.glob("PXL_*.jpg"))
+    return sorted(base.glob("*/PXL_*.jpg"), key=lambda p: p.name)
 
 
 def make_group_id(store: str, sequence_in_store: int) -> str:

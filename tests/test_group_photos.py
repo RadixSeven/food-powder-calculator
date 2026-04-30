@@ -165,11 +165,35 @@ def test_filename_time_delta_seconds_returns_none_on_unparseable() -> None:
 # ---------- list_photos -------------------------------------------------------
 
 
-def test_list_photos_sorted(tmp_path: Path) -> None:
-    for name in ("PXL_20260426_002.jpg", "PXL_20260426_001.jpg"):
-        _solid_image(tmp_path / name)
+def test_list_photos_sorted_across_batches(tmp_path: Path) -> None:
+    """Photos live one level down inside per-batch directories
+    (``data/raw_photos/<batch>/``). The lister recurses one level and
+    sorts lexically across batches; PXL filenames embed millisecond
+    timestamps so the cross-batch order is still chronological.
+    """
+    batch_a = tmp_path / "batch-a"
+    batch_b = tmp_path / "batch-b"
+    batch_a.mkdir()
+    batch_b.mkdir()
+    _solid_image(batch_b / "PXL_20260426_002.jpg")
+    _solid_image(batch_a / "PXL_20260426_001.jpg")
+    _solid_image(batch_a / "PXL_20260426_003.jpg")
     found = [p.name for p in list_photos(tmp_path)]
-    assert found == ["PXL_20260426_001.jpg", "PXL_20260426_002.jpg"]
+    assert found == [
+        "PXL_20260426_001.jpg",
+        "PXL_20260426_002.jpg",
+        "PXL_20260426_003.jpg",
+    ]
+
+
+def test_list_photos_ignores_files_at_root(tmp_path: Path) -> None:
+    """Files at the raw-photos root (not in a batch subdirectory) are
+    ignored — we never want a stray drag-and-drop to silently get
+    treated as a photo. The ingest flow always lands files in a batch
+    directory.
+    """
+    _solid_image(tmp_path / "PXL_20260426_999.jpg")
+    assert list_photos(tmp_path) == []
 
 
 # ---------- classify_photo (mocked) ------------------------------------------
@@ -458,9 +482,10 @@ def test_main_runs_without_limit_uses_no_extension(
 ) -> None:
     """Without --limit, every photo is the sample and there's no extension."""
     raw_dir = tmp_path / "raw"
-    raw_dir.mkdir()
+    batch_dir = raw_dir / "test-batch"
+    batch_dir.mkdir(parents=True)
     for name in ("PXL_20260426_001.jpg", "PXL_20260426_002.jpg"):
-        _solid_image(raw_dir / name)
+        _solid_image(batch_dir / name)
     out_path = tmp_path / "groups.json"
 
     monkeypatch.setattr("group_photos.RAW_PHOTOS_DIR", raw_dir)
@@ -567,13 +592,14 @@ def test_main_runs_end_to_end_with_mocked_classification(
     capsys: pytest.CaptureFixture[str],
 ) -> None:
     raw_dir = tmp_path / "raw"
-    raw_dir.mkdir()
+    batch_dir = raw_dir / "test-batch"
+    batch_dir.mkdir(parents=True)
     for name in (
         "PXL_20260426_001.jpg",
         "PXL_20260426_002.jpg",
         "PXL_20260426_003.jpg",  # outside --limit, used as boundary probe
     ):
-        _solid_image(raw_dir / name)
+        _solid_image(batch_dir / name)
     out_path = tmp_path / "groups.json"
 
     classify_calls: list[str] = []

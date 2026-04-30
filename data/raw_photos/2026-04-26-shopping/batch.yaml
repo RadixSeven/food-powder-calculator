@@ -1,0 +1,19 @@
+name: 2026-04-26-shopping
+captured_at: "2026-04-26"
+source: phone-camera
+notes: |
+  208 photos from a single shopping session. Mom's Organic Market in
+  the morning, CVS in the afternoon. The kinks-first sample for the
+  whole pipeline build-out.
+
+  Filename cutoff between stores: the last MOM photo is
+  PXL_20260426_180130578.MP.jpg; the first CVS photo is
+  PXL_20260426_180942709.MP.jpg (about 14 minutes later, the time
+  spent walking to the second store).
+
+# First matching rule wins. `until` is a lexically-sorted filename
+# cutoff (inclusive); the trailing rule has no `until` and catches
+# everything else.
+stores:
+  - { name: MOM, until: PXL_20260426_180130578.MP.jpg }
+  - { name: CVS }

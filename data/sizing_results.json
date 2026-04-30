@@ -10,7 +10,7 @@
   "n_candidate_photos": 208,
   "per_photo": [
     {
-      "photo": "data/raw_photos/PXL_20260426_165737642.jpg",
+      "photo": "data/raw_photos/2026-04-26-shopping/PXL_20260426_165737642.jpg",
       "search_model": "sonnet",
       "min_legible_size": 2293,
       "probes": [
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "photo": "data/raw_photos/PXL_20260426_165809667.jpg",
+      "photo": "data/raw_photos/2026-04-26-shopping/PXL_20260426_165809667.jpg",
       "search_model": "opus",
       "min_legible_size": 4080,
       "probes": [
@@ -139,7 +139,7 @@
       ]
     },
     {
-      "photo": "data/raw_photos/PXL_20260426_165814496.jpg",
+      "photo": "data/raw_photos/2026-04-26-shopping/PXL_20260426_165814496.jpg",
       "search_model": "opus",
       "min_legible_size": 4080,
       "probes": [
@@ -201,7 +201,7 @@
       ]
     },
     {
-      "photo": "data/raw_photos/PXL_20260426_165824836.MP.jpg",
+      "photo": "data/raw_photos/2026-04-26-shopping/PXL_20260426_165824836.MP.jpg",
       "search_model": "opus",
       "min_legible_size": 943,
       "probes": [
@@ -263,7 +263,7 @@
       ]
     },
     {
-      "photo": "data/raw_photos/PXL_20260426_165855659.jpg",
+      "photo": "data/raw_photos/2026-04-26-shopping/PXL_20260426_165855659.jpg",
       "search_model": "opus",
       "min_legible_size": 2363,
       "probes": [
@@ -330,7 +330,7 @@
       ]
     },
     {
-      "photo": "data/raw_photos/PXL_20260426_165901975.jpg",
+      "photo": "data/raw_photos/2026-04-26-shopping/PXL_20260426_165901975.jpg",
       "search_model": "opus",
       "min_legible_size": 4080,
       "probes": [
@@ -392,7 +392,7 @@
       ]
     },
     {
-      "photo": "data/raw_photos/PXL_20260426_165910996.jpg",
+      "photo": "data/raw_photos/2026-04-26-shopping/PXL_20260426_165910996.jpg",
       "search_model": "opus",
       "min_legible_size": 4077,
       "probes": [
@@ -459,7 +459,7 @@
       ]
     },
     {
-      "photo": "data/raw_photos/PXL_20260426_165920991.jpg",
+      "photo": "data/raw_photos/2026-04-26-shopping/PXL_20260426_165920991.jpg",
       "search_model": "opus",
       "min_legible_size": 4076,
       "probes": [
@@ -526,7 +526,7 @@
       ]
     },
     {
-      "photo": "data/raw_photos/PXL_20260426_165936939.jpg",
+      "photo": "data/raw_photos/2026-04-26-shopping/PXL_20260426_165936939.jpg",
       "search_model": "opus",
       "min_legible_size": 4080,
       "probes": [
@@ -588,7 +588,7 @@
       ]
     },
     {
-      "photo": "data/raw_photos/PXL_20260426_165958071.jpg",
+      "photo": "data/raw_photos/2026-04-26-shopping/PXL_20260426_165958071.jpg",
       "search_model": "opus",
       "min_legible_size": 4080,
       "probes": [
