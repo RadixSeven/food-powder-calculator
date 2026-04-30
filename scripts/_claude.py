@@ -118,6 +118,12 @@ def call(request: ClaudeRequest) -> ClaudeResponse:
 
     cached_text = _read_cache(cache_path)
     if cached_text is not None:
+        _record_in_open_run(
+            sha=request_sha,
+            cached=True,
+            elapsed_seconds=0.0,
+            model=request.model,
+        )
         return ClaudeResponse(
             text=cached_text,
             cached=True,
@@ -132,6 +138,12 @@ def call(request: ClaudeRequest) -> ClaudeResponse:
         # produced. ``cached=True`` because the user paid no LLM cost.
         _atomic_write_json(
             cache_path, {"text": record_text, "request_sha": request_sha}
+        )
+        _record_in_open_run(
+            sha=request_sha,
+            cached=True,
+            elapsed_seconds=0.0,
+            model=request.model,
         )
         return ClaudeResponse(
             text=record_text,
@@ -160,11 +172,36 @@ def call(request: ClaudeRequest) -> ClaudeResponse:
         json_default=str,
     )
     _atomic_write_json(cache_path, {"text": text, "request_sha": request_sha})
+    _record_in_open_run(
+        sha=request_sha,
+        cached=False,
+        elapsed_seconds=elapsed,
+        model=request.model,
+    )
     return ClaudeResponse(
         text=text,
         cached=False,
         elapsed_seconds=elapsed,
         request_sha=request_sha,
+    )
+
+
+def _record_in_open_run(
+    *, sha: str, cached: bool, elapsed_seconds: float, model: str
+) -> None:
+    """Append a CallRecord to the active run (if any).
+
+    Imported lazily so ``_claude`` doesn't have a hard import-time
+    dependency on ``_run`` — handy for the rare unit test that loads
+    just ``_claude`` in isolation.
+    """
+    from _run import current_run  # noqa: PLC0415
+
+    run = current_run.get()
+    if run is None:
+        return
+    run.record_call(
+        sha=sha, cached=cached, elapsed_seconds=elapsed_seconds, model=model
     )
 
 

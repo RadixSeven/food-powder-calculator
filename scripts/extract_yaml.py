@@ -33,6 +33,7 @@ import yaml
 import group_pipeline
 from _claude import ClaudeRequest, call
 from _pipeline import pipeline_step, register_producer
+from _run import open_run
 from group_pipeline import (
     GOLD_GROUPS_JSON,
     REPO_ROOT,
@@ -327,22 +328,23 @@ def main() -> int:  # pragma: no cover — CLI entry, exercised manually
     )
     args = parser.parse_args()
     failures: list[tuple[str, str]] = []
-    for gid in args.group_ids:
-        try:
-            process_group_to_yaml(
-                gid,
-                gold_path=args.gold,
-                stitched_root=args.stitched_root,
-                out_dir=args.out_dir,
-                skip_if_exists=not args.force,
-            )
-        except Exception as e:  # pragma: no cover — last-line resilience
-            failures.append((gid, repr(e)))
-            print(
-                f"[extract_yaml] {gid}: FAILED — {e!r}; continuing",
-                file=sys.stderr,
-                flush=True,
-            )
+    with open_run(argv=sys.argv):
+        for gid in args.group_ids:
+            try:
+                process_group_to_yaml(
+                    gid,
+                    gold_path=args.gold,
+                    stitched_root=args.stitched_root,
+                    out_dir=args.out_dir,
+                    skip_if_exists=not args.force,
+                )
+            except Exception as e:  # pragma: no cover — last-line resilience
+                failures.append((gid, repr(e)))
+                print(
+                    f"[extract_yaml] {gid}: FAILED — {e!r}; continuing",
+                    file=sys.stderr,
+                    flush=True,
+                )
     if failures:
         print(
             f"\n[extract_yaml] {len(failures)} group(s) failed:",

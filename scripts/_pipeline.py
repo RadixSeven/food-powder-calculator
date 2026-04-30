@@ -32,6 +32,7 @@ from __future__ import annotations
 import functools
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
 from typing import ParamSpec, TypeVar
 
@@ -126,7 +127,42 @@ def pipeline_step(
                         raise MissingInputError(
                             _missing_input_message(step_name, inp)
                         )
-            return fn(*args, **kwargs)
+            # Capture started/ended timestamps and (path, sha256) pairs
+            # for inputs and outputs so an open run (if any) can record
+            # the step. Imported lazily to avoid a circular import:
+            # _run imports nothing from _pipeline today, but a future
+            # tightening could.
+            from _run import current_run, sha256_of_file  # noqa: PLC0415
+
+            run = current_run.get()
+            started = datetime.now().astimezone().isoformat(timespec="seconds")
+            try:
+                result = fn(*args, **kwargs)
+            finally:
+                ended = (
+                    datetime.now().astimezone().isoformat(timespec="seconds")
+                )
+                if run is not None:
+                    record_inputs = tuple(
+                        (str(p), sha256_of_file(p))
+                        for p in inputs(*args, **kwargs)
+                    )
+                    record_outputs = tuple(
+                        (str(p), sha256_of_file(p))
+                        for p in outputs(*args, **kwargs)
+                    )
+                    from _run import StepRecord  # noqa: PLC0415
+
+                    run.record_step(
+                        StepRecord(
+                            name=step_name,
+                            started_at=started,
+                            ended_at=ended,
+                            inputs=record_inputs,
+                            outputs=record_outputs,
+                        )
+                    )
+            return result
 
         # Expose the resolvers for callers that want to introspect
         # what a step would consume/produce without invoking it

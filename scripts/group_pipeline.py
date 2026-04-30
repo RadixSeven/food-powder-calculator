@@ -32,6 +32,7 @@ from pathlib import Path
 
 from _json_types import JsonObject, JsonValue
 from _pipeline import pipeline_step, register_producer
+from _run import open_run
 from role_bbox import ROLE_KINDS, PanelBbox, crop_panel, detect_panels
 from role_stitch import stitch_axis_for_panels, stitch_role_panels
 
@@ -356,9 +357,10 @@ def main() -> int:  # pragma: no cover — CLI entry, exercised manually
     )
     args = parser.parse_args()
 
-    for gid in args.group_ids:
-        group = load_group(args.gold, gid)
-        process_group(group, out_root=args.out_root)
+    with open_run(argv=sys.argv):
+        for gid in args.group_ids:
+            group = load_group(args.gold, gid)
+            process_group(group, out_root=args.out_root)
     return 0
 
 

@@ -42,3 +42,23 @@ def isolate_llm_records(
     records_dir = tmp_path_factory.mktemp("llm_records")
     monkeypatch.setattr("_claude.LLM_RECORDS_DIR", records_dir)
     return records_dir
+
+
+@pytest.fixture(autouse=True)
+def isolate_runs_dir(
+    tmp_path_factory: pytest.TempPathFactory, monkeypatch: pytest.MonkeyPatch
+) -> Path | None:
+    """Redirect ``_run.RUNS_DIR`` to a per-test temp path.
+
+    Same rationale as :func:`isolate_llm_records` — tests that
+    happen to call ``open_run`` without explicitly passing
+    ``runs_dir=`` would otherwise write into the real
+    ``data/runs/`` audit trail.
+    """
+    try:
+        importlib.import_module("_run")
+    except ImportError:
+        return None
+    runs_dir = tmp_path_factory.mktemp("runs")
+    monkeypatch.setattr("_run.RUNS_DIR", runs_dir)
+    return runs_dir
