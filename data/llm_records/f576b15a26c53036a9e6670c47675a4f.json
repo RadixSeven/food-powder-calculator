@@ -1,0 +1,9 @@
+{
+  "request_sha": "f576b15a26c53036a9e6670c47675a4f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle (identical amber bottle, yellow cap, same store background), rotated 5 seconds after Image 1 to reveal the full back panel. The Supplement Facts table is now fully legible with all rows (Vitamins A, C, D, E, K, B-vitamins, minerals). Suggested Use directions, caution text, and distributor info are also visible, warranting other-label. No ingredients list visible; front face not shown.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

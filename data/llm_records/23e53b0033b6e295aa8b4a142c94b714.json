@@ -1,0 +1,18 @@
+{
+  "request_sha": "23e53b0033b6e295aa8b4a142c94b714",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "sonnet",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/raw_photos/PXL_20260426_165958071.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"lement facts amount per serving % daily value zinc (as zinc citrate) 11 mg 100% selenium 55 mcg 100% (as selenium l-methionine complex) copper (as copper chelate) 0.9 mg 100% manganese (as manganese citrate) 2.3 mg 100% chromium 100 mcg 286% (as chromium picolinate) molybdenum 45 mcg 100% (as molybdenum glycinate chelate) organic rainbow superfoods blend 80 mg ** organic spirulina, organic beet (root), organic broccoli (floret, stem), organic kale (leaf), organic spinach (leaf), organic blackberry (fruit), organic blueberry (fruit), organic carrot (root), organic cranberry (fruit) men's botanical blend 66 mg ** ashwagandha extract (root), organic green tea extract (leaf), organic chlorella, lycopene (from tomato (fruit)) ginger, enzyme and probiotic blend 27 mg ** ginger juice extract (root), bromelain (from pineapple stem), papain (from papaya fruit latex), bacillus coagulans mtcc 5856 (1 million cfu**) **daily value not established. plant origin), croscarmellose sodium, coating (hydroxypropyl light nutritional systems, llc men's multi suppl overal wellnes vitamin & coq1 acidop just one cap nutrients m designed f expertly c provides s support to suggested daily, with keep out of store in a co tamper evid broken or m warning th by men and women or you are ta blood thin surgical, p condition, your doctor you are all reactions a product wi *these sta by the nu provide care a pu 28.99 o hone brain hea cardiova 60 l-glutamine g-l\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

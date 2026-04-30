@@ -1,0 +1,9 @@
+{
+  "request_sha": "fdece82af5ba441c45d87826defacc9b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag reading \\\"NM MULTI COMPLETE 130S / $16.49.\\\" The yellow shelf banner fragment above (\\\"re Made\\\" = Nature Made) and the SKU \\\"02518\\\" match the barcode visible on the bottle back in Image 1. This is the price tag for the same Nature Made Multi 130-tablet bottle documented throughout this group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

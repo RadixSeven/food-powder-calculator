@@ -1,0 +1,18 @@
+{
+  "request_sha": "4224b19819642d31d997295c5e49e654",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165814496_3955.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"lement facts 6-13 years 14+ years 30 ml (1 tbsp) 30 ml (2 tsp) about 30 about 30 %dv for 6-13 years %dv for 14+ years 50% 900 mg 50% 30 140 mg 50% 540 iu 50% 25% 60 mcg 25% 1.25 mg 75 mg 104% 94% 15 mg 30 mg 125 mg 14% 2.5 mg 14% 80 mcg dfe 80% 80 mcg dfe 80% 50% 2.4 mcg 50% 15 mg 50% 80 mcg 50% 2.5 mg 25 mg 75% 5.5 mg 75% 10 mg 25% 28 mg 4% 25 mcg 50% 150 mcg 50% 1.8 mg 4% 1.8 mg 4% 2.8 mg 25% 75 mg 25% 5.5 mg 75% 5.5 mg 75% 10 mg 25% 10.4 mg 25% 12 mcg 25% 2.3 mg 4% 2 mg 50% 45 mg 14% 50 mg 100 mg ferment media (saccharomyces, malic acid and citric acid (preservative), xanthan gum. comments call 888-874-4461 technology drive, brattleboro, vt 05301 usa the usa comes from organic, castle rock, co, usa globally sourced ingredients no artificial colors. genes or proteins. trademark of \\u00a92024 new chapter, inc. 0900-a02\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

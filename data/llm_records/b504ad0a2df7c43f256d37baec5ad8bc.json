@@ -1,0 +1,9 @@
+{
+  "request_sha": "b504ad0a2df7c43f256d37baec5ad8bc",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo shows a store shelf price tag: \\\"NM MV HIM 50+ 90CT $17.49\\\". The abbreviation matches Nature Made Multi 50+ For Him (the running group front), and the barcode number 01790 on the tag matches the UPC on the bottle in the previous photo. No product label content is visible \\u2014 only the price tag.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

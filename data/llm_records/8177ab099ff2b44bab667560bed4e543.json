@@ -1,0 +1,9 @@
+{
+  "request_sha": "8177ab099ff2b44bab667560bed4e543",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows the front of a Mary Ruth's Liquid Morning Multivitamin (Raspberry, 30 fl oz) \\u2014 a completely different brand, product name, size, and packaging design from the running group's Buried Treasure Active 55 (Image 3). The previous photo was a price tag for \\\"BT ACTIVE 55 PLUS,\\\" confirming the prior group just ended. This is a new product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

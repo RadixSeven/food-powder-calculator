@@ -1,0 +1,9 @@
+{
+  "request_sha": "ed4244f5991bbe9f1fe3ad4045ae4c35",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same amber bottle, yellow lid, and shelf background as the previous shot and the group front (Image 3 \\u2014 Nature Made Multi 50+ For Him). The current frame shows the back panel with a complete, legible Supplement Facts table (vitamins A through B12 plus minerals), so `nutrition` applies. Suggested use instructions and distributor info (Nature Made Nutritional Products, West Hills CA) are also clearly readable, warranting `other-label`. No explicit Other Ingredients section is visible, so `ingredients` is not assigned.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

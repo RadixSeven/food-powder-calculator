@@ -1,0 +1,9 @@
+{
+  "request_sha": "7025759b1389e5d427f10b432260a734",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Shelf price tag reading \\\"MOMS ULTRA OMEGA-3 MINI 120 CNT / $49.99\\\" \\u2014 product name and count match the MOM Ultra Omega-3 120-softgel bottle in the running group. Tag dominates the frame; background bottles visible at top edge are not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

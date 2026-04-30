@@ -1,0 +1,9 @@
+{
+  "request_sha": "9eb2904f2477c4dc031410b1d265063f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him bottle as the running group. The current photo is rotated slightly past the Supplement Facts panel to show the full Other Ingredients list, the caution statement, and the UPC barcode with lot/expiry date \\u2014 content not yet fully visible in the previous shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

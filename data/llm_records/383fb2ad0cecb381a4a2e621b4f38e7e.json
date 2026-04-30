@@ -1,0 +1,9 @@
+{
+  "request_sha": "383fb2ad0cecb381a4a2e621b4f38e7e",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same amber bottle with yellow MegaFood label, shot 16 seconds after the front. The back panel shows a readable Supplement Facts table (vitamins A, C, D3, E, K, B-complex, minerals, etc.) and an \\\"Other Ingredients:\\\" line listing ferment media, rice protein, and other excipients.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

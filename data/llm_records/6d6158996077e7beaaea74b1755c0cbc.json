@@ -1,0 +1,9 @@
+{
+  "request_sha": "6d6158996077e7beaaea74b1755c0cbc",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same MOM Organic Vegan Protein Powder (Chocolate) bottle \\u2014 same sage-green container, same shelf background, and only 6.6 seconds elapsed. The current shot is the back panel rotated slightly from Image 1: the Typical Amino Acid Profile table and marketing copy now dominate the frame, and partial Supplement Facts % Daily Value entries remain visible on the left edge, warranting `nutrition`. The amino acid profile, product notices, BPA-free claim, and FDA disclaimer are `other-label` content.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

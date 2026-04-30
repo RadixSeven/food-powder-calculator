@@ -1,0 +1,9 @@
+{
+  "request_sha": "70b750b602aca26b44d6fcfd7243172b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same Orgain Organic Protein Powder (Vanilla Bean) shot 11.2 seconds after the front. Bottle shape, color, and shelf background match. Panel shows a complete Nutrition Facts table (150 cal, 21g protein, etc.), a readable Ingredients list (Orgain Organic Protein Blend, organic pea protein, etc.), and other-label content (Clean Nutrition commitment, distributor address, certifications, storage instructions).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

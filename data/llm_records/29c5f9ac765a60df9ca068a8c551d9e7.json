@@ -1,0 +1,9 @@
+{
+  "request_sha": "29c5f9ac765a60df9ca068a8c551d9e7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo is a close-up of the shelf price tag for \\\"NM MV HIM 50+ 90CT\\\" at $17.49, which corresponds to the Nature Made Multi 50+ For Him 90-tablet bottle documented in images 1 and 3. The tag fills the frame and is the clear primary subject; the yellow-capped bottles visible below the tag are background.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

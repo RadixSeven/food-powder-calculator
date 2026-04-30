@@ -1,0 +1,9 @@
+{
+  "request_sha": "11c107e3e4cbd4270e814fac0a3a58f5",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same New Chapter Liquid Multivitamin bottle rotated to show the back panel. The Supplement Facts table fills most of the frame (nutrition). Below it, an \\\"Other Ingredients:\\\" list is clearly legible (ingredients). Additional label content \\u2014 distributor address, certifications (IGEN Non-GMO, gluten free, vegan), and legal/contact copy \\u2014 is also present (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

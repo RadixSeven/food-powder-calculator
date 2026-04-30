@@ -1,0 +1,9 @@
+{
+  "request_sha": "633c97f3c9f047afc84bb3d4f6e5b769",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"The current photo shows the back panel of the same NaturesPlus Source of Life Gold Liquid bottle from Image 1 (same cream-colored bottle, same hand, same store shelf background, 20-second gap). The Supplement Facts table is fully legible with vitamins, minerals, and amino acid rows. An \\\"Other Ingredients\\\" list is visible at the bottom. Additional label content includes blend descriptions, usage instructions, and footnotes \\u2014 qualifying as other-label as well.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "b65d944b7828069d397ccd71efbb3279",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same orange MOM Organic Whole Psyllium Husk canister (12 oz/336 g), same hand and shelf background, rotated 8 seconds later to show the back panel. A partial Supplement Facts table is readable (serving size, Calories, Total Carbohydrate, Dietary Fiber, Organic Psyllium Husk/Plantago ovata). A \\\"CONTAINS NO artificial colors\\u2026\\\" allergen statement and \\\"SUGGESTED USE:\\\" directions are also legible on the right side panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

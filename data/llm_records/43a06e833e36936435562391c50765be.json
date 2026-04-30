@@ -1,0 +1,9 @@
+{
+  "request_sha": "43a06e833e36936435562391c50765be",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same MOM Organic Vegan Protein Powder tub photographed 10.8 s after the front. Same green label, same hand, same shelf. The full Supplement Facts table is legible (nutrition), a complete ingredients list follows it (ingredients), and additional label content \\u2014 suggested use, allergen statement, and FDA disclaimer \\u2014 is also visible (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

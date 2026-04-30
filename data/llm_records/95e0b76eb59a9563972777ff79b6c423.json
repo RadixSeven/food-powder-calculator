@@ -1,0 +1,9 @@
+{
+  "request_sha": "95e0b76eb59a9563972777ff79b6c423",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows Rainbow Light Men's One+ (60 Vegetarian Caplets, blue cap) \\u2014 a different SKU from the running group's Certified Men's Multivitamin (120 capsules, green cap). Different product name, count, and lid color confirm a new product. The primary subject is the front face of this new bottle.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "86d89d733a6faab9d539b0a90f11603f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Nature Made D3 2000 IU amber bottle rotated to expose the side/bottom panel. Identical yellow label, same amber bottle shape, same shelf, same hand, only 5.2 s apart. Panel shows lot number 2659736, expiry DEC 2027, barcode, list number, caution text, and No Color/No Artificial Flavors/Gluten Free badges \\u2014 no nutrition facts or ingredients list visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

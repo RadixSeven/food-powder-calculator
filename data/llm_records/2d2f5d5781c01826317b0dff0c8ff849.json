@@ -1,0 +1,9 @@
+{
+  "request_sha": "2d2f5d5781c01826317b0dff0c8ff849",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag for \\\"MOMS COENZYMTE ADV M MLT 60 VCAP\\\" at $29.99, barcode 78750009411 \\u2014 matching the barcode on the bottle in Image 1 and the MOM Advanced Men's Multi front in Image 3. Same product, price-tag role only.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

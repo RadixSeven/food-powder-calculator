@@ -1,0 +1,9 @@
+{
+  "request_sha": "ac74264723fbc0f9e7678132b803af76",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same orange MOM Psyllium Husk container as the previous shot and group front \\u2014 identical bottle, label color, and shelf. The back panel is now fully in frame: the complete Supplement Facts table (nutrition), a \\\"CONTAINS NO\\\" allergen/no-contains statement (ingredients), and suggested-use directions plus the FDA disclaimer (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

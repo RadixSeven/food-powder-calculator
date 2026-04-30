@@ -1,0 +1,9 @@
+{
+  "request_sha": "18d6bc8b230f720f35f1d958c464c31b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same Buried Treasure VM100 bottle (identical white body, orange label, gray lid, same hand and shelf background) rotated 7 seconds later to expose the back panel. The Supplement Facts table fills most of the frame with a full list of vitamins and minerals. The \\\"Other Ingredients:\\\" paragraph is legible at the bottom of the panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

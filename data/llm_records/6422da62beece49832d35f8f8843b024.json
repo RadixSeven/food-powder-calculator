@@ -1,0 +1,9 @@
+{
+  "request_sha": "6422da62beece49832d35f8f8843b024",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows the front of MOM Advanced Men's Multi (teal/green label, 60 vegetarian capsules) \\u2014 a clearly different product from the running group's MOM Vitamin K2 120 mcg (orange/red label). Different brand SKU, different label color, different product name. This is the front face of a new product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

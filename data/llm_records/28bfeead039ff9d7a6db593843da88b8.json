@@ -1,0 +1,9 @@
+{
+  "request_sha": "28bfeead039ff9d7a6db593843da88b8",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Rainbow Light Men's One+ bottle rotated to show the back panel. Same white bottle, green/blue cap, and fruit imagery visible at top-left match Image 1 exactly. The Supplement Facts table is fully readable (vitamins A, C, D, E, K, B-vitamins, minerals, blends). \\\"Other Ingredients\\\" list is legible at the bottom (Cellulose, Hypromellose, Carnauba Wax, etc.), and other-label content includes manufacturer address, phone, website, allergen statement, and FDA disclaimer. 15.9-second gap is strong confirmation of same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

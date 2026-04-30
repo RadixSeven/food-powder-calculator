@@ -1,0 +1,9 @@
+{
+  "request_sha": "4c8cca90ae7d564158f6fc360b67b46c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows Rainbow Light Men's One+ (60 Vegetarian Caplets, blue cap, \\\"Just Once\\\" branding, Real Food Nutrients formula), which is a different SKU from the running group's Rainbow Light Certified Men's Multivitamin (120 capsules, green cap, organic fruits & vegetables formula). The previous photo was the price tag for the 120-count Certified Men's product. This is the front label of a new, distinct product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

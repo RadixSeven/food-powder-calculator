@@ -1,0 +1,9 @@
+{
+  "request_sha": "0040f52c82406e7c7b0216dadf66ccf7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The running group (Image 3) is New Chapter Liquid Multivitamin, Orange Mango, 30 fl oz \\u2014 confirmed by the price tag in Image 1 (\\\"NC LQUD MLTVITMN ORNG MNG 30 FZ\\\"). The current photo shows a completely different product: Rainbow Light Certified Men's Multivitamin, 120 capsules. Different brand, different form (capsules vs. liquid), different product entirely. It is the front label of a new product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

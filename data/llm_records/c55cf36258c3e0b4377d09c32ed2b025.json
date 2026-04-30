@@ -1,0 +1,9 @@
+{
+  "request_sha": "c55cf36258c3e0b4377d09c32ed2b025",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Country Life Daily Total One bottle as Image 1 \\u2014 identical lot number (21L677B 112 16:24 01) and expiry (03/27) confirm it. Current shot captures a wider view of the Supplement Facts panel (nutrition) and additionally shows the left-column marketing blurb (\\\"Daily Total One is your answer\\u2026\\\") and a CAUTION block (other-label). 24-second gap corroborates same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

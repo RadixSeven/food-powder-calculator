@@ -1,0 +1,9 @@
+{
+  "request_sha": "aff61c7b076f6098380c61ea15f68a1d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Current photo is a shelf price tag (\\\"NM VIT D3 2000 IU 400S, $28.49\\\") for the Nature Made D3 2000 IU 400-tablet bottle that is the running product group. The tag fills the frame and is the primary subject. No nutrition, ingredients, or label content is visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

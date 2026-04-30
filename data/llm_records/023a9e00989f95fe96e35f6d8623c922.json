@@ -1,0 +1,9 @@
+{
+  "request_sha": "023a9e00989f95fe96e35f6d8623c922",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a hand holding a light-green tub branded \\\"MOM \\u2014 Organic Balanced Plant Protein Blend, Natural Vanilla Flavor.\\\" The running group (Image 3) is Orgain Organic Protein in a white/green tub, and Image 1 was the Orgain price tag. The MOM product has a completely different brand, label design, and packaging color. The 80-second gap is not short enough to override that clear visual difference. This is the front face of a new, distinct product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "c67fb156eaff92cd54ab5faa0cfa39b6",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows Nature Made Multi 50+ For Him \\u2014 a completely different brand, product name, and label design from the Country Life Daily Total One in image 1. The 63-minute time gap further supports a new product. The front face of the Nature Made bottle dominates the frame with brand logo, product name, and marketing copy.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

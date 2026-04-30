@@ -1,0 +1,9 @@
+{
+  "request_sha": "c2b41603ba631700b09eac791db5242d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle (yellow cap, amber bottle, identical branding), rotated to show the side/back panel. The Supplement Facts table is clearly visible listing Vitamins A, C, D, E, K, Thiamin, Riboflavin, Niacin, B6, Folate, and B12. Also visible: Suggested Use instructions, storage warning, FDA disclaimer, and distributor info (West Hills, CA) \\u2014 all other-label content. No separate Other Ingredients list is legible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

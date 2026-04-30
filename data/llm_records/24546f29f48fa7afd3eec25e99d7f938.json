@@ -1,0 +1,9 @@
+{
+  "request_sha": "24546f29f48fa7afd3eec25e99d7f938",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"The current photo shows the back of the same Rainbow Light Men's One+ multivitamin bottle seen in the previous photo (front view). It displays the Supplement Facts panel with full vitamin/mineral amounts and the other/other-ingredients list plus allergen statement \\u2014 serving as both the nutrition label and ingredients panel for this product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,18 @@
+{
+  "request_sha": "4e9bf8929046880747d778b14514b2db",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "haiku",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/raw_photos/PXL_20260426_165901975.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"supplement facts serving size 4 capsules servings per container 30 amount per serving % dv vitamin a (as beta-carotene) 750 mcg 83% vitamin c (as ascorbic acid) 80 mg 89% vitamin d (as cholecalciferol) 50 mcg 250% vitamin e (as d-alpha tocopheryl succinate) 20.1 mg 134% thiamin (as thiamin mononitrate) 3 mg 250% riboflavin (vitamin b2) 27 mg 2077% niacin (as niacinamide) 25 mg 156% vitamin b6 (as pyridoxine hydrochloride) 30 mg 1765% folate (as folic acid) 667 mcg dfe 167% (400 mcg folic acid) vitamin b12 (as methylcobalamin) 67 mcg 2792% biotin 500 mcg 1667% pantothenic acid (as calcium pantothenate) 10 mg 200% iodine (from kelp) 55 mcg 37% zinc (as zinc citrate) 7 mg 64% selenium (as selenium l-methionine complex) 25 mcg 45% copper (as copper chelate) 0.7 mg 78% manganese (as manganese citrate) 2 mg 87% chromium (as chromium amino nicotinate) 75 mcg 214% molybdenum (as molybdenum glycinate chelate) 75 mcg 167% organic fruit & vegetable blend 1088 mg organic spirulina, organic cabbage palm (acai) (fruit), organic incayu (poi) (fruit) extract, organic pomegranate (fruit) extract, organic blueberry (fruit), organic broccoli (fruit) extract, organic kale (plant), organic beet (root) probiotic & prebiotic blend 714 mg organic inulin (from agave spp.), protease, bacillus subtilis, lactobacillus, bacillus coagulans organic probiotic (cfu\\u2020) organic men's blend 454 mg organic green tea (leaf) extract, organic hawthorn (fruit) extract, organic milk thistle (seed) extract, organic artichoke (plant) extract, organic ginger (root) extract, organic lycopene (fruit) extract japanese knotweed (root) extract (50% resveratrol) 8 mg \\u2020 daily value (dv) not established\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

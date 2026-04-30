@@ -1,0 +1,9 @@
+{
+  "request_sha": "085d29409c9680c235473989326aa9ba",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Shelf price tag reading \\\"MOM'S CLEAR FIBER 5 OZ / $15.99\\\" with UPC 787500074211, which exactly matches the barcode on the bottle's back panel in Image 1 and the MOM ClearFiber Powder shown in Image 3. The tag dominates the frame and is clearly the photographer's subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

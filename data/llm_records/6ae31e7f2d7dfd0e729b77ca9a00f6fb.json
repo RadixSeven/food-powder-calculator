@@ -1,0 +1,9 @@
+{
+  "request_sha": "6ae31e7f2d7dfd0e729b77ca9a00f6fb",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows the front of Country Life Daily Total One Iron Free (60 Vegan Capsules), which is a clearly different product from the running group's Country Life Vitamin D3 200 Softgels. Different product name, dosage form, and count confirm a new product. The front face with brand logo and product name is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

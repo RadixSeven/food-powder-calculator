@@ -1,0 +1,9 @@
+{
+  "request_sha": "b08c925dfe2732ed01b0d5824d766cfd",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber Country Life DHEA bottle held in the same hand, 8.5 s after the front shot. The back panel shows the Supplement Facts table (DHEA 25 mg \\u2014 nutrition), an \\\"Other Ingredients\\\" line (ingredients), plus directions, warnings, and manufacturer details (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "03b10356f726cbfea8daac8e7150fb66",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"The current photo shows a different panel of the same Country Life High Potency Biotin 5 mg bottle seen in the previous photo and the group front (Image 3). This panel displays marketing copy about Biotin as a water-soluble B vitamin, certifications (Gluten-Free, Non-GMO, Vegan, Kosher, Halal, etc.), a lot number (25A931C), best-by date (01/28), and a UPC barcode \\u2014 all other-label content. No Supplement Facts table, no ingredients list, and no front-panel branding is visible here.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

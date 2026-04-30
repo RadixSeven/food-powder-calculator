@@ -1,0 +1,9 @@
+{
+  "request_sha": "e766ca777d639f4803697b5497e02665",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo is a shelf price tag for \\\"MOM'S VIT K2 120MCG 60 CAP\\\" at $21.99 (barcode 787500097418), which exactly matches the barcode (7 87500 09741 8) visible on the bottle in Image 1 and the MOM Vitamin K2 120 mcg bottle that is the running product group (Image 3). The price tag dominates the frame and is the clear primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

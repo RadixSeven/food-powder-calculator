@@ -1,0 +1,18 @@
+{
+  "request_sha": "de2f7b4379e5e89d80e727865f6e33e5",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/raw_photos/PXL_20260426_165901975.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"supplement facts serving size 4 capsules servings per container 30 amount per serving %dv vitamin a (as beta-carotene) 750 mcg vitamin c (as ascorbic acid) 60 mg vitamin d (as cholecalciferol) 20 mcg vitamin e (as d-alpha tocopheryl succinate) 20.1 mg thiamin (as thiamin mononitrate) 27 mg riboflavin (vitamin b2) 25 mg niacin (as niacinamide) 20 mg vitamin b6 (as pyridoxine hydrochloride) 18 mg folate (as folic acid) 667 mcg (400 mcg folic acid) vitamin b12 (as methylcobalamin) 67 mcg pantothenic acid (as calcium pantothenate) 500 mcg iodine (from kelp) 10 mg zinc (as zinc citrate) 50 mcg selenium (as selenium l-methionine complex) 7 mcg copper (as copper chelate) 75 mcg manganese (as manganese citrate) 0.7 mg chromium (as chromium amino nicotinate) 2 mcg molybdenum (as molybdenum glycinate chelate) 75 mcg organic fruit & vegetable blend 1098 mg organic spirulina, organic cabbage palm (acai) (fruit), organic goji (fruit) extract, organic pomegranate (fruit) extract, organic blueberry (fruit), organic broccoli plant, organic kale (plant), organic beet (root). prebiotic and probiotic blend 714 mg organic inulin (from agave spp.), protease, amylase, lipase, cellulase, bacillus coagulans mtcc 5856 (1 billion cfu\\u2020) organic men's blend 404 mg organic green tea (leaf) extract, organic hawthorn (fruit) extract, organic milk thistle (seed) extract, organic cordyceps (mushroom), organic ginger (root) extract, eleuthero (root). other japanese knotweed (root) extract (50% resveratrol) 8 mg \\u2020daily value (dv) not established.\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

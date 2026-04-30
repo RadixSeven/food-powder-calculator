@@ -1,0 +1,9 @@
+{
+  "request_sha": "2d8fc47f80b3b826da50a2f64fbe464e",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Shelf price tag dominates the frame: \\\"SOLARAL MG GLYCINATE 350MG 120CT $22.99\\\", barcode 076280549010 matches the bottle barcode seen in Image 1 (076280 54901 0). Short 15.6s gap confirms continuity with the running Solaray Magnesium Glycinate group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

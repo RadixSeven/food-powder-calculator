@@ -1,0 +1,9 @@
+{
+  "request_sha": "2ac5e4009e4c86b39619df6fef386a2b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 130-tablet bottle (yellow cap, identical label). The current photo documents the right side panel: the \\\"OTHER INGREDIENTS\\\" list is the main text block (cellulose gel, modified food starch, etc.), alongside the WARNING box and the lot/expiry date + barcode. The Supplement Facts table is only a sliver on the far left edge and is not the primary subject, so no `nutrition` role is assigned.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

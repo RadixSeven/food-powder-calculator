@@ -1,0 +1,9 @@
+{
+  "request_sha": "0da1f7c8df072731c8f826e021385c7c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same Country Life Vitamin D3 amber bottle seen in image 1 (identical bottle shape, amber glass, yellow/green label band, black lid, same hand, 5.8-second gap). The panel shows a readable Supplement Facts table (Vitamin D3 250 mcg / 10,000 IU), an Other Ingredients list (medium chain triglycerides, gelatin, glycerin, etc.), plus dosage directions and a caution/warning block.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

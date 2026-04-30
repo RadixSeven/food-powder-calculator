@@ -1,0 +1,9 @@
+{
+  "request_sha": "4568f362d59e9fa26f7ec09de58b0ef4",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo is a close-up of the shelf price tag (\\\"NM MV HIM 50+\\\", $17.49, 90CT). The SKU suffix \\\"01790\\\" on the tag matches the barcode on the back-panel shot (Image 1), confirming this is the price tag for the same Nature Made Multi 50+ For Him bottle documented in this group. Taken only 9.7 s after Image 1. The yellow bottles below the tag are incidental background.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

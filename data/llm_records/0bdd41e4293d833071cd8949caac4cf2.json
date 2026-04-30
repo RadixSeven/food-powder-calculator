@@ -1,0 +1,9 @@
+{
+  "request_sha": "0bdd41e4293d833071cd8949caac4cf2",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Image 1 is a price tag for \\\"RL MEN'S MULTIVITAMIN 120 CNT\\\" ($44.99), which belongs to the running group product \\u2014 Rainbow Light Certified Men's Multivitamin (Image 3, 120 capsules, green cap). Image 2 shows a hand holding a clearly different Rainbow Light product: \\\"Men's One+\\\" with 60 Vegetarian Caplets, a blue/rainbow color scheme, and distinct marketing copy (Digestive Enzymes & Probiotics, Certified Raw/Clean). Different product name, different count, different design \\u2014 this is a new product. The primary subject is the front face of this bottle, so the role is `front`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

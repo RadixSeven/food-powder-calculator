@@ -1,0 +1,9 @@
+{
+  "request_sha": "129098f78f6736b55a4dd26c13e0523b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"front\", \"price-tag\"], \"rationale\": \"Current photo shows two Country Life NAC N-Acetyl Cysteine 750mg 30-count bottles on the shelf (fronts fully visible) plus a shelf price tag reading \\\"CL N-ACETYL CYSTEINE 750MG 30CNT \\u2014 $13.99\\\" with barcode 015794016861, which matches the barcode on the bottle in the previous photo. Same product as the running group front.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

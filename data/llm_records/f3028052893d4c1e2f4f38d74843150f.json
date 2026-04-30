@@ -1,0 +1,9 @@
+{
+  "request_sha": "f3028052893d4c1e2f4f38d74843150f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same yellow NaturesPlus Source of Life Original Liquid bottle as Image 1 and the group front (Image 3) \\u2014 identical bottle shape, color, and shelf background. The bottle has been rotated slightly further: the left edge still shows the partial Supplement Facts daily-value column (legible percentages \\u2192 nutrition), while the newly exposed right panel shows distributor info (\\\"Manufactured with LOVE by Natural Organics, Inc.\\\"), the naturesplus.com URL, barcode (PRODUCT NO. 30601), and Vegetarian/Gluten-Free certification icons (\\u2192 other-label). 8-second gap strongly supports same-product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

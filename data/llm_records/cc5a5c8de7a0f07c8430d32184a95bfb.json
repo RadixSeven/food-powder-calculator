@@ -1,0 +1,9 @@
+{
+  "request_sha": "cc5a5c8de7a0f07c8430d32184a95bfb",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Country Life NAC 750mg bottle, now rotated to show the back panel. The Supplement Facts table (NAC 750mg per capsule) dominates the frame \\u2192 nutrition. \\\"Other Ingredients: Cellulose\\u2026\\\" list is clearly readable \\u2192 ingredients. The panel also includes directions, a caution warning, storage instructions, and manufacturer info (Country Life, LLC, Hauppauge NY) \\u2192 other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

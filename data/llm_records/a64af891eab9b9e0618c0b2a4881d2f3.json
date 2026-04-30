@@ -1,0 +1,9 @@
+{
+  "request_sha": "a64af891eab9b9e0618c0b2a4881d2f3",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle (identical brown amber bottle, yellow lid, matching yellow label) rotated slightly further than image 1 to reveal the right-hand column of the Supplement Facts table (Biotin through Molybdenum with % DV), the full Other Ingredients list (Cellulose Gel, Modified Food Starch, Croscarmellose Sodium, etc.), the iron-overdose WARNING box, and the \\\"No Color Added / No Artificial Flavors / Gluten Free\\\" claims panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

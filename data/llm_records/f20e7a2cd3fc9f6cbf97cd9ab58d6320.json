@@ -1,0 +1,9 @@
+{
+  "request_sha": "f20e7a2cd3fc9f6cbf97cd9ab58d6320",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same Nature Made D3 2000 IU bottle seen in the previous and group-front shots (matching yellow label, amber bottle, yellow lid). Panel shows a readable Supplement Facts table (nutrition), a full Other Ingredients list (ingredients), plus Suggested Use, Distributed By, and USP certification text (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

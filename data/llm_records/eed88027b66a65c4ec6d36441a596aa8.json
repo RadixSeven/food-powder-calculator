@@ -1,0 +1,9 @@
+{
+  "request_sha": "eed88027b66a65c4ec6d36441a596aa8",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Current photo is the back panel of the same MaryRuth's Liquid Nighttime Multimineral bottle seen in Image 1, now rotated face-on so the full Supplement Facts table is legible (nutrition), Other Ingredients list is visible (ingredients), and distributor/vegan/website info appears below (other-label). Same white bottle, same hand, same shelf background; 5.1-second gap confirms same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

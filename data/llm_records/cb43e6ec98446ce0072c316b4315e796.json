@@ -1,0 +1,9 @@
+{
+  "request_sha": "cb43e6ec98446ce0072c316b4315e796",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a Rainbow Light Certified Men's Multivitamin (white bottle, green lid, 120 capsules) being held in hand. The running group (Image 3) is the New Chapter Liquid Multivitamin \\u2014 a dark amber glass bottle with a purple label. These are completely different brands, bottle shapes, and product types. Image 1 was a price tag for the New Chapter product (NC LQUD MLTVITMN). The current photo is a new product: front face of the Rainbow Light bottle, with brand logo, product name, and marketing copy as the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

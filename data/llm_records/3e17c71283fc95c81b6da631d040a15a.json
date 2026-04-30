@@ -1,0 +1,9 @@
+{
+  "request_sha": "3e17c71283fc95c81b6da631d040a15a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same New Chapter Liquid Multivitamin bottle (purple label, identical product to group front). Current photo is the right-side continuation of the Supplement Facts table (age columns 4\\u201313 yrs and 14+ yrs), so `nutrition` applies. The bottom section shows the Other Ingredients list (water, organic glycerin, ferment media, xanthan gum), so `ingredients` applies. A copyright/lot line (\\\"\\u00a92024 New Chapter, Inc. 0900-A02\\\") is also visible, warranting `other-label`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

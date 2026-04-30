@@ -1,0 +1,9 @@
+{
+  "request_sha": "d820c0c8be8be2d21c7205acf1d6ee9b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows the front face of Country Life Vitamin D3 (250 mcg / 10,000 IU, 200 Softgels), brand logo and product name filling the frame. The running group is Country Life Biotin (5 mg, 120 Vegan Capsules) \\u2014 a different product entirely. This is the start of a new product group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

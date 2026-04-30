@@ -1,0 +1,9 @@
+{
+  "request_sha": "95f7a542a1bbab1321c0e491f9158b16",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a hand holding a THORNE \\\"Basic Nutrients 2/Day\\\" bottle \\u2014 a completely different brand, product name, and packaging (white bottle with abstract paint-splash design) from the running group (Jarrow Formulas K-Right, white/orange). The previous shot was the Jarrow K-Right price tag. This is unambiguously a new product. The current frame shows the front face of the Thorne bottle with brand logo, product name, and marketing copy as the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

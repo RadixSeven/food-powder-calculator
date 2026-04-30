@@ -1,0 +1,9 @@
+{
+  "request_sha": "6d1496486c3639906d69429179f6fc97",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\", \"other-label\"], \"rationale\": \"The current photo shows a new product entirely \\u2014 MOM Vitamin K2 120 mcg (orange label, white cap, 60 caps) \\u2014 clearly distinct from the MegaFood Men's 55+ One Daily amber bottle that was the running group. The previous shot was the MegaFood price tag, and the ~74-second gap is consistent with moving on to a new product. The current shot documents the front face of the MOM bottle (brand logo, product name, and marketing copy dominate the frame) with a strip of side-panel marketing text visible on the left edge.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

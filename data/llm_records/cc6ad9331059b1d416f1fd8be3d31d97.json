@@ -1,0 +1,21 @@
+{
+  "request_sha": "cc6ad9331059b1d416f1fd8be3d31d97",
+  "request": {
+    "prompt": "Extract the combined nutrition / supplement facts table from these 4 photos of the same product, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_001/crops/PXL_20260426_180945570.MP__nutrition__0620_0140_0990_0930.jpg",
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_001/crops/PXL_20260426_180948519.MP__nutrition__0140_0060_0990_0960.jpg",
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_001/crops/PXL_20260426_180951760__nutrition__0000_0080_0680_0940.jpg",
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_001/crops/PXL_20260426_180956262__nutrition__0000_0020_0130_0850.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: these images show the nutrition / supplement facts panel for the product 'multi 50+ for him 90 tablets' by 'nature made'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from photos of a product. You may receive multiple photos covering different portions of the same panel \u2014 e.g. a wrap-around bottle label shot from different angles, or partial views where each photo shows a slice of the table. Combine the rows you can see across all photos into a single table, deduplicating rows that appear in more than one photo (matching by nutrient name when available, otherwise by row position within each photo). Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the combined table, in top-to-bottom order as they appear on the panel. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` only for cells whose text is genuinely occluded across all photos (no photo shows that cell readable). If a cell is readable in any photo, prefer that reading. Lower-case all text; preserve punctuation. Do not invent values. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"serving size 1 tablet\"], [\"amount per tablet\", \"% daily value\", \"amount per tablet\", \"% daily value\"], [\"vitamin a 750 mcg\", \"83%\", \"biotin 30 mcg\", \"100%\"], [\"(as retinyl acetate and beta carotene)\", \"\", \"pantothenic acid 10 mg\", \"200%\"], [\"vitamin c (as ascorbic acid) 180 mg\", \"200%\", \"(as d-calcium pantothenate)\", \"\"], [\"vitamin d3 (as cholecalciferol) 25 mcg (1000 iu)\", \"125%\", \"calcium (as calcium carbonate) 160 mg\", \"12%\"], [\"vitamin e (as dl-alpha tocopheryl acetate) 27 mg\", \"180%\", \"iodine (as potassium iodide) 150 mcg\", \"100%\"], [\"vitamin k (as phytonadione) 80 mcg\", \"67%\", \"magnesium (as magnesium oxide) 100 mg\", \"24%\"], [\"thiamin (as thiamine mononitrate) 1.5 mg\", \"125%\", \"zinc (as zinc oxide) 15 mg\", \"136%\"], [\"riboflavin 1.7 mg\", \"131%\", \"selenium (as sodium selenate) 105 mcg\", \"191%\"], [\"niacin (as niacinamide) 20 mg\", \"125%\", \"copper (as cupric sulfate) 2 mg\", \"222%\"], [\"vitamin b6 (as pyridoxine hydrochloride) 6 mg\", \"353%\", \"manganese (as manganese sulfate) 4 mg\", \"174%\"], [\"folate 665 mcg dfe (400 mcg folic acid)\", \"167%\", \"chromium (as chromium chloride) 120 mcg\", \"343%\"], [\"vitamin b12 (as cyanocobalamin) 25 mcg\", \"1042%\", \"molybdenum (as sodium molybdate) 75 mcg\", \"167%\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

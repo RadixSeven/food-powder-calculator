@@ -1,0 +1,18 @@
+{
+  "request_sha": "6d7ed2b273771c753184d8d5a7f5d572",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165958071_3076.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"men's multi men's mu en's multi men's lement facts just one ca nutrients d designed fo expertly cr provide es support fo % daily value amount per serving % daily value 800 mcg 100% zinc (as zinc citrate) 11 mg 100% 90 mg 250% selenium 55 mcg 100% 5 mcg (1,000 iu) (as selenium l-methionine complex) 15 mg 100% copper (as copper chelate) 0.9 mg 100% manganese (as manganese citrate) 2.3 mg 100% 120 mcg 125% chromium 100 mcg 286% (as chromium picolinate) 5 mg 385% molybdenum 45 mcg 100% (as molybdenum glycinate chelate) 20 mg 1,176% organic rainbow 80 mg superfoods blend mcg dfe 100% organic spirulina, organic beet (root), organic 6 mcg folic acid broccoli (floret, stem), organic kale (leaf), 10 mcg 417% organic spinach (leaf), organic blackberry (fruit), organic blueberry (fruit), organic carrot (root), organic cranberry (fruit) 50 mcg 167% men's botanical blend 66 mg 13 mg 260% ashwagandha extract (root), organic green tea extract (leaf), organic chlorella, lycopene (from tomato (fruit)) mg 2% ginger, enzyme and 27 mg probiotic blend 100% ginger juice extract (root), bromelain from 50 mg 12% pineapple stem), papain (from papaya fruit latex), bacillus coagulans mtcc 5856 (1 million cfu***) **daily value not established. nt plant origin), croscarmellose sodium, coating (hydroxypropyl light nutritional systems, llc support overall wellness suggeste daily, with keep out store in a tamper evid warning: t by men and you are a blood th cocoa, conditio reache replace 60 28.99\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

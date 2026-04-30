@@ -1,0 +1,9 @@
+{
+  "request_sha": "e20a81e16aa7ea9bf99e0924f5e30bb9",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows the front of a Rainbow Light Certified Men's Multivitamin (120 capsules) held in hand. The running group is New Chapter Liquid Multivitamin (Orange Mango, 30 fl oz) \\u2014 completely different brand and product. The previous photo was the New Chapter price tag ($45.99). This is a new product; role is `front` as the bottle's front face fills the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

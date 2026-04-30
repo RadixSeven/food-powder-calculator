@@ -1,0 +1,9 @@
+{
+  "request_sha": "c1a850cc13a2461370079025a6798fae",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows Nature Made Multi (130 tablets, general formula). The running group (Image 3) and its price tag (Image 1, labeled \\\"NM MV HIM 50+\\\" 90CT at $17.49) are both for Nature Made Multi 50+ For Him (90 tablets). Same brand and bottle style, but a different product variant \\u2014 different formulation, count, and target demographic. This is the front of a new product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

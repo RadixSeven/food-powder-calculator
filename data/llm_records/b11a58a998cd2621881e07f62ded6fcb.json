@@ -1,0 +1,9 @@
+{
+  "request_sha": "b11a58a998cd2621881e07f62ded6fcb",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag reading \\\"JARROW K-RIGHT 60CNT $42.99\\\" \\u2014 exactly matching the Jarrow Formulas K-Right 60 softgels being documented. The K-Right bottle visible on the shelf behind the tag confirms product continuity. Short 12.9-second gap further supports same-product. Roles: price-tag only; the bottle in the background is not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

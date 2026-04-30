@@ -1,0 +1,9 @@
+{
+  "request_sha": "5ba835fd939d94c1f26e132775a44835",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag for \\\"THORNE BASIC NTRNTS 2DAY 60 CNT\\\" at $31.99 (barcode 693749002871), which matches exactly the barcode on the bottle photographed in Image 1 and the running group front (Thorne Basic Nutrients 2/Day, 60 capsules). Short 14.5-second gap confirms same-product continuity.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

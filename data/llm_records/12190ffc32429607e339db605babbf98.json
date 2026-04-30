@@ -1,0 +1,9 @@
+{
+  "request_sha": "12190ffc32429607e339db605babbf98",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same white Thorne NAC bottle flipped to its back panel 5.3 seconds after the front shot. The back shows a complete Supplement Facts table (N-Acetyl-L-Cysteine 500 mg), an Other Ingredients list (Hypromellose, Leucine, Silicon Dioxide), and manufacturer/distributor text \\u2014 same bottle shape, lid, and shelf background confirm same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

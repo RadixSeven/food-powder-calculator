@@ -1,0 +1,9 @@
+{
+  "request_sha": "7edbe72b3dea470ad268af520d4eb391",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is a shelf price tag reading \\\"ORGAIN PROTEIN PWDR PB OG 2.03LB / $33.99,\\\" which matches the Orgain Organic Protein Peanut Butter tub shown in the previous shot and the group front. Short 14.9-second gap confirms same-product session.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

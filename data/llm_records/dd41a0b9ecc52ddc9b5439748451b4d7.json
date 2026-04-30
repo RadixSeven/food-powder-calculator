@@ -1,0 +1,9 @@
+{
+  "request_sha": "dd41a0b9ecc52ddc9b5439748451b4d7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Current photo shows a shelf price tag reading \\\"NW ALIVE! LIQ MULTI / CITRUS 30 FZ / $39.99\\\" \\u2014 the tag's abbreviated name matches the Nature's Way Alive! Complete Liquid Multivitamin (Citrus) seen in the group front and previous shot. The 15-second gap and product-name match confirm this is the price tag for the same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

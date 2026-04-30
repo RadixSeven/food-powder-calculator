@@ -1,0 +1,18 @@
+{
+  "request_sha": "12d9fcb8d9fe15c24423ea63360daddf",
+  "request": {
+    "prompt": "Extract the nutrition / supplement facts table from this photo, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_007/crops/PXL_20260426_170401442.MP__nutrition__0000_0300_0910_0540.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: this image is the nutrition / supplement facts panel for the product 'high potency biotin 5 mg 120 vegan capsules' by 'country life'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from a product photo for a deterministic comparison task. Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the table, in top-to-bottom order. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` for cells whose text is occluded, glared, cut off, or otherwise unreadable. Lower-case all text; preserve punctuation (parentheses, percent signs, decimal points). Do not invent values or fill in nutrients that are not visible. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"serving size 1 capsule\"], [\"amount per serving\", \"% daily value\"], [\"biotin (as d-biotin)\", \"5,000 mcg (5 mg)\", \"16,667%\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

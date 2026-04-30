@@ -1,0 +1,9 @@
+{
+  "request_sha": "495674cfadabda3fd4a4e7473c653ade",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"The current photo shows the back panel of the same Nature Made Multi 50+ For Him bottle seen in the previous photo and the group front (image 3). A large, clearly legible Supplement Facts table fills the majority of the frame, listing Vitamins A, C, D3, E, K, B-vitamins, and minerals \\u2014 making `nutrition` the primary role. The panel also includes \\\"Suggested Use\\\" directions at the top and \\\"Distributed By: Nature Made Nutritional Products\\\" distributor info at the bottom, warranting `other-label`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

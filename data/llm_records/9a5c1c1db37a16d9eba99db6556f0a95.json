@@ -1,0 +1,9 @@
+{
+  "request_sha": "9a5c1c1db37a16d9eba99db6556f0a95",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a Nature Made Multi 130 Tablets (plain multivitamin) held in hand. The running group (Image 3) is Nature Made Multi 50+ For Him 90 Tablets \\u2014 a different SKU (different formulation, different count, different label). The previous shot was a price tag for \\\"NM MV HIM 50+\\\" 90CT confirming the prior group ended. The current photo is the front face of a new product: brand logo, product name, and marketing copy fill the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

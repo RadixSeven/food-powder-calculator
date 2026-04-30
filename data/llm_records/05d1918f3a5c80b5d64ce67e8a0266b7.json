@@ -1,0 +1,9 @@
+{
+  "request_sha": "05d1918f3a5c80b5d64ce67e8a0266b7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The running group (Image 3) is Rainbow Light Certified Men's Multivitamin, 120 capsules \\u2014 confirmed by the Image 1 price tag (\\\"RL MEN'S MULTIVITAMIN 120 CNT\\\", $44.99). The current photo is Rainbow Light Men's One+ (60 Vegetarian Caplets) \\u2014 a different product line and SKU. The current shot is the front face of that bottle (brand logo + product name + marketing copy fill the frame), so the role is `front`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

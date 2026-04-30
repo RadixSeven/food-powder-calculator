@@ -1,0 +1,9 @@
+{
+  "request_sha": "bf1f5059aebd50fc41db085aaa91ee2d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him amber bottle with yellow lid and yellow label \\u2014 identical to the front reference (Image 3) and the previous shot (Image 1). The current frame has rotated slightly to show the far-right portion of the back panel: a partial Supplement Facts % Daily Value column is still legible at the left edge (100%, 200%, 12%, etc.), the full \\\"OTHER INGREDIENTS:\\\" list is clearly readable in the center (Cellulose Gel, Modified Food Starch\\u2026Polyethylene Glycol), and the right side shows caution text, lot number 2655183, expiry JAN 2028, and the barcode \\u2014 all other-label content.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

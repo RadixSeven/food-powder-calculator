@@ -1,0 +1,9 @@
+{
+  "request_sha": "8bc6f6e3ee4872a95546e2b63df4e6d3",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"The current photo is the wrap-around right-hand column of the same Supplement Facts panel seen in Image 1 \\u2014 continuing with Copper, Manganese, MSM, Ginkgo Biloba, Proprietary Blend, etc. Same white bottle, same maroon Buried Treasure label, same shelf background as Image 1 and the group front (Image 3). The 5.2-second gap makes same-product virtually certain. The bottom of the panel shows the \\\"Other Ingredients\\\" list (purified mountain water, vegetable glycerin, natural coconut, etc.), warranting `ingredients` as well.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

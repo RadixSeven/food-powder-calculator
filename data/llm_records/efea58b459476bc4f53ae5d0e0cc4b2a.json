@@ -1,0 +1,9 @@
+{
+  "request_sha": "efea58b459476bc4f53ae5d0e0cc4b2a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows the front of a Nature Made Multi (130 Tablets, regular formula), held in hand with the label filling the frame. The running group (Image 3) is Nature Made Multi 50+ For Him (90 Tablets) \\u2014 a distinct SKU confirmed by Image 1's price tag (\\\"NM MV HIM 50+ / 90CT / $17.49\\\"). The current bottle differs in name, count, and formulation, so this is a new product. Role is front: brand logo, product name, and marketing copy dominate the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

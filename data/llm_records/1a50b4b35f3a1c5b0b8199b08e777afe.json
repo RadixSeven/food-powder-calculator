@@ -1,0 +1,18 @@
+{
+  "request_sha": "1a50b4b35f3a1c5b0b8199b08e777afe",
+  "request": {
+    "prompt": "Extract the product name and manufacturer from this front-of-package photo, following the instructions in the system prompt.",
+    "model": "haiku",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_006/crops/PXL_20260426_170312010__front__0080_0280_0820_0880.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"product_name\": {\"type\": \"string\"}, \"manufacturer\": {\"type\": \"string\"}}, \"required\": [\"product_name\", \"manufacturer\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract a small set of fields from a front-of-package product photo for a deterministic comparison task. Return a JSON object with two keys: `\"product_name\"` (the full product name as it appears on the front panel, including flavor / variant / count if printed there, lower-cased, single-spaced); and `\"manufacturer\"` (the manufacturer / brand owner exactly as printed, lower-cased; empty string if no manufacturer name is visible). Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"product_name\": \"dhea 25 mg 90 vegan capsules\", \"manufacturer\": \"country life\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

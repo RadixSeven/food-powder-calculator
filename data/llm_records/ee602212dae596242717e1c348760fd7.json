@@ -1,0 +1,9 @@
+{
+  "request_sha": "ee602212dae596242717e1c348760fd7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Back panel of the same Solaray Men's High Potency Liposomal Multivitamin box photographed 11.3 seconds later. The Solaray mountain graphic at top, same shelf, and same background products (Bluebonnet Calcium Magnesium Zinc) confirm identity. A full, legible Supplement Facts table is the primary content \\u2014 20+ vitamin/mineral rows with amounts and %DV. A WARNING block and Directions (\\\"Take 2 VegCaps daily...\\\") are also visible, warranting other-label. The $15.99 shelf tag visible in the background belongs to the adjacent Calcium Magnesium Zinc product and is not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

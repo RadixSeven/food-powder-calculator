@@ -1,0 +1,9 @@
+{
+  "request_sha": "b3337eff1844a1625fa83060eb5c8329",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows a MegaFood Vitamin D3 & K2 amber bottle (yellow label, green lid) held up for documentation. This is a completely different brand, product type, and packaging from the running Solaray Liposomal Multivitamin Men's white box. The front face \\u2014 brand logo, product name, and marketing copy \\u2014 fills the frame, making this a front shot of a new product group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

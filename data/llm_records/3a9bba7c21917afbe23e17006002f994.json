@@ -1,0 +1,18 @@
+{
+  "request_sha": "3a9bba7c21917afbe23e17006002f994",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165936939_4079.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"supplement facts serving size: 1 vegetarian caplet servings per container 60 amount per serving % daily value amount per serving % daily value vitamin a (as beta-carotene) 900 mcg 100% zinc (as zinc citrate) vitamin c (as ascorbic acid) 90 mg 100% biotin 50 mcg 1,000 iu 250% copper (as copper amino acid chelate) manganese (as manganese amino acid chelate) vitamin d (as d3 cholecalciferol) vitamin e (as d-alpha tocopheryl succinate) 15 mg 100% chromium (as chromium amino acid chelate) thiamin (as thiamin mononitrate) 6 mg 500% molybdenum (as molybdenum amino acid chelate) riboflavin (vitamin b2) 5 mg 385% niacin (as niacinamide) 20 mg 125% organic supportive superfoods blend vitamin b-6 (as pyridoxal-5-hydrochloride) 20 mg 1,176% organic ginger, organic parsley, organic broccoli flower, organic carrot, organic beet, organic spinach (fruit), organic blueberry (fruit), organic acai (fruit), organic cranberry (fruit) folate (as folic acid) 400 mcg dfe 100% (240 mcg folic acid) men's botanical blend ashwagandha root extract, hawthorn berry extract, schisandra (leaf), iron tomato (fruit), saw palmetto (fruit) vitamin b12 10 mcg 417% (as methylcobalamin) pantothenic acid 50 mcg 16% (as calcium pantothenate) ginger, enzyme and probiotic blend ginger juice (rhizome), bromelain (from pineapple stem), trace minerals, lactobacillus acidophilus, lactobacillus rhamnosus, bifidobacterium lactis (1 million cfu**) calcium (from red algae (lithothamnion)) 13 mg 26% 25 mg 2% iodine (from inactivated yeast (saccharomyces cerevisiae)) 150 mcg 100% magnesium (as magnesium (oxide from seawater)) 50 mg 12% **daily value not established. *at time of manufacture. other ingredients: cellulose (plant origin), croscarmellose sodium, cellulose (hypromellose), carnauba wax. manufactured by rainbow light nutritional systems, llc sunrise, fl 33323 usa 1-800-627-7559 rainbowlight.com \\u00a92025 rainbow light vegetarian. contains no: wheat, milk, peanuts, eggs, fish or shellfish. this statement has not been evaluated by the food and drug administration. this product is not intended to diagnose, treat, cure, or prevent any disease.\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

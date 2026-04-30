@@ -1,0 +1,9 @@
+{
+  "request_sha": "7470297529fa3f23b990b71202baa30f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The frame is dominated by the shelf price tag reading \\\"MOM WHL PSYLLIUM HUSK OG 11.9 OZ / $15.99\\\" with barcode 719985934803, which matches the canister barcode seen in Image 1 (19985 93480 3). The orange bottom of the same MOM canister is visible at the very top edge. Same product as the group front.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

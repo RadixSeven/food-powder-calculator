@@ -1,0 +1,9 @@
+{
+  "request_sha": "22367dfad4975f1045a575d085a9c0e7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life Vitamin D3 amber bottle (identical bottle shape and yellow/green label) photographed 6.9 s after the previous shot. This panel shows health-claim marketing copy, the FDA disclaimer, allergen/certification badges (iGEN, gluten-free, B-Corp), lot number (25K007A), best-by date (09/30), and barcode \\u2014 all other-label content. No Supplement Facts rows or ingredients list appear on this panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "35bce8c8ec74ff3b4c390e7cf4603154",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"The current photo shows the back panel of the same Jarrow Formulas MK-7 bottle held in Image 1 \\u2014 same white bottle shape, same hand, same shelf backdrop with BIOptimizers products, only 7.5 seconds later. The Supplement Facts table (Vitamin K2 as MK-7 90 mcg) is fully readable \\u2192 nutrition. \\\"Other Ingredients\\\" list (medium chain triglycerides, softgel, glycerin, olive oil) is clearly visible \\u2192 ingredients. Distributor address, allergen statement, item/lot numbers, and expiry date are also present \\u2192 other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "1dbb5ce1dfbe6d2931fb22b813d3bab1",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"The current photo shows the back of the same Country Life Vitamin D3 200 Softgels bottle seen in the previous photo (front). It displays a Supplement Facts table (Vitamin D3, 250 mcg, 1,250% DV), an Other Ingredients list (MCT, gelatin, glycerin, etc.), directions, caution/warning text, and manufacturer info \\u2014 no front panel or price tag visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

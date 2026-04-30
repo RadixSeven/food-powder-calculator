@@ -1,0 +1,18 @@
+{
+  "request_sha": "256c10ae587e3a50171faaa089afbb2c",
+  "request": {
+    "prompt": "Extract the nutrition / supplement facts table from this photo, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_002/nutrition.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: this image is the nutrition / supplement facts panel for the product 'nature made multi 130 tablets' by 'nature made'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from a product photo for a deterministic comparison task. Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the table, in top-to-bottom order. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` for cells whose text is occluded, glared, cut off, or otherwise unreadable. Lower-case all text; preserve punctuation (parentheses, percent signs, decimal points). Do not invent values or fill in nutrients that are not visible. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"serving size 1 tablet\"], [\"\", \"amount per serving\", \"% daily value\"], [\"vitamin a (as beta-carotene and beta carotene)\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin c\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin d\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin e\", \"\\u25ae\", \"\\u25ae\"], [\"thiamin\", \"\\u25ae\", \"\\u25ae\"], [\"riboflavin\", \"\\u25ae\", \"\\u25ae\"], [\"niacin\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin b6\", \"\\u25ae\", \"\\u25ae\"], [\"folate\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin b12\", \"\\u25ae\", \"\\u25ae\"], [\"biotin 30 mcg\", \"\\u25ae\", \"100%\"], [\"pantothenic acid 10 mg (as d-calcium pantothenate)\", \"\\u25ae\", \"200%\"], [\"calcium (as calcium carbonate) 160 mg\", \"\\u25ae\", \"12%\"], [\"iron (as ferrous fumarate) 18 mg\", \"\\u25ae\", \"100%\"], [\"iodine (as potassium iodide) 150 mcg\", \"\\u25ae\", \"100%\"], [\"magnesium (as magnesium oxide) 100 mg\", \"\\u25ae\", \"24%\"], [\"zinc (as zinc oxide) 11 mg\", \"\\u25ae\", \"100%\"], [\"selenium (as sodium selenate) 55 mcg\", \"\\u25ae\", \"100%\"], [\"copper (as copper sulfate) 0.5 mg\", \"\\u25ae\", \"\\u25ae\"], [\"manganese (as manganese sulfate) 2.3 mg\", \"\\u25ae\", \"100%\"], [\"chromium (as chromium chloride) 35 mcg\", \"\\u25ae\", \"100%\"], [\"molybdenum (as sodium molybdate) 50 mcg\", \"\\u25ae\", \"111%\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

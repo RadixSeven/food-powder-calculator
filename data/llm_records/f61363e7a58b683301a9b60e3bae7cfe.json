@@ -1,0 +1,18 @@
+{
+  "request_sha": "f61363e7a58b683301a9b60e3bae7cfe",
+  "request": {
+    "prompt": "Extract the price, description, size, and full UPC from this Mom's Organic Market shelf price tag, following the instructions in the system prompt.",
+    "model": "haiku",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_022/crops/PXL_20260426_172547329.MP__price-tag__0080_0080_1000_0810.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"price_cents\": {\"type\": \"integer\"}, \"description\": {\"type\": \"string\"}, \"size\": {\"type\": \"string\"}, \"upc\": {\"type\": \"string\"}}, \"required\": [\"price_cents\", \"description\", \"size\", \"upc\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract fields from a Mom's Organic Market shelf price tag for a deterministic comparison task. Return a JSON object with: `\"price_cents\"` (the regular shelf price in whole cents \u2014 e.g. $15.99 \u2192 1599); `\"description\"` (the abbreviated product name on the tag, lower-cased \u2014 e.g. `nc lqud mltvitmn orng mng 30 fz`); `\"size\"` (the size or count printed on the tag, e.g. `30 fz`, `120 cnt`; empty string if not present); and `\"upc\"` (the 12-digit UPC-A code printed under the scannable barcode at the bottom of the tag \u2014 digits only, no spaces). If the UPC is unreadable, return an empty string rather than guessing. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"price_cents\": 2399, \"description\": \"renew cmplt clear fiber og 7 oz\", \"size\": \"7 oz\", \"upc\": \"631257121301\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

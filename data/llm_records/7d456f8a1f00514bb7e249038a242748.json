@@ -1,0 +1,9 @@
+{
+  "request_sha": "7d456f8a1f00514bb7e249038a242748",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\", \"other-label\"], \"rationale\": \"Current photo shows MOM Magnesium Glycinate 400 mg (red/orange label, 270 vegan capsules) \\u2014 a completely different SKU from the running group's MOM Men's 45+ Multi (green/teal label). Different product name, different label color, different bottle contents. Short time gap is overridden by clear visual evidence of a new product. The front face dominates the frame (brand logo + product name + marketing copy); a partial strip of warning/other-label text is visible wrapping around the left edge.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

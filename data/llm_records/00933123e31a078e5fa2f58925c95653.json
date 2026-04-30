@@ -1,0 +1,9 @@
+{
+  "request_sha": "00933123e31a078e5fa2f58925c95653",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"ingredients\", \"other-label\"], \"rationale\": \"Same Country Life Biotin 5 mg amber bottle, just rotated to the opposite side panel 5 seconds after image 1. This panel shows certifications/allergen checklist, lot number (25A931C), barcode, best-by date, and marketing blurb \\u2014 no Supplement Facts table visible. Ingredients were on image 1's panel; this panel has 'Other Ingredients' text only partially visible but the main content is certifications and lot/expiry codes (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

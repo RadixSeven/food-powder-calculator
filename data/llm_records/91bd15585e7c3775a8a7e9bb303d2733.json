@@ -1,0 +1,9 @@
+{
+  "request_sha": "91bd15585e7c3775a8a7e9bb303d2733",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a hand holding Nature Made D3 2000 IU (50 mcg), 400 Tablets \\u2014 a different product from the running group (Nature Made Multi, 130 Tablets shown in Image 3). The previous photo was the shelf price tag for \\\"NM MULTI COMPLETE 130S,\\\" so this is the first shot of a new product. The front label of the D3 bottle is clearly visible with brand, product name, and marketing copy.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

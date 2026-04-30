@@ -1,0 +1,9 @@
+{
+  "request_sha": "44627f9f0ffb049d59b5d389a40b1074",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same MegaFood Men's 55+ One Daily Multivitamin amber bottle as Image 1 and the group front; 5.6-second gap confirms continuous wrap-around scan. Primary subject is the right back panel: product description, QR code, UPC barcode, lot/expiry (AUG 2028), Biotin caution, and storage instructions \\u2192 other-label. The left edge of the frame carries a partial Supplement Facts column (headers and % Daily Value figures) \\u2192 nutrition (liberal rule).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

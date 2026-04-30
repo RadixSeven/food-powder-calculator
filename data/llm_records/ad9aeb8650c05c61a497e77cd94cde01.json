@@ -1,0 +1,9 @@
+{
+  "request_sha": "ad9aeb8650c05c61a497e77cd94cde01",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same MOM ClearFiber Powder tub (matching purple-to-magenta label, white lid, identical container shape), photographed ~8 seconds after the front. The panel shows a complete Supplement Facts table (nutrition), an Ingredients line listing Partially Hydrolyzed Guar Gum, and additional label copy including suggested use, storage, and \\\"Keep Out of Reach of Children\\\" (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

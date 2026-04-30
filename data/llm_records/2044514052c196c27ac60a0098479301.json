@@ -1,0 +1,9 @@
+{
+  "request_sha": "2044514052c196c27ac60a0098479301",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same Mary Ruth's Liquid Morning Multivitamin bottle rotated to show the back panel. The white bottle with pink raspberry band and identical shelf background match Image 1 exactly. The current shot shows a full Supplement Facts table (Vitamin A, C, D, E, B vitamins, minerals, etc.) and an \\\"Other Ingredients:\\\" list (Purified Water, Vegetable Glycerin, Natural Flavors, etc.), so both nutrition and ingredients apply. No front face is visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "5757530651df50f5b62038d09f4fe71d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle (matching amber glass, yellow lid, yellow label) rotated 3.2 seconds after Image 1 to expose the far-right portion of the back panel. The current frame shows: the mineral rows of the Supplement Facts table (Biotin through Molybdenum \\u2014 clearly readable nutrition data), the full \\\"Other Ingredients\\\" list (Calcium Gel, Modified Food Starch, Croscarmellose Sodium, etc.), a WARNING box about iron overdose risk in children, and \\\"No Color Added / No Artificial Flavors / Gluten Free\\\" claim badges \\u2014 all other-label content.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

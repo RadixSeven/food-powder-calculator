@@ -1,0 +1,18 @@
+{
+  "request_sha": "702bd273f6fcdd4bf3e147975313859a",
+  "request": {
+    "prompt": "Identify every text-bearing label/panel in this product photo and report each as a tight bounding box in fractional image coordinates. Coordinates are 0..1, with (0,0) at the top-left and (1,1) at the bottom-right. Crop tight to the readable text \u2014 exclude bottle curvature/specular glare and surrounding shelf/hand/background. For each panel emit one entry with: kind (front_of_package | supplement_facts | ingredients | other_label | price_tag) and x_min_frac, y_min_frac, x_max_frac, y_max_frac.",
+    "model": "haiku",
+    "image_paths": [
+      "data/raw_photos/PXL_20260426_165809667.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"panels\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"front_of_package\", \"supplement_facts\", \"ingredients\", \"other_label\", \"price_tag\"]}, \"x_min_frac\": {\"type\": \"number\"}, \"y_min_frac\": {\"type\": \"number\"}, \"x_max_frac\": {\"type\": \"number\"}, \"y_max_frac\": {\"type\": \"number\"}}, \"required\": [\"kind\", \"x_min_frac\", \"y_min_frac\", \"x_max_frac\", \"y_max_frac\"]}}}, \"required\": [\"panels\"]}",
+    "system_prompt": null,
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"panels\": [{\"kind\": \"supplement_facts\", \"x_min_frac\": 0.13, \"y_min_frac\": 0.01, \"x_max_frac\": 0.87, \"y_max_frac\": 0.63}, {\"kind\": \"ingredients\", \"x_min_frac\": 0.13, \"y_min_frac\": 0.63, \"x_max_frac\": 0.87, \"y_max_frac\": 0.93}]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "f3dfcc1d06199343334aea432aa720c7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The shelf price tag dominates the entire frame and reads \\\"THORNE TRACE MINERALS 90CNT / $19.99\\\" with barcode 693749242031 \\u2014 an exact match to the barcode visible on the bottle in Image 1, confirming this is the price tag for the same running product. The 129-second gap is explained by the photographer setting the bottle down and framing the shelf tag; visual barcode evidence overrides the timing. No nutrition or label content is visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

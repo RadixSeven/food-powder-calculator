@@ -1,0 +1,20 @@
+{
+  "request_sha": "8d1a26cf4ce33769866e8a91df0c3453",
+  "request": {
+    "prompt": "Extract the combined nutrition / supplement facts table from these 3 photos of the same product, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_029/crops/PXL_20260426_173544591.MP__nutrition__0000_0120_0700_0510.jpg",
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_029/crops/PXL_20260426_173557970.MP__nutrition__0000_0050_0630_0530.jpg",
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_029/crops/PXL_20260426_173606492.MP__nutrition__0000_0220_0280_0970.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: these images show the nutrition / supplement facts panel for the product 'vitamin d + k2' by 'thorne'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from photos of a product. You may receive multiple photos covering different portions of the same panel \u2014 e.g. a wrap-around bottle label shot from different angles, or partial views where each photo shows a slice of the table. Combine the rows you can see across all photos into a single table, deduplicating rows that appear in more than one photo (matching by nutrient name when available, otherwise by row position within each photo). Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the combined table, in top-to-bottom order as they appear on the panel. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` only for cells whose text is genuinely occluded across all photos (no photo shows that cell readable). If a cell is readable in any photo, prefer that reading. Lower-case all text; preserve punctuation. Do not invent values. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"serving size: two drops\"], [\"servings per container: 600\"], [\"two drops contain:\", \"\", \"%dv\"], [\"vitamin d (as vitamin d3) (1,000 iu)\", \"25 mcg\", \"125%\"], [\"vitamin k (as vitamin k2 (menatetrenone))\\u2020\", \"200 mcg\", \"167%\"], [\"daily value (dv)\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

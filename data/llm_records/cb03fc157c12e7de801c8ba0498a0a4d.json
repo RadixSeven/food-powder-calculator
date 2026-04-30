@@ -1,0 +1,9 @@
+{
+  "request_sha": "cb03fc157c12e7de801c8ba0498a0a4d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag (\\\"CL DHEA 25 MG 90 CNT, $19.99, barcode 015794016700\\\"), which matches the barcode on the Country Life DHEA 25mg 90-count bottle photographed in the previous shot. Taken only 6.6 seconds later; the bottle is visible in the background confirming it's the same SKU. Tag dominates the frame \\u2014 `price-tag` applies; the background bottle does not trigger `front`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

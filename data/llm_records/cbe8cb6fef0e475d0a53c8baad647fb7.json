@@ -1,0 +1,9 @@
+{
+  "request_sha": "cbe8cb6fef0e475d0a53c8baad647fb7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Current photo's primary subject is the shelf price tag for \\\"MGFD MEN ONE DAILY 55+ 120 CNT\\\" at $69.99, barcode 051494103579 \\u2014 matching the UPC on the MegaFood Men's 55+ One Daily bottle documented in the previous shot. Taken only 8.9 seconds later; the same amber bottle with green cap is visible at the bottom of the frame beneath the tag. Same product, price-tag role only.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "1d2e136026c75a47ca731109ef3abd30",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same bottle \\u2014 identical amber brown body, yellow lid, same hand, same store aisle background. The bottle has been rotated to show the back panel: a Supplement Facts table is clearly legible (Vitamin A, C, D, E, K, Thiamin, Riboflavin, Niacin, B6, Folate, B12, and more). Also visible: Suggested Use directions, distributor info (Nature Made, West Hills CA), USP note, and side-panel marketing copy (\\\"Helps convert food into cellular energy\\u2020\\\") \\u2192 other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

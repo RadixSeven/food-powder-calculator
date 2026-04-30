@@ -1,0 +1,9 @@
+{
+  "request_sha": "949759507495c35e13c3a164a18fa7f2",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same New Chapter Liquid Multivitamin bottle as the running group front. The current photo shows the right-hand continuation of the Supplement Facts table (the previous photo showed the left side), with the column of %DV values now centered in frame \\u2014 clearly nutrition. Below the table, \\\"Other ingredients:\\\" text and the full ingredient list are legible (ingredients), and further down is distributor address, copyright \\\"\\u00a92024 New Chapter, Inc.\\\", and lot code 0900-A02 (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

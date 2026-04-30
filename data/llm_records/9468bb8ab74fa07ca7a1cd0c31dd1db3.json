@@ -1,0 +1,9 @@
+{
+  "request_sha": "9468bb8ab74fa07ca7a1cd0c31dd1db3",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Primary subject is the shelf price tag \\\"CL DHEA 25 MG 90 CNT / $19.99\\\" with UPC 015794016700, which matches the barcode on the bottle back in the previous shot and the Country Life DHEA 25mg front in Image 3. Short 6.6s gap confirms same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

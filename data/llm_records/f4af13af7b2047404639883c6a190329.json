@@ -1,0 +1,9 @@
+{
+  "request_sha": "f4af13af7b2047404639883c6a190329",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same orange MOM Plant-Based Fiber Complex canister with white lid as Image 1 and the group front (Image 3). The current shot (6.8s after Image 1) shows the wrap-around side/back marketing panel with health claims (\\\"Plant-Based Fiber Supports Digestion...\\\"), allergen statement (\\\"CONTAINS NO artificial colors...\\\"), and fill notice \\u2014 no Supplement Facts table visible, no ingredients list, no front face. Roles: other-label only.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

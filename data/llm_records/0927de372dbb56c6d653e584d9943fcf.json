@@ -1,0 +1,9 @@
+{
+  "request_sha": "0927de372dbb56c6d653e584d9943fcf",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same NaturesPlus Source of Life GOLD Liquid bottle rotated to the next panel. Identical barcode (0 97467 30701 8), label number LBL_114458, and manufacturer info confirm identity; 15.7-second gap is strong corroboration. Left edge carries the wrap-around Supplement Facts tail with readable numeric amounts (2000 mcg\\u2020, 30 mg\\u2020, 25 mg\\u2020, etc.) \\u2192 nutrition; ingredient-blend text is also legible \\u2192 ingredients. Right panel shows marketing copy, storage/refrigeration warnings, VEGETARIAN/GLUTEN FREE badges, and FDA disclaimer \\u2192 other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

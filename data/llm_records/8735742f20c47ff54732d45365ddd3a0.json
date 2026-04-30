@@ -1,0 +1,9 @@
+{
+  "request_sha": "8735742f20c47ff54732d45365ddd3a0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag reading \\\"SOLARAY LIPOSOMAL MLT MEN 60 CNT $39.99 / UPC 076280882896.\\\" This UPC exactly matches the barcode on the box held in Image 1 (0 76280 88289 6), confirming it belongs to the same Solaray Liposomal Multivitamin Men's product as the running group. Short 8.9-second gap supports same-product continuity.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

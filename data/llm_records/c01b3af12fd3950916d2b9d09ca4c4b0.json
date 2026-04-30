@@ -1,0 +1,9 @@
+{
+  "request_sha": "c01b3af12fd3950916d2b9d09ca4c4b0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same Nature Made Multi bottle (yellow cap, amber glass, identical label design) rotated to show the right-hand continuation of the Supplement Facts panel (Biotin through Molybdenum) plus the Other Ingredients list and iron-overdose warning. The previous photo showed the left half of the same Supplement Facts panel; together they complete the nutrition label. The \\\"OTHER INGREDIENTS\\\" block (Cellulose Gel, Modified Food Starch, etc.) qualifies this shot for the ingredients role as well.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

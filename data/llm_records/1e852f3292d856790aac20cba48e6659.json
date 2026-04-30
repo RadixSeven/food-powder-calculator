@@ -1,0 +1,9 @@
+{
+  "request_sha": "1e852f3292d856790aac20cba48e6659",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag reading \\\"CL N-ACETYL CYSTEINE 750MG 30CNT / 13.99 / 015794016861\\\". The UPC matches the barcode on the Country Life NAC bottle back panel in Image 1, confirming this is the price tag for the same running product (Country Life NAC 750 mg, 30 capsules). The bottles on the shelf behind are background only.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

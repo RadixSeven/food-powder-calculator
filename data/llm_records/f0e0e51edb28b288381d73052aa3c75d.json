@@ -1,0 +1,9 @@
+{
+  "request_sha": "f0e0e51edb28b288381d73052aa3c75d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made D3 2000 IU (50 mcg) yellow-lidded brown bottle as image 1, now rotated to show the right-side wrap-around panel. The Supplement Facts column is partially readable (Serving size, Amount per Serving, Vitamin D row visible). \\\"OTHER\\\" (Other Ingredients) is also partially visible on the right edge. The side panel additionally shows MEGA SIZE callout, distributor info, and FDA disclaimer text. No pure front face, so `front` is not applied.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

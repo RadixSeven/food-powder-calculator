@@ -1,0 +1,9 @@
+{
+  "request_sha": "81b73fbc3b5eed59146e34ce019a130a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"The current photo is the right-side panel of the same NaturesPlus Source of Life Gold Liquid bottle (PRODUCT NO. 30701) seen in the previous shot and the group front. The wrap-around Supplement Facts table (Blue/White/Yellow Whole Food Blends, Amino Acids, CoQ10, etc.) is clearly legible (nutrition), the Other Ingredients list runs along the bottom (ingredients), and the barcode, label number LBL 114483, and manufacturer info are visible (other-label). The 16.2-second gap and consistent bottle shape/color/shelf confirm same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

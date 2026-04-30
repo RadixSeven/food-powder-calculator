@@ -1,0 +1,9 @@
+{
+  "request_sha": "0485b328e2bfebc96cadf8920fb3e32f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Current photo shows the back panel of the same Nature Made Multi 50+ For Him amber bottle (same shape, yellow lid, same store shelf background, 2.9 s gap). The Supplement Facts table is fully legible with multiple vitamin/mineral rows, so `nutrition` applies. Suggested Use, distributor info (Nature Made Nutritional Products, West Hills CA), and USP verification text are also visible, warranting `other-label`. No front face or ingredients list is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

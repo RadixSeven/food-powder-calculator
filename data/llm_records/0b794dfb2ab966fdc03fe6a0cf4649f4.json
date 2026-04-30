@@ -1,0 +1,9 @@
+{
+  "request_sha": "0b794dfb2ab966fdc03fe6a0cf4649f4",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle (yellow cap, identical label design) as the previous photo and the running group front. The current photo shows the bottle rotated slightly further: the Supplement Facts table is partially visible on the left edge (nutrition), the \\\"OTHER INGREDIENTS\\\" list is fully legible (ingredients), and the warning text plus lot/expiry code (Lot: 2652085, Exp.: NOV 2027) and barcode are visible (other-label). No front-panel branding is visible in this angle.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

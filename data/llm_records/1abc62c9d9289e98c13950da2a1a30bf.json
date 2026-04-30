@@ -1,0 +1,9 @@
+{
+  "request_sha": "1abc62c9d9289e98c13950da2a1a30bf",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle with yellow lid and yellow Nature Made label, photographed 7 seconds later showing the back panel. The Supplement Facts table (Magnesium as Magnesium Bisglycinate 200mg, 48% DV) is clearly legible, as is the Other Ingredients list (Hypromellose, Magnesium Stearate, Cellulose Gel, Silicon Dioxide) and distributor/usage/caution text.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

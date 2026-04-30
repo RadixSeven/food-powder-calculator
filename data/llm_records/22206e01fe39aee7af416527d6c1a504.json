@@ -1,0 +1,9 @@
+{
+  "request_sha": "22206e01fe39aee7af416527d6c1a504",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Price tag dominates the frame: \\\"MGFD MULTI FOR MEN 55+ 120 CNT $64.99\\\". MGFD = MegaFood, matching the running group front (MegaFood Men's 55+ Advanced Multivitamin, 120 tablets). Barcode 051494103289 on the tag matches the barcode on the bottle back in Image 1. Short 13.3-second gap confirms same product. The partial bottle bottom visible above the tag is background, not the subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

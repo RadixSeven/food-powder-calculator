@@ -1,0 +1,9 @@
+{
+  "request_sha": "0026533dd27a9589c8ef49d9db1ae306",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Back panel of the same Bluebonnet Liquid Multi bottle (same white container, matching fruit imagery, 9.6s gap). Left edge shows a wrap-around sliver of the Supplement Facts column, so nutrition applies. Main content is marketing icons (25+/28+ claims, whole food-based), allergen-free statement, FDA disclaimer, barcode, and Prop 65 warning \\u2014 all other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

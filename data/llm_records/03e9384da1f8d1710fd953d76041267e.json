@@ -1,0 +1,9 @@
+{
+  "request_sha": "03e9384da1f8d1710fd953d76041267e",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same Nature Made D3 2000 IU MEGA SIZE bottle seen in the previous shot (same amber bottle, yellow label, yellow lid; 8-second gap). Supplement Facts table (Vitamin D3 50 mcg 250% DV, Calcium 90 mg 7%) is clearly readable \\u2192 nutrition. \\\"OTHER INGREDIENTS: Cellulose Gel, Maltodextrin, Sugar\\u2026\\\" is fully visible \\u2192 ingredients. Suggested-use text, \\\"DISTRIBUTED BY\\\" block, and caution note are also present \\u2192 other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

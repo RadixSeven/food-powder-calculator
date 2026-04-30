@@ -1,0 +1,18 @@
+{
+  "request_sha": "1f885fed5c5decf3051a8abbb418fa4d",
+  "request": {
+    "prompt": "Extract the price, description, size code, and 5-digit UPC slug from this CVS shelf price tag, following the instructions in the system prompt.",
+    "model": "haiku",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_002/crops/PXL_20260426_181135293__price-tag__0000_0370_1000_1000.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"price_cents\": {\"type\": \"integer\"}, \"description\": {\"type\": \"string\"}, \"size\": {\"type\": \"string\"}, \"upc\": {\"type\": \"string\"}}, \"required\": [\"price_cents\", \"description\", \"size\", \"upc\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract fields from a CVS shelf price tag for a deterministic comparison task. Return a JSON object with: `\"price_cents\"` (the regular shelf price in whole cents \u2014 e.g. $12.79 \u2192 1279); `\"description\"` (the abbreviated product name on the tag, lower-cased \u2014 e.g. `nm mv him 50+`); `\"size\"` (the count or size code, e.g. `90ct`, `130s`; empty string if not present); and `\"upc\"` (the 5-digit slug from the tag header line, which has the form `I3* DDDDD MM-DD-YY` in small text in the upper-left of the tag \u2014 return only the 5 digits, no spaces). If the slug is unreadable, return an empty string rather than guessing. Do not return the long internal barcode digits \u2014 only the 5-digit slug from the I3* header. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"price_cents\": 1649, \"description\": \"nm multi complete\", \"size\": \"130s\", \"upc\": \"02518\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

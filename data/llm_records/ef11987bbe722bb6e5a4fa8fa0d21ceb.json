@@ -1,0 +1,9 @@
+{
+  "request_sha": "ef11987bbe722bb6e5a4fa8fa0d21ceb",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows a white Thorne NAC (N-Acetylcysteine) bottle with a blue/green watercolor design \\u2014 a clearly different product from the running group's amber Thorne Vitamin D+K2 bottle (gold design). Different bottle color, different label art, different formula. Short time gap is outweighed by unambiguous visual difference. Front face of the NAC bottle fills the frame with brand logo and product name.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

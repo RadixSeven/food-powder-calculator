@@ -1,0 +1,9 @@
+{
+  "request_sha": "e91247f870c0307c7247b75cc97ddf38",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same New Chapter Liquid Multivitamin bottle rotated to show the back panel: identical amber bottle, purple label band visible on the left edge, same shelf background. The back panel shows a full Supplement Facts table (nutrition), an \\\"Other Ingredients:\\\" list (ingredients), and distributor/certification text (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

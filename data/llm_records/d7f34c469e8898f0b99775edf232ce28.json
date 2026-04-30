@@ -1,0 +1,9 @@
+{
+  "request_sha": "d7f34c469e8898f0b99775edf232ce28",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle, yellow label, and yellow lid as Image 1 and the group front (Nature Made Multi 50+ For Him). Only 4.5 seconds apart \\u2014 clearly a continued rotation to the side panel. The current shot shows: (1) a partial Supplement Facts column on the left edge with readable % Daily Value rows (nutrition); (2) a fully legible \\\"OTHER INGREDIENTS:\\\" list (Cellulose Gel, Modified Food Starch, Maltodextrin, etc.); and (3) caution text, lot number (2655183), expiry (JAN 2028), and barcode (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

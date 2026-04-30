@@ -1,0 +1,9 @@
+{
+  "request_sha": "7540d0989d3af72d5f50e5f32a942c47",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Image 1 is a price tag for \\\"CL Vitamin D3 10000 IU 200 CNT\\\" ($26.99), belonging to the running Country Life Vitamin D3 group (confirmed by Image 3). Image 2 shows a clearly different product \\u2014 Country Life \\\"Daily Total One\\\" Iron Free, 60 Vegan Capsules \\u2014 a multivitamin, not Vitamin D3. Different product name, different count, different formulation. The 71.8-second gap is weak evidence either way, but the visual difference is definitive: this is a new product's front label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

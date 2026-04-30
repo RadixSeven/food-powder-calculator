@@ -1,0 +1,9 @@
+{
+  "request_sha": "e45e310005d7f8cd5a7d60c6f28ef63f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a hand holding Country Life High Potency Biotin 5mg (120 Vegan Capsules) \\u2014 a different product entirely from the running group (Country Life DHEA 25mg, 90 Vegan Capsules). The front face of the Biotin bottle fills the frame, making this a `front` shot that starts a new product group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

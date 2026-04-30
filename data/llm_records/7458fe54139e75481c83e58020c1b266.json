@@ -1,0 +1,9 @@
+{
+  "request_sha": "7458fe54139e75481c83e58020c1b266",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same amber bottle and green/yellow Country Life label as Image 1, rotated to the back/side panel. The Supplement Facts table is fully readable (vitamins A, C, D, E, K, B1, B2, niacin, B6, etc.). Also shows barcode, lot number (21L677B), best-by date (03/27), and directions text \\u2014 qualifying as other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "9561fe2417b4cca68c4d60ed8d6499a9",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"ingredients\", \"other-label\"], \"rationale\": \"The current photo shows the bottom/side panel of the same Orgain Organic Protein (Peanut Butter) tub seen in the previous shot and the group front \\u2014 same white-and-green container, same shelf background, peanut imagery, and \\\"ORGAIN.COM\\\" text confirm identity. The panel shows a partial ingredients list (\\\"BROWN RICE PROTEIN, ORGANIC CREAMER BASE\\u2026\\\") and other label content (barcode, lot code \\\"LB 00662v7\\\", \\\"Contents sold by weight not volume\\\" notice, fill-level diagram). No Nutrition Facts table is visible in this panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

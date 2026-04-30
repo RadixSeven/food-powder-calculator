@@ -1,0 +1,9 @@
+{
+  "request_sha": "49b7a21b47d5330b17a3839da1c54e51",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same orange MOM Organic Whole Psyllium Husk canister \\u2014 identical salmon/orange color, white lid, and Chelanox $46.99 shelf tag visible in background matches Image 1. The current shot captures the wrap-around marketing panel (\\\"Organic Natural Fiber to Support Colon Health and Digestion,\\\" NOTICE choking warning, storage/contact info, FDA disclaimer), so `other-label` applies. The Supplement Facts panel from Image 1 wraps into the left edge of this frame with legible entries (15 cal, 4 g carb, 1%/14% DV, 4.2 g psyllium husk), so `nutrition` applies as well. Only 7.3 seconds between shots; consistent with rotating the same bottle.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

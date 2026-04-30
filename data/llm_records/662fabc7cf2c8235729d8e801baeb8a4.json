@@ -1,0 +1,9 @@
+{
+  "request_sha": "662fabc7cf2c8235729d8e801baeb8a4",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo shows a shelf price tag for \\\"CL VITAMIN D3 10000 IU 200 CNT\\\" at $26.99 with barcode 015794058168, which matches the barcode on the bottle back in the previous photo and the Country Life Vitamin D3 10,000 IU 200 Softgels product in the group front image. Same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

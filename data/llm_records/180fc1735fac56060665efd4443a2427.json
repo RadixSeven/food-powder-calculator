@@ -1,0 +1,9 @@
+{
+  "request_sha": "180fc1735fac56060665efd4443a2427",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows the front face of MegaFood Men's 55+ One Daily Multivitamin (120 tablets / 120 servings). The running group front (Image 3) is the MegaFood Men's 55+ Advanced Multivitamin (120 tablets / 60 servings) \\u2014 a clearly different SKU with a different product name and serving count. This is the start of a new product group; the previous price tag (120 CNT) matched this One Daily bottle, not the Advanced.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "86e35451f82d0d961485c132b27e267d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Shot taken 9 seconds after the front; same amber bottle, silver lid, and Country Life green/yellow label. The back panel is rotated sideways and shows a readable Supplement Facts table (DHEA 10 mg), an Other Ingredients list (cellulose, capsule shell, rice flour, silica), plus directions, age/pregnancy warnings, lot number, Best By date, and barcode.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

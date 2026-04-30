@@ -1,0 +1,9 @@
+{
+  "request_sha": "dd2e8a86e87ac5f5b8865868b8399c2b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same green Nature's Way Alive! Max Potency liquid multivitamin bottle \\u2014 identical bottle shape, color, and shelf background; only 17.7 seconds apart. The current shot shows the back panel with a full Supplement Facts table (vitamins A, C, D, E, K, B-vitamins, minerals, etc.) and an \\\"Other ingredients\\\" list at the bottom (purified water, fructose, sorbitol, malic acid, natural flavor, potassium sorbate, brown rice), giving both nutrition and ingredients roles.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "84e4e431496c441880d33ec91ae2dc49",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same MaryRuth's Liquid Morning Multivitamin Raspberry bottle as Image 1 and the group front \\u2014 identical raspberry-patterned red/white label, same bottle shape, and only 7.2 seconds apart. The current shot shows the bottom of the back panel: the tail rows of the Supplement Facts table (nutrition), the full Other Ingredients list (ingredients), plus distributor info, \\\"All Ingredients are VEGAN\\\" callout, vitamin D3/mineral sourcing notes, and barcode (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

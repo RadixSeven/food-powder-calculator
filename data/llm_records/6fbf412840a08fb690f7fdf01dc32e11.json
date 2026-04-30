@@ -1,0 +1,9 @@
+{
+  "request_sha": "6fbf412840a08fb690f7fdf01dc32e11",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The frame is dominated by a shelf price tag reading \\\"NM MULTI COMPLETE 130S / $16.49\\\". Item code 02518 on the tag matches the barcode visible on the previous photo's bottle label, confirming this is the price tag for the same Nature Made Multi 130-tablet product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

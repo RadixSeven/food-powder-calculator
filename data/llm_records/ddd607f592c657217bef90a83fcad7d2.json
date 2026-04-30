@@ -1,0 +1,9 @@
+{
+  "request_sha": "ddd607f592c657217bef90a83fcad7d2",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Current photo's primary subject is the shelf price tag \\\"MOM'S CHOC PRTN PWDR 14.5 OZ / $33.99\\\". Barcode 719985952104 on the tag matches the barcode visible on the container's back panel in the previous shot, confirming it belongs to the same MOM Organic Vegan Protein Powder Chocolate product. 14-second gap reinforces same-product determination.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

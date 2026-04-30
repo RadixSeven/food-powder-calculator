@@ -1,0 +1,9 @@
+{
+  "request_sha": "66e8480194a9cb64acae6afca3a626ba",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same white Thorne Basic Nutrients 2/Day bottle as Image 1, rotated to reveal the right edge of the supplement facts panel. Supplement Facts rows (Vitamins A, C, D, E, K, B-vitamins with amounts and %DV) remain legible. The right-side panel additionally shows the product barcode (693749002871), product codes VM2/LVM210, lot number 10.2639, QR code, and PEEL HERE tab \\u2014 qualifying as other-label content. 7.2-second gap and matching bottle shape/branding confirm same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

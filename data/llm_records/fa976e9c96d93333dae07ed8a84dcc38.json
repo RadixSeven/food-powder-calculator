@@ -1,0 +1,9 @@
+{
+  "request_sha": "fa976e9c96d93333dae07ed8a84dcc38",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life Biotin amber bottle photographed 5.1 s after Image 1, now rotated to a third panel showing a marketing blurb about biotin, FDA disclaimer, a certifications grid (Gluten-Free/Non-GMO/Vegan/Kosher/Halal), lot number, best-by date, and barcode. No Supplement Facts or ingredients text is visible on this panel, so only other-label applies.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

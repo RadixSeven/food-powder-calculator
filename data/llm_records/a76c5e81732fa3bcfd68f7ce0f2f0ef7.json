@@ -1,0 +1,9 @@
+{
+  "request_sha": "a76c5e81732fa3bcfd68f7ce0f2f0ef7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows Thorne Trace Minerals (blue crystalline label design, 90 caps), whereas the running group is Thorne NAC (green/blue dot-splash design). Different product names and distinct label artwork confirm a new product, despite the short 29-second gap. The background price tag (Thorne Iron Bisglycinate) is not the primary subject. The bottle front with brand logo and product name clearly visible makes this a front shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

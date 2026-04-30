@@ -1,0 +1,9 @@
+{
+  "request_sha": "7e182973fb639088a1d6eea02159c384",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same dark-green Nature's Way Alive! bottle as Image 1 and the group front (Image 3) \\u2014 identical bottle shape, lid, and shelf background. The current photo shows the back panel with marketing bullet points (\\\"Max Potency Complete Liquid Multivitamin\\\", \\\"With 22 vitamins and minerals\\\", blends list), usage directions, pregnancy/safety warnings, distributor address, lot code, and barcode. No Supplement Facts table and no ingredients list are visible on this panel, so only other-label applies. The 13.7-second gap reinforces same-product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

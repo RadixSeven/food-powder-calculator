@@ -1,0 +1,9 @@
+{
+  "request_sha": "7837065e9827a58affd22714b26b6a9c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The running group (Image 3) is Nature Made Multi 50+ For Him, 90 tablets \\u2014 confirmed by the price tag in Image 1 (\\\"NM MV HIM 50+\\\", 90CT). The current photo shows a different SKU: Nature Made Multi (standard, no age/gender variant), 130 tablets. Despite the same amber bottle shape and yellow lid, the product name, count, and formula are plainly different. The front face fills the frame with brand logo and product name, so role is `front`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

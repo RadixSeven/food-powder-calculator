@@ -1,0 +1,9 @@
+{
+  "request_sha": "7bec1fada6e11d3c4690b2bcb7a4c5bc",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Back/side panel of the same Solaray Magnesium Glycinate bottle seen in Image 1 \\u2014 identical gold label, same bottle shape, 12.8 s gap. The panel shows \\\"Supplement Facts\\\" with serving size, servings per container, and partial nutrient rows (nutrition), plus brand story copy, warning, and directions (other-label). No front face visible, so `front` is not applied.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,18 @@
+{
+  "request_sha": "bf1cd49180fc65c4e524bfbc3f9ae718",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "sonnet",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/raw_photos/PXL_20260426_165814496.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"lement facts 4-13 years 14+ years 1 serving (1 tsp.) 15 ml (1 tbsp.) 30 ml (2 tbsp.) about 1 about 10 about 30 %dv for 4-13 years %dv for 14+ years 4 g 7 g 900 mcg 1% 287% 100% 10 mg 15 mg 10% 50% 50% 100% (160 iu) 70% 15 mg 50% 100% 60 mcg 2.5 mg 50% 100% 200% 1.25 mg 96% 9 mg 94% 94% 2.5 mg 147% 40 mcg (pfs) 50% 80 mcg (pfs) 100% 12 mcg 50% 1.4 mcg 100% 17 mg 50% 30 mg 100% 2.5 mg 100% 6 mg 100% 10 mg 25% 15 mg 4% 75 mcg 50% 150 mcg 100% 2.8 mg 22% 13 mg 100% 1.9 mg 5% 5.5 mg 100% 0.02 mg 5% 1004 mg 7% 22.5 mcg 50% 2.3 mcg 7% 45 mcg 50% 100% 25 mg 50 mg 100 mg yeast, sacb benz. less than 2% of: ferment media (saccharomyces cerevisiae) derived, citric acid (preservative), xanthan gum. nrc technology drive, brattleboro, vt 05301 usa questions or comments call 888-874-4461 made in the usa from organic, globally sourced ingredients proud to be 100% vegan no artificial colors. mean common dc genes or proteins. \\u00a92024 new chapter, inc. 0900-a02\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

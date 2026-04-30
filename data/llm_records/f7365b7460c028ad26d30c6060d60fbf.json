@@ -1,0 +1,9 @@
+{
+  "request_sha": "f7365b7460c028ad26d30c6060d60fbf",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows the front face of a Nature Made Multi 50+ For Him bottle (90 Tablets), clearly a different brand and product from the previous Country Life Daily Total One bottle. Brand logo, product name, and marketing copy dominate the frame \\u2014 classic front shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

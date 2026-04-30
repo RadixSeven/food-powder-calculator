@@ -1,0 +1,9 @@
+{
+  "request_sha": "113071a1edcc61dd67ca2f0983457587",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same dark glass bottle with purple New Chapter label, 4.8-second gap, same shelf background \\u2014 this is the right-side wrap-around columns of the identical Supplement Facts table seen in Image 1. The panel shows readable vitamin/mineral rows (nutrition), the \\\"Other Ingredients\\\" list with ferment media and natural flavors (ingredients), and the distributor address, copyright line, and lot code 0900-A02 (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

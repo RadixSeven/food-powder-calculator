@@ -1,0 +1,9 @@
+{
+  "request_sha": "31cce879e7c79238a504d8318949574f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows a RenewLife Organic Clear Fiber tub (white body, yellow lid, green label) \\u2014 entirely different brand, product type, and packaging from the running group's MOM Ultra Omega-3 salmon-pink bottle. The front face with brand logo and product name dominates the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "96a98d58cea4236ba25d1156a6d65163",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same white Thorne Trace Minerals bottle, white ribbed cap, and same shelf background as the previous shot. The bottle has been rotated slightly right, bringing the barcode/UPC, lot code (M242/LM24220), and a numeric price code (10.6290) into view \\u2014 all other-label content. The partial Supplement Facts table remains visible on the left (zinc 15 mg 136%, selenium 100 mcg 182%, etc.), qualifying as nutrition. The \\\"Other Ingredients\\\" line (Microcrystalline Cellulose, Hypromellose\\u2026) is also legible, adding ingredients. 4-second gap strongly supports same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

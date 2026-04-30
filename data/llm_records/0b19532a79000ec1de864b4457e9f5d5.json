@@ -1,0 +1,9 @@
+{
+  "request_sha": "0b19532a79000ec1de864b4457e9f5d5",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Current photo is the right half of the same Supplement Facts wrap-around panel from the MegaFood Men's 55+ One Daily Multivitamin seen in images 1 and 3. The amber bottle, yellow label, and MEGAFOOD.COM footer match exactly; the 4.4-second gap confirms continuous shooting. The right column of the Supplement Facts table (Pantothenic Acid through Molybdenum, Food Blend) is fully readable \\u2192 nutrition. The complete Other Ingredients list is legible \\u2192 ingredients. The right side panel also shows a caution block, disclaimer, satisfaction guarantee, and contact info \\u2192 other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

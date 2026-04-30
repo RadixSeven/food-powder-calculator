@@ -1,0 +1,9 @@
+{
+  "request_sha": "523d92c5ef68b3ca6898e501cf442f13",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"The current photo shows a side/marketing panel of the same RenewLife Organic Clear Fiber jar: identical white body, yellow lid, and same shelf background as Image 1 (back panel with Supplement Facts) and Image 3 (front). The panel displays marketing copy (\\\"Trusted Gut Support. Made Simple.\\\"), safety warnings (\\\"KEEP OUT OF REACH OF CHILDREN\\\"), a UPC barcode, lot/revision code (RN1581105 REV C R91154), and an FDA disclaimer \\u2014 all other-label content. No Supplement Facts or ingredients list is visible on this panel. Shot 6.1 s after Image 1, confirming continuous documentation of the same bottle.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

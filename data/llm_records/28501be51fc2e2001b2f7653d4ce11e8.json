@@ -1,0 +1,18 @@
+{
+  "request_sha": "28501be51fc2e2001b2f7653d4ce11e8",
+  "request": {
+    "prompt": "Identify every text-bearing label or panel in this product photo. For each panel return: `\"kind\"` \u2014 one of 'front', 'nutrition', 'ingredients', 'other-label', 'price-tag'; `\"x_min_frac\"`, `\"y_min_frac\"`, `\"x_max_frac\"`, `\"y_max_frac\"` \u2014 tight bounding-box coordinates as fractions in [0, 1] with (0,0) at the top-left and (1,1) at the bottom-right; and `\"text_direction\"` \u2014 `\"horizontal\"` if the text reads left-to-right as the photo is oriented, or `\"vertical\"` if it reads top-to-bottom (e.g. text rotated 90 degrees because the package is on its side). Return JSON only.",
+    "model": "haiku",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/cropped_panels/detect_inputs/PXL_20260426_165958071_1024.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"panels\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"front\", \"nutrition\", \"ingredients\", \"other-label\", \"price-tag\"]}, \"x_min_frac\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"y_min_frac\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"x_max_frac\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"y_max_frac\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"text_direction\": {\"type\": \"string\", \"enum\": [\"horizontal\", \"vertical\"]}}, \"required\": [\"kind\", \"x_min_frac\", \"y_min_frac\", \"x_max_frac\", \"y_max_frac\", \"text_direction\"], \"additionalProperties\": false}}}, \"required\": [\"panels\"], \"additionalProperties\": false}",
+    "system_prompt": "You are an expert at locating text-bearing labels on product photos. Identify every distinct readable panel in the image and return one tight bounding box per panel. Do not invent panels that aren't clearly readable. Crop each box tight to the readable text area: exclude bottle curvature, specular glare, hands holding the package, and surrounding shelf / background. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"panels\": [{\"kind\": \"front\", \"x_min_frac\": 0, \"y_min_frac\": 0, \"x_max_frac\": 0.55, \"y_max_frac\": 0.12, \"text_direction\": \"horizontal\"}, {\"kind\": \"nutrition\", \"x_min_frac\": 0.05, \"y_min_frac\": 0.12, \"x_max_frac\": 0.62, \"y_max_frac\": 0.88, \"text_direction\": \"horizontal\"}, {\"kind\": \"other-label\", \"x_min_frac\": 0.6, \"y_min_frac\": 0.12, \"x_max_frac\": 0.88, \"y_max_frac\": 0.75, \"text_direction\": \"horizontal\"}, {\"kind\": \"price-tag\", \"x_min_frac\": 0.72, \"y_min_frac\": 0.75, \"x_max_frac\": 0.92, \"y_max_frac\": 0.88, \"text_direction\": \"horizontal\"}]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

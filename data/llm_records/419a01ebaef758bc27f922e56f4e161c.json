@@ -1,0 +1,9 @@
+{
+  "request_sha": "419a01ebaef758bc27f922e56f4e161c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo is a tight close-up of the shelf price tag (\\\"NATPLS SRC OF LF LIQ MULTI 32 FZ\\\", $44.99, UPC 097467306011), which fills the entire frame. The UPC matches the barcode on the bottle's back panel in Image 1 (97467 30601 1), confirming this is the price tag for the same NaturesPlus Source of Life liquid multivitamin. The 13.9-second gap further supports same-product continuity.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

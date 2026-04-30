@@ -1,0 +1,9 @@
+{
+  "request_sha": "68783683a75e7df71cd220fab2cfc751",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"The current photo shows a side panel of the same Country Life DHEA 25mg bottle seen in images 1 and 3. Visible content includes marketing copy about DHEA hormone support, an FDA disclaimer, a Yes/No attribute checklist (gluten-free, non-GMO, vegan, etc.), lot number (25C616C), best-by date (04/28), storage instructions, and a barcode \\u2014 all other-label content. No Supplement Facts table, ingredients list, front branding, or price tag is visible in this panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "38d38f47939b39b7a66821d0ecfe8247",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle, black cap, and same hand/store background as Image 1 (Country Life NAC 750 mg front), flipped to the back panel 4.2 s later. The back shows a legible Supplement Facts table (NAC N-acetyl cysteine 750 mg per capsule), an Other Ingredients list (cellulose, stearic acid, silica, vegetable magnesium stearate), and additional label content including directions, a caution warning, storage instructions, and manufacturer info.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

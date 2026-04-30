@@ -1,0 +1,9 @@
+{
+  "request_sha": "61276166cf593546560d9ad8e8661a1a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Current photo is the back panel of the same Nature Made Multi 50+ For Him bottle (same amber glass, yellow lid, matching shelf, 2.9 s gap). The full Supplement Facts table (Vitamins A, C, D3, E, K, B-vitamins, minerals) is clearly readable \\u2192 nutrition. Suggested Use directions and DISTRIBUTED BY / USP text are also legible \\u2192 other-label. No separate ingredients list is visible, so ingredients is not applied.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

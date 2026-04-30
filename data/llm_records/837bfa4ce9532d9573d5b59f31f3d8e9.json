@@ -1,0 +1,18 @@
+{
+  "request_sha": "837bfa4ce9532d9573d5b59f31f3d8e9",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "haiku",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/raw_photos/PXL_20260426_165809667.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"supplement fac serving size 7.4 ml (1 tsp. - 1 tsp.) 2-3 years 4-5 years about 130 servings per container %dv for 2-3 years calories 5 1.5g total carbohydrates 225 mcg 100% vitamin a (100% as beta-carotene) 5 mg 56% vitamin c 2.5 mcg 62% vitamin d 0.63 mg 4% vitamin e (natural from lichen) 3.8 mg 63% vitamin k (as phytonadione) 75 mcg 100% thiamin (as thiamine mononitrate from ferment media) 0.63 mg 53% riboflavin (and from ferment media) 7.5 mg 125% niacin (as nicotinic acid and from ferment media) 0.063 mg pantothenic acid (and from ferment media) 30 mcg 15% biotin (as d-biotin and from ferment media) 0.6 mcg 100% vitamin b12 (as cyanocobalamin) 1.3 mg beta (and from ferment media) pantothenic acid (as d-pantothenate and from ferment media) 5 mg 50% iodine (as iodine from potassium iodide) 7 mg 1% calcium (as calcium citrate) 38 mcg 42% iodine (as chromium nicotinate) 1.4 mg 4% zinc (as zinc citrate) 14 mcg selenium (as chromium picolinate) 0.01 mg manganese (as manganese glycinate) 0.6 mcg 1% chromium (as chromium picolinate) 0.3 mcg 64% molybdenum (as molybdenum glycinate) organic superfood blend 25 mg 30 mg organic elderberry (sambucus nigra) (fruit), organic black currant (ribes nigrum) (fruit), organic grape (vitis vinifera) (seed) extract, organic acerola (malpighia emarginata) (fruit) * daily value (dv) not established *percent daily values are based on a 2000 calorie diet *percent daily values are based on a 1000 calorie diet other ingredients: water, organic glycerin, natural flavors; less than 2% of: ferment media (grain, cane-extract, molasses), organic stevia leaf extract, malic acid, citric acid (potassium), antiseptic distributed by new chapter, inc., 90 technology drive, portsmouth, nh 03801 for questions or comments call 888-874-4471. certified organic by where food comes from organic. sourced ingredients. manufactured in the usa from globally sourced ingredients. gluten free 100% vegan no artificial colors. this product does not contain common ge genes or proteins. visit igenprogram.com igen certification mark is a registered trademark of nutrausource diagnostics, inc.\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

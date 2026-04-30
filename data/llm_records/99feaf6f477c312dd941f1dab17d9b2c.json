@@ -1,0 +1,9 @@
+{
+  "request_sha": "99feaf6f477c312dd941f1dab17d9b2c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a Solaray Magnesium Glycinate 350 mg (120 VegCaps) bottle being held \\u2014 a completely different brand, product, and packaging from the Country Life Easy Iron group (amber glass bottle, green/yellow label). Image 1 was the price tag for Country Life Easy Iron; Image 3 confirms that group's front. The Solaray bottle has a distinctive gold/white label with a rainbow arc \\u2014 no visual overlap with the running group. This is a new product's front face.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "e9be664c8152ff47ce102a1e561bfd0e",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows Country Life DHEA 25 mg / 90 Vegan Capsules (front face, clearly held in hand). The running group (image 3) is Country Life DHEA 10 mg / 50 Vegan Capsules \\u2014 a different SKU (different dose, different count). The previous photo was a price tag for the 10 mg / 50 ct product, closing that group. The current shot opens a new product group. Role is `front`: brand logo and product name dominate the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

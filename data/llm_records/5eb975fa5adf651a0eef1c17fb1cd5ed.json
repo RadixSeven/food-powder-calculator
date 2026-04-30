@@ -1,0 +1,9 @@
+{
+  "request_sha": "5eb975fa5adf651a0eef1c17fb1cd5ed",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same dark amber MOM brand bottle held in the same hand against the same shelf, only 3.6 s after the previous shot. The current frame shows a different segment of the back panel rotated slightly: barcode, suggested use, allergen/contains-no statement, Lutemax 2020 trademark text, iron-containing-products warning, lot number (VVL 538-90Q), potency guarantee, storage instructions, and adverse-event phone number \\u2014 all other-label content. A narrow sliver of the Supplement Facts table is just visible at the far left edge but is not meaningfully readable, so nutrition is not applied.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

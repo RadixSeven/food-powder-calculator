@@ -1,0 +1,9 @@
+{
+  "request_sha": "c17db5958679698daf7debdaf05850a2",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The frame is dominated by a shelf price tag reading \\\"RL MEN'S MULTIVITAMIN 120 CNT / $44.99\\\". \\\"RL\\\" = Rainbow Light, matching the running group front (Image 3: Rainbow Light Certified Men's Multivitamin 120 Capsules). The products visible in the background above and below the tag are not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

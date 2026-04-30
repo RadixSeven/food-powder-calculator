@@ -1,0 +1,9 @@
+{
+  "request_sha": "8de8b8e591ea4dea425448481f078144",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same amber bottle with black cap and Country Life yellow/green label as the group front (Image 3) and the previous shot (Image 1). Taken only 4.1 seconds later. This panel shows the FDA disclaimer, a YES/NO allergen/certification table (Gluten-Free, Non-GMO, Vegan, Kosher, etc.), lot number, best-by date, barcode, and storage instructions \\u2014 all other-label content. No Supplement Facts rows or ingredients list are visible on this panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

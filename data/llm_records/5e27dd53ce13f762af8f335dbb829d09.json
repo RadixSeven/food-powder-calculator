@@ -1,0 +1,18 @@
+{
+  "request_sha": "5e27dd53ce13f762af8f335dbb829d09",
+  "request": {
+    "prompt": "Identify the text-bearing labels and panels of the PRIMARY product in this photo. Do not report panels belonging to other products on adjacent shelves or in the background \u2014 only the primary subject. If the photo is just a shelf price tag, the primary product IS that price tag. Look ONLY for these role kinds: 'nutrition', 'ingredients', 'other-label'. Skip any other panels. For each panel return: `\"kind\"` \u2014 one of 'nutrition', 'ingredients', 'other-label'; `\"x_min_frac\"`, `\"y_min_frac\"`, `\"x_max_frac\"`, `\"y_max_frac\"` \u2014 TIGHT bounding-box coordinates (fractions in [0, 1], (0,0) top-left, (1,1) bottom-right) cropped close to the printed text only. Exclude bottle curvature, specular glare, hands, shelf, and background \u2014 at most a few percent margin past the readable text on each side; and `\"text_direction\"` \u2014 `\"horizontal\"` if the text reads left-to-right as the photo is oriented, or `\"vertical\"` if it reads top-to-bottom (e.g. text rotated 90 degrees because the package is on its side). Return JSON only.",
+    "model": "haiku",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/cropped_panels/detect_inputs/PXL_20260426_171428188.MP_1024.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"panels\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"nutrition\", \"ingredients\", \"other-label\"]}, \"x_min_frac\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"y_min_frac\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"x_max_frac\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"y_max_frac\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"text_direction\": {\"type\": \"string\", \"enum\": [\"horizontal\", \"vertical\"]}}, \"required\": [\"kind\", \"x_min_frac\", \"y_min_frac\", \"x_max_frac\", \"y_max_frac\", \"text_direction\"], \"additionalProperties\": false}}}, \"required\": [\"panels\"], \"additionalProperties\": false}",
+    "system_prompt": "You locate text-bearing labels on the PRIMARY product in a product photo. The primary product is the one the photo is focused on: typically held by a hand, in the foreground, largest, sharpest, and centered. Ignore everything else in the frame: products on adjacent shelves, products behind or beside the primary product, and partial / out-of-focus products at the edges. A shelf price tag belongs to the primary product only if it is the directly attached / adjacent tag for that exact product \u2014 tags belonging to other shelf items are NOT primary. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"panels\": [{\"kind\": \"nutrition\", \"x_min_frac\": 0, \"y_min_frac\": 0.05, \"x_max_frac\": 0.67, \"y_max_frac\": 0.78, \"text_direction\": \"horizontal\"}, {\"kind\": \"ingredients\", \"x_min_frac\": 0, \"y_min_frac\": 0.78, \"x_max_frac\": 0.67, \"y_max_frac\": 0.91, \"text_direction\": \"horizontal\"}, {\"kind\": \"other-label\", \"x_min_frac\": 0.67, \"y_min_frac\": 0, \"x_max_frac\": 1, \"y_max_frac\": 1, \"text_direction\": \"horizontal\"}]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

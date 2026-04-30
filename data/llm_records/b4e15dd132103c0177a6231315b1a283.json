@@ -1,0 +1,9 @@
+{
+  "request_sha": "b4e15dd132103c0177a6231315b1a283",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle, silver lid, and Country Life yellow/green label as the previous front shot \\u2014 now rotated to show the back panel. The Supplement Facts table (Dehydroepiandrosterone 10 mg, % Daily Value) is legible, an Other Ingredients list (cellulose, capsule shell, organic white rice flour, silica) is visible, and a prominent warning block plus directions text also appear.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

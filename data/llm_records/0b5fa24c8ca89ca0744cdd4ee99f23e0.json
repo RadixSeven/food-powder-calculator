@@ -1,0 +1,9 @@
+{
+  "request_sha": "0b5fa24c8ca89ca0744cdd4ee99f23e0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows Nature Made Multi 50+ For Him (yellow/blue label, 90 tablets), while the previous photo was Country Life Daily Total One (green/yellow label, 60 vegan capsules). Different brand, different product name, different label design \\u2014 clearly a new product. The front face of the bottle is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

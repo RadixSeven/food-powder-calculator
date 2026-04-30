@@ -1,0 +1,9 @@
+{
+  "request_sha": "e4aceb30b493c46894eb2ca19aa5cd12",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle (yellow cap, identical label), rotated slightly from the previous shot. The current photo shows the right-hand continuation of the Supplement Facts table (Biotin through Molybdenum, all at 100% DV) \\u2014 so `nutrition` applies. Clearly visible alongside it are an \\\"Other Ingredients\\\" list (Cellulose Gel, Modified Food Starch, etc.) and a Warning block about iron/children \\u2014 giving `ingredients` and `other-label` as well.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

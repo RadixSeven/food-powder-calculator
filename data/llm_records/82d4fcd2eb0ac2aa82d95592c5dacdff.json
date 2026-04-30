@@ -1,0 +1,9 @@
+{
+  "request_sha": "82d4fcd2eb0ac2aa82d95592c5dacdff",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The shelf price tag shows \\\"NM MV HIM 50+ 90CT $17.49\\\" with item code 01790, which matches the UPC suffix (01790) visible on the bottle's barcode in the previous photo and corresponds to Nature Made Multi 50+ For Him 90ct \\u2014 the running product group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

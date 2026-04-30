@@ -1,0 +1,9 @@
+{
+  "request_sha": "db5060aa2777122fb245b89ae452fa6f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life NAC 750mg amber bottle as the running group. This panel shows marketing claims about NAC as an antioxidant, a certifications checklist (Gluten-Free, Vegan, Kosher-Parve, Halal), lot number (25L916A), best-by date, and barcode \\u2014 all other-label content. The Supplement Facts table was the subject of the previous photo (Image 1); no nutrition panel or ingredients list dominates this frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

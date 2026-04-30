@@ -1,0 +1,18 @@
+{
+  "request_sha": "3b85ac80925f5811448f3693109a8d91",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165814496_3076.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"lement facts 2-3 years 4-13 years 14+ years 5 ml (1 tsp.) 15 ml (1 tbsp.) 30 ml (1 tbsp.) about 60 about 30 %dv for 2-3 years %dv for 4-13 years %dv for 14+ years 4 g 1% 30 450 mg 11% 900 mcg 35% 18 mg 20% 7 mcg 4% 14 mcg 20% (280 iu) (560 iu) 7.5 mg 35% 15 mg 100% 30 mcg 25% 60 mcg 100% 1.25 mg 104% 2.5 mg 208% 1.25 mg 96% 2.5 mg 192% 15 mg 94% 30 mg 188% 74% 2.5 mg 147% 40 mcg dfe 10% 80 mcg dfe 20% 12 mcg 50% 2.4 mcg 100% 2.5 mg 54% 30 mcg 100% 5 mg 100% 10 mg 2% 20 mg 4% 75 mcg 50% 26 mg 75% 6 mg 1% 150 mg 100% 2.8 mg 25% 5.5 mg 50% 28 mg 51% 55 mcg 100% 0.02 mg 1% 0.04 mg 2% 1.2 mg 50% 2.3 mcg 7% 22.5 mcg 50% 45 mcg 100% 50 mg 100 mg less than 2% of: ferment media (saccharomyces yeast extract, malic acid, citric acid (preservative), xanthan gum. inc. 90 technology drive, brattleboro, vt 05301 usa or comments call 888-874-4461 food comes from organic, castle rock, co, usa the usa from globally sourced ingredients vegan; no artificial colors. common ge genes or proteins. registered trademark of \\u00a92024 new chapter, inc. 0900-a02\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

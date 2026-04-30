@@ -1,0 +1,9 @@
+{
+  "request_sha": "3e9b24bcd2cad8e10f2c888af9cb674b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Country Life DHEA 25 mg amber bottle rotated to show the back panel. Supplement Facts table is visible (DHEA 25 mg, % Daily Value column), Other Ingredients line lists Hypromellose, vegetable magnesium stearate, silica, and a full warning/directions block constitutes other-label content. No front branding visible in this shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

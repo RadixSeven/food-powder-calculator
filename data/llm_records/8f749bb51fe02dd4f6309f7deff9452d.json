@@ -1,0 +1,9 @@
+{
+  "request_sha": "8f749bb51fe02dd4f6309f7deff9452d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows a hand holding a Nature Made D3 2000 IU (50 mcg) 400-tablet bottle \\u2014 a different product from the running group (Nature Made Multi 130 tablets). The front face of the D3 bottle dominates the frame with brand logo, product name, and marketing copy, so the role is front.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

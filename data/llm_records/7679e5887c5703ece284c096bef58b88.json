@@ -1,0 +1,9 @@
+{
+  "request_sha": "7679e5887c5703ece284c096bef58b88",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle, silver lid, and Country Life label colors as Image 1 (front of DHEA 10 mg), photographed 9 seconds later. The current shot documents the back panel: a partial Supplement Facts table listing Dehydroepiandrosterone 10 mg is visible (nutrition), an Other Ingredients line (cellulose, organic white rice flour, silica) is readable (ingredients), and the panel also contains directions, a warning block, barcode, and lot/best-by date (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "6cc576eb3ed4bcb87a0185349f60c5a8",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Country Life Daily Total One bottle as Images 1 and 3 \\u2014 identical amber bottle, white label with yellow/gold band, same store background, and only 16 seconds after the previous shot. Image 2 is a continuation of the wrap-around Supplement Facts panel, showing the lower mineral rows (B12, Biotin, Calcium, Zinc, Selenium, Copper, Chromium, Molybdenum, Potassium, Boron, etc.) plus the \\\"Other Ingredients\\\" list (cellulose, magnesium stearate, starch, maltodextrin) at the bottom. The left side of the bottle also shows CAUTION/warning text and YES/NO certification markers (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

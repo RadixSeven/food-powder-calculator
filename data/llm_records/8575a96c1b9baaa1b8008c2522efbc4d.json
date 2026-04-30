@@ -1,0 +1,9 @@
+{
+  "request_sha": "8575a96c1b9baaa1b8008c2522efbc4d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag reading \\\"RL VIBRANCE MEN'S ONE 60 CNT / $26.99\\\" \\u2014 this is the price tag for the Rainbow Light Men's One+ bottle being documented in this group (Image 3 front). The tag dominates the frame, taken only 8.9 seconds after the previous back-panel shot of the same bottle. The Rainbow Light Men's One+ bottles visible on the shelf above the tag confirm the match. Roles: price-tag only; the bottles in the background are not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

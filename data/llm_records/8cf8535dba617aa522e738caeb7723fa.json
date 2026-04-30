@@ -1,0 +1,9 @@
+{
+  "request_sha": "8cf8535dba617aa522e738caeb7723fa",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"The current photo is the right-hand continuation of the Supplement Facts panel on the same Nature Made Multi 50+ For Him bottle seen in the previous photo. It shows the second column of nutrient values (Biotin through Molybdenum) plus the \\\"Other Ingredients\\\" list, matching the amber bottle, yellow lid, and Nature Made branding of the running product group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

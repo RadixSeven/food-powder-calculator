@@ -1,0 +1,9 @@
+{
+  "request_sha": "8e5201c1167e675d3b9db84c5d3b7ff2",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Frame is dominated by a shelf price tag reading \\\"NM VIT D3 2000 IU 400S / $28.49.\\\" Item code 02818 on the tag matches the barcode prefix on the bottle in the previous photo, and the product description matches the group front (Nature Made D3 2000 IU, 400 Tablets). Single role: price-tag.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

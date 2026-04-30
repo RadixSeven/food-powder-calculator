@@ -1,0 +1,9 @@
+{
+  "request_sha": "e3b2d8d1517672609231a360d56b5dcf",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same white Buried Treasure VM100 bottle with orange label band, same hand and shelf, 18.7 s gap. The frame shows the barcode strip in the center, a partial Supplement Facts table still legible on the left edge, and on the right a side panel with formula marketing copy, directions, and caution text \\u2014 no ingredients list clearly visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

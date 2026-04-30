@@ -1,0 +1,9 @@
+{
+  "request_sha": "f835d4c884473364378011ab9d6461d5",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Rainbow Light Men's One+ bottle rotated to show the back panel. The Supplement Facts table dominates the frame (nutrition). \\\"Other Ingredients: Cellulose (Plant Origin), Croscarmellose Sodium, Carnauba Wax\\\" is legible at the bottom (ingredients). Manufacturer address, website, disclaimer (\\\"This statement has not been evaluated\\u2026\\\"), and allergen statement are also visible (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

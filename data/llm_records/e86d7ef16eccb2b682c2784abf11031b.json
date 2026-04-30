@@ -1,0 +1,9 @@
+{
+  "request_sha": "e86d7ef16eccb2b682c2784abf11031b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\", \"front\"], \"rationale\": \"The current photo centers on a shelf price tag reading \\\"RL MEN'S MULTIVITAMIN 120 CNT / $44.99\\\" \\u2014 \\\"RL\\\" = Rainbow Light, matching the running group product (Rainbow Light Certified Men's Multivitamin, 120 capsules). Behind the tag, the Rainbow Light bottle fronts are visible showing matching marketing copy (\\\"Promotes Immune, Bone and Skin Health / Provides Cellular Energy Support\\\"), so both price-tag and front roles apply.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "0e9595771630689c26728777412f6c42",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a hand holding a Country Life NAC (N-Acetyl Cysteine) 750 mg bottle with its front label as the clear primary subject. The running group (Image 3) is Rainbow Light Men's One+, a completely different brand and product. The previous photo (Image 1) was a price tag for Rainbow Light. This is a new product group starting with a front shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "9ffd6149c334af8589fda99c8af002ab",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Country Life Biotin 5 mg bottle rotated to show the back panel. The Supplement Facts table (Biotin 5,000 mcg) fills the upper portion of the frame; below it are Other Ingredients (cellulose, hypromellose) and caution/storage text plus manufacturer info \\u2014 all on the same documented panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

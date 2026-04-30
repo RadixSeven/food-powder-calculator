@@ -1,0 +1,9 @@
+{
+  "request_sha": "c88b1af6a987c67a975fa16b15481d79",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Country Life DHEA 25 mg amber bottle rotated to show the back panel. Supplement Facts table (DHEA 25 mg per capsule), Other Ingredients list, directions, warnings, and manufacturer/distributor info are all legible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

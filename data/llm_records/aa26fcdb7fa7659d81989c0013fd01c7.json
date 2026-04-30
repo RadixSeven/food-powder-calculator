@@ -1,0 +1,9 @@
+{
+  "request_sha": "aa26fcdb7fa7659d81989c0013fd01c7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows Buried Treasure Active 55 (maroon label, Passion Berry flavor), which is a clearly different product from the VM-100 (orange label, Citrus Sunrise) that is the running group. Different product name, different label color, different formula \\u2014 this is the front face of a new SKU.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

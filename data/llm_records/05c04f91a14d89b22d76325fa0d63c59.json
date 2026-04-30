@@ -1,0 +1,9 @@
+{
+  "request_sha": "05c04f91a14d89b22d76325fa0d63c59",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same white Jarrow Formulas MK-7 bottle held in hand, only 5.4 seconds after Image 1 (back panel with Supplement Facts). Image 2 shows a different side panel with suggested use text, product description/marketing copy about MK-7, health warning, FDA disclaimer, and barcode \\u2014 all other-label content. No nutrition table, no ingredients list, no front face visible on this panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

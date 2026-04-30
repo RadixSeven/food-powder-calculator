@@ -1,0 +1,9 @@
+{
+  "request_sha": "e098b497703cd2d62fde025df7094f7c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\", \"ingredients\"], \"rationale\": \"Same Orgain Organic Protein tub as Image 1 and the group front \\u2014 same green-and-white container, same shelf background, only 6.4 seconds apart. The current shot captures the back panel's \\\"Our Commitment To CLEAN NUTRITION\\\" founder letter and Orgain.com/barcode section (other-label), plus a partial ingredients list running along the bottom edge (ingredients). The Nutrition Facts table that was visible on the left portion of Image 1 is no longer in frame here.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

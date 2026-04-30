@@ -1,0 +1,9 @@
+{
+  "request_sha": "362363f3e7c087a1ef4aa570c4f0403f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Country Life DHEA 10 mg bottle, now rotated to show the back panel. A partial Supplement Facts table is visible (Dehydroepiandrosterone 10 mg row), Other Ingredients list (cellulose, capsule shell, organic white rice flour, silica), plus warnings, directions, barcode, and lot/expiry code.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

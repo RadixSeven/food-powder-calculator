@@ -1,0 +1,9 @@
+{
+  "request_sha": "86492ba645505c9ab7c85fdf055e80d6",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag: \\\"CL DHEA 10 MG 50 CNT / $11.99\\\", barcode 015794016656. That barcode matches the one on the bottle photographed in Image 1, and the 21.3-second gap is strong same-product evidence. The Country Life DHEA bottles visible above the tag are background shelf items, not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "172f0bfe618e28e6b04f2237088468e1",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"The current photo is the back panel of the same MOM Men's 45+ Multi bottle seen in image 1 (identical dark amber jar, green gradient label, same hand/shelf). It shows a complete Supplement Facts table with serving size, vitamins/minerals and % DV, plus an \\\"Other Ingredients\\\" line \\u2014 so both nutrition and ingredients apply.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

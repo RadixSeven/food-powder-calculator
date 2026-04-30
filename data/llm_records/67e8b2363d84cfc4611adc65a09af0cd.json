@@ -1,0 +1,18 @@
+{
+  "request_sha": "67e8b2363d84cfc4611adc65a09af0cd",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "haiku",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/raw_photos/PXL_20260426_165936939.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"supplement facts serving size: 1 vegetarian caplet servings per container 60 amount per serving % daily value amount per serving % daily value vitamin a (as beta-carotene) 900 mcg 100% zinc (as zinc citrate) vitamin c (as ascorbic acid) 90 mg 100% selenium vitamin d (as cholecalciferol) 50 mcg (1,000 iu) 250% copper (as copper bis vitamin e (as d-tocopheryl succinate) 15 mg 100% manganese (as mang vitamin k (as phytonadione) 120 mcg 100% chromium thiamin (as thiamin mononitrate) 6 mg 500% molybdenum (as moly riboflavin (as vitamin b2) 5 mg 385% iodine (as potassium niacin (as niacinamide) 20 mg 125% vitamin b-6 (as pyridoxal-5-phosphate) 20 mg 1,176% organic rating superfoods blend vitamin b-9 (as folate) 400 mcg dfe (210 mcg folic acid) 100% organic spinach, aca vitamin b12 (as methylcobalamin) 10 mcg 41% broccoli, organic biotin 50 mcg 167% men's botanical and pantothenic acid (as calcium pantothenate) 13 mg 26% ashwagandha (ksm-66) extract (std. from tomato, date choline (as choline bitartrate) 55 mg 10% ginger, enzyme and calcium 25 mg 2% probiotic blend from red algae (lithothamnion sp.) magnesium 150 mg 100% from inactivated yeast (saccharomyces cerevisiae) ginger juice blend (p magnesium 50 mg 12% (as magnesium oxide from seawater) from pine, pineapple (std. enzyme blend 1 million cfu** other ingredients: cellulose (plant origin), croscarmellose sodium, zea mays cellulose, hypromellose, carnauba wax. manufactured by rainbow light nutritional systems, llc sunrize, fl 33323 usa 1-800-227-7559 rainbowlight.com \\u00a92025 rainbow light vegetarian no: wheat, milk, peanuts, eggs, fish or shellfish.\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

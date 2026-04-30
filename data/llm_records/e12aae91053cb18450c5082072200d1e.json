@@ -1,0 +1,9 @@
+{
+  "request_sha": "e12aae91053cb18450c5082072200d1e",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life Easy Iron bottle (identical amber glass, black/silver lid, yellow-green-white label) rotated to a third panel 5.1 seconds after the previous shot. Panel shows lot number 25M945C, best-by 01/30, barcode, and certification/marketing copy (Gluten-Free, Certified Vegan, Kosher-Parve, Wind Power). No nutrition facts or ingredients list visible on this panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

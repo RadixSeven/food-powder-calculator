@@ -1,0 +1,9 @@
+{
+  "request_sha": "d80fd27edf2ca0ac939bb53cc521b1ac",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows the front of a Country Life Easy Iron 25 mg 90-capsule bottle being held in hand. The running group is Country Life Daily Total One 60-capsule (Iron Free) \\u2014 a clearly different SKU with a different product name and count. Short time gap is overridden by unambiguous visual evidence of a new, different product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

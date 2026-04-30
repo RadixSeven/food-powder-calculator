@@ -1,0 +1,9 @@
+{
+  "request_sha": "818bc7d2e6dc355fc09806a609a4afd4",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows a Jarrow Formulas K-Right (K1+MK-4+MK-7+D3, 60 Softgels) bottle held with its front face clearly dominant. The running group is the Jarrow MK-7 120 Softgels \\u2014 a different product name, different formula, different count. The K-Right bottle was even visible in the background of the group-front shot (Image 3), confirming it is a neighboring but separate SKU. This is the start of a new product group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

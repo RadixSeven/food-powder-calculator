@@ -1,0 +1,9 @@
+{
+  "request_sha": "5f8bd1f10d5365fefdcb9ed01f0dadd1",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Current photo is a shelf price tag ($34.99, was $39.99) for \\\"MR LQUD MRNG MLTVTN RSBRY 30FZ\\\" with barcode 850029392064 \\u2014 identical to the barcode on the back of the MaryRuth's Liquid Morning Multivitamin bottle in Image 1. Short 22.8s gap confirms same product; tag dominates the frame so price-tag is the sole role.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

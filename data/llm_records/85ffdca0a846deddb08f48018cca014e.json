@@ -1,0 +1,9 @@
+{
+  "request_sha": "85ffdca0a846deddb08f48018cca014e",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life NAC 750 mg bottle as the running group. The current photo shows the back/side panel with marketing copy about NAC's antioxidant mechanism, disclaimer text, certifications (gluten-free, vegan, kosher-parve, halal), lot number (25L916A), best-by date (12/31), and barcode \\u2014 no Supplement Facts table or ingredients list visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "57c911e8e6f6941975087ba98a37bc60",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag (CL N-ACETYL CYSTEINE 750MG 30CNT, $13.99), which fills the lower half of the frame and is clearly what the photographer is documenting. The UPC 015794016861 on the tag matches the bottle's barcode from image 1, confirming it belongs to the same Country Life NAC product group. The bottles visible on the shelf above are background context, not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

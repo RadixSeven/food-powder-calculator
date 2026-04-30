@@ -1,0 +1,9 @@
+{
+  "request_sha": "f37b477d1692a78a5b46248631711161",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\"], \"rationale\": \"The current photo shows the Supplement Facts panel (back/side of the bottle) for Rainbow Light Certified Men's Multivitamin \\u2014 the same product held in Image 1. The green cap, white bottle, and same store shelf background confirm it's the same unit, just rotated to show the nutrition label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

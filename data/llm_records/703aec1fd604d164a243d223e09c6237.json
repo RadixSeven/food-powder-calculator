@@ -1,0 +1,9 @@
+{
+  "request_sha": "703aec1fd604d164a243d223e09c6237",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same yellow NaturesPlus Source of Life Original Liquid bottle, same hand and shelf background, 20-second gap. Current photo shows the back panel: a full Supplement Facts table (nutrition) and the \\\"Other Ingredients\\\" list at the bottom (ingredients).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

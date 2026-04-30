@@ -1,0 +1,9 @@
+{
+  "request_sha": "d7def7c5dc66f4501c6c91ae5396e723",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made D3 2000 IU bottle as the previous shot, rotated to reveal the right side panel. The Supplement Facts table is partially visible (serving size, Vitamin D, Calcium rows), followed by an \\\"Other Ingredients\\\" list (maltodextrin, acacia, magnesium stearate), and distributor/contact info. The front label is partially cut off on the left and is no longer the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

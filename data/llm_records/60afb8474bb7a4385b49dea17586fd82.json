@@ -1,0 +1,9 @@
+{
+  "request_sha": "60afb8474bb7a4385b49dea17586fd82",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Image 2 shows the back/side panel of the same Rainbow Light Men's One+ bottle held in Image 1 (same white bottle, same rainbow-circle logo visible at the top, same hand holding it, taken 16 seconds later). The panel displays a full Supplement Facts table with vitamins and minerals, an Other Ingredients list, and manufacturer/distributor info \\u2014 triggering nutrition, ingredients, and other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

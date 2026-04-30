@@ -1,0 +1,9 @@
+{
+  "request_sha": "d537af0081db285b5d1516b4d756fa34",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Image 2 is the same Rainbow Light Men's One+ bottle (green lid, white body, same hand, 21 seconds later) rotated to show the right-side wrap-around panel. The Supplement Facts table is clearly readable (Zinc, Selenium, Copper, Manganese, Chromium, Molybdenum, plus three proprietary blends). \\\"Other Ingredients\\\" text is visible at lower-left, and the right margin carries suggested-use copy, warnings, and tamper-evident text. The $28.99 price tag in the background is not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

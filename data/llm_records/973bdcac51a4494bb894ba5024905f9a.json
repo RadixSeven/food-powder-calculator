@@ -1,0 +1,9 @@
+{
+  "request_sha": "973bdcac51a4494bb894ba5024905f9a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle, yellow lid, yellow Nature Made label as Image 1 and the group front (Image 3). Taken 4.5 s later \\u2014 clearly the same Nature Made Multi 50+ For Him bottle rotated to show the adjacent side panel. The left edge carries a readable wrap-around column of % Daily Values from the Supplement Facts (100%, 200%, 12%, 100%, etc.), earning `nutrition`. The centre panel has a fully legible OTHER INGREDIENTS list (Cellulose Gel, Modified Food Starch, Maltodextrin, Croscarmellose Sodium, Hypromellose, etc.), earning `ingredients`. The panel also shows a caution warning, lot number (2655183), expiry (JAN 2028), a barcode, and a \\\"No Color Added / No Artificial Flavors / Gluten Free\\\" badge, earning `other-label`. No price tag is the primary subject; no front face is visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

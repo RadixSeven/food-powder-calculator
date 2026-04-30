@@ -1,0 +1,9 @@
+{
+  "request_sha": "f5389201b7dcbe061f28362bf16e253a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle, silver lid, and shelf background as Image 1 (Country Life Easy Iron 25 mg), rotated to show the back panel 8.5 seconds later. The back panel displays a readable Supplement Facts table (Iron 25 mg, 139% DV), an Other Ingredients list (cellulose, magnesium stearate, etc.), plus directions, warning, caution, and manufacturer info.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

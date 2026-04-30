@@ -1,0 +1,9 @@
+{
+  "request_sha": "e85f051a840a30543fea6df3abe4cbff",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle, silver lid, and shelf background as Image 1 (Country Life Biotin 5 mg), rotated 3.4 s later to show the back panel. The back panel contains a readable Supplement Facts table (Biotin 5,000 mcg, 16,667% DV \\u2192 nutrition), an Other Ingredients line listing cellulose and hypromellose (\\u2192 ingredients), plus directions, a CAUTION warning, storage instructions, and manufacturer info (\\u2192 other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

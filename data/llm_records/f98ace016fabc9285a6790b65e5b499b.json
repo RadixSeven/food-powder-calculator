@@ -1,0 +1,9 @@
+{
+  "request_sha": "f98ace016fabc9285a6790b65e5b499b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Country Life Daily Total One bottle as Image 1 (5-second gap, identical amber bottle, yellow-green label, matching Supplement Facts rows). The panel shows readable nutrition entries (Manganese through Boron), a complete Other Ingredients line (cellulose capsule shell, magnesium stearate, starch, maltodextrin), and manufacturer/lot info (Country Life LLC, Hauppauge NY, Product No. 8161).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

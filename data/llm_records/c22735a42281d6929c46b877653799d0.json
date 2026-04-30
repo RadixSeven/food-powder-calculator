@@ -1,0 +1,9 @@
+{
+  "request_sha": "c22735a42281d6929c46b877653799d0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Edge/side rotation of the same Thorne NAC bottle (3.1 s gap, matching white bottle and text). Left side shows partial Supplement Facts panel with readable 500 mg / %DV entries (\\u2192 nutrition) and \\\"derived from cellulose\\\" ingredients fragment (\\u2192 ingredients). Center has barcode and lot codes; right side shows Suggested Use, Tamper Evident, and Gluten Free icon (\\u2192 other-label). No front face or price tag is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "f192caf150bf9a2bed01129987e4218d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Despite the short 20.7-second gap, the current photo is clearly a different product. Image 1 was the price tag for NaturesPlus Source of Life Gold Liquid (NATPLS SRC OF LFE GLD LIQ), matching the running group (Image 3). Image 2 shows a completely different bottle: Nature's Way \\\"Alive! Max Potency Complete Liquid Multivitamin\\\" \\u2014 different brand, different product name, distinctly green bottle vs. the white/cream NaturesPlus bottle. The front face of this new bottle is the primary subject, with brand logo, product name, and marketing copy filling the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

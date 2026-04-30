@@ -1,0 +1,9 @@
+{
+  "request_sha": "b310f8854f78f87bf74eb6f3961c6052",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same orange MOM Plant-Based Fiber Complex container photographed 6.6 seconds after Image 1. The current shot shows the wrap-around side panel between the back (visible on the left half, continuing Image 1's marketing text) and the front (sliver visible on the right edge). The primary documented area is the side panel containing the barcode (719985-10930), \\\"KEEP OUT OF REACH OF CHILDREN / Store in a cool, dry place / We Guarantee Our Supplements for Potency and Purity / To report a serious adverse event, call 1-888-710-0006 / VVL 109-30B\\\" \\u2014 all other-label content. No Supplement Facts table or ingredients list is visible in this zone.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

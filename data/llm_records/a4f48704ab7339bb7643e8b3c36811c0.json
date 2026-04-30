@@ -1,0 +1,9 @@
+{
+  "request_sha": "a4f48704ab7339bb7643e8b3c36811c0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life Vitamin D3 10,000 IU amber bottle (matching front in image 3 and previous shot in image 1). The current photo shows a different panel from the Supplement Facts side: marketing claims about Vitamin D benefits, the FDA disclaimer, gluten-free/non-GMO/B-Corp certifications, lot number, best-by date, and barcode \\u2014 all other-label content. No nutrition table and no ingredients list are visible on this panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

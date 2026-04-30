@@ -1,0 +1,9 @@
+{
+  "request_sha": "f29507684fa112f750a4c700792172c0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"4.8-second gap, same amber bottle with white lid and orange MOM label \\u2014 bottle rotated to show the back panel. Supplement Facts (Vitamin D, Vitamin K) are fully readable, Other Ingredients list (cellulose, calcium stearate, silica) is present, and additional label copy (manufacturer address, suggested use, disclaimer) is visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "e4f4dd1ea1dd650ba18d9dc0b92ce003",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows a large yellow NaturesPlus \\\"Source of Life Original Liquid\\\" bottle (30 fl. oz.) held in the foreground \\u2014 completely different brand, product type, bottle shape, and color from the running Thorne Trace Minerals group (white capsule bottle). The 17.8-second gap is short, but the visual evidence is unambiguous: new product, new group. Roles: front only \\u2014 brand logo, product name, and marketing copy fill the frame; no nutrition or ingredients panel is visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "e43ec42faa9f170fe82cd53c7997640c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows MOM Plant-Based Fiber Complex (10.5 oz, orange/salmon label) \\u2014 a clearly different product from the running group, which is MOM ClearFiber Powder (5 oz, purple label). The previous shot was a price tag for \\\"MOM'S CLEAR FIBER 5 OZ\\\" ($15.99), closing out that group. The current photo is the front face of a new, distinct MOM product. The small \\\"40 Calories / 7g Fiber\\\" strip is front-panel marketing copy, not a Supplement Facts table, so nutrition is not applied.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

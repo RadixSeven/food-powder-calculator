@@ -1,0 +1,9 @@
+{
+  "request_sha": "976eb4a416c45c5eac47b7525b4bb16b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Image 1 is a price tag for \\\"MOMS COENZYMTE ADV M MLT 60 VCAP\\\" ($29.99), which matches the running group front (Image 3: MOM Advanced Men's Multi, teal/white label, 60 vcaps). The current photo (Image 2) shows a clearly different MOM product \\u2014 D3 & K2 / K2 as MK-7, with a distinctive orange/red label and \\\"60 Vegetarian Tablets\\\" \\u2014 different product name, different label color, different form factor. Despite the short 15.7-second gap, the visual difference is unambiguous: this is a new product. The front face fills the frame, so `front` applies.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

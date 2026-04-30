@@ -1,0 +1,9 @@
+{
+  "request_sha": "4cbf1fdeb73b1d721f4972a9f0b3a34a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same white tub with yellow lid shot 7.6 s after the front. The back panel shows a complete Supplement Facts table (nutrition), \\\"Other Ingredients: None\\\" (ingredients), and distributor info / tamper-evident / storage / allergen warnings (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

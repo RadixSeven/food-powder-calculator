@@ -1,0 +1,9 @@
+{
+  "request_sha": "a2f8032ce00ab50d95fcdaeebd410e2b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him bottle, now rotated to show the side panel. The right edge reveals the Supplement Facts table (nutrition), and the main visible face shows the claims/disclaimer text and \\\"Dietary Supplement\\\" designation (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

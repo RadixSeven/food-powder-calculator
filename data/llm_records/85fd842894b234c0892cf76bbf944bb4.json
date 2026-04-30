@@ -1,0 +1,9 @@
+{
+  "request_sha": "85fd842894b234c0892cf76bbf944bb4",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag for \\\"MOMS MENS 45+ MULTI 90 CNT\\\" at $24.99 with barcode 719985538346 \\u2014 matching the barcode on the back panel in Image 1 and the MOM Men's 45+ Multi front in Image 3. Shot 10 seconds after the back-panel photo, same product group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

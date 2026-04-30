@@ -1,0 +1,9 @@
+{
+  "request_sha": "df1a760eb97b6523c89a88ed9ef5691b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle as image 1 and the running group front. The current photo is rotated slightly to show the full Supplement Facts panel clearly (header visible, complete rows for vitamins A, C, D3, E, K, B-vitamins, minerals including Biotin through Molybdenum). Surrounding label also shows Suggested Use directions and the \\\"Distributed By: Nature Made Nutritional Products\\\" distributor line \\u2014 other-label content. No Other Ingredients list is visible, and the front face of the bottle is not shown.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "50b29ccaf770ff575fe078c5dfd6324d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same white Thorne bottle rotated to show the back panel, 14 seconds after the front shot. The Supplement Facts table is clearly legible (Vitamins A, C, D, E, K, B-vitamins with amounts and %DVs). The bottom of the panel also shows manufacturer info (\\\"THORNE RESEARCH, INC.\\\"), qualifying as other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

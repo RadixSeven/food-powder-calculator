@@ -1,0 +1,9 @@
+{
+  "request_sha": "e079c52b3cd0d250f40c8e881b7307e1",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same Country Life DHEA 25 mg bottle seen in Image 1 (same amber bottle, silver lid, same hand, 8.5 s gap). The panel shows a readable Supplement Facts table (DHEA 25 mg), an Other Ingredients line, directions, a warning block, and manufacturer info \\u2014 giving nutrition, ingredients, and other-label all in one shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

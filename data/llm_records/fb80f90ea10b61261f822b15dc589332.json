@@ -1,0 +1,9 @@
+{
+  "request_sha": "fb80f90ea10b61261f822b15dc589332",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"The current photo shows the back panel of the same Nature Made Multi 50+ For Him bottle seen in the previous photo and the group front. The full Supplement Facts table is clearly visible (header, serving size, rows for Vitamins A/C/D3/E/K, B-vitamins, minerals), qualifying it as `nutrition`. Suggested Use directions and the \\\"Distributed By: Nature Made Nutritional Products\\\" distributor block are also visible, qualifying as `other-label`. No ingredients list, price tag, or front panel content is present.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

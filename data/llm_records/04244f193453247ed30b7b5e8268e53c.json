@@ -1,0 +1,9 @@
+{
+  "request_sha": "04244f193453247ed30b7b5e8268e53c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Rainbow Light Men's One+ bottle as the previous shot and the group front. The current photo is the right-half view of the same Supplement Facts panel shown in Image 1 \\u2014 it displays the mineral column (Zinc, Selenium, Copper, Manganese, Chromium, Molybdenum) plus the proprietary blend breakdowns (Organic Rainbow Superfoods Blend, Men's Botanical Blend, Ginger/Enzyme/Probiotic Blend). The right edge of the frame contains additional on-panel content: suggested use, keep-out, tamper-evident warning, and storage instructions, qualifying as other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

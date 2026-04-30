@@ -1,0 +1,18 @@
+{
+  "request_sha": "6d06bedde95e76ab7919fb6ed8e675eb",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/raw_photos/PXL_20260426_165814496.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"lement facts 4-13 years (5 ml (1 tbsp)) about 30 14+ years 30 ml (2 tbsp) about 30 %dv for 4-13 years %dv for 14+ years 50% 500 mg 25% 20 mg 10% 14 mg (560 iu) 50% 15 mg 200% 50% 60 mg 25% 15% 1.25 mg 104% 70 mg 30 mg 94% 2.5 mg 145% 125 mg 12% 80 mg 40 mg (dfe) 50% 2.4 mcg 100% 100% 15 mg 25 mg 50% 100% 20 mg 10% 8% 28 mg 100% 150% 50% 10 mg 28 mg 4% 75 mg 150 mg 100% 4% 2.8 mg 50% 75 mg 100% 12 mcg 8% 10.04 mg 7% 50% 0.2 mcg 12% 2.3 mg 4% 45 mg 7% 25 mg 50 mg 100 mg natural flavors, less than 2% of: ferment media (saccharomyces ), malic acid, citric acid (preservative), xanthan gum. technology drive, brattleboro, vt 05301 usa call 1-888-874-4461 the usa from organic, castle rock, co, usa we 100% no artificial colors. common6 genes or proteins. trademark of \\u00a92024 new chapter, inc. 0900-a02\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

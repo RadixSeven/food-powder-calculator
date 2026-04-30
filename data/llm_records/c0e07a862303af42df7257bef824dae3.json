@@ -1,0 +1,9 @@
+{
+  "request_sha": "c0e07a862303af42df7257bef824dae3",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Nature Made D3 2000 IU yellow-label amber bottle as previous shot and group front, just rotated to expose the side panel. Panel shows quality claims (No Color Added, Gluten Free), a caution warning, lot/expiry date (DEC 2027), and barcode. No nutrition facts or ingredients text visible in this view.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

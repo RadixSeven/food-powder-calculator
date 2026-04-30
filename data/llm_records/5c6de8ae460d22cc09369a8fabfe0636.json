@@ -1,0 +1,9 @@
+{
+  "request_sha": "5c6de8ae460d22cc09369a8fabfe0636",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Primary subject is the shelf price tag reading \\\"NM MAG GLYC 200MG 60CT / $22.99\\\", which matches the running group (Nature Made Magnesium Glycinate 200 mg 60ct). Tag dominates the frame; 30-second gap supports same-product assignment.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

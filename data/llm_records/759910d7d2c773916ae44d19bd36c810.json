@@ -1,0 +1,9 @@
+{
+  "request_sha": "759910d7d2c773916ae44d19bd36c810",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him bottle (matching yellow lid, amber glass, store background). The current shot is the right-hand wrap-around panel: the second Supplement Facts column (Biotin 30 mcg through Molybdenum 75 mcg) is clearly readable (\\u2192 nutrition), the OTHER INGREDIENTS list (Cellulose Gel, Modified Food Starch, etc.) is visible on the right edge (\\u2192 ingredients), and \\\"No Color Added / No Artificial Flavor / Gluten Free\\\" badges plus a CAUTION paragraph are present (\\u2192 other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

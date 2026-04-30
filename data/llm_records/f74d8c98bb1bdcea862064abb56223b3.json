@@ -1,0 +1,18 @@
+{
+  "request_sha": "f74d8c98bb1bdcea862064abb56223b3",
+  "request": {
+    "prompt": "Extract the nutrition / supplement facts table from this photo, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_043/nutrition.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: this image is the nutrition / supplement facts panel for the product 'liquid nighttime multimineral coconut dream' by \"maryruth's\". Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from a product photo for a deterministic comparison task. Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the table, in top-to-bottom order. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` for cells whose text is occluded, glared, cut off, or otherwise unreadable. Lower-case all text; preserve punctuation (parentheses, percent signs, decimal points). Do not invent values or fill in nutrients that are not visible. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"\", \"1-3 years\", \"\", \"4-13 years\", \"\", \"14+ years\", \"\"], [\"serving size\", \"1/2 tsp (2.5 ml)\", \"\", \"1 tbsp (15 ml)\", \"\", \"2 tbsp (30 ml)\", \"\"], [\"servings per container\", \"about 355\", \"\", \"about 59\", \"\", \"about 30\", \"\"], [\"\", \"amount per serving\", \"% dv for 1-3 years\", \"\", \"% dv for 4-13 years\", \"\", \"% dv for 14+ years\"], [\"calories\", \"\\u25ae\", \"\", \"20\", \"\", \"35\", \"\"], [\"total carbohydrate\", \"1 g\", \"1%**\", \"5 g\", \"2%**\", \"9 g\", \"3%**\"], [\"vitamin c (as ascorbic acid)\", \"1 mg\", \"8%\", \"8 mg\", \"8%\", \"15 mg\", \"17%\"], [\"vitamin d (as cholecalciferol)\", \"1.7 mcg (68 iu)\", \"11%\", \"10 mcg (400 iu)\", \"50%\", \"20 mcg (800 iu)\", \"100%\"], [\"calcium (as calcium citrate)\", \"60 mg\", \"6%\", \"60 mg\", \"5%\", \"120 mg\", \"9%\"], [\"magnesium (as magnesium citrate)\", \"10 mg\", \"10%\", \"50 mg\", \"11%\", \"95 mg\", \"23%\"], [\"zinc (as zinc citrate)\", \"0.7 mg\", \"22%\", \"4 mg\", \"36%\", \"8 mg\", \"73%\"], [\"selenium (as selenium amino acid chelate)\", \"4.2 mcg\", \"21%\", \"25 mcg\", \"45%\", \"50 mcg\", \"91%\"], [\"copper (as copper citrate)\", \"0.03 mg\", \"3%\", \"0.05 mg\", \"6%\", \"\\u25ae\", \"\\u25ae\"], [\"manganese (as manganese citrate)\", \"0.42 mg\", \"35%\", \"2.5 mg\", \"109%\", \"5 mg\", \"217%\"], [\"chromium (as chromium polynicotinate)\", \"4.2 mcg\", \"38%\", \"25 mcg\", \"71%\", \"50 mcg\", \"143%\"], [\"proprietary blend\", \"5.6 mg\", \"\\u2020\", \"34 mg\", \"\\u2020\", \"67 mg\", \"\\u2020\"], [\"methylsulfonylmethane, silicon dioxide, hesperidin, boron citrate\", \"\", \"\", \"\", \"\", \"\", \"\"], [\"*percent daily values (dv) are based on a 2,000 calorie diet.\"], [\"**percent daily values (dv) are based on a 1,000 calorie diet.\"], [\"\\u2020daily value (dv) not established.\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

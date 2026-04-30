@@ -1,0 +1,9 @@
+{
+  "request_sha": "68b3e23f2353615221c7bbb6f8a20a88",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag (\\\"MOMS MAGNESIUM GLYCINATE 270CNT / $28.99\\\", barcode 787500064144), which matches the barcode on the bottle back seen in Image 1. The white bottle base is visible at the top but is not the subject. Short 21-second gap and matching barcode confirm same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

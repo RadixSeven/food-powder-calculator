@@ -1,0 +1,9 @@
+{
+  "request_sha": "7494cbc7105fff683ab9ce48a22f1532",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life Biotin bottle (amber glass, black lid, yellow-green label) as the previous shot and group front. This panel shows the bottom/side face: Biotin marketing blurb, YES/NO certification grid (Gluten-Free, Non-GMO, Vegan, etc.), lot number 25A931C, best-by 01/28, and barcode \\u2014 all other-label content. No Supplement Facts entries and no ingredients list are visible here.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,18 @@
+{
+  "request_sha": "7c268392f0c86eded6b64763b75c30ac",
+  "request": {
+    "prompt": "Extract the nutrition / supplement facts table from this photo, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_031/nutrition.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: this image is the nutrition / supplement facts panel for the product 'trace minerals 90 capsules' by 'thorne'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from a product photo for a deterministic comparison task. Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the table, in top-to-bottom order. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` for cells whose text is occluded, glared, cut off, or otherwise unreadable. Lower-case all text; preserve punctuation (parentheses, percent signs, decimal points). Do not invent values or fill in nutrients that are not visible. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"serving size: one capsule\"], [\"one capsule contains:\", \"\", \"%dv\"], [\"zinc (as traacs\\u00ae zinc bisglycinate chelate)\\u2020\", \"15 mg\", \"136%\"], [\"selenium (as l-selenomethionine)\", \"100 mcg\", \"182%\"], [\"manganese (as manganese citrate)\", \"2.5 mg\", \"109%\"], [\"chromium (as traacs\\u00ae chromium nicotinate glycinate chelate)\\u2020\", \"100 mcg\", \"286%\"], [\"boron (as bororganic\\u2122 boron glycinate complex)\\u2020\\u2020\", \"200 mcg\", \"\\u25ae\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

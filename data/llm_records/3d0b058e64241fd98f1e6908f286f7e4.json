@@ -1,0 +1,9 @@
+{
+  "request_sha": "3d0b058e64241fd98f1e6908f286f7e4",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows Rainbow Light \\\"Certified Men's Multivitamin\\\" (120 capsules, front label clearly visible). The running group is New Chapter Liquid Multivitamin \\u2014 different brand, different form factor, different product entirely.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "cb9ef99e71d5fb3f5cd8c7f409f85bc4",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same white Thorne bottle with white cap held in the same hand, rotated to the back panel 10.5 seconds after the front shot. The Supplement Facts panel is fully legible (Zinc, Selenium, Manganese, Chromium, Boron rows). An Other Ingredients line listing Microcrystalline Cellulose, Hypromellose capsule, Leucine, Silicon Dioxide is also visible. No new product introduced.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

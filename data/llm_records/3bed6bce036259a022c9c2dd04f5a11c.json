@@ -1,0 +1,9 @@
+{
+  "request_sha": "3bed6bce036259a022c9c2dd04f5a11c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Image 2 shows the front of NaturesPlus Source of Life GOLD Liquid (white/cream label, 30 fl oz), while the running group front (Image 3) is the Source of Life ORIGINAL Liquid (yellow label, distinct formulation). These are clearly different SKUs \\u2014 different product name, different label color, different formula (GOLD adds D3, K2 & antioxidants). The price tag in Image 1 (\\\"NATPLS SRC OF LF LIQ MULTI 32 FZ\\\", $44.99) was likely the transition shot before this new product. Despite the short 13.7-second gap, Image 2 unambiguously presents the front face of a different product. Roles: front only \\u2014 the full front label with brand, product name, and marketing copy dominates the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

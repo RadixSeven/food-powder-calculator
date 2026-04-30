@@ -1,0 +1,9 @@
+{
+  "request_sha": "18bda46991a91093ca5e369170588d27",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo is a close-up shelf price tag ($41.99, \\\"BB SPR EARTH ML / NUTRI LQ 32 FZ\\\") that completely dominates the frame. The tag's barcode (743715000971) matches exactly the barcode on the bottle photographed in Image 1, confirming this is the price tag for the same Bluebonnet Liquid Multi product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "edfa626160c41892c540745ffdc53c05",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Current photo is the same MaryRuth's Liquid Morning Multivitamin (Raspberry) bottle \\u2014 identical bottle shape, same raspberry-pink lower band, same MaryRuth Organics URL visible at the bottom, photographed just 14.8 seconds after the previous shot. The camera has rotated slightly to show a different angle of the wrap-around Supplement Facts panel, now revealing all three age-group columns (1\\u20133 Years, 4\\u201313 Years, 14+ Years). Supplement Facts data is fully readable \\u2192 nutrition. \\\"Other Ingredients\\\" list is legible at the bottom \\u2192 ingredients. Distributor line and \\\"All Ingredients are VEGAN\\\" notice \\u2192 other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

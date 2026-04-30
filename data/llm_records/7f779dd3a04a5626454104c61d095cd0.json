@@ -1,0 +1,9 @@
+{
+  "request_sha": "7f779dd3a04a5626454104c61d095cd0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same small dark amber Thorne dropper bottle held in hand, 4.9 seconds after the front shot. The back panel shows a readable Supplement Facts table (Vitamin D3 1,000 IU, Vitamin K2 MK4 200 mcg), an Other Ingredients line (Medium Chain Triglyceride Oil, Mixed Tocopherols), and additional label content (Suggested Use, Tamper Evident warning, manufacturer info). No price tag is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

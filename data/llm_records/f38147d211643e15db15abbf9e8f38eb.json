@@ -1,0 +1,9 @@
+{
+  "request_sha": "f38147d211643e15db15abbf9e8f38eb",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo is a shelf price tag reading \\\"BT ACTIVE 55 PLUS 32 OZ $39.99\\\" with barcode 016055456808. That barcode matches exactly the one visible on the bottle back in Image 1, and \\\"BT\\\" is Buried Treasure (the brand shown in Image 3). The tag is the primary subject, dominating the frame. Short 14.5-second gap and matching SKU confirm this is the price tag for the same product being documented.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

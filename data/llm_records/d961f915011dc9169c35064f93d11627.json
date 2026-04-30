@@ -1,0 +1,9 @@
+{
+  "request_sha": "d961f915011dc9169c35064f93d11627",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is a shelf price tag reading \\\"RL VIBRANCE MEN'S ONE 60 CNT / $26.99\\\" \\u2014 it dominates the frame and corresponds to the Rainbow Light Men's One+ 60-count product being documented throughout this group (matching the front in Image 3 and the nutrition panel in Image 1). The Rainbow Light bottles visible on the shelf above are background context, not the documented subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

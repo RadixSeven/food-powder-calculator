@@ -1,0 +1,9 @@
+{
+  "request_sha": "557da06f80b9dbf4447f544227f8b454",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a MaryRuth's Liquid Nighttime Multimineral bottle (white cylindrical liquid supplement, 30 fl oz), which is a completely different brand, product type, and package from the running group's MOM Organic Vegan Protein Powder tub. The previous photo was the MOM price tag; this shot pivots to a new product entirely. The front face of the MaryRuth's bottle \\u2014 brand logo, product name, and marketing copy \\u2014 dominates the frame, so the role is `front`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

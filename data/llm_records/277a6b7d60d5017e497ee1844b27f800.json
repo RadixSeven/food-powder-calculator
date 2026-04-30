@@ -1,0 +1,18 @@
+{
+  "request_sha": "277a6b7d60d5017e497ee1844b27f800",
+  "request": {
+    "prompt": "Extract the nutrition / supplement facts table from this photo, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_028/nutrition.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: this image is the nutrition / supplement facts panel for the product 'basic nutrients 2/day 60 capsules' by 'thorne'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from a product photo for a deterministic comparison task. Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the table, in top-to-bottom order. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` for cells whose text is occluded, glared, cut off, or otherwise unreadable. Lower-case all text; preserve punctuation (parentheses, percent signs, decimal points). Do not invent values or fill in nutrients that are not visible. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"serving size: two capsules\"], [\"servings per container: 30\"], [\"two capsules contain:\", \"\", \"%dv\"], [\"vitamin a (450 mcg from beta carotene and 600 mcg as palmitate)\", \"1.05 mg\", \"117%\"], [\"vitamin c (as ascorbic acid)\", \"250 mg\", \"278%\"], [\"vitamin d (as vitamin d3) (2,000 iu)\", \"50 mcg\", \"250%\"], [\"vitamin e (as d-alpha tocopheryl acid succinate)\", \"16.5 mg\", \"110%\"], [\"vitamin k (200 mcg as vitamin k1 and 200 mcg as vitamin k2 as mk-4)\", \"400 mcg\", \"333%\"], [\"thiamin (as thiamin hcl)\", \"50 mg\", \"4,167%\"], [\"riboflavin (as riboflavin 5'-phosphate sodium)\", \"12 mg\", \"923%\"], [\"niacin (as niacinamide)\", \"80 mg\", \"500%\"], [\"vitamin b6 (as pyridoxal 5'-phosphate)\", \"20 mg\", \"1,176%\"], [\"peel back for additional supplement facts\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

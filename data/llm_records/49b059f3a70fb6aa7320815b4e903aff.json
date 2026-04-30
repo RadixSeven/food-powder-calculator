@@ -1,0 +1,18 @@
+{
+  "request_sha": "49b059f3a70fb6aa7320815b4e903aff",
+  "request": {
+    "prompt": "Extract the nutrition / supplement facts table from this photo, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_036/nutrition.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: this image is the nutrition / supplement facts panel for the product 'liquid advantage vm100 daily multi vitamins, minerals, antioxidants citrus sunrise 33 fl oz' by 'buried treasure'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from a product photo for a deterministic comparison task. Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the table, in top-to-bottom order. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` for cells whose text is occluded, glared, cut off, or otherwise unreadable. Lower-case all text; preserve punctuation (parentheses, percent signs, decimal points). Do not invent values or fill in nutrients that are not visible. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"\\u25ae servings per container\", \"serving size \\u25ae\"], [\"\", \"amount per serving\", \"% daily value\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"10 mg\", \"100%\"], [\"\\u25ae\", \"20 mg\", \"222%\"], [\"\\u25ae\", \"\\u25ae\", \"167%\"], [\"\\u25ae\", \"30 mcg\", \"100%\"], [\"\\u25ae\", \"20 mcg\", \"417%\"], [\"\\u25ae\", \"30 mcg\", \"\\u25ae\"], [\"\\u25ae\", \"60 mg\", \"\\u25ae\"], [\"\\u25ae\", \"150 mg\", \"\\u25ae\"], [\"\\u25ae\", \"60 mg\", \"\\u25ae\"], [\"\\u25ae\", \"5 mg\", \"\\u25ae\"], [\"\\u25ae\", \"5 mg\", \"\\u25ae\"], [\"\\u25ae\", \"500 mg\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "8ed45a115391e40dfd2d5e27a3a947cc",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life Vitamin D3 10,000 IU bottle (confirmed by barcode 015794 05816 matching the group front). This panel shows marketing copy, FDA disclaimer, certifications (GFCO, igen), lot number 25K007A, best-by 09/30, and barcode \\u2014 all other-label content. No Supplement Facts table, front, or price tag visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

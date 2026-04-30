@@ -1,0 +1,9 @@
+{
+  "request_sha": "95544c686047eb6dd17e79e75323538e",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Jarrow Formulas K-Right bottle as Image 1 \\u2014 identical Supplement Facts entries (Vit D3 50 mcg/2000 IU, K1 500 mcg, K2 MK-4 1500 mcg, K2 MK-7 180 mcg) and matching barcode (790011 30009 0), just rotated slightly. 3.4-second gap confirms same product. Roles: Supplement Facts table is clearly readable (nutrition); \\\"Other Ingredients: Olive oil, softgel (bovine gelatin\\u2026\\\" is partially visible (ingredients); \\\"APPROX. FILL LINE\\\" marker is visible on the right side panel (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

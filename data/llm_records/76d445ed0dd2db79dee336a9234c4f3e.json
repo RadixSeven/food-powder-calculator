@@ -1,0 +1,9 @@
+{
+  "request_sha": "76d445ed0dd2db79dee336a9234c4f3e",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a hand holding a Country Life DHEA 10 mg / 50 Vegan Capsules bottle. The running group (image 3) is Country Life NAC N-Acetyl Cysteine 750 mg / 30 Vegan Capsules \\u2014 a clearly different product (different active ingredient, different count, different dosage). Same brand and similar amber-bottle style, but the product name on the label is unambiguously different. The current shot is the front face of the new DHEA product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "e8617f6b9aae7c87780b990367ddaab5",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Different brand (Nature Made vs Country Life), different product name (Multi 50+ For Him vs Daily Total One), different bottle shape and label colors, and a ~63-minute time gap. The current photo shows the front face of the Nature Made Multi 50+ For Him bottle with brand logo and product name prominently filling the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

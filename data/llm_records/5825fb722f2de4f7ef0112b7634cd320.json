@@ -1,0 +1,9 @@
+{
+  "request_sha": "5825fb722f2de4f7ef0112b7634cd320",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The frame is dominated by a shelf price tag reading \\\"NC LQUD MLTVITMN ORNG MNG 30 FZ / $45.99\\\", which abbreviates \\\"New Chapter Liquid Multivitamin Orange Mango 30 fl oz\\\" \\u2014 the exact product shown in the running group front (Image 3). Price tag is the sole primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

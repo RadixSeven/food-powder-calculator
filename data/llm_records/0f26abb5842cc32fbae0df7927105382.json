@@ -1,0 +1,9 @@
+{
+  "request_sha": "0f26abb5842cc32fbae0df7927105382",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same MOM Advanced Men's Multi bottle rotated to show the back panel \\u2014 identical white cap, teal/green label, and shelf background; 3.5-second gap confirms continuity. The Supplement Facts table with full vitamin/mineral rows is prominently readable (nutrition). An ingredients/other-ingredients section is likely present on the same panel (ingredients). Additional label content (warnings, serving info, distributor text) is also visible (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "3fbcf9220197f2a66e8be500c745f427",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag labeled \\\"CL DHEA 10 MG 50 CNT / $11.99\\\" with barcode 015794016656. That barcode exactly matches the one visible on the bottle's back panel in Image 1, which is the Country Life DHEA 10 mg / 50 Vegan Capsules shown in Image 3. Taken 21 seconds after Image 1, this is the price-tag shot for the same product being documented.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

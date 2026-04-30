@@ -1,0 +1,9 @@
+{
+  "request_sha": "1f46141c85de3ed77dd0eea5302b3196",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Bluebonnet liquid Multi bottle as Image 1 and the group front (Image 3). The current shot shows the wrap-around Supplement Facts right-hand column (Copper \\u2192 Lycopene) \\u2014 clearly nutrition. The bottom of the panel includes a partial Other Ingredients list (purified water, cane sugar, sorbitol\\u2026) \\u2014 ingredients. The top edge shows a refrigeration/directions fragment \\u2014 other-label. 21.6-second gap reinforces same-product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

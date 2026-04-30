@@ -1,0 +1,9 @@
+{
+  "request_sha": "9c5d04b65885dbe5fd4da3d27a80ec64",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same MOM Magnesium Glycinate 400 mg bottle (identical red label, white cap, same shelf), photographed 9.8 s later rotated sideways to show the back panel. The Supplement Facts table (Magnesium 400 mg, 95% DV, serving info) is fully legible, and the \\\"Other Ingredients\\\" list (vegan capsule, modified cellulose, water, magnesium stearate, silica) is clearly visible below it.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

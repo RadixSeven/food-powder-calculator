@@ -1,0 +1,9 @@
+{
+  "request_sha": "c025bde4dd8d5d88d7e941fe3ad6e062",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Nature Made D3 2000 IU bottle (matching yellow label and barcode), rotated to reveal the side/bottom panel. Primary subject is other-label content: caution text, lot number 2659736, expiry DEC 2027, barcode, and No Color/No Artificial Flavors/Gluten Free claims. No Supplement Facts table is in frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

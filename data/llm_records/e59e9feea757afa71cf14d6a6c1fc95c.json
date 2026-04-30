@@ -1,0 +1,9 @@
+{
+  "request_sha": "e59e9feea757afa71cf14d6a6c1fc95c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him amber bottle with yellow lid, same store background \\u2014 this is the right-side wrap of the back panel shot 3.2 s after Image 1. The right column of the Supplement Facts table is readable (Biotin 30 mcg through Molybdenum 75 mcg), qualifying it for `nutrition`. The \\\"OTHER INGREDIENTS\\\" list is also legible (Cellulose Gel, Maltodextrin, Croscarmellose Sodium, etc.), adding `ingredients`. The caution text and distributor/USP info qualify as `other-label`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

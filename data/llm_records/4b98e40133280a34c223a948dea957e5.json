@@ -1,0 +1,9 @@
+{
+  "request_sha": "4b98e40133280a34c223a948dea957e5",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same MOM Ultra Omega-3 bottle rotated to show the Supplement Facts panel 8.8 seconds after the front shot. Matching pink/salmon label, white cap, and partial front-text visible on the left edge (\\\"EGA-3\\\", \\\"ular Support\\u2020\\\") confirm it's the same bottle. The Supplement Facts table is fully readable (Fish Oil Concentrate, Omega-3 1,250 mg, EPA 1,063 mg, DHA 687 mg). \\\"Other Ingredients: Softgel (Gelatin, glycerin, purified water)...\\\" is also partially visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

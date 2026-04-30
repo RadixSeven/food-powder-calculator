@@ -1,0 +1,9 @@
+{
+  "request_sha": "96686ba5d40ed38d8b5d463d5c8015f3",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle (matching yellow lid, amber glass, blue/yellow label) rotated to show the side/back panel. The Supplement Facts table is clearly readable with multiple vitamin rows (A, C, D, E, K, B-vitamins). The same panel also shows Suggested Use directions, a caution statement, and distributor info, warranting other-label alongside nutrition.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

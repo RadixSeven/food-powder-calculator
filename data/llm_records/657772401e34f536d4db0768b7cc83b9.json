@@ -1,0 +1,9 @@
+{
+  "request_sha": "657772401e34f536d4db0768b7cc83b9",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle as Image 1, now rotated to show the back/side panel. The Supplement Facts table (Vitamin A, C, D, E, K, B-vitamins with amounts per serving) fills a meaningful portion of the frame \\u2014 primary role is nutrition. Also visible: suggested use, caution, distributor info, and an FDA disclaimer strip \\u2014 captured as other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

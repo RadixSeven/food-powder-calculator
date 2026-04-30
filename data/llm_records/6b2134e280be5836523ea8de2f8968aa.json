@@ -1,0 +1,18 @@
+{
+  "request_sha": "6b2134e280be5836523ea8de2f8968aa",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165958071_4018.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"men's multi men's multi men's lement facts amount per serving % daily value % daily value zinc (as zinc citrate) 11 mg 100% 900 mcg 100% selenium 55 mcg 100% 90 mg 100% (as selenium l-methionine complex) (2,000 iu) 250% copper (as copper chelate) 0.9 mg 100% manganese (as manganese citrate) 2.3 mg 100% 15 mg 100% chromium 100 mcg 286% (succinate) 120 mcg 100% (as chromium picolinate) mononitrate) 6 mg 500% molybdenum 45 mcg 100% 5 mg 385% (as molybdenum glycinate chelate) 20 mg 125% organic rainbow 80 mg ** 20 mg 1,176% superfoods blend organic spirulina, organic beet (root), organic 400 mcg dfe 100% broccoli (floret, stem), organic kale (leaf), (as folic acid) organic spinach (leaf), organic blackberry 10 mcg 417% (fruit), organic blueberry (fruit), organic carrot (root), organic cranberry (fruit) 50 mcg 167% men's botanical blend 66 mg 13 mg 260% ashwagandha extract (root), organic green tea 55 mcg 10% extract (leaf), organic chlorella, lycopene 25 mg 2% (from tomato (fruit) (sp.) ginger, enzyme and 27 mg 150 mcg probiotic blend cerevisiae) 100% ginger juice extract (root), bromelain (from 50 mg 100% pineapple stem), papain (from papaya fruit 50 mg 12% latex), bacillus coagulans mtcc 5856 sweetener) (1 million cfu***) (plant origin), croscarmellose sodium, coating (hydroxypropyl cambodia wax. light nutritional systems, llc up.com fish or shellfish. **daily value not established. just one cap nutrients designed expertly cra provides ea support to overa wellnes b, c0e antioxio suggesti daily, w keep out of store in a tamper evi broken or warning: th by men and a woman or yo you are taking blood thinne surgical proce condition, see your doctor reactions, dis product or co men's multi men's m natur 60 28.99 these by the produc cure, or g lutamine 1 ce ce 0 hone brain hea cardiovas\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "497b8747b1d1d0e3c3b96a684345ef50",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same large white bottle with maroon Buried Treasure Active 55 label, shot 5.1 s after Image 1. The left edge of the frame still shows the Supplement Facts column (partial but readable nutrition rows), while the centre/right panel reveals the barcode, Life Line Foods manufacturer address, directions for use, and a caution/contains note \\u2014 all other-label content. No front face or price tag is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

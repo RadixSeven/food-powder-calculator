@@ -1,0 +1,9 @@
+{
+  "request_sha": "3d003dec10d1fa63eba69d8ce2ab4d7c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same New Chapter Liquid Multivitamin bottle (dark glass, purple label) rotated to show the right-side Supplement Facts columns (4\\u201313 years and 14+ years age groups). Supplement Facts data is clearly readable (nutrition). The bottom of the panel also shows an \\\"Other ingredients:\\\" section listing ferment media, xanthan gum, etc. (ingredients), plus distributor address, copyright notice, and certification marks (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "f14eb6a9468eb75d3a936fd926b9ce9c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"The current photo shows the back/side panel of the same Rainbow Light Men's One+ bottle seen in the previous photo. Visible: a Supplement Facts table (vitamins A, C, D, E, K, B-vitamins, minerals, blends with % Daily Values), an Other Ingredients list (Cellulose, Hypromellose, Carnauba Wax), and other label content including the manufacturer info, allergen statement (\\\"Contains NO: Wheat, milk, peanuts\\u2026\\\"), and an FDA disclaimer sidebar.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

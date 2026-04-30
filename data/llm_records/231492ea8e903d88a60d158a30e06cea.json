@@ -1,0 +1,9 @@
+{
+  "request_sha": "231492ea8e903d88a60d158a30e06cea",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Image 1 is a price tag for \\\"MOMS PLANT BSD FIBER PWDR 10.5OZ\\\" ($25.99), matching the running group front (Image 3: MOM Plant-Based Fiber Complex 10.5 oz). The current photo (Image 2) shows a clearly different MOM product: \\\"Organic Whole Psyllium Husk\\\" 12 oz (336g) \\u2014 different product name, different net weight, different formulation. Both share the MOM brand and orange canister design, but the label text and size unambiguously distinguish them as separate SKUs. The current shot is the front face of the new product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

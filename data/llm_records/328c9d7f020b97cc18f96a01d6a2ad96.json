@@ -1,0 +1,9 @@
+{
+  "request_sha": "328c9d7f020b97cc18f96a01d6a2ad96",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Current photo's primary subject is the shelf price tag for \\\"CL Easy Iron 25mg / 90 cnt\\\" at $13.79. The tag's barcode (015794026594) is an exact match for the barcode on the bottle back shown in Image 1, and the 13.3-second gap confirms this is the same Country Life Easy Iron product session.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

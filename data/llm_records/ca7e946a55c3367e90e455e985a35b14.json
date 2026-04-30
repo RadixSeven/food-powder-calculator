@@ -1,0 +1,9 @@
+{
+  "request_sha": "ca7e946a55c3367e90e455e985a35b14",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Buried Treasure VM100 Daily Multi bottle (matching orange/white label, white cap, shelf background), photographed 5.2 seconds after the previous shot. The current photo shows the right-column wrap-around of the Supplement Facts panel (zinc, copper, manganese, selenium, citrus bioflavonoids, rutin, ginkgo biloba, alpha lipoic acid, super food blend, etc.), the tail of the Other Ingredients list, and manufacturer/distributor info with barcode \\u2014 earning nutrition, ingredients, and other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

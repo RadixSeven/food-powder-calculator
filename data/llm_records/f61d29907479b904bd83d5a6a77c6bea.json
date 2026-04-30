@@ -1,0 +1,9 @@
+{
+  "request_sha": "f61d29907479b904bd83d5a6a77c6bea",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo is the front face of Country Life Daily Total One (Iron Free, 60 Vegan Capsules), a multivitamin. The running group is Country Life Vitamin D3 (10,000 IU, 200 Softgels) \\u2014 a different product. Same brand, different SKU.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

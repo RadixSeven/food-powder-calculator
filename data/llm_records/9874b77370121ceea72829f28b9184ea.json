@@ -1,0 +1,9 @@
+{
+  "request_sha": "9874b77370121ceea72829f28b9184ea",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi amber bottle with yellow cap as Image 1 and the group front (Image 3) \\u2014 identical bottle shape, label colors, and same shelf. 3.6-second gap confirms continued rotation of the bottle. The current shot foregrounds the lot/expiry (Lot 2652085, Exp. NOV 2027), barcode, warning text, and \\\"No Color Added / Gluten Free\\\" badge (all other-label); the full Other Ingredients list is clearly readable (ingredients); and the left edge retains a readable sliver of the Supplement Facts column (nutrition, applied liberally).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

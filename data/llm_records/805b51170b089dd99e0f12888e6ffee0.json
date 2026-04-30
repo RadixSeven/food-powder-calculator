@@ -1,0 +1,9 @@
+{
+  "request_sha": "805b51170b089dd99e0f12888e6ffee0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Thorne Vitamin D+K2 amber dropper bottle as Image 1 \\u2014 identical barcode (693749 50001 8), lot code (KD500/LKD50010), QR code, and NSF seal confirm the same back panel, rotated slightly to also show the start of the front label at the right edge. Partial Supplement Facts (%DV 125%/167%) are readable \\u2192 nutrition; barcode, lot code, and QR code \\u2192 other-label. 8.5-second gap reinforces same-product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "98fd67df0fe44a931f2c19533cb52642",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle (amber glass, yellow lid, identical yellow label with \\\"No Color Added / No Artificial Flavors / Gluten Free\\\" badge) as Image 1 and the running-group front (Image 3), rotated slightly further to expose the bottom-back panel. The \\\"OTHER INGREDIENTS\\\" list (Cellulose Gel, Modified Food Starch, etc.) is fully legible \\u2192 ingredients. Lot number (2652085), expiry (NOV 2027), and barcode are clearly shown \\u2192 other-label. A partial column of Supplement Facts % Daily Values is visible along the left edge \\u2192 nutrition (liberal rule). 3.6-second gap is consistent with the same multi-angle documentation session.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

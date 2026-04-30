@@ -1,0 +1,9 @@
+{
+  "request_sha": "0603df816410f7d6e30ccf789134e425",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"The current photo shows the lower portion of the back panel of the same Solaray Men's Liposomal Multivitamin box visible in Image 1 (upper back panel) and Image 3 (front). The box color, shape, and Solaray branding are identical; \\\"MEN'S\\\" and \\\"Take On All Life's Adventures\\\" appear at the top, matching the Men's product. The 7.3-second gap strongly supports same product. Roles: the continuation of the Supplement Facts table is readable (nutrition); the full \\\"Other Ingredients:\\\" list is clearly legible (ingredients); manufacturer address, CELLg8 trademark, gluten-free badge, and FDA disclaimer constitute other label content (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

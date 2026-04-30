@@ -1,0 +1,9 @@
+{
+  "request_sha": "317c15de810c82c0c417153f330b47a0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same MOM Organic Whole Psyllium Husk bottle \\u2014 identical orange container, same shelf background (CHELANOX visible, $46.99 tag), same hand, only 6.6 s gap. The current shot is rotated ~90\\u00b0 further than Image 1 to frame the barcode panel (UPC 19985'93480, \\\"934 - ORGANIC PSYLLIUM HUSK UNFLAVORED\\\") along with the wraparound marketing copy. No Supplement Facts rows are legible; the partial front text on the right edge is background, not the primary subject. Classified as other-label (barcode + distributor/product-code text).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

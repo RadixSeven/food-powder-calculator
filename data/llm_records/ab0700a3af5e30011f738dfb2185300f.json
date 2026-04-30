@@ -1,0 +1,9 @@
+{
+  "request_sha": "ab0700a3af5e30011f738dfb2185300f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same Country Life NAC 750mg amber bottle. Supplement Facts table is clearly legible (serving size 1 capsule, NAC 750 mg). Other Ingredients list is present (cellulose, stearic acid, silica, vegetable magnesium stearate). Additional label content includes directions, caution/warning text, storage instructions, and manufacturer details (Country Life LLC, Hauppauge NY, Product No. 1686).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

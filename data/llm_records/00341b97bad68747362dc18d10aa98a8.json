@@ -1,0 +1,9 @@
+{
+  "request_sha": "00341b97bad68747362dc18d10aa98a8",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same small dark-amber Thorne dropper bottle held in the same hand against the same shelf (B-12 bottle visible in identical background position). The current shot is the right wrap-around of the back label: a partial Supplement Facts %DV column is legible (125%, 167%), \\\"Other Ingredients: \\u2026 Triglyceride Oil, Mixed Tocopherols\\\" is partially readable, and the right panel shows barcode, lot codes (KD500 / LKD50010), QR code, and NSC Contents Certified badge. The 13.4-second gap strongly confirms same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

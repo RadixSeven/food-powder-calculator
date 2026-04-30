@@ -1,0 +1,9 @@
+{
+  "request_sha": "e1b7308a3ab023959eadcf1e0d8602c7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows MegaFood Men's 55+ Advanced Multivitamin (120 tablets), a different product from the running group's MegaFood Vitamin D3 & K2 5000 IU. Despite the same amber bottle/green lid form factor, the label is visually distinct (broccoli/citrus imagery, different product name and formulation). The front face with MegaFood logo, 'Men's 55+ Advanced Multivitamin' name, and marketing copy dominate the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

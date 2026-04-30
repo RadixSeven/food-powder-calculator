@@ -1,0 +1,9 @@
+{
+  "request_sha": "4a5b105ade236ea251e83c8c2ddeee9c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows the front of a Solaray Liposomal Multivitamin Men's 60ct box \\u2014 a clearly different SKU from the running group's Solaray Magnesium Glycinate 350mg 120ct (bottle, confirmed by Image 3 and the price tag in Image 1). Brand logo, product name, and marketing copy fill the frame; this is a new product's front shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

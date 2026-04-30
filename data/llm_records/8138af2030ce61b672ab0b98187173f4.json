@@ -1,0 +1,9 @@
+{
+  "request_sha": "8138af2030ce61b672ab0b98187173f4",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag reading \\\"JRRW MK-7 120 CNT / $46.99\\\" with barcode 790011300076, which exactly matches the Jarrow Formulas MK-7 120 softgels bottle documented in the previous shots (same barcode on Image 1's back panel). The 27.6-second gap is strong same-product evidence. The tag dominates the frame; the partial bottle top visible in the background is not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

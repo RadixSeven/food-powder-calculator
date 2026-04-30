@@ -1,0 +1,9 @@
+{
+  "request_sha": "743df13e4443e270fe7d930f7febfed5",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Country Life DHEA 25mg bottle rotated to its back panel. The Supplement Facts table (Dehydroepiandrosterone 25mg per capsule) fills the upper portion of the frame, qualifying as the primary subject. The same panel also shows an \\\"Other Ingredients\\\" line and extensive warnings/directions/manufacturer info.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

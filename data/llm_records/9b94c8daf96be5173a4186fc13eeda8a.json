@@ -1,0 +1,9 @@
+{
+  "request_sha": "9b94c8daf96be5173a4186fc13eeda8a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Country Life Vitamin D3 250 mcg amber bottle, now rotated to the back panel. The Supplement Facts table (Vitamin D3, 250 mcg / 1,250% DV) dominates the upper portion of the frame; below it is the Other Ingredients list (MCT oil, gelatin, glycerin, etc.) and a block of caution/warning text plus manufacturer address \\u2014 all on the same documented panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

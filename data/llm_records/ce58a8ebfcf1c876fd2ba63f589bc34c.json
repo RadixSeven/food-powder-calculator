@@ -1,0 +1,9 @@
+{
+  "request_sha": "ce58a8ebfcf1c876fd2ba63f589bc34c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle with green lid and MegaFood yellow/green label, same shelf background \\u2014 the photographer rotated it 5 seconds after the front shot. The back panel shows a complete Supplement Facts table (Vitamin D3 625% DV, Vitamin K, K2, Cabbage), an Other Ingredients list (maltodextrin, hypromellose, dicalcium phosphate, silicon dioxide), and distributor info / suggested-use copy.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

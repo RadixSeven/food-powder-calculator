@@ -1,0 +1,9 @@
+{
+  "request_sha": "b46bdd9852ea5fd8468c56373ac97068",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo shows a shelf price tag reading \\\"CL DHEA 10 MG 50 CNT / $11.99\\\" with barcode 015794016656. The abbreviated name and the matching bottle visible in the background confirm this is the Country Life DHEA 10 mg 50-capsule product from the running group. No other label content (Supplement Facts, ingredients, front panel) is legibly visible in this shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

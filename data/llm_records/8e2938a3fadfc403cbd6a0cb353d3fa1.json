@@ -1,0 +1,9 @@
+{
+  "request_sha": "8e2938a3fadfc403cbd6a0cb353d3fa1",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same Bluebonnet Liquid Multi bottle from Image 1 \\u2014 same purple lid, white bottle, and shelf. Supplement Facts table is fully legible (vitamins A, C, D3, E, B-complex, minerals, etc.), \\\"Other Ingredients\\\" list is visible at the bottom, and manufacturing/distributor info is also present. 25-second gap strongly supports same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

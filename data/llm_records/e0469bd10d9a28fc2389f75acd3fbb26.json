@@ -1,0 +1,9 @@
+{
+  "request_sha": "e0469bd10d9a28fc2389f75acd3fbb26",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag for \\\"CL DHEA 25 MG 90 CNT\\\" at $19.99. The barcode on the tag (015794016700) exactly matches the barcode on the bottle back shown in image 1, confirming this is the same Country Life DHEA 25mg 90-capsule product as the running group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

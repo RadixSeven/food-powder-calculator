@@ -1,0 +1,9 @@
+{
+  "request_sha": "272ef9c89aaa4f150df135da0df19675",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo is the front face of a Buried Treasure VM100 Daily Multi bottle (orange label, 33 FL OZ). The previous photo was a price tag reading \\\"BB SPR EARTH ML / NUTRI LQ 32 FZ\\\" \\u2014 \\\"BB\\\" = Bluebonnet, matching the running group front (Image 3, Bluebonnet liquid Multi). Buried Treasure is a completely different brand with different packaging. No Supplement Facts visible in the current shot; only front marketing content.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

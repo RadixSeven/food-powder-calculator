@@ -1,0 +1,9 @@
+{
+  "request_sha": "fd18796bdbef1e745f3aee9e8e88fd5b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows the front face of an Orgain Organic Protein Powder (Peanut Butter, 32.4 oz) \\u2014 a completely different brand, bottle shape, and product from the MaryRuth's Liquid Morning Multivitamin Raspberry that is the running group. Image 1 was a price tag for the MaryRuth's product; Image 2 is a new product entirely. The 5.5-minute gap is consistent with the photographer moving to a different product. The primary subject is the Orgain front label with brand logo and marketing copy.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "57606795cb9a892733da23b9389d6f62",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows Country Life DHEA 25 mg / 90 Vegan Capsules (front label clearly visible). The running group (image 3) is Country Life DHEA 10 mg / 50 Vegan Capsules \\u2014 same brand and product line but a different dosage and count, so a different SKU. The previous photo was the 10 mg price tag ($11.99 for 50 ct), confirming the group was on the 10 mg product. The current photo opens a new product group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "c3e02f494be122c600140878d83cca36",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag for \\\"CL VITAMIN D3 10000 IU 200 CNT\\\" at $26.99. The barcode on the tag (015794058168) matches the barcode visible on the bottle back in the previous photo, confirming it belongs to the same Country Life Vitamin D3 product shown in the running group front.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

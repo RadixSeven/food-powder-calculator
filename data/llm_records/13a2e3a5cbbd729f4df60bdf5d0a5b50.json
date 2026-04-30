@@ -1,0 +1,9 @@
+{
+  "request_sha": "13a2e3a5cbbd729f4df60bdf5d0a5b50",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"The current photo shows the top/bottom panel of the same white Solaray Liposomal Multivitamin Men's box held in Image 1. The 7.1-second gap is strong same-product evidence. The panel displays a UPC barcode (0 76280 88289 6), Best Before date (02/28), Mfg Date (02/26), and LOT number (1173524) \\u2014 all other-label content. No nutrition data, ingredients list, front face, or price tag is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

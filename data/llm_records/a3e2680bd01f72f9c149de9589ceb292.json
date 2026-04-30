@@ -1,0 +1,18 @@
+{
+  "request_sha": "a3e2680bd01f72f9c149de9589ceb292",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165814496_4049.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"lement facts 4-13 years 14+ years (1 cup (1 tbsp)) 30 ml (2 tbsp) about 30 about 30 %dv for 4-13 years %dv for 14+ years 50% 900 mcg 100% 14 mg 140% (340 iu) 50% 60 mcg 100% 104% 70 mg 200% 94% 30 mcg 100% 46% 2.5 mg 167% 80 mg dfe 10% 80% 50% 1.2 mg 100% 80% 80 mg 100% 80% 7 mg 100% 13 mg 28 mg 4% 25 mg 4% 75 mcg 50% 150 mcg 100% 0.7 mg 28% 1.5 mg 50% 28% 5.5 mg 35% 13 mg 50% 1 mg 50% 1 mg 50% 4% 0.04 mg 1% 12 mg 80% 2.3 mg 8% 100 mg 45 mg 14% 50 mg 100 mg fermented (saccharomyces xanthan gum. malic acid, citric acid (preservative). technology drive, brattleboro, vt 05301 usa 888-874-4461 from organic, castle rock, co, usa not from artificial colors. common 6 genes or proteins. trademark of \\u00a92024 new chapter, inc. 0900-a02\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

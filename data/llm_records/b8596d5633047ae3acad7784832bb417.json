@@ -1,0 +1,9 @@
+{
+  "request_sha": "b8596d5633047ae3acad7784832bb417",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"The current photo is the same Nature Made Multi 50+ For Him bottle (identical yellow/brown amber bottle, yellow cap, same store background) rotated slightly to reveal the right-hand column of the Supplement Facts table (Biotin through Molybdenum) and the \\\"OTHER INGREDIENTS\\\" list (Cellulose Gel, Modified Food Starch, Maltodextrin, Croscarmellose Sodium, Hypromellose, Dicalcium Phosphate, Magnesium Stearate, Silicon Dioxide, Gelatin, Polyethylene Glycol). A caution warning and the \\\"No Color Added / No Artificial Flavor / Gluten Free\\\" claims are also visible as other-label content.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

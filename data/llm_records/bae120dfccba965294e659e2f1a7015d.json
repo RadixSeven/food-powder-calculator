@@ -1,0 +1,9 @@
+{
+  "request_sha": "bae120dfccba965294e659e2f1a7015d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back/side panel of the same Orgain Organic Protein (Peanut Butter) tub photographed 7.5 seconds after the front. The pink \\\"NEW CREAMIER TASTE\\\" badge is visible on the left edge, the white tub shape and green banding match, and the shelf background is identical. The panel shows a complete Nutrition Facts table (160 cal, full macro/micro rows \\u2192 nutrition), a full INGREDIENTS block starting \\\"ORGAIN ORGANIC PROTEIN BLEND\\u2122\\u2026CONTAINS: PEANUTS\\\" (\\u2192 ingredients), and additional label content including distributor info, certifications (USDA Organic, Non-GMO, B Corp), social icons, and \\\"Our Commitment to Clean Nutrition\\\" marketing copy (\\u2192 other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

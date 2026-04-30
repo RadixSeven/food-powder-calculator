@@ -1,0 +1,9 @@
+{
+  "request_sha": "74e7d7682cdc8ca53a3d96fb5e683922",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Price tag reading \\\"CL DAILY TOTAL ONE 60 CNT / $24.99\\\" dominates the frame and matches the running Country Life Daily Total One product. Short 15.6 s gap and matching amber bottles below the tag confirm same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

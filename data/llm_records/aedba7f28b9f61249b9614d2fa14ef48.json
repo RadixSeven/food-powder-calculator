@@ -1,0 +1,9 @@
+{
+  "request_sha": "aedba7f28b9f61249b9614d2fa14ef48",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him amber bottle with yellow lid, rotated to the side/back panel 2.9 seconds after the front shot. The right edge clearly shows a partial Supplement Facts table with multiple vitamin/mineral rows (Vitamin A through B12) readable. The main panel area shows marketing claims and distributor/disclaimer text (other-label). No front or ingredients list visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

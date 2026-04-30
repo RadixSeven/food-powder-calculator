@@ -1,0 +1,18 @@
+{
+  "request_sha": "ff7b8dd26508489456123a29eda497f0",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165809667_2072.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"supplement facts 2-3 times 7.4 ml (1 tsp. = 1 tsp.) about 120 serving size servings per container %dv per 2-3 times vitamin a vitamin c (as l-ascorbic acid) vitamin d3 vitamin e (as d-alpha tocopheryl acetate) vitamin k2 thiamin (vitamin b1) (as thiamin hydrochloride) riboflavin (vitamin b2) niacin (as niacinamide) (vitamin b3) vitamin b6 (as pyridoxine hydrochloride) folate (as l-methylfolate) vitamin b12 (as methylcobalamin) biotin pantothenic acid (as calcium d-pantothenate) choline (as choline bitartrate) calcium (as calcium citrate) iodine (as potassium iodide) magnesium (as magnesium citrate) zinc (as zinc citrate) selenium (as selenomethionine) manganese (as manganese citrate) chromium (as chromium picolinate) molybdenum (as molybdenum glycinate chelate) organic superfood blend organic elderberry (sambucus nigra) (fruit), organic black currant (ribes nigrum) (fruit) extract, organic grape (vitis vinifera) (seed) extract, resveratrol, acerola (malpighia glabra) (fruit) \\u2020 daily value (dv) not established \\u2021 percent daily values are based on a 2,000 calorie diet \\u2020 percent daily values are not established other ingredients: water, organic glycerine, natural flavors: less than 2% of: ferment ester citrate, sodium citrate, malic acid, citric acid (preservative), bacto-bloc enzyme distributed by new chapter, inc., 90 technology drive, brattleboro, vt 05301 for questions or comments call 888-874-848 certified organic by where food comes from organic, costa mesa, ca usa manufactured in the usa from globally sourced ingredients gluten free. 100% vegan. no artificial colors. this product does not contain common ge genes or proteins. visit www.gpmprogram.com igen\\u2122 certification mark is a registered trademark of nutrasource diagnostics, inc.\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

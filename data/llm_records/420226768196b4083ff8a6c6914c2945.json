@@ -1,0 +1,9 @@
+{
+  "request_sha": "420226768196b4083ff8a6c6914c2945",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle with green lid as Image 1 and the group front (MegaFood Men's 55+ Advanced Multivitamin). The current shot shows the back panel: an \\\"Other Ingredients\\\" list (microcrystalline cellulose, rice protein, etc.), the manufacturer address, FDA disclaimer, Biotin caution, lot/expiry code (MAY 2027), and storage instructions. No Supplement Facts rows are visible. Short 22.7-second gap reinforces same-product determination.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

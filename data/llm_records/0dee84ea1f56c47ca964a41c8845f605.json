@@ -1,0 +1,9 @@
+{
+  "request_sha": "0dee84ea1f56c47ca964a41c8845f605",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows the front of Orgain Organic Protein in Vanilla Bean flavor. The running group (Image 3 front + Image 1 price tag \\\"PB OG\\\") is the Peanut Butter flavor \\u2014 a distinct SKU. Short time gap is outweighed by clear visual evidence of a different flavor variant.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

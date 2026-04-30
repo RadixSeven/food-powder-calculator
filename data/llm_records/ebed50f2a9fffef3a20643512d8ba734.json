@@ -1,0 +1,9 @@
+{
+  "request_sha": "ebed50f2a9fffef3a20643512d8ba734",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same MOM Plant-Based Fiber Complex canister (matching salmon/orange label, white lid, 8.7 s gap). Supplement Facts table is fully legible (nutrition), \\\"Other Ingredients: Xanthan gum.\\\" is clearly visible (ingredients), and the panel also shows manufacturer info, suggested use, and disclaimer text (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

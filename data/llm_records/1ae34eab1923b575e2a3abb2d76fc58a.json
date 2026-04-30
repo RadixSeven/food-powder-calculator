@@ -1,0 +1,9 @@
+{
+  "request_sha": "1ae34eab1923b575e2a3abb2d76fc58a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows the front of Nature Made \\\"Multi\\\" (130 tablets, 23 key nutrients). The running group (image 3) is Nature Made \\\"Multi 50+ For Him\\\" (90 tablets), which was also confirmed by the price tag in image 1 (\\\"NM MV HIM 50+\\\"). Different product name, different count, different demographic \\u2014 this is a new product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

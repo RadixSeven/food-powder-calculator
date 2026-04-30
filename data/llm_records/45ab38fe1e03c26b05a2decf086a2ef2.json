@@ -1,0 +1,9 @@
+{
+  "request_sha": "45ab38fe1e03c26b05a2decf086a2ef2",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life NAC 750 mg amber bottle, continuing to rotate through panels. This side panel shows NAC description/marketing text, certification badges (Gluten-Free, Vegan, Kosher-Parve, Halal, etc.), lot number 25L916A, best-by date, and UPC barcode \\u2014 all other-label content. No Supplement Facts entries or ingredients list are visible here.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

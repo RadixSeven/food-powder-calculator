@@ -1,0 +1,9 @@
+{
+  "request_sha": "39ab818d00a1cc3d45140424b82f9ff3",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him bottle as Image 1 and Image 3, rotated slightly to reveal the right-hand column of the Supplement Facts table (Biotin through Molybdenum). The Supplement Facts table dominates the frame \\u2192 `nutrition`. The \\\"OTHER INGRED[IENTS]:\\\" list is clearly visible on the right edge \\u2192 `ingredients`. A CAUTION warning block and \\\"No Color Added / No Artificial Flavors / Gluten Free\\\" checkmarks also appear on this panel \\u2192 `other-label`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "f4f09d59a990075cd8cded70b29f6119",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same Nature's Way Alive! Max Potency green bottle as the previous shot (same hand, same shelf with Vitamin Code products in background, 12 s apart). The current frame shows the right column of the Supplement Facts panel more clearly \\u2014 Supplement Facts entries are fully legible (nutrition), and the detailed blend component lists (Daily Greens Blend: Spirulina, Barley grass\\u2026; Orchard Fruits & Garden Veggies; Mushroom Mycelial & Primordia; Omega 3/6/9; etc.) constitute an ingredients listing per the 'Organic\\u2026Blend:' criterion.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

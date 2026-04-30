@@ -1,0 +1,9 @@
+{
+  "request_sha": "4ff624b59d2a85ecef501f75592700c9",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a MOM Ultra Omega-3 (EPA+DHA 1,000 mg, 120 Softgels) in a salmon/coral-pink bottle. The running group is MOM Magnesium Glycinate (red/orange bottle). Different product name, different formula, different label color \\u2014 clearly a new product. The shot frames the front face with brand logo and product name filling the frame, so role is `front`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "c0917293f5070d2771c4aa6315c91dc7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"front\", \"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made D3 2000 IU (50 mcg) 400-tablet bottle, rotated slightly right to reveal the side panel. The front label (NatureMade D3 branding, \\\"Supports bone, teeth, and muscle health\\\", \\\"Dietary Supplement\\\") is still partially visible on the left. The side panel shows a partial Supplement Facts table (\\\"Supp\\u2026 Vitamin D\\u2026 Calcium D\\u2026\\\"), \\\"OTHER\\\" indicating an Other Ingredients list, and distributor/storage/disclaimer text.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "9f9a877ce6e4568b9936e9f5935b7ceb",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a hand holding a Country Life DHEA 10mg (50 Vegan Capsules) bottle \\u2014 a different product from the running group (Country Life NAC N-Acetyl Cysteine 750mg shown in image 3). The front label of this new DHEA product fills the frame, making this a `front` shot for a new product group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

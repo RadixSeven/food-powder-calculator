@@ -1,0 +1,18 @@
+{
+  "request_sha": "884d4013a494ed14741eaba630b560a2",
+  "request": {
+    "prompt": "Extract the product name and manufacturer from this front-of-package photo, following the instructions in the system prompt.",
+    "model": "haiku",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_002/crops/PXL_20260426_181015159.MP__front__0180_0420_0820_0930.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"product_name\": {\"type\": \"string\"}, \"manufacturer\": {\"type\": \"string\"}}, \"required\": [\"product_name\", \"manufacturer\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract a small set of fields from a front-of-package product photo for a deterministic comparison task. Return a JSON object with two keys: `\"product_name\"` (the full product name as it appears on the front panel, including flavor / variant / count if printed there, lower-cased, single-spaced); and `\"manufacturer\"` (the manufacturer / brand owner exactly as printed, lower-cased; empty string if no manufacturer name is visible). Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"product_name\": \"multi 130 tablets\", \"manufacturer\": \"nature made\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

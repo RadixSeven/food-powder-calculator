@@ -1,0 +1,9 @@
+{
+  "request_sha": "6d9fd5e755cb80e5a2c3c691f199e924",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a purple MOM-brand \\\"ClearFiber Powder\\\" tub (5 oz / 142g) being held up, displaying the front face with brand logo and product name. The running group product (Image 3) is a RenewLife \\\"Organic Clear Fiber\\\" in a white/yellow tub (7 oz / 198g) \\u2014 entirely different brand, packaging color, and size. The previous shot (Image 1) was a price tag for the RenewLife product (\\\"RENEW CMPLT CLEAR FIBER OG 7 OZ\\\"). Despite the short 29-second gap, the visual evidence is unambiguous: completely different brand and container. This is the front of a new product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

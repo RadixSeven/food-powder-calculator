@@ -1,0 +1,9 @@
+{
+  "request_sha": "df0303955ff7d2368987207e99cb88d8",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him bottle rotated to the side/back. The right edge reveals a partial Supplement Facts table (header visible, rows listing Vitamins A, C, D, E, etc.). The main visible panel shows marketing health claims and the standard FDA disclaimer plus partial distributor info \\u2014 qualifying as other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

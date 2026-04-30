@@ -1,0 +1,9 @@
+{
+  "request_sha": "ac00369d5f183da202a33d1807d08c18",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same white Jarrow Formulas K-Right bottle (confirmed by brand name visible in Image 2 and matching bottle shape/color with Image 3 front). Only 5.9 s after Image 1. The current shot shows the back panel: suggested use, product marketing blurb, warning, FDA disclaimer, lot number, and best-used-by date \\u2014 all other-label content. No supplement facts table and no ingredients list are legible; no price tag is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

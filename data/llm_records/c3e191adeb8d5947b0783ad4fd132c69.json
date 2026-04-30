@@ -1,0 +1,9 @@
+{
+  "request_sha": "c3e191adeb8d5947b0783ad4fd132c69",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Current photo is a side panel of the same MOM ClearFiber Powder tub (identical white lid, purple-pink gradient label). Panel shows partial marketing copy about ClearFiber, a barcode (7 87500 07421 1), and distributor info (Mom's Organic Market, Rockville MD). No nutrition table, no ingredients list, no front face visible. 6.3-second gap reinforces same-product conclusion.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

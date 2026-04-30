@@ -1,0 +1,9 @@
+{
+  "request_sha": "cf460c4736c2d27cbc95cea454413d3b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a hand holding Nature Made Multi (130 tablets, general formula), while the running group (Image 3) is Nature Made Multi 50+ For Him (90 tablets). These are distinct SKUs \\u2014 different product name, different tablet count, different formula. The 9.2-second gap would normally suggest same product, but the visual difference is unambiguous: the label text and count clearly differ. The front face of the new bottle fills the frame, making this a `front` shot for a new product group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

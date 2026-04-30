@@ -1,0 +1,18 @@
+{
+  "request_sha": "19c6aeb503d632ac14dd77df09f25efc",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165814496_3829.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"lement facts 4-13 years (1 ct) (1 tbsp) about 60 14+ years 30 ml (2 tsp) about 30 %dv for 4-13 years %dv 50% 50% 10% 50% 600 mcg 4 mg 200 mg 1.25 mg 15 mg 40 mcg dfe 50 mcg 2.5 mcg 10 mg 75 mcg 4 mg 2.5 mcg 28 mg 5 mg 50 mg 12 mg 50% 50% 50% 104% 94% 50% 50% 50% 50% 75% 50% 28% 50% 50% 50% 100% 90 mcg 8 mg 400 mg 2.5 mg 30 mg 80 mcg 15 mg 5 mcg 20 mg 150 mcg 8 mg 5 mcg 55 mg 10 mg 100 mg 23 mg 45 mg 100% 100% 100% 104% 94% 100% 100% 100% 100% 100% 100% 56% 100% 100% 100% 100% 50 mg 100 mg natural flavors, less than 2% of: ferment media (saccharomyces ), malic acid, citric acid (preservative), xanthan gum. technology drive, brattleboro, vt 05301 usa 888-874-4461 comments call usa comes from organic, castle rock, co, usa from globally sourced ingredients does not contain artificial colors. common or genes or proteins. trademark of \\u00a92024 new chapter, inc. 0900-a02\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

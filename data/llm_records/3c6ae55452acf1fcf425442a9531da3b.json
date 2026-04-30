@@ -1,0 +1,9 @@
+{
+  "request_sha": "3c6ae55452acf1fcf425442a9531da3b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same white bottle with orange/red MOM label as previous shots (9.8 s gap). This panel shows the back face: suggested use, allergen \\\"Contains No\\\" statement, storage instructions, FDA disclaimer, \\\"Keep Out of Reach of Children\\\" warning, barcode (787500064144), lot code, and distributor info for Mom's Organic Market. No Supplement Facts rows visible on this panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "49897aebd7e14a278c9638264abc16e6",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made D3 2000 IU (50 mcg) bottle as images 1 and 3, now rotated to show the back panel. The Supplement Facts table (Vitamin D3 50 mcg / Calcium 90 mg) dominates the frame \\u2192 nutrition. The OTHER INGREDIENTS list (Cellulose Gel, Maltodextrin, Sugar, etc.) is fully legible \\u2192 ingredients. Suggested use, distributor info, and USP/disclaimer text also appear \\u2192 other-label.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

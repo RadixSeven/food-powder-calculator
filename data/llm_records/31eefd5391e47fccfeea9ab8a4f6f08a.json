@@ -1,0 +1,9 @@
+{
+  "request_sha": "31eefd5391e47fccfeea9ab8a4f6f08a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Close-up of the shelf price tag for \\\"NATPLS SRC OF LFE GLD LIQ 30 FZ\\\" at $59.99. Barcode 097467307018 on the tag matches the barcode on the bottle's back panel in Image 1, confirming it belongs to the same NaturesPlus Source of Life GOLD Liquid product. Taken 10.7 s after the previous shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

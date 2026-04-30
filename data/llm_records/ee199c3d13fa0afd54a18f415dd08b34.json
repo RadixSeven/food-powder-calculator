@@ -1,0 +1,9 @@
+{
+  "request_sha": "ee199c3d13fa0afd54a18f415dd08b34",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same amber bottle with silver lid and green/yellow Country Life label as image 1 (Country Life High Potency Biotin 5 mg), now showing the back panel. Supplement Facts table with Biotin 5,000 mcg row is fully readable (nutrition). \\\"Other Ingredients: Cellulose, hypromellose\\\" is visible (ingredients). Caution text, storage instructions, manufacturer address, and product number are also present (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

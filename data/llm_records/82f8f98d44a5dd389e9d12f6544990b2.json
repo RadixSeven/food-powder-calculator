@@ -1,0 +1,9 @@
+{
+  "request_sha": "82f8f98d44a5dd389e9d12f6544990b2",
+  "request": null,
+  "response": {
+    "text": "{\"text\": \"cl daily total one 60 cnt 24.99 015794or616 0.42/cnt\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

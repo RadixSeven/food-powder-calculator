@@ -1,0 +1,9 @@
+{
+  "request_sha": "4ddf0e5afa8dbdeeab84046b967d115e",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"The current photo shows the opposite back panel of the same MOM D3 & K2 amber bottle (white lid, orange label, same $6.39 price tag visible in background, 3.7-second gap). This side displays marketing copy (\\\"Vitamins D3 & K2 to Support Immune, Cardiovascular and Bone Health\\\"), allergen/contains-no statement, storage instructions, lot code (VVL 112-60C), and FDA disclaimer \\u2014 all other-label content. No Supplement Facts rows are legible here (they were on the previous shot), so nutrition is not applied.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,18 @@
+{
+  "request_sha": "10f205511ee7cf56e5a38077edeb0118",
+  "request": {
+    "prompt": "Extract the nutrition / supplement facts table from this photo, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_017/nutrition.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: this image is the nutrition / supplement facts panel for the product \"advanced men's multi 60 vegetarian capsules\" by 'mom'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from a product photo for a deterministic comparison task. Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the table, in top-to-bottom order. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` for cells whose text is occluded, glared, cut off, or otherwise unreadable. Lower-case all text; preserve punctuation (parentheses, percent signs, decimal points). Do not invent values or fill in nutrients that are not visible. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"serving size: 2 vegetarian capsules\"], [\"servings per container: 30\"], [\"\", \"amount per serving\", \"% dv\"], [\"vitamin a (as \\u25ae% mixed \\u25ae palmitate, \\u25ae% beta carotene)\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin c\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin d3 (as cholecalciferol)\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin e (as d-alpha tocopheryl \\u25ae)\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin b1 (thiamin \\u25ae)\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin b2 (riboflavin 5-phosphate)\", \"\\u25ae\", \"\\u25ae\"], [\"niacin (as niacinamide)\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin b6 (as pyridoxal 5-phosphate)\", \"\\u25ae\", \"\\u25ae\"], [\"folate\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin b12 \\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"biotin\", \"\\u25ae\", \"\\u25ae\"], [\"pantothenic acid (as d-calcium pantothenate)\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\", \"amount per serving\", \"% dv\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"magnesium (as magnesium chelate)\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae (lutein)\", \"\\u25ae\", \"\\u25ae\"], [\"lycopene\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae marigold \\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"choline\", \"\\u25ae\", \"\\u25ae\"], [\"inositol\", \"\\u25ae\", \"\\u25ae\"], [\"\\u25ae\", \"\\u25ae\", \"\\u25ae\"], [\"vitamin k2 (as menaquinone-\\u25ae)\", \"\\u25ae\", \"\\u25ae\"], [\"\\u2020daily value not established\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

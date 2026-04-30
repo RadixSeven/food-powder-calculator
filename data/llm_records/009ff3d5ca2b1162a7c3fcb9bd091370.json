@@ -1,0 +1,18 @@
+{
+  "request_sha": "009ff3d5ca2b1162a7c3fcb9bd091370",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165809667_4049.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"supplement facts 2-3 years 7.4 ml (about 1.5 tsp) servings per container about 120 amount per serving %dv for 2-3 years 4-8 years calories 25 total carbohydrates 1.5 g 1% sugars 225 mg vitamin a (100% as beta-carotene) 1500 iu 60% vitamin c (as ascorbic acid) 15 mg vitamin d (as cholecalciferol from lichen) 3.5 mcg 23% vitamin d3 (140 iu) vitamin e (as d-alpha tocopherol acetate) 3.8 mg 60% vitamin k (as phylloquinone (k1)) 15 mcg 50% vitamin b1 (thiamin (as thiamin hydrochloride and from ferment media)) 0.65 mg 109% riboflavin (and from ferment media) 0.61 mg niacin (as niacinamide and as nicotinic acid from ferment media) 7.5 mg 100% vitamin b6 (as pyridoxine hydrochloride and from ferment media) 0.61 mg folate (as folic acid (300 mcg dfe) (180 mcg folic acid) and from ferment media) 200 mcg dfe 50% vitamin b12 (as cyanocobalamin) 6 mcg 1% biotin (and from ferment media) 0.5 mg 333% pantothenic acid (as calcium pantothenate and from ferment media) 1.0 mg 36% choline (as choline bitartrate) 5 mg 3% calcium (as calcium citrate) 7 mg 1% iodine (as potassium iodide) 38 mcg 42% magnesium (as magnesium citrate) 5 mg 4% zinc (as zinc citrate) 1.4 mg 40% selenium (as selenium glycinate) 14 mcg 70% manganese (as manganese citrate) 0.07 mg 1% chromium (as chromium picolinate) 0.6 mcg 5% molybdenum (as molybdenum picinate (helate)) 11.3 mcg 84% organic superfood blend organic elderberry (sambucus nigra) (fruit), organic black currant (ribes nigrum) (fruit) extract, organic grape (vitis vinifera) (seed) extract, organic acerola (malpighia glabra) (fruit) +daily value (dv) not established *percent daily values are based on a 2,000 calorie diet *percent daily values are based on a 1,000 calorie diet other ingredients: water, organic glycerin, natural flavor, less than 2% of: ferment media (organic stevia leaf extract, malic acid, citric acid (preservation), wildberry juice (water, ferment media)), organic molasses), organic cane leaf extract, malic acid, citric acid (preservation), wildberry juice (water, ferment media). distributed by new chapter, inc., 90 technology drive, brattleboro, vt 05301 for questions or comments call 888-874-4493 certified organic by where food comes from organic, castle rock, co manufactured in the usa from globally sourced ingredients gluten free; 100% vegan; no artificial colors. this product does not contain common ge genes or proteins. visit igenprogram.com igen\\u00ae certification mark is a registered trademark of nutrasource diagnostics, inc.\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

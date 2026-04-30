@@ -1,0 +1,9 @@
+{
+  "request_sha": "dd71e35e7e1627deeaf186a9c91c4b67",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"The current photo shows the back of the same New Chapter Liquid Multivitamin bottle seen in the previous photo. A full Supplement Facts panel is clearly visible (nutrition), followed by an \\\"Other Ingredients:\\\" list (ingredients), plus distributor info, certifications, and marketing copy (other-label). No front label or price tag is present.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

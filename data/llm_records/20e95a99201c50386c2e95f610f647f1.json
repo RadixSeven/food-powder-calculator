@@ -1,0 +1,9 @@
+{
+  "request_sha": "20e95a99201c50386c2e95f610f647f1",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Close-up of the shelf price tag for this product: \\\"BT VM-100 COMPLETE 32 OZ $39.99\\\", barcode 016055453784 \\u2014 which exactly matches the barcode visible on the bottle in Image 1 and the VM-100 product in Image 3. The tag was already visible in Image 1's background; at 15.6 s the photographer simply moved in to document it. Price tag dominates the frame; no other roles apply.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

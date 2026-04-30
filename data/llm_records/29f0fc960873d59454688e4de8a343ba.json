@@ -1,0 +1,9 @@
+{
+  "request_sha": "29f0fc960873d59454688e4de8a343ba",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same white bottle with orange label and white cap as Image 1 and the group front (MOM Vitamin K2 120 mcg). The current photo shows the bottom/side of the bottle rotated to reveal the UPC barcode and partial side panels \\u2014 distributor info (\\\"Formulated by Mom's Organic, Rockville, 301-816-\\u2026\\\") and a partial warning column are readable on the right panel. The Supplement Facts table header is just barely visible on the left edge but no actual nutrition rows are legible, so 'nutrition' does not apply. Roles: other-label (barcode, distributor/lot info, side-panel warnings). 4.8-second gap strongly confirms same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

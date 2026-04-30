@@ -1,0 +1,9 @@
+{
+  "request_sha": "19f2dbd2b047f0b0ccedf92caf1bde51",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same white bottle with green lid held by the same hand against the same shelf background (L-Lysine bottles visible), shot 6.3 s after the front. The current photo shows the back panel: a full Supplement Facts table (vitamins A through Molybdenum with %DV values) plus labeled ingredient blend sections (Organic Fruit & Vegetable Blend, Probiotic and Probiotic Blend, Organic Men's Blend), so both nutrition and ingredients apply.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

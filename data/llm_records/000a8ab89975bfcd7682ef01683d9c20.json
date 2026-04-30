@@ -1,0 +1,9 @@
+{
+  "request_sha": "000a8ab89975bfcd7682ef01683d9c20",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"Current photo is a shelf price tag for \\\"NM MULTI COMPLETE 130S / $16.49\\\" \\u2014 the barcode prefix 02518 matches the bottle in Image 1, and the SKU/count matches the Nature Made Multi 130 Tablets group front (Image 3). Taken 62 seconds after Image 1; price tag dominates the frame as the sole primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

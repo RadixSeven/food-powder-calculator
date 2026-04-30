@@ -1,0 +1,9 @@
+{
+  "request_sha": "eeed74936c940d26b06936c120fc63ab",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him amber bottle with yellow cap and yellow/blue label as the previous photo (3.2 s gap, same hand, same store aisle). The bottle has been rotated to show the right column of the wrap-around Supplement Facts table (Biotin through Molybdenum), the Other Ingredients list, and label claims/caution text.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

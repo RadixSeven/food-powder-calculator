@@ -1,0 +1,9 @@
+{
+  "request_sha": "3286e9f45aace677d772434b46b63d09",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"front\", \"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him bottle, rotated to show the side/back. The front label (brand logo, product name) is still partially visible on the left. A Supplement Facts table is partially visible on the right edge with vitamin rows (A, C, D, E, etc.). The side panel shows marketing claims (\\\"Supports healthy cognitive & cardiovascular function\\\", \\\"Supports healthy blood pressure\\\") and the FDA disclaimer text.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

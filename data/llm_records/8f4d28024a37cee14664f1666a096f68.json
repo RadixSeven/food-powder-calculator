@@ -1,0 +1,9 @@
+{
+  "request_sha": "8f4d28024a37cee14664f1666a096f68",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle (amber glass, yellow lid, identical label) photographed 6 seconds later, now rotated to show the side/back panel. The Supplement Facts table is clearly readable with multiple vitamin/mineral rows (A, C, D, E, K, Thiamin, Riboflavin, Niacin, B6, B12, Folate). The panel also shows a suggested-use blurb, a caution notice, an FDA disclaimer, and distributor info \\u2014 qualifying as other-label as well.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "8e7d8bfae826b93abd81a0bc3a95cdbb",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a hand holding a Nature Made D3 2000 IU (50 mcg) 400-tablet bottle \\u2014 a clearly different product from the running group's Nature Made Multi 130-tablet bottle (Image 3). The previous photo (Image 1) was a price tag for \\\"NM MULTI COMPLETE 130S,\\\" so the running group just concluded. The D3 bottle has different product name, formula, and count. The primary subject is the front face of the D3 bottle (brand logo, \\\"D3 2000 IU,\\\" marketing copy dominate the frame); the $16.49 shelf tag visible in the background is not the primary subject. Roles: front only.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "aac69259305fe0390449276513bccdc0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Image 1 was the price tag for the running group product: MOM D3 & K2, 60-count (orange label, confirmed by Image 3). Image 2 shows a hand holding a completely different MOM product \\u2014 Men's 45+ Multi, green/teal label, 90 Vegetarian Tablets. Different product name, different label color, different count. Despite same brand and 45-second gap, these are clearly distinct SKUs. The current shot is the front face of a new product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

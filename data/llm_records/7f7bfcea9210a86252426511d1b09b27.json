@@ -1,0 +1,9 @@
+{
+  "request_sha": "7f7bfcea9210a86252426511d1b09b27",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same white Jarrow Formulas bottle flipped to the back panel 9.6 s after the front shot. The Supplement Facts table is fully legible (Vitamin D3, K1, K2 MK-4 and MK-7 rows) and the Other Ingredients list (olive oil, softgel, glycerin, caramel) is visible below it.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

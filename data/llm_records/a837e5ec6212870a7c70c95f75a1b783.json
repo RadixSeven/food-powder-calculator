@@ -1,0 +1,9 @@
+{
+  "request_sha": "a837e5ec6212870a7c70c95f75a1b783",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag reading \\\"NM VIT D3 2000 IU 400S $28.49\\\", which matches this Nature Made D3 2000 IU 400-tablet bottle exactly. Taken 8 seconds after the back-panel shot of the same bottle, this is clearly the photographer capturing the price tag for the same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

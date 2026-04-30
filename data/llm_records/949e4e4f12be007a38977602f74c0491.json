@@ -1,0 +1,9 @@
+{
+  "request_sha": "949e4e4f12be007a38977602f74c0491",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life NAC amber bottle rotated to the remaining back/side panel. This panel shows the NAC antioxidant marketing blurb, FDA disclaimer, certifications (Gluten-Free, Vegan, Kosher-Parve, Halal), lot number 25L916A, best-by 12/31, and UPC barcode. No Supplement Facts entries or ingredients list are visible \\u2014 those appeared on the previous panel (Image 1). Roles: other-label (certifications, lot/expiry, barcode, marketing copy).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

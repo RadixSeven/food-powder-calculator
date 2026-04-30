@@ -1,0 +1,9 @@
+{
+  "request_sha": "fa391cb5394276a4946fcc7a4a84d626",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life DHEA 25 mg bottle \\u2014 identical amber glass, black lid, and yellow-green label as both the previous photo and the group front. The 4.1-second gap strongly confirms continuity. The current panel shows a different side from Image 1: DHEA background-marketing copy, the FDA disclaimer, a YES/NO certification matrix (Gluten-Free/Non-GMO/Vegan/etc.), storage instructions, lot number (25C616C), best-by date (04/28), and barcode. No Supplement Facts rows or ingredients list are visible on this panel, so only `other-label` applies.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

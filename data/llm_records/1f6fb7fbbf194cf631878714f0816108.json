@@ -1,0 +1,9 @@
+{
+  "request_sha": "1f6fb7fbbf194cf631878714f0816108",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a MOM \\\"Organic Vegan Protein Powder \\u2013 Chocolate\\\" tub (14.5 oz / 410 g), while the running group front (Image 3) is MOM \\\"Organic Balanced Plant Protein Blend \\u2013 Natural Vanilla Flavor\\\" (13.8 oz / 391 g). Different product name, different flavor, and different size \\u2014 clearly a distinct SKU. The previous photo (Image 1) was a price tag for \\\"MOMS VEGAN PRO BLEND VAN 12.6OZ,\\\" consistent with the vanilla group closing out. This current shot frames the front face of the new chocolate tub as its primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

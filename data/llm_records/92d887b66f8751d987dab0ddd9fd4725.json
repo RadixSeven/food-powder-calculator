@@ -1,0 +1,9 @@
+{
+  "request_sha": "92d887b66f8751d987dab0ddd9fd4725",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"front\", \"price-tag\"], \"rationale\": \"Current photo shows Rainbow Light Men's One+ bottles on the shelf (front label clearly visible matching the running group front), with a shelf price tag below reading \\\"RL VIBRANCE MEN'S ONE 60 CNT\\\" at $26.99. Same product as the running group.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

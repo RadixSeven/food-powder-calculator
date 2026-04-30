@@ -1,0 +1,9 @@
+{
+  "request_sha": "c137f319ee5083836834a84617c8c681",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows Country Life Biotin 5mg / 120 Vegan Capsules \\u2014 clearly a different SKU from the running group (Country Life DHEA 25mg / 90 capsules). The front face of the Biotin bottle (brand logo, product name, marketing copy) is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

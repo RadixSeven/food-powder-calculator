@@ -1,0 +1,9 @@
+{
+  "request_sha": "0d1d717a5c396da512e62eafa9e2504d",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a hand holding Country Life High Potency Biotin 5 mg (120 Vegan Capsules), while the previous photo was the price tag for \\\"CL DHEA 25 MG 90 CNT\\\" and the running-group front (image 3) is Country Life DHEA 25 mg. These are unambiguously different products \\u2014 different supplement (Biotin vs. DHEA), different count (120 vs. 90), different label copy \\u2014 despite the short 26.7 s gap. The current shot frames the Biotin bottle's front label as the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

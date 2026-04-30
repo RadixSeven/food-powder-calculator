@@ -1,0 +1,9 @@
+{
+  "request_sha": "e28d141e9d967e3d1287eb65968ce228",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same MOM Advanced Men's Multi bottle (white cap, teal-green label) as Image 1 and the group front. The current shot captures the right-side column of the Supplement Facts table (Copper 222%, Manganese, Chromium, Molybdenum, Saw Palmetto, Alpha Lipoic Acid, BenfoPure Benfotiamine, Grape Seed Extract, Pumpkin Seed Powder, Quercetin, XanMax Marigold, Lutein, Zeaxanthin, Lycopene, Boron, Vitamin K2) with the UPC barcode also visible. 2.3-second gap confirms a simple rotation of the same bottle.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "0f4200b28a2209f5513b9073bb4d8d7b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows the front face of Rainbow Light \\\"Men's One+\\\" (60 Vegetarian Caplets, Just Once formula), which is a clearly different product from the running group's Rainbow Light \\\"Certified Men's Multivitamin\\\" (120 Capsules, green lid). Different product name, count, formula, and lid color. The previous photo was a price tag for the Certified Men's 120-count product, confirming that was a separate SKU. Role is `front`: brand logo, product name, and marketing copy dominate the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

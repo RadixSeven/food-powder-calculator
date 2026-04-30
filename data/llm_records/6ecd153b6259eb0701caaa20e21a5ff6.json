@@ -1,0 +1,9 @@
+{
+  "request_sha": "6ecd153b6259eb0701caaa20e21a5ff6",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Image 1 is the supplement-facts back label of a men's multivitamin in a white bottle with a green cap (likely Garden of Life or similar). Image 2 is the front of Nature Made Multi 50+ For Him \\u2014 a different brand, brown amber bottle, and yellow label. Completely different product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

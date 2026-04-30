@@ -1,0 +1,9 @@
+{
+  "request_sha": "f61e46ddf8d04bc402b286a2ff5ed09b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle as Image 1 (5 s gap, identical amber bottle and yellow lid, same store background). Current photo is a cleaner, more direct shot of the back panel: Supplement Facts table is fully legible with a complete vitamin and mineral list, plus Suggested Use directions, CAUTION, and distributor info constitute other-label content. Front face not shown; no Other Ingredients list visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

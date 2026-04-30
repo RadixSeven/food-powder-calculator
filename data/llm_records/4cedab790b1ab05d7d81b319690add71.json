@@ -1,0 +1,9 @@
+{
+  "request_sha": "4cedab790b1ab05d7d81b319690add71",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life NAC 750 mg amber bottle (same lid, same yellow/green label, same product 1686). The current shot shows the bottom-back panel: marketing/disclaimer copy, certification badges (Gluten-Free/Vegan/Kosher/Halal), lot number 25L916A, best-by 12/31, and barcode. No Supplement Facts table and no ingredients list appear on this panel. 23-second gap reinforces same-product conclusion.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

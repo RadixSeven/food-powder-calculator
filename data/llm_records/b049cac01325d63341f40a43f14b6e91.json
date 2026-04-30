@@ -1,0 +1,9 @@
+{
+  "request_sha": "b049cac01325d63341f40a43f14b6e91",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Magnesium Glycinate 200mg bottle (yellow label, amber glass, yellow lid) as previous shot and confirmed by the group front. The current photo is a slight rotation of the same back panel, now showing the right-side wrap: partial Supplement Facts table (Magnesium Bisglycinate 200mg / 48% DV), the Other Ingredients list (Hypromellose, Cellulose Gel, Silicon Dioxide), \\\"No Color Added / No Artificial Flavors / Gluten Free\\\" claims, lot/expiry codes (lot 2652501, Exp OCT 2028), and NatureMade.com URL. 4.5-second gap strongly supports same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

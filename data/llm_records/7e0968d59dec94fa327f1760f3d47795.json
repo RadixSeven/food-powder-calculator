@@ -1,0 +1,9 @@
+{
+  "request_sha": "7e0968d59dec94fa327f1760f3d47795",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same Rainbow Light Certified Men's Multivitamin bottle (white body, green lid, same hand/shelf), now rotated to show the back panel. A full Supplement Facts table with vitamins A through Molybdenum is clearly legible (nutrition), and the panel also lists Organic Fruit & Vegetable Blend, Probiotic and Prebiotic Blend, and Organic Men's Blend ingredient compositions (ingredients). 6-second gap strongly supports same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

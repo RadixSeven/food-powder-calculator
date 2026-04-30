@@ -1,0 +1,9 @@
+{
+  "request_sha": "accb7bdfcc46f019a96990ed9ff05994",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back label of the Nature Made D3 2000 IU (50 mcg) bottle from the running group. Supplement Facts panel is fully visible (Vitamin D3, Calcium rows), Other Ingredients list follows (Cellulose Gel, Maltodextrin, Sugar, etc.), and the top portion shows Suggested Use and a do-not-use-if-seal-broken warning plus distributor info.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

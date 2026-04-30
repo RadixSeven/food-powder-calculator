@@ -1,0 +1,9 @@
+{
+  "request_sha": "71ac8339bb51219b7272bac076eb1160",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same Country Life High Potency Biotin 5 mg bottle held 3.4 s earlier. Identical amber bottle, silver lid, and shelf context confirm same product. The panel shows a legible Supplement Facts table (Biotin 5,000 mcg, 16,667% DV), an Other Ingredients line (cellulose, hypromellose), and a caution warning plus manufacturer details.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

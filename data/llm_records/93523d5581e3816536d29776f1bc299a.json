@@ -1,0 +1,9 @@
+{
+  "request_sha": "93523d5581e3816536d29776f1bc299a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag reading \\\"CL N-ACETYL CYSTEINE 750MG 30CNT / $13.99 / 015794016861\\\". The barcode matches the one on the bottle back (Image 1), confirming this is the same Country Life NAC 750mg 30-capsule product. Shot taken 9 seconds after the back-label photo; the Country Life NAC bottles visible above the tag are the same product (group front: Image 3). Tag dominates the frame, so price-tag applies; the bottle fronts above are background context, not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

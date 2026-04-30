@@ -1,0 +1,9 @@
+{
+  "request_sha": "ca94367a7e9b681102bf7135655ac91f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same white-capped orange MOM bottle held in the same hand, 5 seconds apart. Image 2 shows the back panel: a full Supplement Facts table (Vitamin K2 120 mcg as menaquinone-7/vitaMK7), an Other Ingredients list (cellulose, vegetarian capsule, vegetable stearin, silica), and additional label content including allergen statement, suggested use directions, and storage warning.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

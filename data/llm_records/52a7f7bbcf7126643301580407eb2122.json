@@ -1,0 +1,9 @@
+{
+  "request_sha": "52a7f7bbcf7126643301580407eb2122",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo is a close-up of a shelf price tag reading \\\"ORGAIN PROTEIN VANILLA OG 2.03LB / $33.99 (was $39.99)\\\". The tag name and SKU barcode directly match the Orgain Organic Protein Vanilla Bean bottle documented in Image 1 (back panel) and Image 3 (front). The 14-second gap is strong evidence of same-product continuity. The tag fills the frame so price-tag is the sole role.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

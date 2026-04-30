@@ -1,0 +1,9 @@
+{
+  "request_sha": "feb588f2c20321fd40e2d345fb332444",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same MOM Organic Balanced Plant Protein Blend container (yellow-green label, white tub, same hand, same shelf with $40.99 price tag at left), photographed just 7.7 seconds after Image 1. The bottle has been rotated slightly further to reveal the right half of the back panel: the right-side continuation of the Typical Amino Acid Profile table (Arginine, Aspartic acid, Glutamic acid, etc.) qualifies as nutrition data, while the marketing copy, barcode (\\\"942 - ORGANIC PLANT PROTEIN VANILLA\\\"), and lot code \\\"VVL 942-17H\\\" are other-label content.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

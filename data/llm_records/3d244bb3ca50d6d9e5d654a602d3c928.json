@@ -1,0 +1,9 @@
+{
+  "request_sha": "3d244bb3ca50d6d9e5d654a602d3c928",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a Nature Made Multi 50+ For Him tablet bottle (brown plastic, yellow label) \\u2014 a completely different brand, form factor, and packaging from the previous MaryRuth Organics white liquid bottle. The 8-minute gap supports a product change. The primary subject is the front face of the Nature Made bottle with brand logo and product name filling the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

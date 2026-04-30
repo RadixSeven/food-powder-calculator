@@ -1,0 +1,9 @@
+{
+  "request_sha": "5510a9200f7973f9304277bd29a9bd75",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is the shelf price tag reading \\\"MOM'S VITAMIN D3 K2 TABLET 60CNT / $15.99\\\" with barcode 719985112317, which matches the barcode on the back of the bottle in Image 1 and the MOM D3 & K2 group front (Image 3). Same product, 16-second gap. Roles: price-tag only.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

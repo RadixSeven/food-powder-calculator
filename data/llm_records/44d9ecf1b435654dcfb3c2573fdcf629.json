@@ -1,0 +1,9 @@
+{
+  "request_sha": "44d9ecf1b435654dcfb3c2573fdcf629",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Image 2 is a wrap-around continuation of the same New Chapter Liquid Multivitamin bottle seen in Image 1 and the group front (Image 3). The same dark glass bottle with purple label is held in the same hand/shelf background; the panel shows the \\\"SUPPLEMENT FACTS\\\" table continuing with 4\\u201313 years and 14+ years columns. The bottom of the panel also reveals the \\\"Other Ingredients:\\\" list (water, organic glycerin, ferment media, xanthan gum, etc.) and distributor/copyright text, so nutrition, ingredients, and other-label all apply. Shot taken just 4.8 seconds after Image 1 \\u2014 clearly the same bottle rotated to document the remaining columns of the wrap-around facts panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

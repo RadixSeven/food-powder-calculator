@@ -1,0 +1,18 @@
+{
+  "request_sha": "b87ed85fe91eebd73323eb6dec868a48",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165958071_3578.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"men's multi men's multi men's multi lement facts % daily value amount per serving % daily value zinc (as zinc citrate) 11 mg 100% selenium 55 mcg 100% (as selenium l-methionine complex) copper (as copper chelate) 0.9 mg 100% manganese (as manganese citrate) 2.3 mg 100% chromium 100 mcg 286% (as chromium picolinate) molybdenum 45 mcg 100% (as mclybdenum glycinate chelate) organic rainbow 80 mg superfoods blend organic spirulina, organic beet (root), organic broccoli (floret, stem), organic kale (leaf), organic spinach (leaf), organic blackberry (fruit), organic blueberry (fruit), organic carrot (root), organic cranberry (fruit) men's botanical blend 66 mg ashwaganda extract (root), organic green tea extract (leaf), organic chlorella, lycopene (from tomato (fruit)) ginger, enzyme and 27 mg probiotic blend ginger juice extract (root), bromelain (from pineapple stem), papain (from papaya fruit latex), bacillus coagulans mtcc 5856 (1 million cfu***) **daily cfuv not established. (plant origin), croscarmellose sodium, coating (hydroxypropyl light nutritional systems, llc 900 mcg 100% 90 mg 100% (as 2,000 iu) 250% 15 mg 100% 120 mg 100% 6 mg 500% 5 mg 385% 20 mg 125% 1,176% 480 mcg dfe 100% mg folic acid) 10 mg 417% 50 mcg 167% 13 mg 260% 50 mg 10% 22 mg 2% 150 mcg 100% 12% supplement caplet 28.99 organic glutamine\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

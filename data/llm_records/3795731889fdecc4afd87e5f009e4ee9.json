@@ -1,0 +1,9 @@
+{
+  "request_sha": "3795731889fdecc4afd87e5f009e4ee9",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same Buried Treasure Active 55 bottle rotated to the back panel, 9.4 seconds after the front shot. The Supplement Facts table is fully legible, and an \\\"Other Ingredients\\\" list appears below it.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

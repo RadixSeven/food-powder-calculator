@@ -1,0 +1,9 @@
+{
+  "request_sha": "0ed0992a0ac3a891b34cd670daf0cee3",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Same Solaray Magnesium Glycinate bottle as Image 1 (same hand, bottle shape, yellow/white label, shelf background), photographed 6.2 seconds later. The current shot shows the Supplement Facts table (Magnesium 350 mg at 83% DV, BioPerine 5 mg) and the \\\"Other Ingredients\\\" list (Vegetable Cellulose Capsule, Magnesium Stearate, Cellulose, Silica), so both nutrition and ingredients apply.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

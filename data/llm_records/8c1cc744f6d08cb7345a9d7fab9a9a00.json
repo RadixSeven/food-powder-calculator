@@ -1,0 +1,9 @@
+{
+  "request_sha": "8c1cc744f6d08cb7345a9d7fab9a9a00",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\"], \"rationale\": \"The current photo shows the right-side continuation of the Supplement Facts panel (4\\u201313 years and 14+ years columns) on the same New Chapter Liquid Multivitamin bottle seen in the previous photo and the group front. Same purple label, bottle shape, and manufacturer info confirm it is the same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

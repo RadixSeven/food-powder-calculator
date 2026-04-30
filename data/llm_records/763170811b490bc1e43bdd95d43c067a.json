@@ -1,0 +1,9 @@
+{
+  "request_sha": "763170811b490bc1e43bdd95d43c067a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Back panel of the same Country Life NAC 750 mg amber bottle seen in image 1 (4-second gap, identical bottle shape, lid, and store background). The Supplement Facts table is clearly readable. \\\"Other Ingredients\\\" list is visible. Additional label content includes directions, caution statement, storage instructions, and manufacturer info.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

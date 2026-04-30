@@ -1,0 +1,9 @@
+{
+  "request_sha": "bfc8e165e16ed270b9020cae8aebfae3",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same MOM Organic Balanced Plant Protein Blend tub (identical green/yellow container, same hand, same shelf background), rotated to the back panel 7 seconds later. The back panel shows a complete Supplement Facts table (nutrition), an Ingredients list starting with \\\"Organic pea protein\\u2026\\\", and additional label content including suggested use, allergen statement, and FDA disclaimer.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

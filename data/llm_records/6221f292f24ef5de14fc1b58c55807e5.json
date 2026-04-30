@@ -1,0 +1,18 @@
+{
+  "request_sha": "6221f292f24ef5de14fc1b58c55807e5",
+  "request": {
+    "prompt": "Extract the nutrition / supplement facts table from this photo, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_015/nutrition.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: this image is the nutrition / supplement facts panel for the product \"men's 55+ one daily multivitamin 120 tablets\" by 'megafood'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from a product photo for a deterministic comparison task. Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the table, in top-to-bottom order. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` for cells whose text is occluded, glared, cut off, or otherwise unreadable. Lower-case all text; preserve punctuation (parentheses, percent signs, decimal points). Do not invent values or fill in nutrients that are not visible. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"serving size 1 tablet\", \"\", \"servings per container \\u25ae\", \"\"], [\"amount per serving\", \"% daily value\", \"amount per serving\", \"% daily value\"], [\"vitamin a (as beta carotene) 180 mcg rae\", \"20%\", \"pantothenic acid (as d-calcium pantothenate) \\u25ae\", \"\\u25ae\"], [\"vitamin c (as ascorbic acid) 90 mg\", \"100%\", \"iodine (as fermented iodine glycinate) 80 mcg\", \"\\u25ae\"], [\"vitamin d3 (as fermented cholecalciferol) 40 mcg\", \"200%\", \"zinc (as zinc bisglycinate) 12 mg\", \"\\u25ae\"], [\"vitamin e (as d-alpha tocopherol from sunflower seed oil) 8 mg\", \"53%\", \"selenium (as fermented selenium glycinate) \\u25ae\", \"\\u25ae\"], [\"vitamin k (as phytonadione) 90 mcg\", \"75%\", \"manganese (as fermented manganese bisglycinate) 2 mg\", \"\\u25ae\"], [\"thiamin (as thiamine hydrochloride) 1.2 mg\", \"100%\", \"gtf chromium (as fermented chromium glycinate, nicotinate, glutamate) 45 mcg\", \"\\u25ae\"], [\"riboflavin (as riboflavin) 1.4 mg\", \"108%\", \"molybdenum (as fermented molybdenum bisglycinate) 45 mcg\", \"\\u25ae\"], [\"niacin (as niacinamide) 20 mg ne\", \"125%\", \"food blend 293 mg\", \"\"], [\"vitamin b6 (as pyridoxine hydrochloride) 3.8 mg\", \"224%\", \"organic orange, organic brown rice, organic \\u25ae, organic blueberry, carrot, cabbage, organic \\u25ae\", \"\"], [\"folate (as calcium l-5-methyltetrahydrofolate) 200 mcg dfe (120 mcg l-5-mthf)\", \"50%\", \"\", \"\"], [\"vitamin b12 (as methylcobalamin) 5 mcg\", \"208%\", \"\", \"\"], [\"biotin (as biotin) 50 mcg\", \"167%\", \"\", \"\"], [\"** daily value not established\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

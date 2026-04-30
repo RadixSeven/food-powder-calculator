@@ -1,0 +1,9 @@
+{
+  "request_sha": "2ab21d3a908f9fcd83405d406f011787",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle as the running group. The current photo shows the right-hand portion of the label: the minerals section of the Supplement Facts table (Biotin through Molybdenum), an Other Ingredients list, an iron-overdose warning block, and \\\"No Color Added / No Artificial Flavors / Gluten Free\\\" badges.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

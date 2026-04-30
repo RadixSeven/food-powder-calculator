@@ -1,0 +1,9 @@
+{
+  "request_sha": "ceaaadfc45a299d52a9696cac725c084",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows Nature Made Multi 50+ For Him (90 Tablets), a different brand and product entirely from the previous Country Life Daily Total One. The front label with brand name, product name, and marketing copy is clearly visible.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

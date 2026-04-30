@@ -1,0 +1,18 @@
+{
+  "request_sha": "65daf3394baf9188cfdff559258a0cfc",
+  "request": {
+    "prompt": "Extract the nutrition / supplement facts table from this photo, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_022/crops/PXL_20260426_172515673__nutrition__0020_0140_1000_0730.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: this image is the nutrition / supplement facts panel for the product 'organic clear fiber prebiotic fiber' by 'renewlife'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from a product photo for a deterministic comparison task. Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the table, in top-to-bottom order. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` for cells whose text is occluded, glared, cut off, or otherwise unreadable. Lower-case all text; preserve punctuation (parentheses, percent signs, decimal points). Do not invent values or fill in nutrients that are not visible. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"serving size: approx. 1 scoop (6.6 g)\"], [\"servings per container about 30\"], [\"amount per serving\", \"\", \"%daily value\"], [\"calories\", \"15\", \"\"], [\"total carbohydrate\", \"6 g\", \"2%***\"], [\"dietary fiber\", \"6 g\", \"21%***\"], [\"soluble fiber\", \"6 g\", \"**\"], [\"organic resistant tapioca dextrin\", \"6.6 g\", \"**\"], [\"**daily value not established.\"], [\"***percent daily values are based on a 2,000 calorie diet.\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

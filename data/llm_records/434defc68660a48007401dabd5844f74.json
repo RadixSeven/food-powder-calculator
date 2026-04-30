@@ -1,0 +1,9 @@
+{
+  "request_sha": "434defc68660a48007401dabd5844f74",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"ingredients\", \"other-label\"], \"rationale\": \"Same Solaray Magnesium Glycinate bottle (yellow/white label, same shape) photographed 4.8 s after the previous shot \\u2014 continuous wrap-around pan. This panel shows the tail end of the Other Ingredients list on the left edge and the FDA disclaimer block, manufacturer info (Nutraceutical Corp. / Solaray, Salt Lake City UT), website, and barcode as the primary content. No Supplement Facts rows visible in this frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

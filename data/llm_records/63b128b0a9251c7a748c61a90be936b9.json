@@ -1,0 +1,9 @@
+{
+  "request_sha": "63b128b0a9251c7a748c61a90be936b9",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same MOM's Organic Vegan Protein Powder green tub \\u2014 identical container color, lid, and label scheme as previous shot and group front. The bottle was rotated to expose the right half of the wraparound back panel. The 6.5-second gap strongly supports continuity. Left edge carries the Supplement Facts column with readable numeric rows (nutrition); the ingredients list wraps in from the prior panel and remains partially legible (ingredients); the right half shows marketing paragraphs, an amino acid profile table, and regulatory notices (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

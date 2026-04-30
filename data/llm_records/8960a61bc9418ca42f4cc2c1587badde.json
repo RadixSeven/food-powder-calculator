@@ -1,0 +1,9 @@
+{
+  "request_sha": "8960a61bc9418ca42f4cc2c1587badde",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows a Bluebonnet \\\"liquid Multi\\\" bottle (white/purple label) \\u2014 a completely different brand and product from the Nature's Way Alive! Max Potency group established by Image 3. The previous shot was a price tag for the Alive! product; the photographer has moved on to a new product. The Bluebonnet front face fills the frame as the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

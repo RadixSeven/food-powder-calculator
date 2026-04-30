@@ -1,0 +1,9 @@
+{
+  "request_sha": "fea920f6d2c6192e5064f13536ae6cb7",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows the front of Rainbow Light Men's One+ (60 Vegetarian Caplets, \\\"Just Once\\\" branding). The running group is Rainbow Light Certified Men's Multivitamin (120 Capsules). These are different products \\u2014 different name, count, cap color, and formulation.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

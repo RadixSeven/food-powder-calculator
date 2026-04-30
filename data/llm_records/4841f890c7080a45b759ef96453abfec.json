@@ -1,0 +1,9 @@
+{
+  "request_sha": "4841f890c7080a45b759ef96453abfec",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same dark glass bottle with purple label stripe, same shelf, 32 s gap \\u2014 clearly the back panel of the New Chapter Liquid Multivitamin shown in image 1. Full Supplement Facts table is readable (nutrition), \\\"Other Ingredients:\\\" block is legible (ingredients), and distributor address, certifications, and non-GMO/Igen text are present (other-label).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

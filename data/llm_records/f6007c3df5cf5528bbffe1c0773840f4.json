@@ -1,0 +1,9 @@
+{
+  "request_sha": "f6007c3df5cf5528bbffe1c0773840f4",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle (yellow cap, amber bottle, matching label and shelf background) rotated to expose the Supplement Facts panel. The full two-column vitamin/mineral table is clearly legible, qualifying for `nutrition`. The suggested-use directions, caution text, and distributor info also qualify for `other-label`. No ingredients list (\\\"Other Ingredients:\\\") is visible in this crop.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

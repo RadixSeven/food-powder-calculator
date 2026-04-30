@@ -1,0 +1,9 @@
+{
+  "request_sha": "8186aabdfb4f342d4f99db024554b4ca",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a Country Life Vitamin D3 (250 mcg / 10,000 IU, 200 Softgels) front label. The running group (Image 3) is Country Life Biotin 5 mg \\u2014 a different product entirely. The current photo is the front of a new product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,18 @@
+{
+  "request_sha": "18d7f3d89ebeef1e28c4ede7eb0bea2c",
+  "request": {
+    "prompt": "Extract the nutrition / supplement facts table from this photo, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_041/nutrition.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"rows\": {\"type\": \"array\", \"items\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"required\": [\"rows\"], \"additionalProperties\": false}",
+    "system_prompt": "Context: this image is the nutrition / supplement facts panel for the product 'organic balanced plant protein blend natural vanilla flavor' by 'mom'. Use that to disambiguate column headers (e.g. age-band %DV columns) when reading the table.\n\nYou extract the nutrition / supplement facts table from a product photo for a deterministic comparison task. Return a JSON object with one key, `\"rows\"`, whose value is an array of arrays of strings. Each inner array is one row of the table, in top-to-bottom order. Within a row, cells go left-to-right in the column order printed on the panel; do not reorder or merge columns. Header rows (e.g. `Amount per serving`, age-band columns) are rows too \u2014 emit them in source order so column meaning is preserved. Use an empty string `\"\"` for cells the panel leaves blank. Use `\"\u25ae\"` for cells whose text is occluded, glared, cut off, or otherwise unreadable. Lower-case all text; preserve punctuation (parentheses, percent signs, decimal points). Do not invent values or fill in nutrients that are not visible. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"rows\": [[\"supplement facts\"], [\"serving size: 23 g (1 scoop)\"], [\"servings per container: about 17\"], [\"amount per serving\", \"% daily value\"], [\"calories\", \"85\", \"\"], [\"total fat\", \"2 g\", \"3%*\"], [\"sodium\", \"280 mg\", \"12%\"], [\"total carbohydrate\", \"2 g\", \"<1%*\"], [\"protein\", \"15 g\", \"\"], [\"calcium\", \"30 mg\", \"2%\"], [\"iron\", \"5 mg\", \"28%\"], [\"* percent daily values are based on a 2,000 calorie diet.\"]]}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

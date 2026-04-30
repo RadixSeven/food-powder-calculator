@@ -1,0 +1,9 @@
+{
+  "request_sha": "be5e20e17eda2212275b60087b3d14a8",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows Nature Made High Absorption Magnesium Glycinate 200mg (60 capsules) held in hand \\u2014 a distinct product from the running group's Nature Made D3 2000 IU 400 Tablets (Image 3). The previous photo was a price tag for D3 (NM VIT D3 2000 IU 400S). The Magnesium Glycinate bottle's front label fills the frame, so the role is `front`.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

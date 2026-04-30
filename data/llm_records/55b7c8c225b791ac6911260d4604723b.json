@@ -1,0 +1,9 @@
+{
+  "request_sha": "55b7c8c225b791ac6911260d4604723b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The current photo shows a small dark amber glass dropper bottle of \\\"Thorne Vitamin D + K2\\\", which is a completely different product from the running group's large white plastic pill bottle of \\\"Thorne Basic Nutrients 2/Day\\\". The previous shot was the price tag for Basic Nutrients 2/Day, indicating the photographer completed that group and has moved on to document this new adjacent product. The front face of the Vitamin D + K2 bottle is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

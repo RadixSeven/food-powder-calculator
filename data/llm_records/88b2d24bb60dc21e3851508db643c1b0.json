@@ -1,0 +1,9 @@
+{
+  "request_sha": "88b2d24bb60dc21e3851508db643c1b0",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made D3 2000 IU bottle (yellow cap, brown bottle, yellow label, same shelf background), rotated 3.1 seconds after the front shot to expose the side/back panel. The right edge of the frame shows a partial Supplement Facts table (serving size, Amount, Vitamin D rows), an \\\"OTHER\\\" ingredients section, and distributor/disclaimer text \\u2014 so nutrition, ingredients, and other-label all apply.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

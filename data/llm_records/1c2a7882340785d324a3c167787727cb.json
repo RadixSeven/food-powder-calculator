@@ -1,0 +1,9 @@
+{
+  "request_sha": "1c2a7882340785d324a3c167787727cb",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\"], \"rationale\": \"Image 2 shows the back of the same New Chapter Liquid Multivitamin bottle seen in Image 1, displaying the Supplement Facts panel (vitamins, minerals, daily values) and the full other/other-ingredients text \\u2014 so it serves both the nutrition and ingredients roles.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

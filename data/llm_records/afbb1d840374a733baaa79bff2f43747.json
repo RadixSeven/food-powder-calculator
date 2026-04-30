@@ -1,0 +1,9 @@
+{
+  "request_sha": "afbb1d840374a733baaa79bff2f43747",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life DHEA 25 mg bottle as the running group front. This panel shows marketing copy, an FDA disclaimer, a YES/NO certification checklist, storage instructions, lot number, best-by date, and barcode \\u2014 all other-label content. No Supplement Facts table and no ingredients list appear on this panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

@@ -1,0 +1,9 @@
+{
+  "request_sha": "093af0eb1168eb2775f76c71c23ec96c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him amber/yellow bottle, rotated to show the right-side panel. OTHER INGREDIENTS list is fully readable. Also shows a caution warning, lot/expiry codes, and a barcode. The Supplement Facts table is only a sliver on the left edge and is not the focus of this shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

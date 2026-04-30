@@ -1,0 +1,18 @@
+{
+  "request_sha": "bd49340807099522a997f624aac62b7f",
+  "request": {
+    "prompt": "Extract the text and barcodes from this image, following the instructions in the system prompt.",
+    "model": "opus",
+    "image_paths": [
+      "/home/kind/Prj/FoodPowderCalc/data/cache/resized/PXL_20260426_165814496_4073.jpg"
+    ],
+    "json_schema": "{\"type\": \"object\", \"properties\": {\"text\": {\"type\": \"string\"}, \"barcodes\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"text\", \"barcodes\"], \"additionalProperties\": false}",
+    "system_prompt": "You extract text from product photos for a deterministic comparison task. Given an image, return a JSON object with two keys: `\"text\"` (a single string of all visible text in the image, normalized to a single space between tokens, lower-cased, with punctuation preserved); and `\"barcodes\"` (a list of digit strings \u2014 every fully readable barcode you can see, with no spaces). If a barcode is partially obscured or ambiguous, omit it rather than guess. Return JSON only, no prose.",
+    "extra_dirs": [],
+    "cache_version": 1
+  },
+  "response": {
+    "text": "{\"text\": \"lement facts 4-13 years 14+ years 30 ml (2 tbsp) about 30 %dv for 4-13 years %dv for 14+ years 4 g 10% 900 mg 50% 4 g 10% 2 g 10% 140 mg 15% 50% (340 iu) 75% 60 mcg 75% 1.25 mg 104% 7.5 mcg 30 mg 94% 2.5 mg 144% 1.25 mg 7.5 mcg 30 mg 94% 2.5 mg 144% 40 mcg dfe 10% 80% 100 mcg 50% 2.4 mcg 100% 6 mg 12% 100 mg 100% 2.5 mcg 6% 7.5 mcg 100% 25 mg 50% 50 mg 100% 18 mg 50% 25 mg 100% 50 mg 28 mg 56% 150 mcg 100% 75 mg 50% 75 mg 100% 50 mg 50 mg 100% 5 mg 25% 7.5 mg 50% 6.25 mg 50% 12.5 mg 100% 1.04 mg 7% 12 mg 41% 2.5 mg 50% 50% 45 mg 50% 25 mg 50 mg 100 mg fiber, less than 2% of: ferment media (saccharomyces ic acid, malic acid, citric acid (preservative). xanthan gum. comments call 888-874-4461 technology drive, brattleboro, vt 05301 usa the usa from organic, castle rock, co, usa lly sourced ingredients made for artificial colors. contain ge genes or proteins. trademark of \\u00a92024 new chapter, inc. 0900-a02\", \"barcodes\": []}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00"
+}

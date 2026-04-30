@@ -1,0 +1,9 @@
+{
+  "request_sha": "899ac5efaf40a1691255c90138476a8a",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The shelf tag reads \\\"RL MEN'S MULTIVITAMIN 120 CNT\\\" at $44.99 with UPC 021888600117. \\\"RL\\\" matches Rainbow Light, the brand on the group front (Image 3), and \\\"120 CNT\\\" matches the 120-capsule count on that same front label. The previous photo (Image 1) was the Supplement Facts panel of the same bottle, confirming continuity within the group. This is the price tag for the running product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

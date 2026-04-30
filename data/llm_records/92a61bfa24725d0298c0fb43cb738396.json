@@ -1,0 +1,9 @@
+{
+  "request_sha": "92a61bfa24725d0298c0fb43cb738396",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same Nature Made Multi 50+ For Him bottle (identical amber bottle, yellow lid, brand name and product name still visible) rotated to show the side/back panels. The right edge reveals a partial Supplement Facts column with multiple vitamin rows (A, C, D, E, K, Thiamin, Riboflavin, Niacin, B6, Folate, B12) \\u2014 enough to apply `nutrition`. The visible panel also includes marketing claims (cognitive & cardiovascular function, blood pressure support), FDA disclaimer, and distributor info \\u2014 all `other-label` content.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

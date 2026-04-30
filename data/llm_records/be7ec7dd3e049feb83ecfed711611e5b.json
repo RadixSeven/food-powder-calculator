@@ -1,0 +1,9 @@
+{
+  "request_sha": "be7ec7dd3e049feb83ecfed711611e5b",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo is a shelf price tag for \\\"THORNE NAC 90CAPS\\\" at $28.99 with barcode 693749560029 \\u2014 matching exactly the barcode on the bottle held in Image 1 and the Thorne NAC front in Image 3. The tag is the sole primary subject; the 16.7-second gap reinforces same-product continuity.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

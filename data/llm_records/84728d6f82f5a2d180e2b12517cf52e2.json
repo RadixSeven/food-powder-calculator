@@ -1,0 +1,9 @@
+{
+  "request_sha": "84728d6f82f5a2d180e2b12517cf52e2",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The shelf e-ink tag reads \\\"NC LQUD MLTVITMN ORNG MNG 30 FZ $45.99\\\" \\u2014 an exact abbreviated match for the New Chapter Liquid Multivitamin Orange Mango 30 fl oz shown on the front (image 3) and nutrition-facts panel (image 1). Same product, price-tag role.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

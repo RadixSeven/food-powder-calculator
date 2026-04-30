@@ -1,0 +1,9 @@
+{
+  "request_sha": "e99bc8854f851c90659cee479a0e406f",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"3.2 s gap; same dark amber jar and green/teal label as image 1. Current shot continues rotating the back panel: the right column of the Supplement Facts is still readable (Saw Palmetto, Bilberry, Enzyme Blend, Lutein/Zeaxanthin, Lycopene, Boron, Vanadium). The Other Ingredients list is fully visible (\\\"Cellulose, modified cellulose gum, stearic acid\\u2026\\\"). Other label content \\u2014 \\\"Manufactured For: MOM's Organic Market\\\", Suggested Use, Contains No allergens statement, Lutemax trademark notice, and iron-overdose warning \\u2014 also fills the panel.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

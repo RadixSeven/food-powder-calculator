@@ -1,0 +1,9 @@
+{
+  "request_sha": "2b94311f41977f281126914f129c6005",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\", \"price-tag\"], \"rationale\": \"The current photo shows the same Rainbow Light Men's One+ bottle as the previous and group-front photos, rotated to show the right half of the Supplement Facts panel (minerals column: Zinc, Selenium, Copper, Manganese, Chromium, Molybdenum, plus the Organic Rainbow Superfoods Blend, Men's Botanical Blend, and Ginger/Enzyme/Probiotic Blend rows). \\\"Other Ingredients\\\" text is partially visible at the bottom. The right-side panel carries suggested use, keep-out, and warning copy (other-label). A shelf price tag showing $28.99 is visible in the background.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

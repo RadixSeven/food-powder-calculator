@@ -1,0 +1,9 @@
+{
+  "request_sha": "c96e934cfdbdafff3e4c1e31b6884403",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same white Rainbow Light Men's One+ bottle rotated to show the back panel. The Supplement Facts table is fully legible (vitamins A, C, D, E, K, B-vitamins, minerals, blends), an Other Ingredients list is present, and additional label content (manufacturer info, allergen statement, disclaimer) is visible. No front face in this shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

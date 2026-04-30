@@ -1,0 +1,9 @@
+{
+  "request_sha": "db10fb4c063154671efa27bbe8176c46",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"Current photo shows a Jarrow Formulas MK-7 Bioactive Vitamin K2 (90 mcg, 120 softgels) bottle held in hand \\u2014 completely different brand, product, and packaging from the running group's MOM Organic Whole Psyllium Husk. The front face with logo and product name fills the frame, making this a clear new-product front shot.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

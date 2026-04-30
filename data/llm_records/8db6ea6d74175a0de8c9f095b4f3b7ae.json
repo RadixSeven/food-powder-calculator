@@ -1,0 +1,9 @@
+{
+  "request_sha": "8db6ea6d74175a0de8c9f095b4f3b7ae",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same pink/salmon MOM Ultra Omega-3 bottle \\u2014 identical label color, bottle shape, and shelf background as Images 1 and 3. The current shot is rotated further around the back panel: the left edge still shows partial Supplement Facts rows (Omega-3, EPA, DHA amounts readable \\u2192 nutrition), the main text shows the full \\\"Other Ingredients: Softgel (gelatin, glycerin, purified water), mixed natural tocopherols\\\" and \\\"Contains No\\u2026\\\" allergen statement (\\u2192 ingredients), plus Suggested Use directions, Wild Sustainable Source seal, and UPC/item number 9392 (\\u2192 other-label). The \\\"25.99\\\" price tag visible in the background belongs to Heritage Store Black Seed Oil on an adjacent shelf and is not the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

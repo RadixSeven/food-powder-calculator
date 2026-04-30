@@ -1,0 +1,9 @@
+{
+  "request_sha": "0259714ec31873c7af30f3698ca9acbd",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"other-label\"], \"rationale\": \"Same amber bottle, green lid, and $28.99 shelf tag as Image 1 (MegaFood Men's 55+ Advanced Multivitamin). The current photo shows the back panel with a full readable Supplement Facts table (serving size, ~20 vitamins/minerals with amounts and % DV) plus a suggested-use statement and a QR code \\u2014 qualifying for both nutrition and other-label. 5.6-second gap strongly confirms same product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

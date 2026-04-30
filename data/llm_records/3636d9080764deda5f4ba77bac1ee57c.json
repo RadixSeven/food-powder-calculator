@@ -1,0 +1,9 @@
+{
+  "request_sha": "3636d9080764deda5f4ba77bac1ee57c",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": false, \"roles\": [\"front\"], \"rationale\": \"The running group (Image 3) and previous photo (Image 1 price tag) are both Nature Made Vitamin D3 2000 IU 400-tablet product. The current photo shows a hand holding a completely different bottle: Nature Made Magnesium Glycinate 200 mg, 60 capsules \\u2014 different product name, different active ingredient, different count, different packaging layout. This is the front face of the new product with brand logo, product name, and marketing copy filling the frame.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

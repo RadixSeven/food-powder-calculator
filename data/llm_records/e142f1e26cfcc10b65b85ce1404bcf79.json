@@ -1,0 +1,9 @@
+{
+  "request_sha": "e142f1e26cfcc10b65b85ce1404bcf79",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The shelf price tag (\\\"MOMS VEGAN PRO BLEND VAN 12.6OZ\\\", $25.99, barcode 719985942174) fills the frame and its barcode exactly matches the barcode on the bottle back panel in Image 1, confirming it belongs to the same MOM Organic Balanced Plant Protein Blend (Vanilla) product.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

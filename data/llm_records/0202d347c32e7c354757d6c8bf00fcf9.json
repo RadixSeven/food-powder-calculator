@@ -1,0 +1,9 @@
+{
+  "request_sha": "0202d347c32e7c354757d6c8bf00fcf9",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"other-label\"], \"rationale\": \"Same Country Life Vitamin D3 amber bottle photographed 6.9 s after the previous shot. This panel shows marketing text, FDA disclaimer, allergen YES/NO table, lot number (25K007A), best-by date (09/30), barcode, and certification logos \\u2014 no Supplement Facts or ingredients list visible. Classified as other-label only.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

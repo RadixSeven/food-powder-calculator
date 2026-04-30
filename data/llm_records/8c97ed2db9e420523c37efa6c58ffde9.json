@@ -1,0 +1,9 @@
+{
+  "request_sha": "8c97ed2db9e420523c37efa6c58ffde9",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same Nature Made Multi bottle as the previous shot and the group front \\u2014 identical yellow-lidded amber bottle with the yellow label. The current photo is the back panel rotated slightly further than Image 1: the full OTHER INGREDIENTS list (Cellulose Gel, Modified Food Starch, Croscarmellose Sodium, etc.) is clearly readable (ingredients); a WARNING block, the \\\"No Color Added / Gluten Free\\\" badge, lot number (2652085), and expiry (NOV 2027) are prominent (other-label); and a partial Supplement Facts column with readable % Daily Value rows is still visible on the left edge (nutrition).\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

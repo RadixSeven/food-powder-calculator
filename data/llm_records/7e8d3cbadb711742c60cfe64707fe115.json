@@ -1,0 +1,9 @@
+{
+  "request_sha": "7e8d3cbadb711742c60cfe64707fe115",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\", \"ingredients\", \"other-label\"], \"rationale\": \"Same green/cream MOM's Organic Balanced Plant Protein Blend container, same hand and shelf background, only 6.8 s after the previous shot \\u2014 clearly the same product rotated to the opposite side panel. The current frame shows: (1) the Supplement Facts numbers wrapping around the left edge (85 cal, 2g fat, 280mg sodium, 15g protein, etc.) plus a Typical Amino Acid Profile Per Serving table \\u2014 qualifies for nutrition; (2) partial ingredients list continuing from the back panel on the left edge (\\\"organic hemp protein (seed), organic acacia gum\\u2026 organic stevia extract\\u2026 organic Luo Han\\\") \\u2014 qualifies for ingredients; (3) extensive marketing copy about Pea & Hemp Protein, amino acid benefits, recycled-content notice, storage/guarantee/adverse-event notices, and FDA disclaimer \\u2014 qualifies for other-label. Not the front face, and no price tag is the primary subject.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

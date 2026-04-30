@@ -1,0 +1,9 @@
+{
+  "request_sha": "13327221b26c95b84a7f2ff56ded90b5",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\"], \"rationale\": \"Same Nature Made Multi 130-tablet bottle, rotated to show the side panel with the Supplement Facts table (partial, wrapping around the curve). Image 1 was the front; Image 2 is the nutrition/supplement facts panel of the same bottle.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

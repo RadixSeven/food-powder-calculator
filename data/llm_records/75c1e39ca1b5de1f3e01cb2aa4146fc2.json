@@ -1,0 +1,9 @@
+{
+  "request_sha": "75c1e39ca1b5de1f3e01cb2aa4146fc2",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"nutrition\"], \"rationale\": \"The current photo shows the back of the same Nature Made Multi 50+ For Him bottle, displaying the Supplement Facts panel (nutrition label) with vitamin/mineral amounts. Same amber bottle, yellow cap, and label design as the previous photo and the group front.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}

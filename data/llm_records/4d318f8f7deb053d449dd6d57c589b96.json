@@ -1,0 +1,9 @@
+{
+  "request_sha": "4d318f8f7deb053d449dd6d57c589b96",
+  "request": null,
+  "response": {
+    "text": "{\"is_same_product\": true, \"roles\": [\"price-tag\"], \"rationale\": \"The current photo's primary subject is a shelf price tag reading \\\"RENEW CMPLT CLEAR FIBER OG 7 OZ\\\" at $23.99. The barcode on the tag (631257121301) matches exactly the barcode visible on the back of the container in Image 1 (6 31257 12130 1), confirming it is the price tag for the same RenewLife Organic Clear Fiber product shown in the running group. The 25.6-second gap further supports same-product. The white container lids at the bottom are incidental background.\"}"
+  },
+  "first_observed_at": "2026-04-30T14:30:45-04:00",
+  "from_legacy_cache": true
+}
