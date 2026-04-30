@@ -4,3 +4,8 @@ python_tests(
         "//:reqs#pyomo",
     ],
 )
+
+python_test_utils(
+    name="conftest",
+    sources=["conftest.py"],
+)

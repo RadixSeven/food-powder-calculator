@@ -17,7 +17,7 @@ import time
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Iterable
+from typing import Callable, Iterable
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -29,6 +29,19 @@ CACHE_DIR = REPO_ROOT / "data" / "cache"
 # patch CACHE_DIR pick up the override automatically.
 REQUEST_CACHE_SUBDIR = "requests"
 RESPONSE_CACHE_SUBDIR = "responses"
+
+# Durable LLM records — the **tracked**, deletion-survivable store of
+# every (request, response) pair the pipeline has ever observed. The
+# cache may be wiped without losing reproducibility because :func:`call`
+# repopulates the cache from records on demand (same code path on a
+# fresh run and a replay run — there is no separate replay flag).
+#
+# Records live OUTSIDE :data:`CACHE_DIR` because mixing durable records
+# with deletable cache files invites accidents: code that "uses the
+# cache" then silently turns into code that depends on a hidden state
+# file. The deletion-survival test is the linter for that invariant —
+# wipe ``data/cache/`` and the pipeline must still run, slower at most.
+LLM_RECORDS_DIR = REPO_ROOT / "data" / "llm_records"
 
 # Wall-clock cap per claude invocation. Long enough for opus vision calls
 # on dense stitched nutrition panels (which routinely take 3-5 minutes),
@@ -74,12 +87,24 @@ class ClaudeResponse:
 def call(request: ClaudeRequest) -> ClaudeResponse:
     """Run a single claude -p call, returning a cached response if available.
 
+    Lookup chain — the same code path on a fresh run and a replay run, so
+    no replay-only branch can rot from disuse:
+
+    1. Response cache (``data/cache/responses/<sha>.json``) — fast path,
+       deletable.
+    2. Durable LLM records (``data/llm_records/<sha>.json``) — tracked,
+       survives ``rm -rf data/cache``. On hit, the cache is repopulated
+       so the next call short-circuits at step 1.
+    3. ``claude -p`` subprocess. On success, the durable record is
+       written **before** the cache: a partial-write crash can leave
+       the cache empty (recoverable) but never the record empty when
+       the cache says we have an answer.
+
     Rate-limit responses (HTTP 429) trigger an in-process wait until the
     parsed reset time and a retry, so the caller doesn't have to know about
     rate limits — particularly important when the caller is itself an LLM
     agent. Each retry sleeps at least :data:`MIN_RATE_LIMIT_SLEEP_SECONDS`
     so a stale-clock or lagging-server condition can't make the loop hot.
-
     """
     request_sha = _request_sha(request)
     request_cache_dir = CACHE_DIR / REQUEST_CACHE_SUBDIR
@@ -87,12 +112,29 @@ def call(request: ClaudeRequest) -> ClaudeResponse:
     request_cache_dir.mkdir(parents=True, exist_ok=True)
     request_cache_path = request_cache_dir / f"{request_sha}.json"
     cache_path = response_cache_dir / f"{request_sha}.json"
+    record_path = LLM_RECORDS_DIR / f"{request_sha}.json"
     with request_cache_path.open("w") as req_cache_file:
         json.dump(asdict(request), req_cache_file, default=str)
-    if cache_path.exists():
-        payload = json.loads(cache_path.read_text())
+
+    cached_text = _read_cache(cache_path)
+    if cached_text is not None:
         return ClaudeResponse(
-            text=payload["text"],
+            text=cached_text,
+            cached=True,
+            elapsed_seconds=0.0,
+            request_sha=request_sha,
+        )
+
+    record_text = _read_record(record_path)
+    if record_text is not None:
+        # Repopulate cache from the durable record so the next call hits
+        # the fast path; same code path as a fresh API call would have
+        # produced. ``cached=True`` because the user paid no LLM cost.
+        _atomic_write_json(
+            cache_path, {"text": record_text, "request_sha": request_sha}
+        )
+        return ClaudeResponse(
+            text=record_text,
             cached=True,
             elapsed_seconds=0.0,
             request_sha=request_sha,
@@ -102,16 +144,83 @@ def call(request: ClaudeRequest) -> ClaudeResponse:
     text = _run_with_rate_limit_retry(request)
     elapsed = time.monotonic() - start
 
-    response_cache_dir.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(
-        json.dumps({"text": text, "request_sha": request_sha}, indent=2)
+    # Durable record first so a crash mid-write can't produce a cache
+    # entry without a record. The cache is recoverable from records;
+    # records have no upstream to recover from.
+    _atomic_write_json(
+        record_path,
+        {
+            "request_sha": request_sha,
+            "request": asdict(request),
+            "response": {"text": text},
+            "first_observed_at": datetime.now()
+            .astimezone()
+            .isoformat(timespec="seconds"),
+        },
+        json_default=str,
     )
+    _atomic_write_json(cache_path, {"text": text, "request_sha": request_sha})
     return ClaudeResponse(
         text=text,
         cached=False,
         elapsed_seconds=elapsed,
         request_sha=request_sha,
     )
+
+
+def _read_cache(cache_path: Path) -> str | None:
+    """Return the cached response text if present and parseable, else None.
+
+    A torn JSON file (e.g. from a process crash mid-write) is treated as
+    a miss rather than an error — the next layer will handle it, and the
+    eventual successful write replaces the torn file.
+    """
+    if not cache_path.exists():
+        return None
+    try:
+        payload = json.loads(cache_path.read_text())
+    except (json.JSONDecodeError, ValueError):
+        return None
+    text = payload.get("text") if isinstance(payload, dict) else None
+    return text if isinstance(text, str) else None
+
+
+def _read_record(record_path: Path) -> str | None:
+    """Return the durable record's response text, or None on miss/torn file."""
+    if not record_path.exists():
+        return None
+    try:
+        payload = json.loads(record_path.read_text())
+    except (json.JSONDecodeError, ValueError):
+        return None
+    if not isinstance(payload, dict):
+        return None
+    response = payload.get("response")
+    if not isinstance(response, dict):
+        return None
+    text = response.get("text")
+    return text if isinstance(text, str) else None
+
+
+def _atomic_write_json(
+    path: Path,
+    payload: object,
+    *,
+    json_default: Callable[[object], object] | None = None,
+) -> None:
+    """Write ``payload`` as JSON via temp-file-and-rename.
+
+    A process crash before the rename leaves the destination either
+    untouched or fully written — never partially written. The temp file
+    sits next to the destination so the rename is on the same
+    filesystem and therefore atomic on every POSIX filesystem we care
+    about.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with tmp.open("w") as f:
+        json.dump(payload, f, indent=2, default=json_default)
+    tmp.replace(path)
 
 
 def _run_with_rate_limit_retry(request: ClaudeRequest) -> str:
@@ -490,6 +599,7 @@ __all__ = [
     "ClaudeResponse",
     "ClaudeStructuredOutputError",
     "ClaudeSubprocessError",
+    "LLM_RECORDS_DIR",
     "call",
 ]
 

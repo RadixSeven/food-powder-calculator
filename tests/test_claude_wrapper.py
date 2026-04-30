@@ -242,6 +242,247 @@ def test_call_records_request_even_when_response_is_cached(
     assert payload["prompt"] == "hi"
 
 
+# ---------------------------------------------------------------------------
+# Durable LLM records — cache → records → API lookup chain
+# ---------------------------------------------------------------------------
+
+
+def test_call_writes_durable_record_after_fresh_run(
+    tmp_path: Path, isolate_llm_records: Path
+) -> None:
+    """A fresh API call produces both a cache entry and a durable record;
+    the record is the source of truth that survives cache deletion.
+    """
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
+    cache_dir = tmp_path / "cache"
+
+    with patch("_claude.CACHE_DIR", cache_dir):
+        with patch(
+            "_claude._run_claude_subprocess", return_value="fresh response"
+        ):
+            response = call(r)
+
+    assert response.text == "fresh response"
+    record_path = isolate_llm_records / f"{_request_sha(r)}.json"
+    assert record_path.exists()
+    record = json.loads(record_path.read_text())
+    assert record["request_sha"] == _request_sha(r)
+    assert record["response"]["text"] == "fresh response"
+    assert record["request"]["prompt"] == "hi"
+    assert record["request"]["model"] == "haiku"
+    # first_observed_at is an ISO-8601 timestamp; just assert it parses.
+    datetime.fromisoformat(record["first_observed_at"])
+
+
+def test_call_serves_from_records_when_cache_is_missing(
+    tmp_path: Path, isolate_llm_records: Path
+) -> None:
+    """Delete the cache entirely; a durable record must satisfy the
+    call without an API hit. This is the deletion-survival test —
+    without it, the records layer isn't a real durable layer.
+    """
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
+    cache_dir = tmp_path / "cache"
+    # No cache directory at all — wholesale deletion.
+    record_path = isolate_llm_records / f"{_request_sha(r)}.json"
+    record_path.parent.mkdir(parents=True, exist_ok=True)
+    record_path.write_text(
+        json.dumps(
+            {
+                "request_sha": _request_sha(r),
+                "request": {"prompt": "hi", "model": "haiku"},
+                "response": {"text": "from records"},
+                "first_observed_at": "2026-04-29T10:00:00-04:00",
+            }
+        )
+    )
+
+    with patch("_claude.CACHE_DIR", cache_dir):
+        with patch("_claude._run_claude_subprocess") as mock_sub:
+            response = call(r)
+
+    assert response.text == "from records"
+    assert response.cached is True  # zero LLM cost paid
+    mock_sub.assert_not_called()
+
+
+def test_records_hit_repopulates_cache(
+    tmp_path: Path, isolate_llm_records: Path
+) -> None:
+    """A records-only hit warms the cache so the next call short-circuits
+    at the cache layer — same code path as a fresh API call would have
+    produced. The cache is rebuildable from records, not a separate
+    source of truth.
+    """
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
+    cache_dir = tmp_path / "cache"
+    record_path = isolate_llm_records / f"{_request_sha(r)}.json"
+    record_path.parent.mkdir(parents=True, exist_ok=True)
+    record_path.write_text(
+        json.dumps(
+            {
+                "request_sha": _request_sha(r),
+                "request": {"prompt": "hi", "model": "haiku"},
+                "response": {"text": "from records"},
+                "first_observed_at": "2026-04-29T10:00:00-04:00",
+            }
+        )
+    )
+
+    with patch("_claude.CACHE_DIR", cache_dir):
+        with patch("_claude._run_claude_subprocess") as mock_sub:
+            call(r)
+            # Second call: the cache should now be populated; subprocess
+            # would have been called only on misses-everywhere.
+            response2 = call(r)
+
+    cache_path = cache_dir / "responses" / f"{_request_sha(r)}.json"
+    assert cache_path.exists()
+    assert json.loads(cache_path.read_text())["text"] == "from records"
+    assert response2.text == "from records"
+    mock_sub.assert_not_called()
+
+
+def test_torn_cache_falls_through_to_records(
+    tmp_path: Path, isolate_llm_records: Path
+) -> None:
+    """A partially-written cache file (e.g. process killed mid-write)
+    must not bring down the next call. Treat it as a miss; records or
+    the API supplies the actual answer.
+    """
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
+    cache_dir = tmp_path / "cache"
+    response_dir = cache_dir / "responses"
+    response_dir.mkdir(parents=True)
+    (response_dir / f"{_request_sha(r)}.json").write_text("{not valid json")
+    record_path = isolate_llm_records / f"{_request_sha(r)}.json"
+    record_path.parent.mkdir(parents=True, exist_ok=True)
+    record_path.write_text(
+        json.dumps(
+            {
+                "request_sha": _request_sha(r),
+                "request": {"prompt": "hi", "model": "haiku"},
+                "response": {"text": "from records"},
+                "first_observed_at": "2026-04-29T10:00:00-04:00",
+            }
+        )
+    )
+
+    with patch("_claude.CACHE_DIR", cache_dir):
+        with patch("_claude._run_claude_subprocess") as mock_sub:
+            response = call(r)
+    assert response.text == "from records"
+    mock_sub.assert_not_called()
+
+
+def test_record_with_wrong_shape_treated_as_miss(
+    tmp_path: Path, isolate_llm_records: Path
+) -> None:
+    """A records file at the right path but with the wrong JSON shape
+    (e.g. a list at the top, or a dict missing the response object)
+    is treated as a miss rather than crashing the call.
+    """
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
+    cache_dir = tmp_path / "cache"
+    record_path = isolate_llm_records / f"{_request_sha(r)}.json"
+    record_path.parent.mkdir(parents=True, exist_ok=True)
+    # Top-level array → not a dict; falls through.
+    record_path.write_text(json.dumps([1, 2, 3]))
+
+    with patch("_claude.CACHE_DIR", cache_dir):
+        with patch("_claude._run_claude_subprocess", return_value="api"):
+            response = call(r)
+    assert response.text == "api"
+
+    # Now the right shape but missing the response.text — also a miss.
+    record_path.write_text(json.dumps({"request_sha": "x", "request": {}}))
+    # Wipe the cache that the previous run wrote so we re-enter the
+    # records branch.
+    cache_dir_inner = cache_dir / "responses"
+    for p in cache_dir_inner.iterdir():
+        p.unlink()
+    with patch("_claude.CACHE_DIR", cache_dir):
+        with patch("_claude._run_claude_subprocess", return_value="api2"):
+            response2 = call(r)
+    assert response2.text == "api2"
+
+
+def test_torn_record_falls_through_to_api(
+    tmp_path: Path, isolate_llm_records: Path
+) -> None:
+    """A torn record (similar crash scenario for the records write) is
+    a miss too; the API call is the last-resort source of truth.
+    """
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
+    cache_dir = tmp_path / "cache"
+    record_path = isolate_llm_records / f"{_request_sha(r)}.json"
+    record_path.parent.mkdir(parents=True, exist_ok=True)
+    record_path.write_text("{torn")
+
+    with patch("_claude.CACHE_DIR", cache_dir):
+        with patch("_claude._run_claude_subprocess", return_value="api"):
+            response = call(r)
+    assert response.text == "api"
+    # The torn record gets replaced by the new write — atomic temp+rename.
+    new_record = json.loads(record_path.read_text())
+    assert new_record["response"]["text"] == "api"
+
+
+def test_record_written_before_cache(
+    tmp_path: Path, isolate_llm_records: Path
+) -> None:
+    """The durable record must be on disk before the cache file. If the
+    process crashes between the two writes we want the record present
+    (truth) without a cache (a torn cache would just be a miss next
+    time, recoverable from the record).
+    """
+    img = _make_image(tmp_path, "a.png", (255, 0, 0))
+    r = ClaudeRequest(prompt="hi", model="haiku", image_paths=(img,))
+    cache_dir = tmp_path / "cache"
+    cache_path = cache_dir / "responses" / f"{_request_sha(r)}.json"
+    record_path = isolate_llm_records / f"{_request_sha(r)}.json"
+
+    write_order: list[str] = []
+    real_atomic_write = __import__("_claude")._atomic_write_json
+
+    def tracking_write(path: Path, payload: object, **kwargs: object) -> None:
+        if path == record_path:
+            write_order.append("record")
+        elif path == cache_path:
+            write_order.append("cache")
+        real_atomic_write(path, payload, **kwargs)  # type: ignore[arg-type]
+
+    with patch("_claude.CACHE_DIR", cache_dir):
+        with patch("_claude._run_claude_subprocess", return_value="api"):
+            with patch(
+                "_claude._atomic_write_json", side_effect=tracking_write
+            ):
+                call(r)
+    # Record must come first.
+    assert write_order == ["record", "cache"]
+
+
+def test_atomic_write_leaves_no_tmp_on_success(
+    tmp_path: Path,
+) -> None:
+    """``_atomic_write_json`` must rename the temp file in place; no
+    leftover ``.tmp`` files in the destination directory.
+    """
+    from _claude import _atomic_write_json
+
+    target = tmp_path / "out.json"
+    _atomic_write_json(target, {"x": 1})
+    assert target.exists()
+    leftovers = [p for p in tmp_path.iterdir() if p.suffix == ".tmp"]
+    assert leftovers == []
+
+
 def test_run_claude_subprocess_raises_on_nonzero_exit() -> None:
     from _claude import _run_claude_subprocess
 
