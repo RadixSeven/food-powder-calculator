@@ -289,9 +289,11 @@ def test_process_group_to_yaml_writes_yaml_at_expected_path(
     gold = tmp_path / "gold.json"
     img = tmp_path / "img.jpg"
     _save(img)
+    # Use the absolute path so the @pipeline_step input check resolves
+    # the photo to a real file regardless of REPO_ROOT.
     gold.write_text(
         f'{{"groups": [{{"id": "g1", "photos": ['
-        f'{{"path": "{img.name}", "roles": ["front"]}}]}}]}}'
+        f'{{"path": "{img}", "roles": ["front"]}}]}}]}}'
     )
 
     fake_artifacts = GroupArtifacts(
@@ -378,9 +380,10 @@ def test_process_group_to_yaml_force_reextracts(tmp_path: Path) -> None:
     gold = tmp_path / "gold.json"
     img = tmp_path / "p.jpg"
     _save(img)
+    # Absolute path so the @pipeline_step input check resolves correctly.
     gold.write_text(
         f'{{"groups": [{{"id": "g1", "photos": ['
-        f'{{"path": "{img.name}", "roles": ["front"]}}]}}]}}'
+        f'{{"path": "{img}", "roles": ["front"]}}]}}]}}'
     )
     yaml_dir = tmp_path / "yaml"
     yaml_dir.mkdir()

@@ -31,6 +31,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from _json_types import JsonObject, JsonValue
+from _pipeline import pipeline_step, register_producer
 from role_bbox import ROLE_KINDS, PanelBbox, crop_panel, detect_panels
 from role_stitch import stitch_axis_for_panels, stitch_role_panels
 
@@ -39,6 +40,53 @@ GOLD_GROUPS_JSON = REPO_ROOT / "data" / "gold_groups.json"
 STITCHED_PANELS_DIR = REPO_ROOT / "data" / "stitched_panels"
 
 STRICT_ROLES = ("front", "nutrition", "price-tag")
+
+# Tell the missing-input system that ``manifest.json`` files under
+# ``stitched_panels/`` are produced by this script. Other steps that
+# declare a manifest as input (extract_yaml.process_group_to_yaml)
+# get a useful hint when the manifest hasn't been built yet.
+register_producer(
+    "data/stitched_panels/", "uv run python scripts/group_pipeline.py <gid>"
+)
+
+
+def _process_group_inputs(
+    group: JsonObject, *, out_root: Path
+) -> tuple[Path, ...]:
+    """Resolve the durable input paths for one process_group call.
+
+    Every photo referenced by the group must exist on disk before the
+    pipeline runs. ``out_root`` is unused but takes the kwarg so the
+    decorator's resolver signature lines up with the wrapped function.
+    """
+    del out_root
+    photos = group.get("photos")
+    if not isinstance(photos, list):
+        return ()
+    paths: list[Path] = []
+    for ph in photos:
+        if not isinstance(ph, dict):
+            continue
+        path_value = ph.get("path")
+        if isinstance(path_value, str):
+            paths.append(REPO_ROOT / path_value)
+    return tuple(paths)
+
+
+def _process_group_outputs(
+    group: JsonObject, *, out_root: Path
+) -> tuple[Path, ...]:
+    """Resolve the durable output paths a process_group call will write.
+
+    The per-photo crops are also outputs but we can't enumerate them
+    until the bbox detector has run; declaring just the manifest is a
+    correct (if coarse) summary, and the manifest itself records the
+    crop paths.
+    """
+    gid_value = group.get("id")
+    if not isinstance(gid_value, str):
+        return ()
+    return (out_root / gid_value / "manifest.json",)
 
 
 @dataclass(frozen=True)
@@ -237,6 +285,11 @@ def _repo_relative(path: Path) -> str:
         return str(path)
 
 
+@pipeline_step(
+    inputs=_process_group_inputs,
+    outputs=_process_group_outputs,
+    name="group_pipeline.process_group",
+)
 def process_group(group: JsonObject, *, out_root: Path) -> GroupArtifacts:
     """End-to-end: bbox + crop + per-role stitch for one group."""
     gid_value = group.get("id")

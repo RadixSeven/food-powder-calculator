@@ -30,9 +30,12 @@ from pathlib import Path
 
 import yaml
 
+import group_pipeline
 from _claude import ClaudeRequest, call
+from _pipeline import pipeline_step, register_producer
 from group_pipeline import (
     GOLD_GROUPS_JSON,
+    REPO_ROOT,
     STITCHED_PANELS_DIR,
     GroupArtifacts,
     detect_and_crop_group,
@@ -52,12 +55,16 @@ from role_extraction import (
     extract_price_tag,
 )
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
 EXTRACTED_YAML_DIR = REPO_ROOT / "data" / "extracted_yaml"
 
 NUTRITION_MODEL = "opus"
 FRONT_MODEL = "haiku"
 PRICE_TAG_MODEL = "haiku"
+
+# Producer registration: extracted YAMLs are produced by this script.
+register_producer(
+    "data/extracted_yaml/", "uv run python scripts/extract_yaml.py <gid>"
+)
 
 
 @dataclass(frozen=True)
@@ -187,6 +194,66 @@ def write_extraction_yaml(extraction: GroupExtraction, out_path: Path) -> None:
         yaml.safe_dump(payload, f, sort_keys=False, allow_unicode=True)
 
 
+def _process_group_to_yaml_inputs(
+    group_id: str,
+    *,
+    gold_path: Path = GOLD_GROUPS_JSON,
+    stitched_root: Path = STITCHED_PANELS_DIR,
+    out_dir: Path = EXTRACTED_YAML_DIR,
+    skip_if_exists: bool = True,
+) -> tuple[Path, ...]:
+    """Resolve the durable inputs for one process_group_to_yaml call.
+
+    Always: ``gold_path``. Additionally, every photo the gold entry
+    for ``group_id`` references — but only when ``gold_path`` exists,
+    so the wrapper's missing-gold error fires first instead of a deeper
+    KeyError from ``load_group``.
+    """
+    del stitched_root, out_dir, skip_if_exists
+    if not gold_path.exists():
+        return (gold_path,)
+    try:
+        group = load_group(gold_path, group_id)
+    except (KeyError, ValueError):
+        return (gold_path,)
+    photos = group.get("photos")
+    paths: list[Path] = [gold_path]
+    if isinstance(photos, list):
+        for ph in photos:
+            if not isinstance(ph, dict):
+                continue
+            path_value = ph.get("path")
+            if isinstance(path_value, str):
+                # Reference group_pipeline.REPO_ROOT through the module
+                # rather than the module-level import so test fixtures
+                # that monkeypatch ``group_pipeline.REPO_ROOT`` are
+                # honored here too.
+                paths.append(group_pipeline.REPO_ROOT / path_value)
+    return tuple(paths)
+
+
+def _process_group_to_yaml_outputs(
+    group_id: str,
+    *,
+    gold_path: Path = GOLD_GROUPS_JSON,
+    stitched_root: Path = STITCHED_PANELS_DIR,
+    out_dir: Path = EXTRACTED_YAML_DIR,
+    skip_if_exists: bool = True,
+) -> tuple[Path, ...]:
+    """Resolve the durable output of one process_group_to_yaml call."""
+    del gold_path, stitched_root, skip_if_exists
+    return (out_dir / f"{group_id}.yaml",)
+
+
+@pipeline_step(
+    inputs=_process_group_to_yaml_inputs,
+    outputs=_process_group_to_yaml_outputs,
+    name="extract_yaml.process_group_to_yaml",
+    # The function has a skip-when-output-exists fast path; checking
+    # inputs eagerly would defeat that — a stale ``gold.json`` should
+    # not block re-using an already-extracted YAML.
+    eager_input_check=False,
+)
 def process_group_to_yaml(
     group_id: str,
     *,
