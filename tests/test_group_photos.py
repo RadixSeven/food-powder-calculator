@@ -12,7 +12,6 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 from group_photos import (
-    CVS_CUTOFF_FILENAME,
     Classification,
     Group,
     GROUPING_JSON_SCHEMA,
@@ -34,6 +33,10 @@ from group_photos import (
 )
 from PIL import Image
 
+# Last MOM photo in the real 2026-04-26 shopping batch — used by
+# fixtures that need a MOM/CVS boundary that matches production data.
+MOM_CUTOFF_FILENAME = "PXL_20260426_180130578.MP.jpg"
+
 
 def _solid_image(path: Path) -> None:
     Image.new("RGB", (200, 100), (200, 50, 50)).save(path, "JPEG")
@@ -42,13 +45,27 @@ def _solid_image(path: Path) -> None:
 # ---------- pure helpers ------------------------------------------------------
 
 
-def test_store_for_returns_mom_before_cutoff() -> None:
-    assert store_for("PXL_20260426_165737642.jpg") == "MOM"
-
-
-def test_store_for_returns_cvs_at_or_after_cutoff() -> None:
-    assert store_for(CVS_CUTOFF_FILENAME) == "CVS"
-    assert store_for("PXL_20260426_181000000.jpg") == "CVS"
+def test_store_for_consults_batch_yaml(tmp_path: Path) -> None:
+    """``store_for`` is now a thin wrapper around the batch-metadata
+    lookup; the old hard-coded CVS cutoff constant is gone. Spot-check
+    that the wrapper passes the path through to the batch's rules.
+    """
+    batch_dir = tmp_path / "test-batch"
+    batch_dir.mkdir()
+    (batch_dir / "batch.yaml").write_text(
+        "name: test-batch\n"
+        "captured_at: 2026-04-26\n"
+        "source: test\n"
+        "stores:\n"
+        "  - {name: MOM, until: PXL_20260426_180130578.MP.jpg}\n"
+        "  - {name: CVS}\n"
+    )
+    early = batch_dir / "PXL_20260426_165737642.jpg"
+    early.write_bytes(b"fake")
+    late = batch_dir / "PXL_20260426_181000000.jpg"
+    late.write_bytes(b"fake")
+    assert store_for(early) == "MOM"
+    assert store_for(late) == "CVS"
 
 
 def test_make_group_id_format() -> None:
@@ -296,10 +313,32 @@ def test_classify_photo_handles_missing_previous_and_front(
 # ---------- assign_groups: state-machine semantics ---------------------------
 
 
-def _photos_in(tmp_path: Path, names: list[str]) -> list[Path]:
-    paths = []
+def _photos_in(
+    tmp_path: Path, names: list[str], *, mom_cutoff: str | None = None
+) -> list[Path]:
+    """Drop ``names`` into a synthetic batch directory under ``tmp_path``.
+
+    All photos go into ``tmp_path/test-batch/`` with a minimal
+    ``batch.yaml``. ``mom_cutoff`` (when set) becomes the
+    ``until: <filename>`` value on the MOM rule and a trailing CVS
+    rule catches the rest; without it every photo is MOM (the common
+    case when tests aren't asserting on store boundaries).
+    """
+    batch_dir = tmp_path / "test-batch"
+    batch_dir.mkdir(parents=True, exist_ok=True)
+    if mom_cutoff is not None:
+        rules = f"  - {{name: MOM, until: {mom_cutoff}}}\n  - {{name: CVS}}\n"
+    else:
+        rules = "  - {name: MOM}\n"
+    (batch_dir / "batch.yaml").write_text(
+        "name: test-batch\n"
+        "captured_at: 2026-04-26\n"
+        "source: test\n"
+        f"stores:\n{rules}"
+    )
+    paths: list[Path] = []
     for name in names:
-        p = tmp_path / name
+        p = batch_dir / name
         _solid_image(p)
         paths.append(p)
     return paths
@@ -377,8 +416,9 @@ def test_assign_groups_starts_new_group_when_store_changes(
         tmp_path,
         [
             "PXL_20260426_165737642.jpg",  # MOM
-            CVS_CUTOFF_FILENAME,  # CVS — store boundary
+            "PXL_20260426_180942709.MP.jpg",  # CVS — store boundary
         ],
+        mom_cutoff=MOM_CUTOFF_FILENAME,
     )
 
     def fake_classify(**_kwargs: object) -> Classification:
@@ -484,6 +524,12 @@ def test_main_runs_without_limit_uses_no_extension(
     raw_dir = tmp_path / "raw"
     batch_dir = raw_dir / "test-batch"
     batch_dir.mkdir(parents=True)
+    (batch_dir / "batch.yaml").write_text(
+        "name: test-batch\n"
+        "captured_at: 2026-04-26\n"
+        "source: test\n"
+        "stores:\n  - {name: MOM}\n"
+    )
     for name in ("PXL_20260426_001.jpg", "PXL_20260426_002.jpg"):
         _solid_image(batch_dir / name)
     out_path = tmp_path / "groups.json"
@@ -594,6 +640,12 @@ def test_main_runs_end_to_end_with_mocked_classification(
     raw_dir = tmp_path / "raw"
     batch_dir = raw_dir / "test-batch"
     batch_dir.mkdir(parents=True)
+    (batch_dir / "batch.yaml").write_text(
+        "name: test-batch\n"
+        "captured_at: 2026-04-26\n"
+        "source: test\n"
+        "stores:\n  - {name: MOM}\n"
+    )
     for name in (
         "PXL_20260426_001.jpg",
         "PXL_20260426_002.jpg",

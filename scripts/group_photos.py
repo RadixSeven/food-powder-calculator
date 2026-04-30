@@ -25,13 +25,12 @@ from pathlib import Path
 from _claude import ClaudeRequest, call
 from _image_ops import resize_to_longest_side
 from _json_types import JsonValue
+from batch_metadata import store_for_photo
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RAW_PHOTOS_DIR = REPO_ROOT / "data" / "raw_photos"
 GROUPS_JSON = REPO_ROOT / "data" / "groups.json"
 GROUPING_RESIZE_DIR = REPO_ROOT / "data" / "cache" / "resized_grouping"
-
-CVS_CUTOFF_FILENAME = "PXL_20260426_180942709.MP.jpg"
 
 VALID_ROLES = (
     "front",
@@ -163,9 +162,16 @@ class Classification:
     rationale: str
 
 
-def store_for(filename: str) -> str:
-    """Return ``"CVS"`` or ``"MOM"`` for ``filename`` per the filename cutoff."""
-    return "CVS" if filename >= CVS_CUTOFF_FILENAME else "MOM"
+def store_for(photo: Path) -> str:
+    """Return the store name for ``photo`` via its batch.yaml rules.
+
+    Thin wrapper around :func:`batch_metadata.store_for_photo` kept on
+    this module's namespace so existing call sites in ``group_photos``
+    don't have to import from two places. The hard-coded
+    ``CVS_CUTOFF_FILENAME`` constant this function used to consult has
+    been removed — store assignment is per-batch metadata now.
+    """
+    return store_for_photo(photo)
 
 
 def list_photos(photo_dir: Path | None = None) -> list[Path]:
@@ -278,7 +284,7 @@ def assign_groups(
     def consume(photo: Path) -> bool:
         """Process one photo; return True iff it started a new group."""
         nonlocal previous
-        store = store_for(photo.name)
+        store = store_for(photo)
         front = (
             Path(groups[-1].photos[0].path)
             if groups and groups[-1].store == store
@@ -300,9 +306,7 @@ def assign_groups(
 
         is_same = classification.is_same_product
         roles = list(classification.roles)
-        store_changed = (
-            previous is not None and store_for(previous.name) != store
-        )
+        store_changed = previous is not None and store_for(previous) != store
         previous = photo
         if is_same and not store_changed and groups:
             groups[-1].photos.append(PhotoEntry(path=str(photo), roles=roles))
