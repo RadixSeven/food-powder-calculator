@@ -8,3 +8,4 @@ data/stitched_panels/
 data/cache/
 __pycache__/
 .coverage
+.claude/
