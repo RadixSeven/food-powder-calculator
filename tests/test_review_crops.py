@@ -728,6 +728,185 @@ def test_load_crop_reviews_returns_empty_for_non_dict_groups_field(
     assert _load_crop_reviews(path) == {}
 
 
+def test_thumb_finds_source_via_fallback_when_manifest_path_is_stale(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A stale manifest from before photos moved into a batch
+    subdirectory must not break the source-image link. The resolver
+    falls back to a one-level glob under ``raw_photos_dir`` for the
+    requested filename. Regression test for an actual bug observed
+    on mom_002 mid-session.
+    """
+    repo_root = tmp_path / "repo"
+    raw_dir = repo_root / "data" / "raw_photos"
+    batch_dir = raw_dir / "2026-04-26-shopping"
+    crops_dir = repo_root / "data" / "stitched_panels" / "g1" / "crops"
+    batch_dir.mkdir(parents=True)
+    crops_dir.mkdir(parents=True)
+    monkeypatch.setattr("_review_crops.REPO_ROOT", repo_root)
+
+    # Photo lives under the batch subdir (the new layout).
+    actual_source = batch_dir / "PXL_20260426_165855659.jpg"
+    _solid_image(actual_source)
+    crop = crops_dir / "PXL_20260426_165855659__front__0_0_1_1.jpg"
+    _solid_image(crop)
+
+    # Manifest's source_photo points at the OLD path
+    # (data/raw_photos/PXL_*.jpg), which no longer resolves directly.
+    gold = tmp_path / "gold.json"
+    _write_gold(gold, [{"id": "g1", "store": "MOM"}])
+    stitched_root = repo_root / "data" / "stitched_panels"
+    _write_manifest(
+        stitched_root,
+        "g1",
+        [
+            {
+                "role": "front",
+                "crop": str(crop.relative_to(repo_root)),
+                "source_photo": "data/raw_photos/PXL_20260426_165855659.jpg",
+            }
+        ],
+    )
+
+    app = Flask(__name__)
+    register(
+        app,
+        gold_groups_json=gold,
+        stitched_root=stitched_root,
+        crop_reviews_json=tmp_path / "missing.json",
+        raw_photos_dir=raw_dir,
+    )
+    response = app.test_client().get(
+        "/crops/raw/source/g1/PXL_20260426_165855659.jpg"
+    )
+    assert response.status_code == 200
+    assert response.data == actual_source.read_bytes()
+
+
+def test_thumb_fallback_returns_none_when_raw_photos_dir_missing(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """If ``raw_photos_dir`` itself doesn't exist (fresh checkout, or
+    unusual config), the fallback bows out cleanly instead of raising.
+    """
+    repo_root = tmp_path / "repo"
+    crops_dir = repo_root / "data" / "stitched_panels" / "g1" / "crops"
+    crops_dir.mkdir(parents=True)
+    monkeypatch.setattr("_review_crops.REPO_ROOT", repo_root)
+
+    gold = tmp_path / "gold.json"
+    _write_gold(gold, [{"id": "g1", "store": "MOM"}])
+    stitched_root = repo_root / "data" / "stitched_panels"
+    _write_manifest(
+        stitched_root,
+        "g1",
+        [
+            {
+                "role": "front",
+                "crop": "data/stitched_panels/g1/crops/x.jpg",
+                "source_photo": "data/raw_photos/x.jpg",
+            }
+        ],
+    )
+    app = Flask(__name__)
+    register(
+        app,
+        gold_groups_json=gold,
+        stitched_root=stitched_root,
+        crop_reviews_json=tmp_path / "missing.json",
+        raw_photos_dir=tmp_path / "no-such-raw-photos-dir",
+    )
+    response = app.test_client().get("/crops/raw/source/g1/x.jpg")
+    assert response.status_code == 404
+
+
+def test_thumb_fallback_skips_directory_named_like_filename(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """The glob ``*/<filename>`` would match a directory named like the
+    photo; only files should resolve.
+    """
+    repo_root = tmp_path / "repo"
+    raw_dir = repo_root / "data" / "raw_photos"
+    batch_dir = raw_dir / "batch"
+    crops_dir = repo_root / "data" / "stitched_panels" / "g1" / "crops"
+    batch_dir.mkdir(parents=True)
+    crops_dir.mkdir(parents=True)
+    # A directory whose name matches the requested filename.
+    (batch_dir / "x.jpg").mkdir()
+    monkeypatch.setattr("_review_crops.REPO_ROOT", repo_root)
+
+    gold = tmp_path / "gold.json"
+    _write_gold(gold, [{"id": "g1", "store": "MOM"}])
+    stitched_root = repo_root / "data" / "stitched_panels"
+    _write_manifest(
+        stitched_root,
+        "g1",
+        [
+            {
+                "role": "front",
+                "crop": "data/stitched_panels/g1/crops/x.jpg",
+                "source_photo": "data/raw_photos/x.jpg",
+            }
+        ],
+    )
+    app = Flask(__name__)
+    register(
+        app,
+        gold_groups_json=gold,
+        stitched_root=stitched_root,
+        crop_reviews_json=tmp_path / "missing.json",
+        raw_photos_dir=raw_dir,
+    )
+    response = app.test_client().get("/crops/raw/source/g1/x.jpg")
+    assert response.status_code == 404
+
+
+def test_thumb_fallback_does_not_apply_to_crop_kind(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """The fallback search is intentionally source-photo-only. Crop
+    paths are derivative artifacts; if a recorded crop is gone, the
+    pipeline regenerates it. We don't want to silently substitute a
+    different crop file with a coincidentally-matching name.
+    """
+    repo_root = tmp_path / "repo"
+    crops_dir = repo_root / "data" / "stitched_panels" / "g1" / "crops"
+    raw_dir = repo_root / "data" / "raw_photos"
+    crops_dir.mkdir(parents=True)
+    raw_dir.mkdir(parents=True)
+    monkeypatch.setattr("_review_crops.REPO_ROOT", repo_root)
+
+    gold = tmp_path / "gold.json"
+    _write_gold(gold, [{"id": "g1", "store": "MOM"}])
+    stitched_root = repo_root / "data" / "stitched_panels"
+    _write_manifest(
+        stitched_root,
+        "g1",
+        [
+            {
+                "role": "front",
+                # Both paths point at files that don't exist — the
+                # crop fallback should NOT trigger.
+                "crop": "data/stitched_panels/old/path.jpg",
+                "source_photo": "data/raw_photos/whatever.jpg",
+            }
+        ],
+    )
+    # Even if a same-named file lives somewhere reachable by
+    # raw_photos_dir search, the crop kind never falls back.
+    app = Flask(__name__)
+    register(
+        app,
+        gold_groups_json=gold,
+        stitched_root=stitched_root,
+        crop_reviews_json=tmp_path / "missing.json",
+        raw_photos_dir=raw_dir,
+    )
+    response = app.test_client().get("/crops/raw/crop/g1/path.jpg")
+    assert response.status_code == 404
+
+
 def test_thumb_404_when_manifest_crops_field_is_not_a_list(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

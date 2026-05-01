@@ -34,6 +34,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 URL_PREFIX = "crops"
 
 DEFAULT_CROP_REVIEWS_JSON = REPO_ROOT / "data" / "crop_reviews.json"
+DEFAULT_RAW_PHOTOS_DIR = REPO_ROOT / "data" / "raw_photos"
 
 # Roles that participate in the current review pass. Ingredients /
 # other-label are produced by the pipeline but the user isn't checking
@@ -273,8 +274,17 @@ def register(
     gold_groups_json: Path,
     stitched_root: Path,
     crop_reviews_json: Path = DEFAULT_CROP_REVIEWS_JSON,
+    raw_photos_dir: Path = DEFAULT_RAW_PHOTOS_DIR,
 ) -> None:
-    """Register the crops review view on ``app``."""
+    """Register the crops review view on ``app``.
+
+    ``raw_photos_dir`` is the fallback root used when a manifest's
+    recorded ``source_photo`` path no longer resolves — e.g. after
+    photos were reorganized into batch subdirectories but the
+    manifest predates the move. The resolver searches one level
+    deep under ``raw_photos_dir`` for the requested filename so a
+    stale manifest doesn't break UI display.
+    """
 
     def resolve_image(key: str) -> Path | None:
         # key has the form "crop/<group_id>/<filename>" or
@@ -316,7 +326,18 @@ def register(
                 if candidate.is_absolute()
                 else (REPO_ROOT / candidate)
             )
-            return resolved if resolved.exists() else None
+            if resolved.exists():
+                return resolved
+            # Fallback: the manifest's recorded path doesn't exist
+            # (typically a stale manifest from before the photos
+            # moved into a batch subdirectory). Search one level
+            # deep under raw_photos_dir for the same filename and
+            # return that.
+            if kind == "source":
+                fallback = _find_source_photo(raw_photos_dir, filename)
+                if fallback is not None:
+                    return fallback
+            return None
         return None
 
     register_image_routes(
@@ -538,6 +559,22 @@ def _crop_render_entry(
 def _load_manifest(stitched_root: Path, group_id: str) -> JsonObject | None:
     """Read the per-group manifest written by group_pipeline."""
     return load_json_object(stitched_root / group_id / "manifest.json")
+
+
+def _find_source_photo(raw_photos_dir: Path, filename: str) -> Path | None:
+    """Search one level under ``raw_photos_dir`` for ``filename``.
+
+    The expected layout is ``data/raw_photos/<batch>/<filename>``.
+    Used by the resolver as a fallback when a manifest's recorded
+    source path no longer resolves (typically a stale manifest from
+    before the per-batch reorganization).
+    """
+    if not raw_photos_dir.exists():
+        return None
+    for candidate in raw_photos_dir.glob(f"*/{filename}"):
+        if candidate.is_file():
+            return candidate
+    return None
 
 
 def _load_crop_reviews(crop_reviews_json: Path) -> dict[str, JsonObject]:
