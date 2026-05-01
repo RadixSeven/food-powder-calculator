@@ -1,0 +1,1109 @@
+{
+  "groups": {
+    "20260426_mom_001": {
+      "crops": {
+        "PXL_20260426_165737642__front__0030_0000_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_165809667__nutrition__0030_0000_1000_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_165814496__nutrition__0000_0000_0770_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_165824836.MP__price-tag__0030_0280_1000_0800.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_002": {
+      "crops": {
+        "PXL_20260426_165855659__front__0030_0069_0930_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_165901975__nutrition__0030_0000_0830_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_165910996__price-tag__0069_0130_0930_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_003": {
+      "crops": {
+        "PXL_20260426_165920991__front__0069_0080_0870_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_165936939__nutrition__0000_0000_0690_0990.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": "2"
+        },
+        "PXL_20260426_170006955__price-tag__0009_0320_0720_0640.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_165958071__nutrition__0000_0000_0830_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_004": {
+      "crops": {
+        "PXL_20260426_170119715__front__0030_0230_0980_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170123913__nutrition__0169_0270_1000_0640.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170156209__price-tag__0130_0500_0900_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        }
+      },
+      "comment": "We aren't extracting the number of pills from the front, but that might be something we want in the future to calculate unit price. I noticed because number of pills is excluded in this one."
+    },
+    "20260426_mom_005": {
+      "crops": {
+        "PXL_20260426_170233863__front__0030_0230_0970_0920.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170242863.MP__nutrition__0390_0220_1000_0630.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170304208.MP__price-tag__0080_0220_1000_0820.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_006": {
+      "crops": {
+        "PXL_20260426_170312010__front__0030_0230_0970_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170320553__nutrition__0130_0020_0870_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170331315.MP__price-tag__0090_0220_1000_0810.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_007": {
+      "crops": {
+        "PXL_20260426_170358062__front__0030_0230_0930_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170401442.MP__nutrition__0020_0280_0930_0620.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_008": {
+      "crops": {
+        "PXL_20260426_170442481__front__0000_0000_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170448300__nutrition__0030_0220_1000_0590.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170505770.MP__price-tag__0030_0230_0990_0830.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_009": {
+      "crops": {
+        "PXL_20260426_170617596.MP__front__0000_0000_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170636147.MP__nutrition__0300_0000_1000_0950.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170700493.MP__nutrition__0220_0000_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170716472.MP__nutrition__0270_0000_1000_0780.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170721471__nutrition__0150_0000_1000_0990.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170737089.MP__price-tag__0030_0050_0970_0620.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      },
+      "comment": "Some of the missing info from some of the crops is visible in some of the other crops, but not all of it. So, I decided to not list any where it is present."
+    },
+    "20260426_mom_010": {
+      "crops": {
+        "PXL_20260426_170759811.MP__front__0130_0370_0970_0980.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170808305__nutrition__0169_0230_0970_0670.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170826680.MP__price-tag__0000_0220_1000_0980.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_011": {
+      "crops": {
+        "PXL_20260426_170917508__front__0000_0020_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170930337__nutrition__0480_0009_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170936536__nutrition__0000_0000_0610_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_170956847__price-tag__0030_0069_0980_0730.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_012": {
+      "crops": {
+        "PXL_20260426_171045588__front__0000_0000_0830_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171056899__nutrition__0000_0130_0870_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171104183__nutrition__0000_0080_0700_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171120122.MP__price-tag__0220_0000_1000_0610.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_013": {
+      "crops": {
+        "PXL_20260426_171222926__front__0069_0169_1000_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171228172__nutrition__0110_0220_0920_0750.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171231818.MP__nutrition__0000_0090_0320_0880.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_014": {
+      "crops": {
+        "PXL_20260426_171317521__front__0030_0230_1000_0980.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171323097__nutrition__0230_0169_0870_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171359183__price-tag__0050_0270_1000_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_015": {
+      "crops": {
+        "PXL_20260426_171407816.MP__front__0000_0030_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171423780.MP__nutrition__0020_0020_1000_0800.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171428188.MP__nutrition__0000_0000_0680_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171433768__nutrition__0000_0000_0180_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171442689__price-tag__0000_0050_1000_0600.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_016": {
+      "crops": {
+        "PXL_20260426_171556159.MP__front__0080_0120_0880_0940.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171601486__nutrition__0000_0000_0880_0580.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171606289__nutrition__0000_0220_0270_0850.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": "1"
+        },
+        "PXL_20260426_171639174.MP__price-tag__0030_0000_1000_0670.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_017": {
+      "crops": {
+        "PXL_20260426_171731699.MP__front__0000_0230_0870_0980.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171735215.MP__nutrition__0169_0130_0930_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171737479.MP__nutrition__0050_0250_0950_0980.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171754812.MP__price-tag__0000_0000_1000_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_018": {
+      "crops": {
+        "PXL_20260426_171810502.MP__front__0069_0230_1000_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171815351.MP__nutrition__0240_0080_0900_0580.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171835072.MP__price-tag__0050_0230_1000_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_019": {
+      "crops": {
+        "PXL_20260426_171920720.MP__front__0030_0169_0970_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171926659.MP__nutrition__0130_0069_0970_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171929875.MP__nutrition__0000_0000_0550_0920.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_171943691.MP__price-tag__0050_0169_0970_0730.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_020": {
+      "crops": {
+        "PXL_20260426_172007867.MP__front__0050_0000_1000_0990.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172017643__nutrition__0020_0000_0650_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172048686__price-tag__0050_0290_1000_0890.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_021": {
+      "crops": {
+        "PXL_20260426_172223359__front__0000_0000_1000_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172232117__nutrition__0039_0030_0930_0790.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172241158__nutrition__0000_0000_0380_0960.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172342305__price-tag__0030_0080_1000_0920.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_022": {
+      "crops": {
+        "PXL_20260426_172508054__front__0069_0230_1000_0980.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172515673__nutrition__0020_0169_0990_0720.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172547329.MP__price-tag__0080_0080_1000_0810.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_023": {
+      "crops": {
+        "PXL_20260426_172616462.MP__front__0030_0169_1000_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172624402__nutrition__0000_0000_1000_0600.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172758037.MP__price-tag__0050_0169_1000_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_024": {
+      "crops": {
+        "PXL_20260426_172809810__front__0069_0050_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172818495__nutrition__0000_0000_0870_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172843611.MP__price-tag__0030_0000_1000_0570.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_025": {
+      "crops": {
+        "PXL_20260426_172857585__front__0230_0020_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172905563__nutrition__0519_0000_1000_0570.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172911986__nutrition__0050_0000_0960_0540.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_172919289__nutrition__0000_0120_0280_0950.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": "2"
+        },
+        "PXL_20260426_173026023.MP__price-tag__0050_0200_1000_0820.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_026": {
+      "crops": {
+        "PXL_20260426_173225824__front__0000_0130_0870_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173233365.MP__nutrition__0069_0120_0950_0510.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173306337__price-tag__0000_0069_1000_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_027": {
+      "crops": {
+        "PXL_20260426_173340891.MP__front__0000_0169_0870_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173350476.MP__nutrition__0000_0000_0980_0720.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173353919.MP__nutrition__0000_0000_0790_0620.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173412670__price-tag__0169_0330_0930_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_028": {
+      "crops": {
+        "PXL_20260426_173452904.MP__front__0130_0270_0930_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173507073.MP__nutrition__0009_0000_0970_0780.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173514224.MP__nutrition__0000_0020_0680_0880.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173528757.MP__price-tag__0080_0039_1000_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_029": {
+      "crops": {
+        "PXL_20260426_173539707.MP__front__0000_0220_0870_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173544591.MP__nutrition__0000_0120_0700_0510.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173557970.MP__nutrition__0000_0050_0630_0530.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173606492.MP__nutrition__0000_0220_0280_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": "2"
+        },
+        "PXL_20260426_173620710.MP__price-tag__0000_0030_1000_0730.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_030": {
+      "crops": {
+        "PXL_20260426_173634623.MP__front__0030_0069_0870_0830.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173639875.MP__nutrition__0030_0140_0890_0530.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173642965.MP__nutrition__0000_0030_0330_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173659689.MP__price-tag__0000_0000_1000_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_031": {
+      "crops": {
+        "PXL_20260426_173728906__front__0030_0230_0870_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173739417__nutrition__0069_0220_0960_0710.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173743551__nutrition__0000_0210_0530_0700.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_173952419.MP__price-tag__0000_0090_1000_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_032": {
+      "crops": {
+        "PXL_20260426_174010194.MP__front__0000_0000_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174030320.MP__nutrition__0130_0000_0970_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174038462.MP__nutrition__0000_0000_0490_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174052374.MP__price-tag__0069_0030_1000_0670.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_033": {
+      "crops": {
+        "PXL_20260426_174106060.MP__front__0000_0000_0970_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174126399__nutrition__0130_0000_0770_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174142632.MP__nutrition__0000_0050_0530_0990.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": "3"
+        },
+        "PXL_20260426_174158307.MP__nutrition__0000_0000_0330_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174208990.MP__price-tag__0000_0030_1000_0920.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_034": {
+      "crops": {
+        "PXL_20260426_174229708__front__0030_0069_0970_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174247394__nutrition__0080_0000_0690_0990.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": "2"
+        },
+        "PXL_20260426_174259532.MP__nutrition__0000_0000_0770_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174328088.MP__price-tag__0000_0069_1000_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_035": {
+      "crops": {
+        "PXL_20260426_174343145__front__0000_0000_1000_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174408427__nutrition__0120_0000_1000_0800.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174430005.MP__nutrition__0000_0000_0890_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174439616.MP__nutrition__0000_0050_0220_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174531604__price-tag__0000_0000_1000_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_036": {
+      "crops": {
+        "PXL_20260426_174635750.MP__front__0000_0169_0870_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174642964.MP__nutrition__0000_0000_0970_0880.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174648209.MP__nutrition__0000_0000_0830_0800.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174706899.MP__nutrition__0000_0220_0320_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174722521.MP__price-tag__0000_0000_1000_0810.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_037": {
+      "crops": {
+        "PXL_20260426_174741908__front__0030_0069_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174751331.MP__nutrition__0050_0000_0930_0790.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174756516.MP__nutrition__0000_0000_0980_0790.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174801587.MP__nutrition__0000_0080_0500_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174816113.MP__price-tag__0000_0030_1000_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_038": {
+      "crops": {
+        "PXL_20260426_174852168.MP__front__0000_0000_0930_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174900101.MP__nutrition__0000_0000_1000_0880.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174914926.MP__nutrition__0000_0000_0850_0830.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_174922096.MP__nutrition__0000_0000_0720_0490.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": "2"
+        },
+        "PXL_20260426_174944938__price-tag__0000_0000_1000_0980.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_039": {
+      "crops": {
+        "PXL_20260426_175512493__front__0000_0130_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_175519993.MP__nutrition__0130_0000_0770_0630.jpg": {
+          "reviewed": true,
+          "info_excluded": true,
+          "info_available_in": ""
+        },
+        "PXL_20260426_175545797__price-tag__0120_0330_1000_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_040": {
+      "crops": {
+        "PXL_20260426_175600652__front__0000_0000_0930_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_175611808.MP__nutrition__0000_0000_0580_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_175632201.MP__price-tag__0000_0000_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_041": {
+      "crops": {
+        "PXL_20260426_175752322__front__0130_0000_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_175759662__nutrition__0000_0000_0980_0430.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_175806434__nutrition__0000_0000_0480_0700.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_175926008__price-tag__0069_0130_1000_0900.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_042": {
+      "crops": {
+        "PXL_20260426_180009709.MP__front__0130_0020_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_180020513.MP__nutrition__0000_0000_0830_0570.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_180027058__nutrition__0000_0000_0580_0600.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_180047724.MP__price-tag__0000_0000_1000_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_mom_043": {
+      "crops": {
+        "PXL_20260426_180114548.MP__front__0000_0000_0970_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_180125482.MP__nutrition__0220_0000_1000_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_180130578.MP__nutrition__0000_0000_0950_0640.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_cvs_001": {
+      "crops": {
+        "PXL_20260426_180942709.MP__front__0030_0030_0970_0980.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_180945570.MP__nutrition__0620_0140_0990_0930.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_180948519.MP__nutrition__0140_0060_0990_0960.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_180951760__nutrition__0000_0080_0680_0940.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_180956262__nutrition__0000_0020_0130_0850.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181005919__price-tag__0000_0169_1000_0770.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_cvs_002": {
+      "crops": {
+        "PXL_20260426_181015159.MP__front__0130_0330_0900_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181021508__nutrition__0350_0000_0920_0960.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181026473__nutrition__0080_0169_1000_0880.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181029661.MP__nutrition__0000_0069_0590_0950.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181033256__nutrition__0000_0099_0169_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181135293__price-tag__0000_0370_1000_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_cvs_003": {
+      "crops": {
+        "PXL_20260426_181218599__front__0000_0169_0870_1000.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181221736__nutrition__0490_0099_0820_0950.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181229735.MP__nutrition__0000_0140_0680_0580.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181243008__price-tag__0000_0169_1000_0810.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    },
+    "20260426_cvs_004": {
+      "crops": {
+        "PXL_20260426_181340116__front__0030_0250_0970_0970.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181347134__nutrition__0050_0370_0980_0730.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181351672__nutrition__0000_0220_0510_0720.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        },
+        "PXL_20260426_181424702__price-tag__0000_0220_1000_0870.jpg": {
+          "reviewed": true,
+          "info_excluded": false,
+          "info_available_in": ""
+        }
+      }
+    }
+  }
+}
