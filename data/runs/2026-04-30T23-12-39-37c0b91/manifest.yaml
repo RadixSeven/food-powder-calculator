@@ -1,0 +1,424 @@
+run_id: 2026-04-30T23-12-39-37c0b91
+git_sha: 37c0b915285b6f790699a8b9369e703bd7570d85
+git_dirty: true
+started_at: '2026-04-30T23:12:39-04:00'
+ended_at: '2026-04-30T23:38:07-04:00'
+argv:
+- scripts/extract_yaml.py
+- --force
+- 20260426_mom_009
+- 20260426_mom_012
+- 20260426_mom_018
+- 20260426_mom_019
+- 20260426_mom_033
+- 20260426_mom_035
+- 20260426_mom_036
+- 20260426_mom_037
+- 20260426_mom_039
+env:
+  python_version: 3.13.7
+  models_used:
+  - haiku
+  - opus
+steps:
+- name: extract_yaml.process_group_to_yaml
+  started_at: '2026-04-30T23:12:39-04:00'
+  ended_at: '2026-04-30T23:14:40-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/gold_groups.json
+    sha256: 6f50b2f11f785bef715185801f1945cfdbe8a3d694a1fff8202900f354bbc532
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170617596.MP.jpg
+    sha256: ef4426914de40b693cb7ef730338bee3a3d1d01e8623d44b888a8ee1660661c7
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170636147.MP.jpg
+    sha256: 8d9f19ebbafc5ba034d110758ef503327ed189943d990e9766418ec6429361a0
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170700493.MP.jpg
+    sha256: 5a767e7d1635342f10e3a95eef63edcf5b86d611f6561cabaa8ab5ae5ee2adc2
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170716472.MP.jpg
+    sha256: c85b54a92b747bf5ce41eae6e0088966454a461c384aced0524673f241316bfb
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170721471.jpg
+    sha256: c6debf1674b55b7b0c5a0476d6ae7b66132ede76e3f36ac97fedab4b50f2c483
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170737089.MP.jpg
+    sha256: 18041cc279453954f828d31dae99cd8ac2ef67330ffe2d7a1066228002348533
+  - path: /home/kind/Prj/FoodPowderCalc/data/crop_reviews.json
+    sha256: 8de86f16e0077bfb8929e6060f662eea3531fa9f81296c58343679ee1adf195c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/extracted_yaml/20260426_mom_009.yaml
+    sha256: cb04202f3dfe13aa64cab4a8ec504bd56a09c57ad7cd4733406e439165836d4f
+- name: extract_yaml.process_group_to_yaml
+  started_at: '2026-04-30T23:14:40-04:00'
+  ended_at: '2026-04-30T23:16:14-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/gold_groups.json
+    sha256: 6f50b2f11f785bef715185801f1945cfdbe8a3d694a1fff8202900f354bbc532
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171045588.jpg
+    sha256: 517057444fb601928b17735888f9e78e5435d0bf4974d6e8fbbe910b8f188c70
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171056899.jpg
+    sha256: 9ff60a40313ee1b30c7d6fcd5b485c743bb323df2e0f2e44f5b1f7ad87ed04d5
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171104183.jpg
+    sha256: da8634c1c5e4f19e04de982d7f6346e0050b34d3a1438e877dad8a9d1b5c4dab
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171111272.MP.jpg
+    sha256: 2a9f991a6e71149c9d054407e1cc7a83d93700814230dea44406a45657fcb605
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171120122.MP.jpg
+    sha256: bc09dad7ebdaa57500965bf8cb3f4cc09eafaaf19871232e506142ae036cef4f
+  - path: /home/kind/Prj/FoodPowderCalc/data/crop_reviews.json
+    sha256: 8de86f16e0077bfb8929e6060f662eea3531fa9f81296c58343679ee1adf195c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/extracted_yaml/20260426_mom_012.yaml
+    sha256: 5b6ae5ed1ddbc85ef075a6e86cb81ae51917d45514ba78a5f20371caada6ccf2
+- name: extract_yaml.process_group_to_yaml
+  started_at: '2026-04-30T23:16:14-04:00'
+  ended_at: '2026-04-30T23:17:09-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/gold_groups.json
+    sha256: 6f50b2f11f785bef715185801f1945cfdbe8a3d694a1fff8202900f354bbc532
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171810502.MP.jpg
+    sha256: 769a9023eecc10e5c8634658134c2a9a2032234dd8b5c73a5a6ee44e7fff3515
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171815351.MP.jpg
+    sha256: 1fff855f53d0f02ec32677a80be027606124618fe105937c0d88c29b6492815f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171819091.jpg
+    sha256: 664fa273780e0b812874750ccda920746fb85ec01b575d648c90a3854ca85b02
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171835072.MP.jpg
+    sha256: a0584e58e647de7a3c16ef852a93b78be4bdea4f8e47262ccf9244ef94260062
+  - path: /home/kind/Prj/FoodPowderCalc/data/crop_reviews.json
+    sha256: 8de86f16e0077bfb8929e6060f662eea3531fa9f81296c58343679ee1adf195c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/extracted_yaml/20260426_mom_018.yaml
+    sha256: 4195b6db9a8a03b8c2abaa1d317a6bc1c2eb22f86dec30b47d913b3dd87fbc54
+- name: extract_yaml.process_group_to_yaml
+  started_at: '2026-04-30T23:17:09-04:00'
+  ended_at: '2026-04-30T23:19:52-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/gold_groups.json
+    sha256: 6f50b2f11f785bef715185801f1945cfdbe8a3d694a1fff8202900f354bbc532
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171920720.MP.jpg
+    sha256: fd517ee6494f97835883236d99c0eb63c6225d6f2af1c7487e5aa264b5f03e26
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171926659.MP.jpg
+    sha256: f675fcbe139aec0b541e4fd9ffeceb2a9b360097a3497bd0ec0210d048ad2fbc
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171929875.MP.jpg
+    sha256: 5e52bd49ff6ffc378dcff204b339c6c014f3062e6e59596aae584051322804af
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171933470.MP.jpg
+    sha256: 275a5a0f70fa4696e33628bc0a92c2546cae451af941cc9a1867aa2ee9d8f774
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171943691.MP.jpg
+    sha256: 8eacb7720de1d5b70f7f1997a33a5efd7d30c99aff813a7f2e403267ab3797ad
+  - path: /home/kind/Prj/FoodPowderCalc/data/crop_reviews.json
+    sha256: 8de86f16e0077bfb8929e6060f662eea3531fa9f81296c58343679ee1adf195c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/extracted_yaml/20260426_mom_019.yaml
+    sha256: 6ec504b6f7430eca3f692a232333e9a03e14c53fd0b5efa12516ce434a497102
+- name: extract_yaml.process_group_to_yaml
+  started_at: '2026-04-30T23:19:52-04:00'
+  ended_at: '2026-04-30T23:29:10-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/gold_groups.json
+    sha256: 6f50b2f11f785bef715185801f1945cfdbe8a3d694a1fff8202900f354bbc532
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174106060.MP.jpg
+    sha256: b559ee497cf031360daef8ba99f5761a7a26165b9d6b23e8f8e3ce79262e8338
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174126399.jpg
+    sha256: 8a71d467b086b419f547e97f9f3616d45f725dfb19e7cfca08b335b79d295f1f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174142632.MP.jpg
+    sha256: cfe504ec3a6b0b1051514f1f180ef7de3d7213d2119358828e4b54f305b15b26
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174158307.MP.jpg
+    sha256: 05d827a660c6abbbfca804198ec1c77ec10a8539268a6e627ac5614511595d8c
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174208990.MP.jpg
+    sha256: 290dcbe9542e58e1e07ae014261fac9036cd0987727cd19979082dece141effe
+  - path: /home/kind/Prj/FoodPowderCalc/data/crop_reviews.json
+    sha256: 8de86f16e0077bfb8929e6060f662eea3531fa9f81296c58343679ee1adf195c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/extracted_yaml/20260426_mom_033.yaml
+    sha256: 105fe58e72d19bd28926a2b26a06f0b1ad077a399aa5788fe7611d7033dd0280
+- name: extract_yaml.process_group_to_yaml
+  started_at: '2026-04-30T23:29:10-04:00'
+  ended_at: '2026-04-30T23:31:48-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/gold_groups.json
+    sha256: 6f50b2f11f785bef715185801f1945cfdbe8a3d694a1fff8202900f354bbc532
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174343145.jpg
+    sha256: a208cb5539be0201a3fe94849dbb750cbf3aeef396da0eab342bc72727d9a961
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174408427.jpg
+    sha256: 2aceb6e676465e1f4bf671c5d82b47fd69fab70f4df20e134be1de580e63e946
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174430005.MP.jpg
+    sha256: 2e214526b7510954a98b01d0ff2b17cd401729d96395ab787a98306a960bc9dc
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174439616.MP.jpg
+    sha256: f31f198a342f39009aed1e91af7004164ab4b8f59a45b8eb80f5ef51d9bd9943
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174531604.jpg
+    sha256: 9b5a586244d7df38432c5f477f0ba50d0c71b32162ffd7b7c02ebeb46e06d1f7
+  - path: /home/kind/Prj/FoodPowderCalc/data/crop_reviews.json
+    sha256: 8de86f16e0077bfb8929e6060f662eea3531fa9f81296c58343679ee1adf195c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/extracted_yaml/20260426_mom_035.yaml
+    sha256: 17d5f82518cff28e06309217d6173bf42c073fe1504acd4716b349f9368a652e
+- name: extract_yaml.process_group_to_yaml
+  started_at: '2026-04-30T23:31:48-04:00'
+  ended_at: '2026-04-30T23:32:56-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/gold_groups.json
+    sha256: 6f50b2f11f785bef715185801f1945cfdbe8a3d694a1fff8202900f354bbc532
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174635750.MP.jpg
+    sha256: 30841a863879325cadb4c722b9d8db9b0b49f8a2b0362ff8ee38431a93d6d3e0
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174642964.MP.jpg
+    sha256: e1239bdfb2bf91b1d8224f6845d77b56105afa11810ac36f41892d352da6687d
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174648209.MP.jpg
+    sha256: 537c05f3fbf0042bd43172e00d3d3afa191111dcec300f46836d44daa74d3b40
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174706899.MP.jpg
+    sha256: 4fe1d90c566a48037dae4a475a92d676061cdb408f68635f51146bfebc87bb5b
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174722521.MP.jpg
+    sha256: 6a25fe5d51f8800038af57c1e8f0502cb3560cafe11a253076076d4ee5dc81b8
+  - path: /home/kind/Prj/FoodPowderCalc/data/crop_reviews.json
+    sha256: 8de86f16e0077bfb8929e6060f662eea3531fa9f81296c58343679ee1adf195c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/extracted_yaml/20260426_mom_036.yaml
+    sha256: c41053d607d8fb8a45373445026e9d33c87f1d9f911383a05bbe2a3d6b6db2e4
+- name: extract_yaml.process_group_to_yaml
+  started_at: '2026-04-30T23:32:56-04:00'
+  ended_at: '2026-04-30T23:36:41-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/gold_groups.json
+    sha256: 6f50b2f11f785bef715185801f1945cfdbe8a3d694a1fff8202900f354bbc532
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174741908.jpg
+    sha256: 7a2e986ee0cff59e235010f0ce3b817cf6271fefe581d456c6290958b63c4f3f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174751331.MP.jpg
+    sha256: 377a574b3764bba3c9a6dae35c3a42c96d9659cd9d21b2cfb018f3af76438042
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174756516.MP.jpg
+    sha256: f92b7e0b11de53f9eb5d1c1fa5c7c5ad977f0ab53ed0dd08b4c449423a235bdf
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174801587.MP.jpg
+    sha256: 43d6c2d2c5aaf401f25dee099986bf3a3b30f21b43c23c1005d4cb8ea8f638ac
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174816113.MP.jpg
+    sha256: 6d482609fb8443b06967dc6b6f8dc42f51a28b7b481d9398f27f43141114b387
+  - path: /home/kind/Prj/FoodPowderCalc/data/crop_reviews.json
+    sha256: 8de86f16e0077bfb8929e6060f662eea3531fa9f81296c58343679ee1adf195c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/extracted_yaml/20260426_mom_037.yaml
+    sha256: 3f9cee6ff1835c454e97bb5f7c837d3e48e5124b8872de2bb93d0e7210c08070
+- name: extract_yaml.process_group_to_yaml
+  started_at: '2026-04-30T23:36:41-04:00'
+  ended_at: '2026-04-30T23:38:07-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/gold_groups.json
+    sha256: 6f50b2f11f785bef715185801f1945cfdbe8a3d694a1fff8202900f354bbc532
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175512493.jpg
+    sha256: 0fd09232ac4d4317136c3cbdefab106d381cd2f9efdfcfcc352383d2c58fc356
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175519993.MP.jpg
+    sha256: ac030484e33322b6de358daa58317d4998f6b96b5d25d64855f1432704673e4d
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175530860.MP.jpg
+    sha256: fee7db140ec96ba79df3f7ea2001e59c10850016a1447986d75633117718c4a6
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175545797.jpg
+    sha256: 24512c83f5479332f5a6f320f23584875719330e6399d1b302080aaa040629e7
+  - path: /home/kind/Prj/FoodPowderCalc/data/crop_reviews.json
+    sha256: 8de86f16e0077bfb8929e6060f662eea3531fa9f81296c58343679ee1adf195c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/extracted_yaml/20260426_mom_039.yaml
+    sha256: 92fc152b233d43818b840f647672778cad0334088426df869b839b8e4223cafc
+calls:
+- sha: 14f27e43ae23913a45bbdbaded74242a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 8d8d7bf289cb7e43feb170a7e89571b8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 649abe0c8267f0271afef1515eb5d281
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 20be45ee36592839f5f0fe8836bcc17d
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4a7bc62313d5ad0ccc1bed77ac77c920
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 07f669b2fbdc77df4084a01b0d176138
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 7ebf4ec5855300b271ac864742bcd430
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a85cd6bc6981ade27c1848a40fdf90dc
+  cached: false
+  elapsed_seconds: 119.206
+- sha: 5bef69a9efbba85082308cf1a5d661e5
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c2c9f66fb38477a0b67913f7bc69e5c0
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c74db7b1db66ab51d39fdbde28e2b8cc
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 329aec18548f93f56cbbcb7b68fcaca3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4d1fdb0e74fa9316e1a6b35388d3ff6a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 78eb93e549d37c5ad4f9b87eac68a261
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 360eb385818caa34308f042b848f3203
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a57d35f62d0dfab3b0ecad61598f698c
+  cached: false
+  elapsed_seconds: 93.02
+- sha: d56aebabc45f7efd3c45b4395b633c43
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 308be85caaa2731d24d0f3301b56681d
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 209f244601126bddd13ba1c0e0ed2135
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a3d2d060483a1c41a85ec28dfd484da8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3c18ecb5d4c637cbed5470aaf4d54ca9
+  cached: true
+  elapsed_seconds: 0.0
+- sha: de2a88fb71609a6e32cfe84bd5341112
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 861f1c2706476b6c4ce6d02d38867246
+  cached: false
+  elapsed_seconds: 54.915
+- sha: d999cea5f7cffdfc630ec235d29ba823
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 1b4178343c04fd85d61d59d1bb58a0f8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a34fc9b7f5e5d46e817da3b6eceda5d4
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c1b8cf34a45e323422a9e5c59aa0d18e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3d69d435b66bd53341e50d8c4e1d377a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: ce80b2fd8618e691c114c25d98bcbdd4
+  cached: true
+  elapsed_seconds: 0.0
+- sha: e5481263d908b8c903177e7bc519f325
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c41528ef7c2d6112f821a63047068f4d
+  cached: false
+  elapsed_seconds: 161.772
+- sha: b2b6c4976e3a310a7f00798cedc269ec
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 6231f01b7bad4886e974a2ae3c45ad5a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3d474e66b7ab03d6bf22bf32f0b2a9af
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 9efa5625d84d526b666d9a86add69198
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 7b3d057f4269a8ebcf1318c2daa2ef39
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d2b5583eeee8f8bd6b20a17951824f1b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: dfeacaf3b015f3aa7df8d2e3cb020e42
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 36288155ecc3b441c44f7311d1ca28b3
+  cached: false
+  elapsed_seconds: 556.892
+- sha: 2179df50a17669a9d4f2e9e7d01c5156
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 38030f2cb5dcf89d3f98ac740a23dd46
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a82e7ef908dc882983b24cc4cbdec3e1
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c08e217268d8ba7e2c89350d84f0030b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 083e707f43099bd1116dc65743602e9d
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 422aee673b5b88920ac659d9ea342e9a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 47b4bc2d31987a090e2e806d61151e2b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f54b1c0c136b4889e837a124c8194079
+  cached: false
+  elapsed_seconds: 156.995
+- sha: aaece1142bc0e29283bed05e87ed4d00
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d19ca9f56996d6756bb3449c8b9e23e6
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 67689f47878a19d1c9eee495a1446686
+  cached: true
+  elapsed_seconds: 0.0
+- sha: fb3a1669d8ee1be8813d9adac1ad0778
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 239a853971a6f7e931f98b6fe86623cf
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 5addfc2653e59ad0a582a331006934c8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 6d85fef16cc72785f9de7f0fcc127dc3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 34dec16f662e7103275b2f4a666720b0
+  cached: false
+  elapsed_seconds: 66.573
+- sha: b10ce093f33bbba4fec6f65534da95a4
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 773d3de152e181cb16224a07282b4e56
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c89ee1cf56ef40e9dc7b72c198e4dbc3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 995589e1a1549ca438e43d0539592e49
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f13d09d1207adfac479722367dd2a8ae
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 223e2e71d73089a5d8139c86dcddf81e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 88c26169d2a0ece7bd307a9c6ce3fef9
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 924e510605f8b7ffefa98f8022dc91eb
+  cached: false
+  elapsed_seconds: 224.265
+- sha: 9038d0d360cf1fc0f2f5db40cff9c274
+  cached: true
+  elapsed_seconds: 0.0
+- sha: fc51e272e1d1a48e2b9cb1ba6ff91034
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 63ad29cb8cf99521b4c0b778f63c18a3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 9ffe686546b287c371c8050ac6eac2f2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a0f8f5666d91b18e7e0d31a799ffec07
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3f6f50f9195ce6f5b8f54d2513f881eb
+  cached: false
+  elapsed_seconds: 11.726
+- sha: b284637bf392b62d277b0e09172a2ab9
+  cached: false
+  elapsed_seconds: 44.931
+- sha: 1e77b55f44126966fa45c7155f9ef8d5
+  cached: false
+  elapsed_seconds: 28.94

@@ -1,0 +1,1429 @@
+run_id: 2026-04-30T22-17-47-fa1db2b
+git_sha: fa1db2b45e9eb74538cfc98e69fa58b306d664b3
+git_dirty: true
+started_at: '2026-04-30T22:17:47-04:00'
+ended_at: '2026-04-30T22:18:48-04:00'
+argv:
+- scripts/group_pipeline.py
+- 20260426_mom_001
+- 20260426_mom_002
+- 20260426_mom_003
+- 20260426_mom_004
+- 20260426_mom_005
+- 20260426_mom_006
+- 20260426_mom_007
+- 20260426_mom_008
+- 20260426_mom_009
+- 20260426_mom_010
+- 20260426_mom_011
+- 20260426_mom_012
+- 20260426_mom_013
+- 20260426_mom_014
+- 20260426_mom_015
+- 20260426_mom_016
+- 20260426_mom_017
+- 20260426_mom_018
+- 20260426_mom_019
+- 20260426_mom_020
+- 20260426_mom_021
+- 20260426_mom_022
+- 20260426_mom_023
+- 20260426_mom_024
+- 20260426_mom_025
+- 20260426_mom_026
+- 20260426_mom_027
+- 20260426_mom_028
+- 20260426_mom_029
+- 20260426_mom_030
+- 20260426_mom_031
+- 20260426_mom_032
+- 20260426_mom_033
+- 20260426_mom_034
+- 20260426_mom_035
+- 20260426_mom_036
+- 20260426_mom_037
+- 20260426_mom_038
+- 20260426_mom_039
+- 20260426_mom_040
+- 20260426_mom_041
+- 20260426_mom_042
+- 20260426_mom_043
+- 20260426_cvs_001
+- 20260426_cvs_002
+- 20260426_cvs_003
+- 20260426_cvs_004
+env:
+  python_version: 3.13.7
+  models_used:
+  - haiku
+steps:
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:47-04:00'
+  ended_at: '2026-04-30T22:17:47-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_165737642.jpg
+    sha256: 0d2f76305ac34ddfb4ed48299c397029d9940727d18beb5572fdeecc083d0104
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_165809667.jpg
+    sha256: e2cbb4c61cbc78e47fb7c366b8599aac9c86e86d1a4d5bbd88f61a26f3baa84f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_165814496.jpg
+    sha256: d49589f384ca57b95e4e3439d889a82596c9abec55f7321db307d8d0fdfbac7c
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_165824836.MP.jpg
+    sha256: cb171736e97583ff03a50addfc3b2a103544615fefb2fa0bac5879951e20f290
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_001/manifest.json
+    sha256: 88aed58b22cb896de6a73cb85f2d35a6fcbb3bb0f9af0e55adaf123020434e09
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:47-04:00'
+  ended_at: '2026-04-30T22:17:47-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_165855659.jpg
+    sha256: 555d2a4f63eadf2b000a8283b303be3ecda8d165d63451d66f9a0a0245db7908
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_165901975.jpg
+    sha256: 60c5e56ce9020459cd26e2ae77dba1ab1c44d6652a82defec896e15da04a0565
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_165910996.jpg
+    sha256: c8f5d7217f1e6c1e705c092f6640e13eacca108615b292a81167454e23b1eac5
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_002/manifest.json
+    sha256: 21b974eba4c43e1869ee5e89148c04591f8098d3146b9cea2cdfa8ef5339bdd2
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:47-04:00'
+  ended_at: '2026-04-30T22:17:48-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_165920991.jpg
+    sha256: 3f17e68767101e05ad4fd1cd93e4aca9e1521ead6e039bab685fd7aa977814a8
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_165936939.jpg
+    sha256: 650b41da185c6ea3a01f1cf03d110d60d920646674aec8c663672787c3efae9e
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_165958071.jpg
+    sha256: 95882e39304aa02774b9c16899e641ff3e05a998ea1e3d1f3ba3178436d63174
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170006955.jpg
+    sha256: bac73f754b85c375540a65e91c9b51b80d99f47b72d3ef666408099333d0f138
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_003/manifest.json
+    sha256: 909c74f324b6f747df10208389c5ff1c920ea42cac4ff944eff22cdd6ecd05c2
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:48-04:00'
+  ended_at: '2026-04-30T22:17:49-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170119715.jpg
+    sha256: bb81f706e6211ab710ac112fece6646a635acbfaf32826d43be323bb92f7343f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170123913.jpg
+    sha256: c36ebb0ee7279059b6892828a187460128a5f9bd376a5ad7ed913b58afe3622e
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170147035.jpg
+    sha256: a7c737c79e371ee460768c51671571b081add2332302233f0617fa8264785be2
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170156209.jpg
+    sha256: ed9411dc01219ea1f385b8b3e68d6e1a1bb6dfc2592cff73723430a419733ee2
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_004/manifest.json
+    sha256: 49e759d8cba4ff0d71c0f132fdbb2d1afe3c851a8ace7b221ec258aa985106ab
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:49-04:00'
+  ended_at: '2026-04-30T22:17:50-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170233863.jpg
+    sha256: 33bbd1d7d7a277c1212d0cd459fc602560b6f77468db5d0a4b3c4f6c00853a33
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170242863.MP.jpg
+    sha256: 6280258fc1e0e8f1f26c54a68604a37981d73cd879bedc6abee4ed4046c5e7b8
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170304208.MP.jpg
+    sha256: 0bc3a1f52efa75fd6dbed111aa5d4691aa98b3d0984ce80b6f625ea533ff98a3
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_005/manifest.json
+    sha256: 1f39ccd9d6681e94290e51b11dfd799ffed47a3c40fa40c0233550d743856096
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:50-04:00'
+  ended_at: '2026-04-30T22:17:51-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170312010.jpg
+    sha256: 79d9e42550eea57c6cd77d75b97923087128c60e35a1d1aaf7182545f7d5b255
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170320553.jpg
+    sha256: 9eb3424096a5c83baf439d42cfe3545735b83bc59ae227cb1d2ae452b34390bc
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170324688.MP.jpg
+    sha256: b3a5f9682e0f3ad2ff15860321d2ca042bbc9568114c7770196cf3d516cc2e16
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170331315.MP.jpg
+    sha256: f544b31c45e4ba43f34bec797dba83f5e4eb4b1c45a51ac43a660a634f692b53
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_006/manifest.json
+    sha256: 4ef534a650bdb3dd44cf29e639e6df289cee3d7eadc7141207dec03601d57af1
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:51-04:00'
+  ended_at: '2026-04-30T22:17:52-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170358062.jpg
+    sha256: ece45cdfeac7d8cae7dc1d71607ea54a5677ac72eb6f4a5e50bccdbf5dd732ac
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170401442.MP.jpg
+    sha256: 72bb2affd55e473ae3f5dc9d53c1b531584deaa550d63f2e40ea795881b75962
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170406587.jpg
+    sha256: 2378c89e4ec34b5d8f383564f798d27d5987553a62998b8c131bdd308194196c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_007/manifest.json
+    sha256: 353782820e6352dea08c3dd6b09f85d57d96167fda6601b4e006442eb7b50673
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:52-04:00'
+  ended_at: '2026-04-30T22:17:52-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170442481.jpg
+    sha256: f405eec7054bc206966600d853a37294220e0f6e602e5d38c08017d0bec2938b
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170448300.jpg
+    sha256: e2be5b6b5f63de48888b376f31ef1991d8868dd4dc4180ef78f26dfb25cd1147
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170455204.jpg
+    sha256: 0b3d7466e0df79239aaceb4e3af2d45f75fba036ba8d75d33ebe73aefddcd240
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170505770.MP.jpg
+    sha256: e58f0e3cc86f10a7ea0e31f32be35c45b96edeb806b50ef9f7ca6d16c16bffe1
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_008/manifest.json
+    sha256: 0021b0896da48aae16a694378045185d84b088f794c2b863eedbdbd5da9641d3
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:52-04:00'
+  ended_at: '2026-04-30T22:17:55-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170617596.MP.jpg
+    sha256: ef4426914de40b693cb7ef730338bee3a3d1d01e8623d44b888a8ee1660661c7
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170636147.MP.jpg
+    sha256: 8d9f19ebbafc5ba034d110758ef503327ed189943d990e9766418ec6429361a0
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170700493.MP.jpg
+    sha256: 5a767e7d1635342f10e3a95eef63edcf5b86d611f6561cabaa8ab5ae5ee2adc2
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170716472.MP.jpg
+    sha256: c85b54a92b747bf5ce41eae6e0088966454a461c384aced0524673f241316bfb
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170721471.jpg
+    sha256: c6debf1674b55b7b0c5a0476d6ae7b66132ede76e3f36ac97fedab4b50f2c483
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170737089.MP.jpg
+    sha256: 18041cc279453954f828d31dae99cd8ac2ef67330ffe2d7a1066228002348533
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_009/manifest.json
+    sha256: 36faeb158bfdfa424783e8106326edb02879c3186c2fd0e07925fea8b4c15dae
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:55-04:00'
+  ended_at: '2026-04-30T22:17:56-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170759811.MP.jpg
+    sha256: cedb4f98ee6777e422e4ac01233d728291a8e8d1ae87a63e4401dcf18e0526d6
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170808305.jpg
+    sha256: ea24f81868d254b3bfbecd352c3aca6a54645b2629fa8245d2cd694e929ecdf6
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170813360.jpg
+    sha256: 9db4569dc64bebaeacb34680fcd8d4e27b38d6fda8381c3daaa7a7e1d9672df0
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170826680.MP.jpg
+    sha256: ec3b28289f5c4ff4ff0fa9370efd15103bad4c74c159bd2180a273bf8065607b
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_010/manifest.json
+    sha256: aa09112897c42e386b2148d81a6b96f06450103faae1c8e9a921658d8e349608
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:56-04:00'
+  ended_at: '2026-04-30T22:17:57-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170917508.jpg
+    sha256: 70b4e0624ce1da3f0f224e0bcd1bfbf48c9d7cc4010c3e3c7c3b2969748b02de
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170930337.jpg
+    sha256: d8629eaa5357ca0b85f3c51059affdf97ee646f43f9cc7f93ea357af0cad63a1
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170936536.jpg
+    sha256: dceb203a3d7506ec8a35e8751f62772ce5fa498cee4749d314703ad8a41cf094
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170941286.jpg
+    sha256: 75f3127da3f90ca8f271ee7412c662ba273a4d87c783e3897b599289e5c62d42
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_170956847.jpg
+    sha256: 039724ff32c660788848dacdac35b4cb623524e1501304ce435563a7fd40639d
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_011/manifest.json
+    sha256: cebd386e99934fdeebdb2d0ac4ac8f1d34c41d419241bea3681507f8c1b5603d
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:57-04:00'
+  ended_at: '2026-04-30T22:17:59-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171045588.jpg
+    sha256: 517057444fb601928b17735888f9e78e5435d0bf4974d6e8fbbe910b8f188c70
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171056899.jpg
+    sha256: 9ff60a40313ee1b30c7d6fcd5b485c743bb323df2e0f2e44f5b1f7ad87ed04d5
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171104183.jpg
+    sha256: da8634c1c5e4f19e04de982d7f6346e0050b34d3a1438e877dad8a9d1b5c4dab
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171111272.MP.jpg
+    sha256: 2a9f991a6e71149c9d054407e1cc7a83d93700814230dea44406a45657fcb605
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171120122.MP.jpg
+    sha256: bc09dad7ebdaa57500965bf8cb3f4cc09eafaaf19871232e506142ae036cef4f
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_012/manifest.json
+    sha256: 98e2c156f8ec8c6aa52ce70f4f1f8808700d0da751348b8596f721051a904d4e
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:17:59-04:00'
+  ended_at: '2026-04-30T22:18:00-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171222926.jpg
+    sha256: 592f574d328af58ce79420e211b21300d677be7a823d3b60e0ed078ebe26e797
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171228172.jpg
+    sha256: 909202cb7a49429847f36ca7b4c4190e31c8d829115d34ea035a046501f388f3
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171231818.MP.jpg
+    sha256: e127c16bfc41e314b0b9e75fde9a7a0c3d6e0830e87a1d4b6c76f2b8c547a573
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_013/manifest.json
+    sha256: adf5da3f67d4967e9421b52cb6991e81748445a5a289142c10bcf50ddc251d21
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:00-04:00'
+  ended_at: '2026-04-30T22:18:01-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171317521.jpg
+    sha256: 49291674450101ca118a363bfca6458b64a23c01807aecc2b6d0be29ee7cd7af
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171323097.jpg
+    sha256: e535504c70b3f56748d80ff3dcd76b8fd98d4133019b433051b2d86db0aca73e
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171345836.MP.jpg
+    sha256: 26e19f8cf613d463c12a8d50cf9310175b86fbffbd786ab4a8ceee5b67c35188
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171359183.jpg
+    sha256: 5bf2f7f7957c9370a4a9690f5a5221f2cdeba5c968d2b277055e538b0f09a37b
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_014/manifest.json
+    sha256: 7157a68b325917400f4ee015cbad8887ce2923e62f8596cc4cf459ffefe5b97f
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:01-04:00'
+  ended_at: '2026-04-30T22:18:02-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171407816.MP.jpg
+    sha256: 38f4e20547a86a783aeb9d63ac29618b59feacbe85dbbe64d9a80fd1df55f32d
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171423780.MP.jpg
+    sha256: 21d103bf7f80ad4daacef7803fec32f45f3e8317bc2cbc4a9819d39d7ee3bfc8
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171428188.MP.jpg
+    sha256: 0fce8764876cf2e8cd5aa68d1838402556b923afe3c89015fc8aeb02b181f933
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171433768.jpg
+    sha256: 5e0c42827947bab6e402a4cae100e9f7f2c43bb8dd91cf68ab5e27d8ab6eb081
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171442689.jpg
+    sha256: e954c33317c12f561a94c649babd40182cd278cb9dccfebb7e38f58046bd4f12
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_015/manifest.json
+    sha256: b88eac10bc160fd14203c7afa0e8f4543d9aca1fd3e68afb279dc74f59f7b521
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:02-04:00'
+  ended_at: '2026-04-30T22:18:03-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171556159.MP.jpg
+    sha256: a04ea92bfc052307bb2ac3873e41c7221b9a1601aa1ec6c9d39a0d141cbbccc6
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171601486.jpg
+    sha256: 3689da8a1a42b8c9b68c331eca8ec6c2c12021dc53fac943ce2776bd5f25dc6b
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171606289.jpg
+    sha256: 130edec70b3d56b3d4e0688e794dde23ea03064dbbe1448bba3e697f826a4f3d
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171639174.MP.jpg
+    sha256: 91be840d4e118be941fdbada248ffa64975095459018e9960d448942bc8caf00
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_016/manifest.json
+    sha256: 2411a8fac50b728b904e497f633af0e0ed5a21259d77c0c0709c6cd345540867
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:03-04:00'
+  ended_at: '2026-04-30T22:18:04-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171731699.MP.jpg
+    sha256: 26c0f2ded7893f45204b6b239038ecf8d0c41a7eee352603969d0d49fe8652e7
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171735215.MP.jpg
+    sha256: f89932b44e7c65e21fe0230578b74917547523e0c8b218bb85a0cbff13e95022
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171737479.MP.jpg
+    sha256: f30857d27029c4c7a4a1ce99ad7bba6ebc62d6088e897cf850b59e3e66950eb9
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171754812.MP.jpg
+    sha256: 76c35a5e08b5c40623b55b527dc0a0715f2056f286eddd76801e3becb9dff99d
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_017/manifest.json
+    sha256: dc889e0b591e6986a255aeb0a3be0572338f4de446618a782e21e30dc4e555e9
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:04-04:00'
+  ended_at: '2026-04-30T22:18:05-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171810502.MP.jpg
+    sha256: 769a9023eecc10e5c8634658134c2a9a2032234dd8b5c73a5a6ee44e7fff3515
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171815351.MP.jpg
+    sha256: 1fff855f53d0f02ec32677a80be027606124618fe105937c0d88c29b6492815f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171819091.jpg
+    sha256: 664fa273780e0b812874750ccda920746fb85ec01b575d648c90a3854ca85b02
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171835072.MP.jpg
+    sha256: a0584e58e647de7a3c16ef852a93b78be4bdea4f8e47262ccf9244ef94260062
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_018/manifest.json
+    sha256: 8fbea3d13c6ff7936db7eae67f5b1b3c798b8bd489729224ae8ab38e0d40f597
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:05-04:00'
+  ended_at: '2026-04-30T22:18:07-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171920720.MP.jpg
+    sha256: fd517ee6494f97835883236d99c0eb63c6225d6f2af1c7487e5aa264b5f03e26
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171926659.MP.jpg
+    sha256: f675fcbe139aec0b541e4fd9ffeceb2a9b360097a3497bd0ec0210d048ad2fbc
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171929875.MP.jpg
+    sha256: 5e52bd49ff6ffc378dcff204b339c6c014f3062e6e59596aae584051322804af
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171933470.MP.jpg
+    sha256: 275a5a0f70fa4696e33628bc0a92c2546cae451af941cc9a1867aa2ee9d8f774
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_171943691.MP.jpg
+    sha256: 8eacb7720de1d5b70f7f1997a33a5efd7d30c99aff813a7f2e403267ab3797ad
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_019/manifest.json
+    sha256: 9dc2c53b906a4d6e13a56df330c0c69084f156c65ccfb0eed057bb672e396e7c
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:07-04:00'
+  ended_at: '2026-04-30T22:18:07-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172007867.MP.jpg
+    sha256: fcb4fb503cd75fbea4419436b13ecf7b8875fbb067734039b85ca49670b3443e
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172017643.jpg
+    sha256: d4e0896452f6dec7afb6d1a0f8d5e81259ccd9fd00fbdb7d4bc3cb693d06d045
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172027444.jpg
+    sha256: 0c9337c4e551d80a85acab7bc219272936dcf403c0587354e91315a4bccecd8f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172048686.jpg
+    sha256: 90fbaf6613b34ecb4bc47c1a1aa0a0b81c98b6d55a073b86038d28e1da690d34
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_020/manifest.json
+    sha256: 481759c98880bb19950eb5fffbc7303785b534d738409af642d63a865437965e
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:08-04:00'
+  ended_at: '2026-04-30T22:18:09-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172223359.jpg
+    sha256: 521a5b2240d0173b6f0cc533092325979da937b5b6bb396cf2bf99ee061bcf69
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172232117.jpg
+    sha256: 5da01c49618296ae52062b5bbbeddbdcff7966651469a69bf167e2f6ea949dcc
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172241158.jpg
+    sha256: b8e754ecabff8aeb00d8c24a02b9891fe0a73c9f3d05689ebcf9d10696ff82d2
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172342305.jpg
+    sha256: f1e79364774568ae71d71d06e2c2ca576029242678a5e825c19de6b7d5a4ad4c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_021/manifest.json
+    sha256: 74cc9e0ed2765e1b38d4ad1d6268a595daf44d009717ed653ed83c117b1a5d5f
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:09-04:00'
+  ended_at: '2026-04-30T22:18:10-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172508054.jpg
+    sha256: 346b48656bf487ebc871fe41202d7dc3007d47f1078c98cd45008c9e1e547d77
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172515673.jpg
+    sha256: 59e098fd7fe5da641c7425aecd7e82118ed8f7c1170cb27031c917d3c93858aa
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172521771.jpg
+    sha256: 62e466aa92abf59ada245d652e008c52ef7d2ae97aab59263e5e90608b4bd9c9
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172547329.MP.jpg
+    sha256: e3dc5d9e52196d91565fce21b6bdaa9102805ed3aceb157b5c79e4879e5bd148
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_022/manifest.json
+    sha256: e7d234eeffbf5b6338174b3a8e6593e9bff21339aa6c170f45524e0d57268a13
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:10-04:00'
+  ended_at: '2026-04-30T22:18:10-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172616462.MP.jpg
+    sha256: 92050cecf602fe55650eff971c302cee151544a36bf4a856bc2e0bd4d1d29397
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172624402.jpg
+    sha256: ff91979539f5040b0ec72f63a839e397a43a4bca47557e84f12d79eadea6ab21
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172630738.jpg
+    sha256: 0257faffa8420a4a5b9c1ffdbb4a70d12606d55463ec39aad4c45dad994f28d0
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172758037.MP.jpg
+    sha256: 9f94e182d358edf6e0f83c44b053b37ced9dc389141556d60dc87394fda6ac05
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_023/manifest.json
+    sha256: 82dc7229f647cf45a6fac5f9f9c0d0620b3339adb1fb3b3dbd81f6292996033d
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:10-04:00'
+  ended_at: '2026-04-30T22:18:12-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172809810.jpg
+    sha256: dfe499d1984c52906d32ef52c46ce55da8b00f07dbc8ee469d7067de13066022
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172818495.jpg
+    sha256: cdf2d013f024a20816d7055587decc0bd8a5ef0e2ba054759cf1471bd1d6536f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172825263.jpg
+    sha256: 123e7205e9f050f4b62a27acc5105b1055e65426cf42d9b31425bd8ef81db8d0
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172831891.jpg
+    sha256: 481bafa7eb98ea5819de649c5dbf9ba53ff3095ff1a5c08e17522231bc83944e
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172843611.MP.jpg
+    sha256: da5d393ff4b9363c4fd6d276df6d6e82fbb41ef9e573790a20e8ba54b86d9b46
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_024/manifest.json
+    sha256: e34af173314267523e2e896b9bf86bc0bfa35e3d070c3cfafa4044fb045bc00b
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:12-04:00'
+  ended_at: '2026-04-30T22:18:14-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172857585.jpg
+    sha256: b945a6e9bb5bbf0a1ad9780d013effe9446689ed545c0fc538737aec6958e85c
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172905563.jpg
+    sha256: 3deb95f3221b1dea8b658731f1fb1051625837bc42c223891669f509f78d0aea
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172911986.jpg
+    sha256: edf7f623b6227b10fd38337dc39b701a18c7f734b271959c01de013897646805
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172919289.jpg
+    sha256: 4629d4555cb3044f852ca64d0f51f5259dc3ae9220aaa1d8bf9f922a621035f2
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_172925879.jpg
+    sha256: 77e35f215939c27480830043ef7565af0033f8440d6548c7aafc353bb78f18d1
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173026023.MP.jpg
+    sha256: 8c7b2c00b94baf4238548d8e83efa18d1d48908b723a06cff8b860b7071f5609
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_025/manifest.json
+    sha256: 78696c6140bf51e2ea0e29e448ebbb5921fc5836e2ba861e9b46c1463ca7b726
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:14-04:00'
+  ended_at: '2026-04-30T22:18:15-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173225824.jpg
+    sha256: 538b0da4beb0f73072ccfe5793d0de5376a4193cd73dd5515636fb3e36a9f637
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173233365.MP.jpg
+    sha256: 54ef93b02d31009754d7f81eba04b53f5bcbe19028fd798895e3730cb6ad2567
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173238768.jpg
+    sha256: 81a4e5af43e62ed63298e66e0142c875c856cab5ab62004f669b44a70a439cd3
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173306337.jpg
+    sha256: 56e1906f5b97997109add994792b6223838803112c987334c341b8ad4a19182e
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_026/manifest.json
+    sha256: 6d42d9bbaf1781f61775c99f1c60df9ecdb338db00988df0d1ddf5b869fc775d
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:15-04:00'
+  ended_at: '2026-04-30T22:18:16-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173340891.MP.jpg
+    sha256: 871b7cff79fcb7380ab681ecf787512f7f7cc0bba329823f8193fa343bd31d24
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173350476.MP.jpg
+    sha256: a69a60a9db1438dc4f979e5a326e6796891fca06ed93fcaab4794a265cdd513d
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173353919.MP.jpg
+    sha256: e859b108bad2e768b658c8a2791f86342a5fdd84225d60677dd8990fac803144
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173359794.jpg
+    sha256: 8974a680b4c8b8131cc3fbc7b7014817011668b83cef55870f783215f8349197
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173412670.jpg
+    sha256: f585169a66c2549e654beee539c9cb8e7cd2cdf32faa7d76ef44c9858a25cfa0
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_027/manifest.json
+    sha256: 234702c51f1c5f898f2915a1169f63e08aa771f1fff3f4764ab206200509de8a
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:16-04:00'
+  ended_at: '2026-04-30T22:18:18-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173452904.MP.jpg
+    sha256: 06b51993445797509330ccc5c61219127aed7b8a1f3ad411a5f97db836f81709
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173507073.MP.jpg
+    sha256: bc80469c463266c6a38fe3ca886c44789725996c54fa0e38291f3ef326f205f1
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173514224.MP.jpg
+    sha256: 64c9df322a96f35828e8c85453aeef63274504269d646c0986958a7b6a3b53d8
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173528757.MP.jpg
+    sha256: 4cbdb051468939faa81f91292862ea518c54964fa60d688b4e65669c6ea42df8
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_028/manifest.json
+    sha256: 32662e8ea8ac33794b06317a6061dab0eed14e988117b27238e08ff6cf6d3bb2
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:18-04:00'
+  ended_at: '2026-04-30T22:18:20-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173539707.MP.jpg
+    sha256: 99633a4b98be6ee47dcfca8b70cb782583d7c83edbcce53484e2a50f01c11ce2
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173544591.MP.jpg
+    sha256: d4766fa9adf484eaa77feb7e69f4c15c88fc253f5f4fc440a93f2efb06091c65
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173557970.MP.jpg
+    sha256: 7f81b016e78f853d57abf8c4d34a099981f141c85521f4663547a3f6bb2c37c7
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173606492.MP.jpg
+    sha256: 9f0a0d2c7cf68331bbfd9057d9d993b9cbfe2299ec0777d9b56b8672e94d1b8c
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173620710.MP.jpg
+    sha256: f6442b4d01513286ae7f72e07cdd04af2a5d4c63f37a81e7c5d16a856ff45a3f
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_029/manifest.json
+    sha256: 98981ae87b06e5fa2e2e57970ba65d2ad57ff88eb0fb5fddda5fa624f5a428bc
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:20-04:00'
+  ended_at: '2026-04-30T22:18:21-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173634623.MP.jpg
+    sha256: e7af11ff238093d92de5b44bcde0738a63cbc02dbb7a04e207459c1e7e8ce5d4
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173639875.MP.jpg
+    sha256: 29c5391c08b7b1476118504514f671f2b534ac3319199284717df3a303d9880c
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173642965.MP.jpg
+    sha256: a9144150091c042daf848b24f20bd14b723f2a112a70cbefde1da89a5375ba2a
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173659689.MP.jpg
+    sha256: 46f4711bf5e114e8dda18c1b6573bdc4afb1becbb83d8e661af9af71ed43b48d
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_030/manifest.json
+    sha256: 651e82832ad373a057d40e923bb21b21bfbae5650b8ac18b992dc346c386832c
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:21-04:00'
+  ended_at: '2026-04-30T22:18:22-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173728906.jpg
+    sha256: 49f8acbd75a7dac7c14dd8fc3205ebd910bbf2fcf31209592c9971dea4a1ad8a
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173739417.jpg
+    sha256: 37f61b829b8a321566c3ddfa49e29a2d7cf0de1c082c2f7434b9ba668114893c
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173743551.jpg
+    sha256: 1277e892fc8719658f5b653b904a4116d637f92341eccd61088b6019781c7327
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_173952419.MP.jpg
+    sha256: 189bb748e6b473245e38fba9f431294f0f51bba8a2db821709b531f0d353678d
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_031/manifest.json
+    sha256: 65314c03c661e40610a64c23139260510f6f1afebf8534a45e9b9107294c3565
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:22-04:00'
+  ended_at: '2026-04-30T22:18:23-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174010194.MP.jpg
+    sha256: f79d352d9fbae82cce93051ea9199a41a301eaf1c84af67a003d585e1bdbd799
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174030320.MP.jpg
+    sha256: 9ce2fe6b5effee436b7b51c7474b5ca4d1834f185d453ee92c8befbc37e75aff
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174038462.MP.jpg
+    sha256: ab52a2cba548c2e63bfd3ea5ea688e5dc6215c86f10c38dd466845d6672e995c
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174052374.MP.jpg
+    sha256: 1a8bd5ef4d20432b6323737ac03b67ff5058b8297fe90244001d74313b0a6263
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_032/manifest.json
+    sha256: cb7ba38df717c12df5af7ddf62aafe09d2b5f41c6ef7aa7cc289582f530fe7ad
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:23-04:00'
+  ended_at: '2026-04-30T22:18:25-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174106060.MP.jpg
+    sha256: b559ee497cf031360daef8ba99f5761a7a26165b9d6b23e8f8e3ce79262e8338
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174126399.jpg
+    sha256: 8a71d467b086b419f547e97f9f3616d45f725dfb19e7cfca08b335b79d295f1f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174142632.MP.jpg
+    sha256: cfe504ec3a6b0b1051514f1f180ef7de3d7213d2119358828e4b54f305b15b26
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174158307.MP.jpg
+    sha256: 05d827a660c6abbbfca804198ec1c77ec10a8539268a6e627ac5614511595d8c
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174208990.MP.jpg
+    sha256: 290dcbe9542e58e1e07ae014261fac9036cd0987727cd19979082dece141effe
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_033/manifest.json
+    sha256: 9515c7ef140633bdb332dccef20c0f1ffea945145354013d937c16be96288fa1
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:25-04:00'
+  ended_at: '2026-04-30T22:18:26-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174229708.jpg
+    sha256: 05e45f6dbb1a00505c86db5ef9db1afff9cab97d3a6b6c6ee4411b3060225ecf
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174247394.jpg
+    sha256: 1961e81868da2d96400b35d3f7922a9515089c1d8485fbde7114200489457d05
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174259532.MP.jpg
+    sha256: 804e934defe4570158a142f02b2a236ab8c80310b17fa077b9a0ea08b5e609b6
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174313210.MP.jpg
+    sha256: d4aacc4551d8691bb0d736f90f662d237df75e6a447e5015826788cbf4948b61
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174328088.MP.jpg
+    sha256: e60a3266bc4b952a2b084fa39fbd5bf12ea092c4225b6d25a880dee3dadf298f
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_034/manifest.json
+    sha256: d6f8abaed2f00988bb004b3fddd0864a8880f607f48489b0bc43a8291a73ee0c
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:26-04:00'
+  ended_at: '2026-04-30T22:18:28-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174343145.jpg
+    sha256: a208cb5539be0201a3fe94849dbb750cbf3aeef396da0eab342bc72727d9a961
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174408427.jpg
+    sha256: 2aceb6e676465e1f4bf671c5d82b47fd69fab70f4df20e134be1de580e63e946
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174430005.MP.jpg
+    sha256: 2e214526b7510954a98b01d0ff2b17cd401729d96395ab787a98306a960bc9dc
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174439616.MP.jpg
+    sha256: f31f198a342f39009aed1e91af7004164ab4b8f59a45b8eb80f5ef51d9bd9943
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174531604.jpg
+    sha256: 9b5a586244d7df38432c5f477f0ba50d0c71b32162ffd7b7c02ebeb46e06d1f7
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_035/manifest.json
+    sha256: b442afacc16b7ee5b0cc13ab5315c727c5638514f684228f8b1b07b934bed161
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:28-04:00'
+  ended_at: '2026-04-30T22:18:29-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174635750.MP.jpg
+    sha256: 30841a863879325cadb4c722b9d8db9b0b49f8a2b0362ff8ee38431a93d6d3e0
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174642964.MP.jpg
+    sha256: e1239bdfb2bf91b1d8224f6845d77b56105afa11810ac36f41892d352da6687d
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174648209.MP.jpg
+    sha256: 537c05f3fbf0042bd43172e00d3d3afa191111dcec300f46836d44daa74d3b40
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174706899.MP.jpg
+    sha256: 4fe1d90c566a48037dae4a475a92d676061cdb408f68635f51146bfebc87bb5b
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174722521.MP.jpg
+    sha256: 6a25fe5d51f8800038af57c1e8f0502cb3560cafe11a253076076d4ee5dc81b8
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_036/manifest.json
+    sha256: 694eac710eb1898405132892703ea5a8566cbd27262b2c42c4182e50e47ba64b
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:29-04:00'
+  ended_at: '2026-04-30T22:18:31-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174741908.jpg
+    sha256: 7a2e986ee0cff59e235010f0ce3b817cf6271fefe581d456c6290958b63c4f3f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174751331.MP.jpg
+    sha256: 377a574b3764bba3c9a6dae35c3a42c96d9659cd9d21b2cfb018f3af76438042
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174756516.MP.jpg
+    sha256: f92b7e0b11de53f9eb5d1c1fa5c7c5ad977f0ab53ed0dd08b4c449423a235bdf
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174801587.MP.jpg
+    sha256: 43d6c2d2c5aaf401f25dee099986bf3a3b30f21b43c23c1005d4cb8ea8f638ac
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174816113.MP.jpg
+    sha256: 6d482609fb8443b06967dc6b6f8dc42f51a28b7b481d9398f27f43141114b387
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_037/manifest.json
+    sha256: 3f01e232d14df1fcc769e0822d74f5ffdee27281673bd525afd982094bf111d1
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:31-04:00'
+  ended_at: '2026-04-30T22:18:32-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174852168.MP.jpg
+    sha256: f59935cb1393e425a7197848b1d2df85d993a2501742c00723648e841eaf5dd6
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174900101.MP.jpg
+    sha256: 5fd84dfc26db50ada8b3294757d1cde6011a3ac25b4e343b9f34f73e5e879030
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174914926.MP.jpg
+    sha256: 01af3409816678476f3a7c13be9ca750c4a8b839f7b43f3e0a62aee194b7082e
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174922096.MP.jpg
+    sha256: d162f3d821f480634b7fbadff7fa517e8840739d600e475dd83e299b3c9ccdfc
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174944938.jpg
+    sha256: ddab829938efd7a4eb7abbbe71908f013aac32dcce0e451ccd537f64a412f945
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_038/manifest.json
+    sha256: f10682340b98ce36f8a5a97bb3a3dce16d8688ba8bd4469a16fa126447f573be
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:32-04:00'
+  ended_at: '2026-04-30T22:18:34-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175512493.jpg
+    sha256: 0fd09232ac4d4317136c3cbdefab106d381cd2f9efdfcfcc352383d2c58fc356
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175519993.MP.jpg
+    sha256: ac030484e33322b6de358daa58317d4998f6b96b5d25d64855f1432704673e4d
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175530860.MP.jpg
+    sha256: fee7db140ec96ba79df3f7ea2001e59c10850016a1447986d75633117718c4a6
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175545797.jpg
+    sha256: 24512c83f5479332f5a6f320f23584875719330e6399d1b302080aaa040629e7
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_039/manifest.json
+    sha256: 430b00e3ab1fe4eec2d0dbc086c2b6fbdebfa8a13cf64fe919219a5956881d91
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:34-04:00'
+  ended_at: '2026-04-30T22:18:35-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175600652.jpg
+    sha256: b0f7007bf5c3aefa876d9ab62ebe4733372850e750795895c48a9f202029ba68
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175611808.MP.jpg
+    sha256: b2d44997872848b3172059ea4113616bebf7e73c63964cc2f0892711476f15b1
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175618205.MP.jpg
+    sha256: 0afc2d4212ebaf0fc1d4345b3bf1a9689419c79fa39f5304748f4f917c327e3b
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175632201.MP.jpg
+    sha256: 5af73a6f94a2c144a74faecba15753376705ce42eff8c5d4786cf68de64b2f0d
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_040/manifest.json
+    sha256: 022ffd1022f13024f772825d5f6d910a0e452787d8681c044fcb74da158cba23
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:35-04:00'
+  ended_at: '2026-04-30T22:18:36-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175752322.jpg
+    sha256: 9a37305639bf80b2845cd440c594c67e91e7f0d6a26695dd28a316aab1d01a11
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175759662.jpg
+    sha256: 56611f05422e53b8fe7143167cb88297c1271e8218af4d6434040c492004c3a3
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175806434.jpg
+    sha256: 026eb3b4634399565a852c84ee0c4a401c29764b9015e7236fbd4ffa47e540fe
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175814179.jpg
+    sha256: 63f1b56b599e61bbe7352aeccb9a5df1c8681a478099754761380ee75d726f8a
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_175926008.jpg
+    sha256: d3e9b34c3422bcc8810875028062f2660e4f1696eb585d1c89be888c67c80797
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_041/manifest.json
+    sha256: 73c001056dfd35d3594c544d314abfd76b333d339eb254081a5d7544c4f02d3a
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:36-04:00'
+  ended_at: '2026-04-30T22:18:38-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180009709.MP.jpg
+    sha256: 000f6cd453dcca8b85328092d0565ada66fea086ec4596d093db7e90101d1812
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180020513.MP.jpg
+    sha256: 6a06f95b75a0a349f2a96081e6f8ff4d61bc6e421c30a982fe92940a499d3296
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180027058.jpg
+    sha256: f618d765661988da45a4de74cf91973e9605a332519141ee6d2dfba8391f55d2
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180033681.jpg
+    sha256: 66f49f2c3b31ae957765f55abed18f7956c554aaef13c01e5ad7c73a7fbca607
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180047724.MP.jpg
+    sha256: 244e19d8949b3a7bf9b910e721e2a8dc3a28354d4a4f6bcb3b76c892ebfbc380
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_042/manifest.json
+    sha256: 3c5573abb525814e313b349d5db16d4de82ae8cb7aa3099eb9690852d791ea39
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:38-04:00'
+  ended_at: '2026-04-30T22:18:39-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180114548.MP.jpg
+    sha256: 83ab10d53f40e39a90fd92e4a6f17c145965f988d749577774ae1ae136166bb6
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180125482.MP.jpg
+    sha256: c4a60bec928657fe6f3c429a22e610281633c8860d0d551374633db66b87f602
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180130578.MP.jpg
+    sha256: 83a9a0ddda5c3144d5fd1f93900fe40ad3364007c0c3c8bd881031aaf306115b
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_mom_043/manifest.json
+    sha256: e3bd77273d570098c467318f54e8d8a9c6270f7daf01c040b677779e0ff7a490
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:39-04:00'
+  ended_at: '2026-04-30T22:18:41-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180942709.MP.jpg
+    sha256: 766868d60deb24e66ad71b4c0e293ee48c78847b48672b113f4342e773b59466
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180945570.MP.jpg
+    sha256: 2727fd2e8156e8fa721d735522e8600efdc249476f4b084dae99730436d04c8a
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180948519.MP.jpg
+    sha256: 6f09ccbdc2bc1ecf3a2044af60dbec8c524d0b81abb722f1b95f1be7d33a208b
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180951760.jpg
+    sha256: e08145d2339a2450629bc7d1dc7621f4ce08ef0ba78b3896f66535fbe23680d9
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_180956262.jpg
+    sha256: 5fe0ecdb0916b97910bc8298c120db087c551131adf799ddba848ceaec1480e4
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181005919.jpg
+    sha256: 847466eb6521408b5b06bd0590f11fdf480d937d319efa120ecdf54a1c383cf2
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_001/manifest.json
+    sha256: 6a578700c42152c69b0076b65ff04f680c054366270156b685d5bc87e0ce96ce
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:41-04:00'
+  ended_at: '2026-04-30T22:18:44-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181015159.MP.jpg
+    sha256: f693f11134ef389340d717485c8343d34b3227a0aefde692f138679596953848
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181021508.jpg
+    sha256: ca5248b77eae8612e1bc41bc604fdf7bfadb1b42441ea02230dbea696696fb1f
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181026473.jpg
+    sha256: 3a9473421e3a329aa0ad7c90d3d3d1f3359a6df4651eb45a3f49e84268e970e0
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181029661.MP.jpg
+    sha256: b9a15554992b783e51bdf402dbcc03eec2b05eba9af2a9ed9f1ab7d782542da2
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181033256.jpg
+    sha256: ef0c857cec4722dcfd2718b01356e6ce02d7714b88dbd446220c3b0108dd4d1d
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181135293.jpg
+    sha256: ccf2ac719598bfec9072b08499f3a5f0b230d5b87d4977563953fdf9c69689d6
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_002/manifest.json
+    sha256: d9d5f9421285571bab938cc24e2756ba90e6d10193fd4414ffc93ad6cac57bc0
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:44-04:00'
+  ended_at: '2026-04-30T22:18:46-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181218599.jpg
+    sha256: 184494654681ec58a57b4a4d4282e10e69aeeb44de93bb92d39719a7dfd929d7
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181221736.jpg
+    sha256: c5d0b5e9dc3cc746d816dac0eef80c704ca827aaf785f0153546c4159388fcc8
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181229735.MP.jpg
+    sha256: 01ea32fa96e0cb9405783d9e9b88bb961f32e9ee0504e7d7bf2a84d946e823ce
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181234919.jpg
+    sha256: 673f34b6f5cb6f0ce91c68bdfd0a65acf451c33c69f760187d90d507e0806da0
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181243008.jpg
+    sha256: 34fe448e235543b70c6cacc2c68e3616bf1c79e3a303e800b1ad4240d180be1c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_003/manifest.json
+    sha256: 5374d5b2bed83a83370f58d97ed3e8909abc8ce41b1b835d305c0b18eedc3024
+- name: group_pipeline.process_group
+  started_at: '2026-04-30T22:18:46-04:00'
+  ended_at: '2026-04-30T22:18:48-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181340116.jpg
+    sha256: afa2a59f7c052fd10390da11326a0b5751a3e2f2ca07cbfea2de0f140258cb58
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181347134.jpg
+    sha256: c6181640d93b4fe24e4fdd968314a9798f4fd6baaf8c8f67c1876093b255dfbb
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181351672.jpg
+    sha256: 51fcee5622758162c9098d042ff2b3904a62022b8dd27eb6845f1c4b641daeed
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181354495.jpg
+    sha256: 94c5df6f73b9e7a9f06c81e638488a5eab2fc363a52ff33ba52829953dfa683e
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_181424702.jpg
+    sha256: 13586794d2d09c99053ccd515ae2561222cae4fe8e4d72e5f97a957e4dbfdc49
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/stitched_panels/20260426_cvs_004/manifest.json
+    sha256: de97069fe1c73a708107787d87a2143c2357a95795788bb50b781a6c2fe9845e
+calls:
+- sha: 6c15aed3e29335e0afad6a8ec353f44a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 8b09c4528d1ae5772d423550e5ad935e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: e97fe514bbb982bb034833c42863828e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: b92a6ea7837fc9442ee9729bc2601254
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 780ca7fc7786742296d1d82446accecd
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 8875e864a46d6b0097142080a368151a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 32939a3f2924e39a72c8c518c0c7abde
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a87e1284ea422efc9438fef20bda7a5e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 455cefea45dcbd1c85e8c4df2a65eaa8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 0b1a9b701dc0dd4040471a4bfa77eafa
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4c7a3a4d5b0bcfbf0c7bb8fe207898ae
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 7f62212813b9d1cb005045bfe1dc4f6b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: ab7abc7490b633a81fdf5ac1c2681326
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 703d686fe826d108223bf48c19fbbee7
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 8888cbf9d959075a457dfd40adf84162
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 70ec6de5ae0352545effddd4462f3130
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 15e0aab99d97e238e163c9d316eed46d
+  cached: true
+  elapsed_seconds: 0.0
+- sha: be480a6663baafcf715a6bfb8ad96962
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 0a90e35aa04faf95f18b267c7e1365f4
+  cached: true
+  elapsed_seconds: 0.0
+- sha: bb4735c3b54c7a8a3fabc599d6badcb3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 61fe4191babb196141457f7f2eaff28e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 1c1220b6214583a49d33077479893253
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 63acb649de909d30d53d59ec1bb184b9
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d6a349bea8815a14217236ebfdbe4297
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 024f9c0d0e04fc3d19fbe0bf62c70108
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 56dcfd2bfb8ba36b8d71ee80bc33f0a2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: cd81845579a02b801eaa54799c63a3b8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: aec5f08d8e3eb1798732a73c23a04861
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 26874224e24cba0de3112d4f6728557e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 14f27e43ae23913a45bbdbaded74242a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 8d8d7bf289cb7e43feb170a7e89571b8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 649abe0c8267f0271afef1515eb5d281
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 20be45ee36592839f5f0fe8836bcc17d
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4a7bc62313d5ad0ccc1bed77ac77c920
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 07f669b2fbdc77df4084a01b0d176138
+  cached: true
+  elapsed_seconds: 0.0
+- sha: acb3bf2b54bc0f03fb055217867ae3db
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 050657c15b88a193bd7396414ee86d29
+  cached: true
+  elapsed_seconds: 0.0
+- sha: b6e04aa971e4cdb4f0e2458d5a734574
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 0d9ed23d01896739ef6cc98ff547c1c2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 71fe7e1d9065d1ea6a11aef3180433db
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 5211a7e5c422d9f0595db861d4219d7a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: e7cd05428cc56c1c0fe4c2468942e0be
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f7f42480f0ee69ce4eca6e4d560c5c56
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3842f976fb7334cfe46b13ad54144a10
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c2c9f66fb38477a0b67913f7bc69e5c0
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c74db7b1db66ab51d39fdbde28e2b8cc
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 329aec18548f93f56cbbcb7b68fcaca3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4d1fdb0e74fa9316e1a6b35388d3ff6a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 78eb93e549d37c5ad4f9b87eac68a261
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 176d3083fed35775bfbd7f291cf75fd5
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 80a2173c36f29a3bfaf041b06c87ace7
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 02f7f7ccb1ba2cc240f3eae2ff78264d
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 2611d68378ed08727f6689f8ff575f8a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 0b04e215e2b03db9126707d848fe97a2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 245445695711355f435ae825dcdd289e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: dec956b95f27e1741ae3e5a465b3d1fb
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 11cb72b83e4f96a21fe7a0ac635dbf03
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 316de060db1d06dea12069ddf5ccf58e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 49037dc1790b7b36b72b6783b2195ee5
+  cached: true
+  elapsed_seconds: 0.0
+- sha: eda93c88ad081ed6913aa03ac473e2b8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 662d8ba1fc858a580919319ac43346c2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f4e9bc81e35a1d5360369331fa2e0e7f
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a41010c645178816cd9064b39d4d4785
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 76c648cc3d02ef06b66f658062fb780d
+  cached: true
+  elapsed_seconds: 0.0
+- sha: bdb49b59a89d8a06c6008d0b813e52de
+  cached: true
+  elapsed_seconds: 0.0
+- sha: cf7ff7f037a76c8dd06c9863fbe1f23b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 9d20cfa7745724ffea273d57d28b911b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 7c6f2dd73793c9c745d29a76ea9ca5a3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4ab4986360c60509e93ad8a3a0922ca3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 308be85caaa2731d24d0f3301b56681d
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 209f244601126bddd13ba1c0e0ed2135
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a3d2d060483a1c41a85ec28dfd484da8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3c18ecb5d4c637cbed5470aaf4d54ca9
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 1b4178343c04fd85d61d59d1bb58a0f8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a34fc9b7f5e5d46e817da3b6eceda5d4
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c1b8cf34a45e323422a9e5c59aa0d18e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3d69d435b66bd53341e50d8c4e1d377a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: ce80b2fd8618e691c114c25d98bcbdd4
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d5b4e07e106400f7da6af5c6b1a3c4e8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: b93b1fe4b37bf7b01e8d38bd6bf321c6
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 9dcf55fdcdb2432f1438eb328e7deef6
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 205a7c3efda6f74e7a4105b7eab73e3c
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 08354f89be635de0a3498acb5686f348
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 948f8e20f427d1e9ec4da02a56183ec2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: dbbc31a42a46cf5e2c1f4b64439812a2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: b68c4d33f00b0b6288b90230c7644dfb
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4cc6b873de6b8bde7e1b329e11a8d960
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f5a9c5d8c30a1fb16d285f06455b6913
+  cached: true
+  elapsed_seconds: 0.0
+- sha: ea1a0ed9c4be962b1f359e8aa2442cd5
+  cached: true
+  elapsed_seconds: 0.0
+- sha: edde8c0daa96ab7d63a244f91cf1f3c0
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a4994fb62d1ebcf21270dc1de0907a00
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 823efc5c5ed67c3bac225caac269d470
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 0e8b4b041014e3c4327ed3713cb3515e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 6f0710391e641a4f4a3abe85588be932
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 85f57515ca341c10a555cb2a6538312e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 271d77ec3fdf6ede7fcafc8f40cf7986
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3a877693b809bdecdb7c4f70be8abe07
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f3a2189d4fc58713392c2152f744be7f
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 72b673db71f81b9e63776d03d9aad4f4
+  cached: true
+  elapsed_seconds: 0.0
+- sha: bd7736d5de49f775d33258b3cad5df4a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d842ff34d953c9c6a7d2d25314de5bfd
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 742d13e38818bbc517c947ffb1c303e8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: cbdcd14c4867979a96042bb5db087d64
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 1f0f72836789f8f7ce34bc7c7fea930e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d65712fa9623098bc43c14f653baf970
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d6d57244313fccac54754d9277ea5865
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4a7c9ce60e30b2f2f820ac7e7bb2f0cf
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 7f4115bd9bd2a1ba3d1648d6b07331c3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: bceae375c2c0ac0514cc5584b07dc614
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 6dab55eefbb24bd70879db48b574471b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f14f7913ae56f83a3388714c5bb26714
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4b17e0f30df380b05bb1fdd5acbe817c
+  cached: true
+  elapsed_seconds: 0.0
+- sha: fe92badd526bad8bd07b78c252b2e084
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d0b81a54536d951c9caab46ca38ab612
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f3a30782d8f829f5293e266c2071474d
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 9888d6779a2e9ad0f2f38debd4b3f792
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 773ee2c5494d38ea77962c780cdb8e2e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 2f21b43c747145bb6c0b07c97c99bacd
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f07e20a0479792bb846cbdd2eb9caf34
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 1c300af81ae8c0c0c3926a007842aec2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f1bd2e35b7ff06baabeac6f51ae2f84f
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 201d0e829a770cffb235a0eada71ab1c
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c96f5d2d6ba5e4e41013885a2017c2ea
+  cached: true
+  elapsed_seconds: 0.0
+- sha: ea7f1f391a6719f35ac20b45e333f973
+  cached: true
+  elapsed_seconds: 0.0
+- sha: aa269d0c570191bfeeb58a22a96ff34c
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 7f1ff6e42134c7f22e65d1638be774a3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f808a42642fe240584f276d3fb8634a2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d728a9b5be70ed63de1cfe2c7c57430e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a6cdf4d104f68d0ead05b096bb6bf90f
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 2e51467c0e7b069f564e456342c44a3f
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3d42094be5c855315cf44997a763ecfc
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 50a067265e301a3466605e8c566a1bed
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4625d02836bcb02d7b21d6d794626855
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 94f120439f84bf83e1812b954c59c25c
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 5e81843cd29604c7e31e1c4bd9b472df
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 6231f01b7bad4886e974a2ae3c45ad5a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3d474e66b7ab03d6bf22bf32f0b2a9af
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 9efa5625d84d526b666d9a86add69198
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 7b3d057f4269a8ebcf1318c2daa2ef39
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d2b5583eeee8f8bd6b20a17951824f1b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 79c95eff50d899ed0d61c2ce9bc87036
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 859fd8ebd0f3875addc3b89eb86a2dbb
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 92b1099e40c6ceaf68ce0b6a49a3626a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 146614b6b4fcebbee5901727f43de97a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f22d4d72834e2a81b39b5fa1d7e10db6
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 38030f2cb5dcf89d3f98ac740a23dd46
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a82e7ef908dc882983b24cc4cbdec3e1
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c08e217268d8ba7e2c89350d84f0030b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 083e707f43099bd1116dc65743602e9d
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 422aee673b5b88920ac659d9ea342e9a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d19ca9f56996d6756bb3449c8b9e23e6
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 67689f47878a19d1c9eee495a1446686
+  cached: true
+  elapsed_seconds: 0.0
+- sha: fb3a1669d8ee1be8813d9adac1ad0778
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 239a853971a6f7e931f98b6fe86623cf
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 5addfc2653e59ad0a582a331006934c8
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 773d3de152e181cb16224a07282b4e56
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c89ee1cf56ef40e9dc7b72c198e4dbc3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 995589e1a1549ca438e43d0539592e49
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f13d09d1207adfac479722367dd2a8ae
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 223e2e71d73089a5d8139c86dcddf81e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 8ed600c5e6fd2d520dabe4860c5b42ef
+  cached: true
+  elapsed_seconds: 0.0
+- sha: ae29c909d1498faaa97dcd800498f28a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 73a80da5687a497842d90861382612d1
+  cached: true
+  elapsed_seconds: 0.0
+- sha: ed9d1094507286291a9dc34838b1c754
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3121673f8c2b9410bd3ae45ca6db629a
+  cached: true
+  elapsed_seconds: 0.0
+- sha: fc51e272e1d1a48e2b9cb1ba6ff91034
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 63ad29cb8cf99521b4c0b778f63c18a3
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 9ffe686546b287c371c8050ac6eac2f2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a0f8f5666d91b18e7e0d31a799ffec07
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 0ee9a1b1d44e417965cd16ea00a2ba92
+  cached: true
+  elapsed_seconds: 0.0
+- sha: d7a5a74d3999bb7899089c305fd16412
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 752653fc2ef2aafabfcf304c62635548
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 157e4e59e7054d976bc24690a14c8592
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 3e91d6a1a80437a726e449263d65d7be
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 60618b92e7b7fa064f970ae8ba08f778
+  cached: true
+  elapsed_seconds: 0.0
+- sha: eaf8838283806d27d4c3a39f1b3f0e36
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 280d1e8c184eb40803f8ae54090599eb
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 5b862415367c650068572151f74bf106
+  cached: true
+  elapsed_seconds: 0.0
+- sha: a67d0c3e04b392c3cf39475978d5c378
+  cached: true
+  elapsed_seconds: 0.0
+- sha: afde2cbf26de86c267fd5b90c9074f0e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f88f799fd53c8be5d732eb1831431c77
+  cached: true
+  elapsed_seconds: 0.0
+- sha: ca81b8ac0df2468ac92f3bf701875aa2
+  cached: true
+  elapsed_seconds: 0.0
+- sha: b23d792536707d120228a66ba4b9b60e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 0ca73fa74b71dbcea81bc1f5ec6cedad
+  cached: true
+  elapsed_seconds: 0.0
+- sha: cb0eed1db8cb4b988f0b2d71fcd1b859
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 97870415aed9447d71ee52edaaf51642
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 7345f9614b74a64605f6788140d42f75
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 233937185bcc8209c0472fed72892308
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c8dba51be264c091905928acd913d800
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 58af3178c48efc4409a5295478b3016e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 8bd2745b246a211e6b94ad53465ad8fc
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 6b66dfd909eeceb8f50f125a1af466e6
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f0314cc4c9df4c1c3c219dffbe27f38b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 1e074f7dbe9a81e1b8d9a6be6cfd4e81
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 945158dee8f7fd97fb7ec38b9b70cf64
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 6e088e930486ca74d9917a7d9d98fa69
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 2b86dc82994161ff92bc2feb5ef5e098
+  cached: true
+  elapsed_seconds: 0.0
+- sha: ac84e7a9c67cb375c1d7f3c3ec5ab081
+  cached: true
+  elapsed_seconds: 0.0
+- sha: f1b49a354e88ae71794cd5898b97905e
+  cached: true
+  elapsed_seconds: 0.0
+- sha: c3aa34ee30f0e7006df086099a6f22cc
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 49dc94be98f88d4886b0d3330616fa36
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 500c0974c3de1e945cd91224934d0e9c
+  cached: true
+  elapsed_seconds: 0.0
+- sha: aca41c5254a1e8156b753a0533f7f25f
+  cached: true
+  elapsed_seconds: 0.0
+- sha: b2f5b4dc4082ef5077056a492a000de5
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 53b51ce1db5ff4444d8949ce3b27b720
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 288b31844eb7310479d367ad3661e315
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4640989a4f0927498dc32403beeb6e0b
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 7e009622289734116542418672053f56
+  cached: true
+  elapsed_seconds: 0.0

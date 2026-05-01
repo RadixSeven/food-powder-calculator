@@ -1,0 +1,56 @@
+run_id: 2026-04-30T23-05-53-37c0b91
+git_sha: 37c0b915285b6f790699a8b9369e703bd7570d85
+git_dirty: true
+started_at: '2026-04-30T23:05:53-04:00'
+ended_at: '2026-04-30T23:12:11-04:00'
+argv:
+- scripts/extract_yaml.py
+- --force
+- 20260426_mom_032
+env:
+  python_version: 3.13.7
+  models_used:
+  - haiku
+  - opus
+steps:
+- name: extract_yaml.process_group_to_yaml
+  started_at: '2026-04-30T23:05:53-04:00'
+  ended_at: '2026-04-30T23:12:11-04:00'
+  inputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/gold_groups.json
+    sha256: 6f50b2f11f785bef715185801f1945cfdbe8a3d694a1fff8202900f354bbc532
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174010194.MP.jpg
+    sha256: f79d352d9fbae82cce93051ea9199a41a301eaf1c84af67a003d585e1bdbd799
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174030320.MP.jpg
+    sha256: 9ce2fe6b5effee436b7b51c7474b5ca4d1834f185d453ee92c8befbc37e75aff
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174038462.MP.jpg
+    sha256: ab52a2cba548c2e63bfd3ea5ea688e5dc6215c86f10c38dd466845d6672e995c
+  - path: /home/kind/Prj/FoodPowderCalc/data/raw_photos/2026-04-26-shopping/PXL_20260426_174052374.MP.jpg
+    sha256: 1a8bd5ef4d20432b6323737ac03b67ff5058b8297fe90244001d74313b0a6263
+  - path: /home/kind/Prj/FoodPowderCalc/data/crop_reviews.json
+    sha256: 8de86f16e0077bfb8929e6060f662eea3531fa9f81296c58343679ee1adf195c
+  outputs:
+  - path: /home/kind/Prj/FoodPowderCalc/data/extracted_yaml/20260426_mom_032.yaml
+    sha256: b115c8308993f9d79625857053f5b459f5ea0236d018d38ce72ebefc4780719c
+calls:
+- sha: 50a067265e301a3466605e8c566a1bed
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 4625d02836bcb02d7b21d6d794626855
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 94f120439f84bf83e1812b954c59c25c
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 5e81843cd29604c7e31e1c4bd9b472df
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 44e863dc5bb6eea4398f85ecdb676536
+  cached: true
+  elapsed_seconds: 0.0
+- sha: 76fc1f4bd06986e010bcda4a172cc4f3
+  cached: false
+  elapsed_seconds: 378.312
+- sha: 2e00fee1e608dcdbe5d2001d3e73270d
+  cached: true
+  elapsed_seconds: 0.0

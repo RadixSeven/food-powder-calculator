@@ -24,11 +24,11 @@ nutrition:
   - - total sugars
     - 5 g
     - †
-  - - includes 5 g added sugars
-    - 5 g
+  - - includes 5g added sugars
+    - ''
     - 10%**
   - - vitamin a (as palmitate, beta carotene)
-    - 840 mcg rae (2800 iu)
+    - 840 mcg rae
     - 93%
   - - vitamin d (as cholecalciferol) (vegan d3)
     - 25 mcg (1000 iu)
@@ -101,13 +101,13 @@ nutrition:
       green tea leaf (decaffeinated), grape skin, apple fruit
   - - whole food phytoalgae blend
   - - proprietary complex of chlorophyll (from mulberry leaf-derived sodium copper
-      chlorophyllin and spirulina ▮)
+      chlorophyllin and spirulina), spirulina algae ▮
   - - amount per serving
   - - blue whole food blend
   - - agave (plant juice), west indian cherry (malpighia glabra), fig fruit, blueberry
       fruit, carob pod, hibiscus flower, kale leaf, prune fruit, rose hips fruit,
       lingonberry fruit, elderberry fruit, blackberry fruit, plum fruit, açai berry,
-      pomegranate fruit, wolfberry (goji), passion fruit, grape juice
+      pomegranate fruit, wolfberry fruit (goji), passion fruit, grape juice
   - - white whole food blend
   - - banana, date, parsnip root, chia protein, modified citrus pectin, lemon peel,
       bamboo, horseradish root, chicory root fiber, konjac root fiber, acacia, white
@@ -120,8 +120,8 @@ nutrition:
   - - amino acids
     - 2000 mcg
     - †
-  - - essential and non-essential amino acids (from spirulina algae and whole food
-      phytoalgae) (supplying l-isoleucine, l-valine, l-glycine, l-lysine, l-serine,
+  - - essential and non-essential amino acids from spirulina algae and whole food
+      phytoalgae (supplying l-isoleucine, l-valine, l-glycine, l-lysine, l-serine,
       l-phenylalanine, l-threonine, l-proline, l-tyrosine, l-cysteine, l-histidine,
       l-methionine)
   - - inositol
@@ -130,16 +130,15 @@ nutrition:
   - - korean ginseng root extract (panax ginseng)
     - 25 mg
     - †
-  - - trans-resveratrol
+  - - trans-resveratrol (from polygonum cuspidatum root)
     - 25 mg
     - †
-  - - (from polygonum cuspidatum root)
   - - whole food omega fatty acid blend
     - 30 mg
     - †
   - - (supplying 13 mg naturally occurring omega-3, omega-9, and other healthful fatty
-      acids)
-  - - (from flaxseed, spirulina, sunflower seed oil powder, black currant juice, borage)
+      acids) (from flaxseed, spirulina, sunflower seed oil powder, black currant juice,
+      borage)
   - - enzyme-rich whole food blend
     - 25 mg
     - †
@@ -149,7 +148,7 @@ nutrition:
     - †
   - - active flavanols, flavanones, flavones & naringin (citrus sinensis fruit); hesperidin
       (from citrus sinensis whole fruit); quercetin (dimorphandra mollis) and rutin
-      (sophora japonica), alpha-lipoic acid, r-lipoic acid, glutathione, msm (methylsulfonylmethane)
+      (sophora japonica), alpha-lipoic acid, glutathione, msm (methylsulfonylmethane)
   - - coenzyme q10
     - 10 mg
     - †
@@ -159,8 +158,8 @@ nutrition:
   - - lycopene (active carotenoid from tomato)
     - 2.5 mg
     - †
-  - - '**percent daily values are based on a 2,000 calorie diet.'
-  - - † daily value not established.
+  - - '**percent daily values are based on a 2,000 calorie diet'
+  - - † daily value not established
 price_tag:
   store: MOM
   price_cents: 5999

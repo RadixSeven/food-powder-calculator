@@ -17,7 +17,7 @@ nutrition:
     - ''
   - - total carbohydrate
     - 4 g
-    - 1% **
+    - 1%**
   - - total sugars
     - 4 g
     - †
@@ -91,7 +91,7 @@ nutrition:
     - 37.5 mcg
     - 83%
   - - 'source-70 whole food complex (trace-elements and whole food complex: orange
-      juice [from concentrate], sierra mountains trace minerals, spirulina, chlorella;
+      juice [from concentrate], sierra mountains trace minerals, spirulina, chlorella,
       astragalus root, ligustrum berry, schisandra fruit, echinacea angustifolia root,
       chlorella, thyme leaf, rice husk)'
     - 500 mg
@@ -111,9 +111,11 @@ nutrition:
   - - chlorophyllin (from mulberry leaf-derived sodium copper chlorophyllin and spirulina)
     - 40 mg
     - †
-  - - ▮
-    - 80 mg
+  - - vitamin k [as k1 and menaquinone-4 (k2)]
+    - 80 mcg
     - †
+  - - '** daily values are based on a 2,000 calorie diet'
+  - - † daily value not established
 price_tag:
   store: MOM
   price_cents: 4499

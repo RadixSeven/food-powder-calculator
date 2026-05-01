@@ -8,7 +8,7 @@ nutrition:
   rows:
   - - supplement facts
   - - 32 servings per container
-    - serving size 2 tbsp 30 ml
+    - serving size 2 tbsp. 30 ml
   - - ''
     - amount per serving
     - '% daily value*'
@@ -34,18 +34,26 @@ nutrition:
     - 3012 mcg
     - 334%
   - - (100% as beta-carotene 6024 mcg)
+    - ''
+    - ''
   - - vitamin c
     - 1,000 mg
     - 1111%
   - - (ascorbic acid)
+    - ''
+    - ''
   - - vitamin d
     - 30 mcg
     - 150%
   - - (ergocalciferol)
+    - ''
+    - ''
   - - vitamin e
     - 314 mg
     - 2093%
   - - (alpha tocopherol acetate complex)
+    - ''
+    - ''
   - - vitamin b-1 (thiamin)
     - 50 mg
     - 4167%
@@ -59,14 +67,20 @@ nutrition:
     - 50 mg
     - 2941%
   - - (pyridoxine hcl)
+    - ''
+    - ''
   - - folate
     - 500 mcg
     - 125%
   - - (calcium l-5 methyltetrahydrofolate)
+    - ''
+    - ''
   - - vitamin b-12
     - 1,000 mcg
     - 41666%
   - - (methylcobalamin)
+    - ''
+    - ''
   - - biotin
     - 300 mcg
     - 1000%
@@ -95,6 +109,8 @@ nutrition:
     - 100 mcg
     - 181%
   - - (l-selenomethionine)
+    - ''
+    - ''
   - - chromium (picolinate)
     - 35 mcg
     - 100%
@@ -108,6 +124,8 @@ nutrition:
     - 65 mg
     - †
   - - (hesperidin)
+    - ''
+    - ''
   - - inositol
     - 50 mg
     - †
@@ -115,6 +133,8 @@ nutrition:
     - 50 mg
     - †
   - - (para-aminobenzoic acid)
+    - ''
+    - ''
   - - rutin (sophorae japonica l.)
     - 40 mg
     - †
@@ -122,6 +142,8 @@ nutrition:
     - 30 mg
     - †
   - - (leaves) (salvia rosmarinus)
+    - ''
+    - ''
   - - ginkgo biloba extract (leaves)
     - 10 mg
     - †
@@ -129,6 +151,8 @@ nutrition:
     - 5 mg
     - †
   - - (vitis vinifera)
+    - ''
+    - ''
   - - alpha lipoic acid
     - 3 mg
     - †
@@ -138,15 +162,18 @@ nutrition:
   - - lycopene
     - 200 mcg
     - †
-  - - 70+ fulvic acid minerals
+  - - 70+ fulvic acid minerals proprietary blend
     - 17 mg
     - †
-  - - proprietary blend
   - - super food blend
     - 500 mg
     - †
   - - beet, bilberry, blueberry, pomegranate, barley grass, spinach, wolfberry, chlorophyll,
-      cranberry and spirulina
+      cranberry and spirulina.
+  - - '* the % daily value (dv) tells you how much a nutrient in a serving of food
+      contributes to a daily diet. 2,000 calories a day is used for general nutrition
+      advice.'
+  - - † daily value not established.
 price_tag:
   store: MOM
   price_cents: 3999

@@ -6,14 +6,8 @@ front:
 nutrition:
   rows:
   - - supplement facts
-    - ''
-    - ''
   - - serving size 2 vegcaps
-    - ''
-    - ''
   - - servings per container 30
-    - ''
-    - ''
   - - amount per serving
     - ''
     - '%dv'
@@ -77,51 +71,52 @@ nutrition:
   - - chromium (from liposomal chromium picolinate)
     - 35 mcg
     - 100%
+  - - amount per serving
+    - ''
+    - '%dv'
   - - molybdenum (from liposomal molybdenum citrate)
     - 45 mcg
-    - ''
+    - 100%
   - - glycine (liposomal glycine)
     - 60 mg
-    - ''
+    - '*'
   - - inositol (liposomal inositol)
     - 25 mg
-    - ''
+    - '*'
   - - paba (liposomal paba)
     - 5 mg
-    - ''
+    - '*'
   - - liposomal trace mineral complex
     - 5 mg
-    - ''
+    - '*'
   - - lutein [from liposomal marigold (tagetes spp.) (flower extract)]
     - 1 mg
-    - ''
+    - '*'
   - - coq10 (liposomal coq10)
     - 5 mg
-    - ''
+    - '*'
   - - rose hips (liposomal rose hips) (rosa canina) (fruit)
     - 2 mg
-    - ''
+    - '*'
   - - acerola (liposomal acerola) (malpighia spp.) (fruit juice)
     - 2 mg
-    - ''
+    - '*'
   - - l-leucine (liposomal l-leucine)
     - 25 mg
-    - ''
+    - '*'
   - - l-isoleucine (liposomal l-isoleucine)
     - 12.5 mg
-    - ''
+    - '*'
   - - l-valine (liposomal l-valine)
     - 12.5 mg
-    - ''
+    - '*'
   - - l-glutamine (liposomal l-glutamine)
     - 25 mg
-    - ''
+    - '*'
   - - pumpkin (liposomal pumpkin) (cucurbita pepo) (hulled seed)
     - 5 mg
-    - ''
+    - '*'
   - - '*daily value (dv) not established.'
-    - ''
-    - ''
 price_tag:
   store: MOM
   price_cents: 3999

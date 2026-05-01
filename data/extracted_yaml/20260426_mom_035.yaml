@@ -55,7 +55,7 @@ nutrition:
     - 100 mcg
     - 4167%
   - - biotin (as d-biotin)
-    - 10 mg
+    - 10 mcg
     - 33%
   - - pantothenic acid (as d-calcium pantothenate)
     - 10 mg
@@ -135,8 +135,8 @@ nutrition:
   - - lycopene
     - 750 mcg
     - '*'
-  - - '**percent daily values based on a ▮'
-  - - '*daily value not established'
+  - - '**percent daily values based on a 2,000 calorie diet.'
+  - - '*daily value not established.'
 price_tag:
   store: MOM
   price_cents: 4199
