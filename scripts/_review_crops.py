@@ -594,6 +594,39 @@ def _load_crop_reviews(crop_reviews_json: Path) -> dict[str, JsonObject]:
     return out
 
 
+def crops_flagged_info_lost(
+    crop_reviews_json: Path, group_id: str
+) -> frozenset[str]:
+    """Return crop filenames in ``group_id`` flagged "info lost".
+
+    "Info lost" means the reviewer marked the crop ✂ (info_excluded=True)
+    AND left the recovery pointer (info_available_in) blank — i.e. no
+    other crop in the same group has the missing text. Downstream
+    extraction can use this to augment the image set with the
+    uncropped source photo of each flagged crop, recovering text the
+    crop dropped.
+
+    Returns an empty set if ``crop_reviews_json`` is missing or the
+    group has no review state — extraction continues with crops only.
+    """
+    reviews = _load_crop_reviews(crop_reviews_json)
+    state = reviews.get(group_id)
+    if not isinstance(state, dict):
+        return frozenset()
+    crops = state.get("crops")
+    if not isinstance(crops, dict):
+        return frozenset()
+    out: set[str] = set()
+    for filename, per_crop in crops.items():
+        if not isinstance(filename, str) or not isinstance(per_crop, dict):
+            continue
+        if per_crop.get("info_excluded") and not per_crop.get(
+            "info_available_in"
+        ):
+            out.add(filename)
+    return frozenset(out)
+
+
 def _update_crop_state(
     crop_reviews_json: Path,
     group_id: str,

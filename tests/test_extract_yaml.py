@@ -87,6 +87,183 @@ def test_extract_group_calls_each_role_extractor(tmp_path: Path) -> None:
     assert result.price_tag == tag_result
 
 
+def test_extract_group_appends_uncropped_source_for_info_lost_crop(
+    tmp_path: Path,
+) -> None:
+    """When a nutrition crop is flagged "info lost" in crop_reviews.json
+    (info_excluded=True, info_available_in=""), the extractor receives
+    both the crop AND its uncropped source photo so it can recover
+    text the bbox dropped.
+    """
+    import json as _json
+
+    front_img = tmp_path / "front.jpg"
+    nutrition_crop = tmp_path / "nutrition_crop.jpg"
+    nutrition_source = tmp_path / "nutrition_source.jpg"
+    other_crop = tmp_path / "other_crop.jpg"
+    other_source = tmp_path / "other_source.jpg"
+    for p in (
+        front_img,
+        nutrition_crop,
+        nutrition_source,
+        other_crop,
+        other_source,
+    ):
+        _save(p)
+
+    artifacts = GroupArtifacts(
+        group_id="g_with_lost",
+        store="MOM",
+        panels_by_role={"front": front_img, "nutrition": nutrition_crop},
+        crops_by_role={
+            "front": (front_img,),
+            "nutrition": (nutrition_crop, other_crop),
+        },
+        crop_sources={
+            front_img: front_img,
+            nutrition_crop: nutrition_source,
+            other_crop: other_source,
+        },
+        stitched={"front": False, "nutrition": False},
+    )
+
+    reviews = tmp_path / "crop_reviews.json"
+    reviews.write_text(
+        _json.dumps(
+            {
+                "groups": {
+                    "g_with_lost": {
+                        "crops": {
+                            nutrition_crop.name: {
+                                "reviewed": True,
+                                "info_excluded": True,
+                                "info_available_in": "",
+                            },
+                            other_crop.name: {
+                                "reviewed": True,
+                                "info_excluded": False,
+                                "info_available_in": "",
+                            },
+                        }
+                    }
+                }
+            }
+        )
+    )
+
+    with patch(
+        "extract_yaml.extract_front",
+        return_value=FrontExtraction(product_name="x", manufacturer=""),
+    ):
+        with patch(
+            "extract_yaml._extract_nutrition_with_front_context",
+            return_value=NutritionTable(rows=(("a", "b"),)),
+        ) as mock_nutr:
+            extract_group(artifacts, crop_reviews_json=reviews)
+
+    image_paths, _front = mock_nutr.call_args.args
+    # Order: crops first, then uncropped source for the flagged crop.
+    # `other_crop` had no info-lost flag, so its source is NOT appended.
+    assert image_paths == (nutrition_crop, other_crop, nutrition_source)
+
+
+def test_extract_group_does_not_append_source_for_recoverable_flag(
+    tmp_path: Path,
+) -> None:
+    """A crop flagged ✂ but with a non-empty info_available_in pointer
+    is "recoverable" — the missing text lives in another crop in the
+    same group, which the multi-image extraction already sees. We must
+    NOT add the uncropped source for that case (would just spend
+    tokens for no marginal info).
+    """
+    import json as _json
+
+    front_img = tmp_path / "front.jpg"
+    nutrition_crop = tmp_path / "nutrition_crop.jpg"
+    nutrition_source = tmp_path / "nutrition_source.jpg"
+    for p in (front_img, nutrition_crop, nutrition_source):
+        _save(p)
+
+    artifacts = GroupArtifacts(
+        group_id="g_recoverable",
+        store="MOM",
+        panels_by_role={"front": front_img, "nutrition": nutrition_crop},
+        crops_by_role={
+            "front": (front_img,),
+            "nutrition": (nutrition_crop,),
+        },
+        crop_sources={
+            front_img: front_img,
+            nutrition_crop: nutrition_source,
+        },
+        stitched={"front": False, "nutrition": False},
+    )
+
+    reviews = tmp_path / "crop_reviews.json"
+    reviews.write_text(
+        _json.dumps(
+            {
+                "groups": {
+                    "g_recoverable": {
+                        "crops": {
+                            nutrition_crop.name: {
+                                "reviewed": True,
+                                "info_excluded": True,
+                                "info_available_in": "1,2",
+                            },
+                        }
+                    }
+                }
+            }
+        )
+    )
+
+    with patch(
+        "extract_yaml.extract_front",
+        return_value=FrontExtraction(product_name="x", manufacturer=""),
+    ):
+        with patch(
+            "extract_yaml._extract_nutrition_with_front_context",
+            return_value=NutritionTable(rows=()),
+        ) as mock_nutr:
+            extract_group(artifacts, crop_reviews_json=reviews)
+
+    # Just the crop — no appended source.
+    image_paths, _front = mock_nutr.call_args.args
+    assert image_paths == (nutrition_crop,)
+
+
+def test_extract_group_no_uncropped_when_no_review_state(
+    tmp_path: Path,
+) -> None:
+    """Default behavior (no crop_reviews.json) is unchanged: just the
+    crops, no appended sources. Important for fresh checkouts and for
+    groups that haven't been reviewed yet.
+    """
+    nutrition_crop = tmp_path / "nutrition.jpg"
+    _save(nutrition_crop)
+    artifacts = GroupArtifacts(
+        group_id="g_unreviewed",
+        store="MOM",
+        panels_by_role={"nutrition": nutrition_crop},
+        crops_by_role={"nutrition": (nutrition_crop,)},
+        crop_sources={nutrition_crop: tmp_path / "any.jpg"},
+        stitched={"nutrition": False},
+    )
+
+    with patch(
+        "extract_yaml._extract_nutrition_with_front_context",
+        return_value=NutritionTable(rows=()),
+    ) as mock_nutr:
+        extract_group(
+            artifacts,
+            crop_reviews_json=tmp_path / "no-such-reviews.json",
+        )
+
+    image_paths, _front = mock_nutr.call_args.args
+    assert image_paths == (nutrition_crop,)
+
+
 def test_extract_group_skips_missing_roles(tmp_path: Path) -> None:
     """A group missing nutrition (no nutrition shot in gold) leaves the
     nutrition field None rather than calling the extractor.

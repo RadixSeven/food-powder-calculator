@@ -33,6 +33,7 @@ import yaml
 import group_pipeline
 from _claude import ClaudeRequest, call
 from _pipeline import pipeline_step, register_producer
+from _review_crops import DEFAULT_CROP_REVIEWS_JSON, crops_flagged_info_lost
 from _run import open_run
 from group_pipeline import (
     GOLD_GROUPS_JSON,
@@ -79,8 +80,21 @@ class GroupExtraction:
     price_tag: PriceTag | None
 
 
-def extract_group(artifacts: GroupArtifacts) -> GroupExtraction:
-    """Run role-specific extraction on each per-role artifact."""
+def extract_group(
+    artifacts: GroupArtifacts,
+    *,
+    crop_reviews_json: Path = DEFAULT_CROP_REVIEWS_JSON,
+) -> GroupExtraction:
+    """Run role-specific extraction on each per-role artifact.
+
+    For nutrition, any crop flagged "info lost" in the crop review
+    state (✂ info_excluded with no recovery pointer) gets its
+    uncropped source photo added to the image set. The model sees
+    both the cropped panel and the wider context, so text the bbox
+    dropped can be recovered from the original photo. Less
+    information-dense than a tight crop, more tokens, but recovers
+    text we'd otherwise be missing.
+    """
     front: FrontExtraction | None = None
     if "front" in artifacts.panels_by_role:
         print(
@@ -93,13 +107,34 @@ def extract_group(artifacts: GroupArtifacts) -> GroupExtraction:
     nutrition: NutritionTable | None = None
     if "nutrition" in artifacts.crops_by_role:
         crops = artifacts.crops_by_role["nutrition"]
+        lost_filenames = crops_flagged_info_lost(
+            crop_reviews_json, artifacts.group_id
+        )
+        # Add the uncropped source photo for every nutrition crop the
+        # reviewer marked "info lost". Order: all crops first, then
+        # the appended uncropped sources. Dedup is the model's job
+        # (system prompt covers it).
+        uncropped_sources = tuple(
+            artifacts.crop_sources[crop]
+            for crop in crops
+            if crop.name in lost_filenames
+        )
+        n_uncropped = len(uncropped_sources)
+        suffix = (
+            f" + {n_uncropped} uncropped source"
+            f"{'s' if n_uncropped > 1 else ''} (info lost)"
+            if n_uncropped
+            else ""
+        )
         print(
             f"  [extract] {artifacts.group_id}: nutrition "
-            f"({len(crops)} crop{'s' if len(crops) > 1 else ''})",
+            f"({len(crops)} crop{'s' if len(crops) > 1 else ''}{suffix})",
             file=sys.stderr,
             flush=True,
         )
-        nutrition = _extract_nutrition_with_front_context(crops, front)
+        nutrition = _extract_nutrition_with_front_context(
+            crops + uncropped_sources, front
+        )
 
     price_tag: PriceTag | None = None
     if "price-tag" in artifacts.panels_by_role:
@@ -208,7 +243,9 @@ def _process_group_to_yaml_inputs(
     Always: ``gold_path``. Additionally, every photo the gold entry
     for ``group_id`` references — but only when ``gold_path`` exists,
     so the wrapper's missing-gold error fires first instead of a deeper
-    KeyError from ``load_group``.
+    KeyError from ``load_group``. Plus the crop-review state file when
+    it exists, since "info lost" flags there change which images get
+    sent to the nutrition extractor.
     """
     del stitched_root, out_dir, skip_if_exists
     if not gold_path.exists():
@@ -230,6 +267,8 @@ def _process_group_to_yaml_inputs(
                 # that monkeypatch ``group_pipeline.REPO_ROOT`` are
                 # honored here too.
                 paths.append(group_pipeline.REPO_ROOT / path_value)
+    if DEFAULT_CROP_REVIEWS_JSON.exists():
+        paths.append(DEFAULT_CROP_REVIEWS_JSON)
     return tuple(paths)
 
 

@@ -715,6 +715,97 @@ def test_index_handles_non_dict_review_state_for_a_group(
     assert 'data-server-checked="0"' in body
 
 
+def test_crops_flagged_info_lost_returns_only_lost_entries(
+    tmp_path: Path,
+) -> None:
+    """`info lost` = info_excluded=True with no recovery pointer.
+    Crops marked ✂ but with a non-empty info_available_in are NOT
+    info-lost — the recovery pointer means the missing text is
+    visible in another crop in the same group, so the existing
+    multi-image extraction already covers them.
+    """
+    from _review_crops import crops_flagged_info_lost
+
+    reviews = tmp_path / "crop_reviews.json"
+    reviews.write_text(
+        json.dumps(
+            {
+                "groups": {
+                    "g1": {
+                        "crops": {
+                            "lost.jpg": {
+                                "reviewed": True,
+                                "info_excluded": True,
+                                "info_available_in": "",
+                            },
+                            "recoverable.jpg": {
+                                "reviewed": True,
+                                "info_excluded": True,
+                                "info_available_in": "2,3",
+                            },
+                            "fine.jpg": {
+                                "reviewed": True,
+                                "info_excluded": False,
+                                "info_available_in": "",
+                            },
+                        }
+                    }
+                }
+            }
+        )
+    )
+    assert crops_flagged_info_lost(reviews, "g1") == frozenset({"lost.jpg"})
+
+
+def test_crops_flagged_info_lost_handles_missing_file(tmp_path: Path) -> None:
+    """A non-existent crop_reviews.json (fresh repo) yields the empty
+    set — nutrition extraction continues with crops only.
+    """
+    from _review_crops import crops_flagged_info_lost
+
+    assert (
+        crops_flagged_info_lost(tmp_path / "no-reviews.json", "g1")
+        == frozenset()
+    )
+
+
+def test_crops_flagged_info_lost_handles_unknown_group(tmp_path: Path) -> None:
+    """A group with no review state in the file → empty set."""
+    from _review_crops import crops_flagged_info_lost
+
+    reviews = tmp_path / "crop_reviews.json"
+    reviews.write_text(json.dumps({"groups": {"other_group": {"crops": {}}}}))
+    assert crops_flagged_info_lost(reviews, "g1") == frozenset()
+
+
+def test_crops_flagged_info_lost_handles_garbled_state(tmp_path: Path) -> None:
+    """Non-dict group state, non-dict crops field, non-dict per-crop
+    state are all skipped silently — the helper is a soft input for
+    extraction and shouldn't crash on a hand-edited or partially-written
+    reviews file.
+    """
+    from _review_crops import crops_flagged_info_lost
+
+    reviews = tmp_path / "crop_reviews.json"
+    reviews.write_text(
+        json.dumps(
+            {
+                "groups": {
+                    "g_state_not_dict": "oops",
+                    "g_crops_not_dict": {"crops": "oops"},
+                    "g_per_crop_not_dict": {"crops": {"f.jpg": "oops"}},
+                }
+            }
+        )
+    )
+    for gid in (
+        "g_state_not_dict",
+        "g_crops_not_dict",
+        "g_per_crop_not_dict",
+    ):
+        assert crops_flagged_info_lost(reviews, gid) == frozenset()
+
+
 def test_load_crop_reviews_returns_empty_for_non_dict_groups_field(
     tmp_path: Path,
 ) -> None:
