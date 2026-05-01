@@ -64,7 +64,6 @@ def create_app(
     gold_groups_json: Path | None = GOLD_GROUPS_JSON,
     stitched_root: Path | None = STITCHED_PANELS_DIR,
     crop_reviews_json: Path = _review_crops.DEFAULT_CROP_REVIEWS_JSON,
-    raw_photos_dir: Path = RAW_PHOTOS_DIR,
 ) -> Flask:
     """Build the review Flask app.
 
@@ -73,10 +72,6 @@ def create_app(
     both ``gold_groups_json`` and ``stitched_root`` are non-None — this
     is what tests use to spin up a groups-only or crops-only fixture
     without having to fake the other view's inputs.
-
-    ``raw_photos_dir`` is the fallback root the crops view searches
-    when a manifest's recorded source-photo path no longer resolves
-    (e.g. a stale manifest from before the per-batch move).
     """
     app = Flask(__name__)
     _review_groups.register(app, groups_json=groups_json, photos_dir=photos_dir)
@@ -91,7 +86,6 @@ def create_app(
             gold_groups_json=gold_groups_json,
             stitched_root=stitched_root,
             crop_reviews_json=crop_reviews_json,
-            raw_photos_dir=raw_photos_dir,
         )
 
     @app.get("/")

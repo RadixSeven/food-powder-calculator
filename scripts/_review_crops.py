@@ -34,7 +34,6 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 URL_PREFIX = "crops"
 
 DEFAULT_CROP_REVIEWS_JSON = REPO_ROOT / "data" / "crop_reviews.json"
-DEFAULT_RAW_PHOTOS_DIR = REPO_ROOT / "data" / "raw_photos"
 
 # Roles that participate in the current review pass. Ingredients /
 # other-label are produced by the pipeline but the user isn't checking
@@ -80,6 +79,13 @@ body { font-family: system-ui, sans-serif; margin: 1em; background: #fafafa; }
 .crop-image .label { font-weight: 500; }
 .crop-image .filename { font-family: ui-monospace, monospace; font-size: 0.6em;
                         color: #444; word-break: break-all; max-width: 220px; }
+.crop-image .image-missing { display: flex; flex-direction: column;
+                             align-items: center; justify-content: center;
+                             width: 220px; height: 160px;
+                             background: #fff5f5; border: 2px dashed #c53030;
+                             border-radius: 3px; padding: 0.4em;
+                             color: #9b2c2c; font-size: 0.75em; }
+.crop-image .image-missing strong { font-size: 0.95em; margin-bottom: 0.3em; }
 .crop-controls { flex: 1; display: flex; flex-direction: column; gap: 0.3em; }
 .crop-controls label { font-size: 0.9em; }
 .crop-controls textarea { width: 100%; min-height: 1.8em; }
@@ -131,16 +137,30 @@ body { font-family: system-ui, sans-serif; margin: 1em; background: #fafafa; }
           <div class="crop-images">
             <div class="crop-image">
               <div class="label">crop</div>
-              <a href="/crops/raw/crop/{{ g.id }}/{{ c.crop_filename }}" target="_blank" rel="noopener">
-                <img src="/crops/thumb/crop/{{ g.id }}/{{ c.crop_filename }}" alt="{{ c.crop_filename }}">
-              </a>
+              {% if c.crop_missing %}
+                <div class="image-missing" title="{{ c.crop_abs_path }}">
+                  <strong>⚠ crop missing</strong>
+                  <span>manifest references a file that isn't on disk; re-run group_pipeline.py to refresh</span>
+                </div>
+              {% else %}
+                <a href="/crops/raw/crop/{{ g.id }}/{{ c.crop_filename }}" target="_blank" rel="noopener">
+                  <img src="/crops/thumb/crop/{{ g.id }}/{{ c.crop_filename }}" alt="{{ c.crop_filename }}">
+                </a>
+              {% endif %}
               <div class="filename" title="{{ c.crop_abs_path }}">{{ c.crop_filename }}</div>
             </div>
             <div class="crop-image">
               <div class="label">source</div>
-              <a href="/crops/raw/source/{{ g.id }}/{{ c.source_filename }}" target="_blank" rel="noopener">
-                <img src="/crops/thumb/source/{{ g.id }}/{{ c.source_filename }}" alt="{{ c.source_filename }}">
-              </a>
+              {% if c.source_missing %}
+                <div class="image-missing" title="{{ c.source_abs_path }}">
+                  <strong>⚠ source missing</strong>
+                  <span>manifest references a file that isn't on disk; re-run group_pipeline.py to refresh</span>
+                </div>
+              {% else %}
+                <a href="/crops/raw/source/{{ g.id }}/{{ c.source_filename }}" target="_blank" rel="noopener">
+                  <img src="/crops/thumb/source/{{ g.id }}/{{ c.source_filename }}" alt="{{ c.source_filename }}">
+                </a>
+              {% endif %}
               <div class="filename" title="{{ c.source_abs_path }}">{{ c.source_filename }}</div>
             </div>
           </div>
@@ -274,17 +294,8 @@ def register(
     gold_groups_json: Path,
     stitched_root: Path,
     crop_reviews_json: Path = DEFAULT_CROP_REVIEWS_JSON,
-    raw_photos_dir: Path = DEFAULT_RAW_PHOTOS_DIR,
 ) -> None:
-    """Register the crops review view on ``app``.
-
-    ``raw_photos_dir`` is the fallback root used when a manifest's
-    recorded ``source_photo`` path no longer resolves — e.g. after
-    photos were reorganized into batch subdirectories but the
-    manifest predates the move. The resolver searches one level
-    deep under ``raw_photos_dir`` for the requested filename so a
-    stale manifest doesn't break UI display.
-    """
+    """Register the crops review view on ``app``."""
 
     def resolve_image(key: str) -> Path | None:
         # key has the form "crop/<group_id>/<filename>" or
@@ -326,18 +337,13 @@ def register(
                 if candidate.is_absolute()
                 else (REPO_ROOT / candidate)
             )
-            if resolved.exists():
-                return resolved
-            # Fallback: the manifest's recorded path doesn't exist
-            # (typically a stale manifest from before the photos
-            # moved into a batch subdirectory). Search one level
-            # deep under raw_photos_dir for the same filename and
-            # return that.
-            if kind == "source":
-                fallback = _find_source_photo(raw_photos_dir, filename)
-                if fallback is not None:
-                    return fallback
-            return None
+            # Intentionally NO fallback: a manifest path that doesn't
+            # resolve is a data problem (typically a stale manifest)
+            # and the user needs to see it as an error rather than
+            # have us paper over it with a guess. The page render
+            # surfaces this explicitly via ``source_missing`` so the
+            # bad rows are visible at a glance.
+            return resolved if resolved.exists() else None
         return None
 
     register_image_routes(
@@ -536,7 +542,15 @@ def _crop_render_entry(
     source_path: str,
     review_state: object,
 ) -> JsonObject:
-    """Build the dict the template needs for one crop row."""
+    """Build the dict the template needs for one crop row.
+
+    Includes ``crop_missing`` / ``source_missing`` flags computed from
+    the manifest's recorded paths. The template renders a visible
+    error in place of the image when either is true so a stale
+    manifest can't hide as a broken-image icon — the user needs to
+    see the data problem and fix it (typically by re-running
+    ``group_pipeline.py`` to refresh the manifest).
+    """
     crop_filename = Path(crop_path).name
     source_filename = Path(source_path).name
     per_crop: JsonObject = {}
@@ -544,12 +558,16 @@ def _crop_render_entry(
         candidate = review_state.get(crop_filename)
         if isinstance(candidate, dict):
             per_crop = candidate
+    crop_resolved = REPO_ROOT / crop_path
+    source_resolved = REPO_ROOT / source_path
     return {
         "key": crop_filename,
         "crop_filename": crop_filename,
         "source_filename": source_filename,
-        "crop_abs_path": str((REPO_ROOT / crop_path).resolve()),
-        "source_abs_path": str((REPO_ROOT / source_path).resolve()),
+        "crop_abs_path": str(crop_resolved.resolve()),
+        "source_abs_path": str(source_resolved.resolve()),
+        "crop_missing": not crop_resolved.exists(),
+        "source_missing": not source_resolved.exists(),
         "reviewed": bool(per_crop.get("reviewed", False)),
         "info_excluded": bool(per_crop.get("info_excluded", False)),
         "info_available_in": str(per_crop.get("info_available_in", "")),
@@ -559,22 +577,6 @@ def _crop_render_entry(
 def _load_manifest(stitched_root: Path, group_id: str) -> JsonObject | None:
     """Read the per-group manifest written by group_pipeline."""
     return load_json_object(stitched_root / group_id / "manifest.json")
-
-
-def _find_source_photo(raw_photos_dir: Path, filename: str) -> Path | None:
-    """Search one level under ``raw_photos_dir`` for ``filename``.
-
-    The expected layout is ``data/raw_photos/<batch>/<filename>``.
-    Used by the resolver as a fallback when a manifest's recorded
-    source path no longer resolves (typically a stale manifest from
-    before the per-batch reorganization).
-    """
-    if not raw_photos_dir.exists():
-        return None
-    for candidate in raw_photos_dir.glob(f"*/{filename}"):
-        if candidate.is_file():
-            return candidate
-    return None
 
 
 def _load_crop_reviews(crop_reviews_json: Path) -> dict[str, JsonObject]:
